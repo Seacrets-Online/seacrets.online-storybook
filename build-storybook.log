@@ -1,0 +1,54 @@
+
+> @seacrets/design-system@0.1.0 build-storybook
+> storybook build --output-dir=/tmp/chromatic--35538-pc4DCMqe9Lzt
+
+@storybook/core v8.6.15
+
+info => Cleaning outputDir: ../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt
+info => Loading presets
+info => Building manager..
+info => Manager built ([38;2;181;126;229m256 ms[39m)
+info => Building preview..
+vite v7.3.1 building client environment for production...
+transforming...
+✓ 114 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/iframe.html                                17.56 kB │ gzip:   4.98 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-DE92Oi4r.css                 6.34 kB │ gzip:   1.87 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/_commonjsHelpers-CqkleIqs.js         0.12 kB │ gzip:   0.13 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-TqM3Oi8H.js                  0.17 kB │ gzip:   0.15 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/client-CgpzhDdQ.js                   0.18 kB │ gzip:   0.15 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-CMTrwyi4.js                    0.49 kB │ gzip:   0.31 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-D1dX3BdG.js                    0.52 kB │ gzip:   0.37 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-k5S6tcYk.js                  0.54 kB │ gzip:   0.36 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-caVMbCIR.js                  0.69 kB │ gzip:   0.48 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/chunk-XP5HYGXS-BpfKkqn7.js           0.71 kB │ gzip:   0.40 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/jsx-runtime-BLchON5X.js              0.75 kB │ gzip:   0.48 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-DrFu-skq.js                    0.77 kB │ gzip:   0.47 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/react-18-BA6IEvS6.js                 0.87 kB │ gzip:   0.51 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-R-cw-adA.js                  0.92 kB │ gzip:   0.59 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/Example.stories-CgYS3sKT.js          1.43 kB │ gzip:   0.53 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-DElisiFp.js                  2.06 kB │ gzip:   1.17 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-WIE65ICp.js                  3.40 kB │ gzip:   1.65 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-DGZ5Qq08.js                  4.87 kB │ gzip:   1.79 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-kA4PVysc.js                    6.56 kB │ gzip:   2.58 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-BWzBA1C2.js                  7.62 kB │ gzip:   1.56 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-DTyQTpzx.js                  8.07 kB │ gzip:   3.07 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/test-utils-CPPYMcxj.js              12.84 kB │ gzip:   4.96 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/Button.stories-kGT5jxsQ.js          19.82 kB │ gzip:   3.45 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/TextField.stories-gTOi-2NU.js       27.19 kB │ gzip:   4.82 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/Color-YHDXOIA2-gjOMXQk9.js          29.26 kB │ gzip:  11.05 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/matchers-7Z3WT2CE-Dw4MQV_s.js       29.66 kB │ gzip:  10.28 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/entry-preview-Dt6gORLo.js           29.76 kB │ gzip:   9.53 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-CcR1FEzS.js                   56.79 kB │ gzip:  16.19 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-C0udIITE.js                  134.07 kB │ gzip:  43.05 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/iframe-CQs5knDj.js                 210.15 kB │ gzip:  71.24 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/entry-preview-docs-BtCPgpsQ.js     246.80 kB │ gzip:  73.37 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/axe-rC29-hJ9.js                    579.42 kB │ gzip: 159.47 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/preview-DHNTBTs5.js                658.08 kB │ gzip: 156.05 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-DVR1NaKR.js                  659.65 kB │ gzip: 156.45 kB
+../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/DocsRenderer-CFRXHY34-aVWUwKHZ.js  890.55 kB │ gzip: 275.44 kB
+✓ built in 12.66s
+info => Preview built ([38;2;181;126;229m14 s[39m)
+info => Output directory: /tmp/chromatic--35538-pc4DCMqe9Lzt
