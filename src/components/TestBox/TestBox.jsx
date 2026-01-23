@@ -1,16 +1,19 @@
 import React from "react";
-import tokens from "../../tokens/test-tokens.json";
+import materialTheme from "../../tokens/material-theme.json";
 
-export const TestBox = () => {
+export const TestBox = ({ theme = "light" }) => {
+  const colors = materialTheme.schemes[theme];
+
   const style = {
-    backgroundColor: tokens.sys.color.primary,
+    backgroundColor: colors.primary,
     width: "100px",
     height: "100px",
-    color: tokens.sys.color.onPrimary,
+    color: colors.onPrimary,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: "8px",
   };
 
-  return <div style={style}>Hola Mundo</div>;
+  return <button style={style}>M3</button>;
 };
