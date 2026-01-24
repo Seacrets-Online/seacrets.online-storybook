@@ -7,7 +7,7 @@
 info => Cleaning outputDir: ../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt
 info => Loading presets
 info => Building manager..
-info => Manager built ([38;2;181;126;229m256 ms[39m)
+info => Manager built (\[38;2;181;126;229m256 ms\[39m)
 info => Building preview..
 vite v7.3.1 building client environment for production...
 transforming...
@@ -50,5 +50,5 @@ computing gzip size...
 ../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/index-DVR1NaKR.js                  659.65 kB │ gzip: 156.45 kB
 ../../../../../tmp/chromatic--35538-pc4DCMqe9Lzt/assets/DocsRenderer-CFRXHY34-aVWUwKHZ.js  890.55 kB │ gzip: 275.44 kB
 ✓ built in 12.66s
-info => Preview built ([38;2;181;126;229m14 s[39m)
+info => Preview built (\[38;2;181;126;229m14 s\[39m)
 info => Output directory: /tmp/chromatic--35538-pc4DCMqe9Lzt
