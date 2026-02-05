@@ -1,0 +1,39 @@
+{
+  "name": "@seacrets/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "tokens:build": "echo 'Token build script - to be implemented'",
+    "chromatic": "dotenv -e .env -- chromatic --exit-zero-on-changes"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.0.0",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.12",
+    "chromatic": "^12.0.0",
+    "dotenv-cli": "^7.4.2",
+    "postcss": "^8.4.31",
+    "storybook": "^8.0.0",
+    "tailwindcss": "^3.2.1",
+    "vite": "^7.0.7"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
