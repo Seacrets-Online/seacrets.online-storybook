@@ -8,5 +8,5 @@ export default {
 
 const Template = (args) => <TokenTester {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Paleta = Template.bind({});
+Paleta.args = {};
