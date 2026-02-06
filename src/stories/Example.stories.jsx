@@ -1,13 +1,18 @@
 import { fn } from '@storybook/test';
+import { Button } from '../components/Button';
 
 export default {
   title: 'Example/Button',
-  component: 'button',
+  component: Button,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['filled', 'outlined', 'text', 'elevated'],
+    },
     children: {
       control: 'text',
     },
@@ -16,30 +21,32 @@ export default {
 
 export const Primary = {
   args: {
-    children: 'Button',
+    variant: 'filled',
+    children: 'Primary Button',
     onClick: fn(),
   },
-  render: ({ children, onClick }) => (
-    <button
-      onClick={onClick}
-      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-    >
-      {children}
-    </button>
-  ),
 };
 
 export const Secondary = {
   args: {
-    children: 'Button',
+    variant: 'outlined',
+    children: 'Secondary Button',
     onClick: fn(),
   },
-  render: ({ children, onClick }) => (
-    <button
-      onClick={onClick}
-      className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-    >
-      {children}
-    </button>
-  ),
+};
+
+export const Text = {
+  args: {
+    variant: 'text',
+    children: 'Text Button',
+    onClick: fn(),
+  },
+};
+
+export const Elevated = {
+  args: {
+    variant: 'elevated',
+    children: 'Elevated Button',
+    onClick: fn(),
+  },
 };

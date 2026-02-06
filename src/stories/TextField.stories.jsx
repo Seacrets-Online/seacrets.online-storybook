@@ -483,3 +483,49 @@ export const AllVariants = {
     },
   },
 };
+
+export const InteractiveStates = {
+  render: () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%', maxWidth: '400px' }}>
+        <div>
+          <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>
+            Interactive Demo
+          </h3>
+          <p style={{ fontSize: 'var(--md-sys-typescale-body-small-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '16px' }}>
+            Type in the fields below to see how they handle different states. The component tracks focus and value states internally.
+          </p>
+          <TextField
+            variant="filled"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="user@example.com"
+            helperText={email ? 'Valid email format' : 'Enter your email address'}
+          />
+          <TextField
+            variant="filled"
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            helperText={password.length > 0 ? `${password.length} characters` : 'Must be at least 8 characters'}
+            error={password.length > 0 && password.length < 8}
+            errorText={password.length > 0 && password.length < 8 ? 'Password too short' : undefined}
+          />
+        </div>
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive demo showing how TextField handles focus, value, and error states dynamically. The component internally tracks whether it has a value for potential future enhancements.',
+      },
+    },
+  },
+};
