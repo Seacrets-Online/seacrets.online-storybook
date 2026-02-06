@@ -11,11 +11,13 @@ const rootDir = resolve(__dirname);
 // Minimal custom format: extends standard css/variables with theme grouping
 // Only customizes theme structure, uses standard token processing
 //
+// TODO (SIF-26): Typography tokens currently require reading tokens.json directly
 // because the Figma export doesn't follow Style Dictionary standard format
 // (missing 'value' property). Once the Figma export is fixed to include 'value'
 // and 'type: "typography"', this custom handling can be removed and Style Dictionary
 // will process typography tokens automatically using standard transforms.
 //
+// Technical Debt: This manual parsing bypasses Style Dictionary's token resolution
 // and transform engine. It should be replaced with standard SD processing once
 // the source format is corrected in the Figma export pipeline.
 StyleDictionary.registerFormat({
@@ -39,6 +41,7 @@ StyleDictionary.registerFormat({
       }
     });
     
+    // TODO (SIF-26): Handle typography from tokens.json (non-standard format without 'value')
     // This is the only non-standard part due to tokens.json structure.
     // Expected format: { "display-large": { "value": {...}, "type": "typography" } }
     // Current format: { "display-large": { "font-family": "...", "font-size": "..." } }
@@ -76,6 +79,7 @@ StyleDictionary.registerFormat({
       output += `\n`;
     }
     
+    // Typography (shared) - TODO (SIF-26): Remove custom handling once Figma export is fixed
     if (typographyVars.length > 0) {
       output += `  /* Typography */\n`;
       output += typographyVars.join('\n') + '\n\n';
