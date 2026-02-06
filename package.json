@@ -17,23 +17,19 @@
     "chromatic": "dotenv -e .env -- chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^8.0.0",
-    "@storybook/addon-essentials": "^8.0.0",
-    "@storybook/addon-interactions": "^8.0.0",
-    "@storybook/blocks": "^8.0.0",
-    "@storybook/react": "^8.0.0",
-    "@storybook/react-vite": "^8.0.0",
-    "@storybook/test": "^8.0.0",
-    "@vitejs/plugin-react": "^4.2.0",
-    "chromatic": "^12.0.0",
-    "dotenv-cli": "^7.4.2",
-    "storybook": "^8.0.0",
-    "style-dictionary": "^4.4.0",
-    "vite": "^7.0.7"
+    "@storybook/addon-a11y": "^10.2.7",
+    "@storybook/addon-docs": "^10.2.7",
+    "@storybook/react-vite": "^10.2.7",
+    "@vitejs/plugin-react": "^5.1.3",
+    "chromatic": "^15.0.0",
+    "dotenv-cli": "^11.0.0",
+    "storybook": "^10.2.7",
+    "style-dictionary": "^5.2.0",
+    "vite": "^7.3.1"
   },
   "engines": {
     "node": ">=20.0.0"

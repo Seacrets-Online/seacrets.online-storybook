@@ -1,5 +1,6 @@
+import StyleDictionary from 'style-dictionary';
+
 // Minimal custom format: extends standard css/variables with theme grouping
-// Only customizes theme structure, uses standard token processing
 const variablesThemesFormat = ({ dictionary, options }) => {
   const { selector = ':root' } = options;
   
@@ -102,7 +103,7 @@ const variablesThemesFormat = ({ dictionary, options }) => {
   return output;
 };
 
-export default {
+const config = {
   source: ['src/tokens/tokens.json'],
   hooks: {
     formats: {
@@ -124,4 +125,10 @@ export default {
       ],
     },
   },
+  log: {
+    verbosity: 'silent'
+  }
 };
+
+const sd = new StyleDictionary(config);
+await sd.buildAllPlatforms();
