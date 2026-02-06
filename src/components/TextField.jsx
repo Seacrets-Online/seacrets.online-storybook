@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 
 /**
  * TextField component following Material Design 3 Expressive guidelines
@@ -52,7 +52,8 @@ export const TextField = ({
 
   const isControlled = controlledValue !== undefined;
   const value = isControlled ? controlledValue : internalValue;
-  const inputId = id || `textfield-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id || generatedId;
   const helperId = `${inputId}-helper`;
   const errorId = `${inputId}-error`;
   const describedBy = [
@@ -65,10 +66,8 @@ export const TextField = ({
     const newValue = e.target.value;
     if (!isControlled) {
       setInternalValue(newValue);
-      setHasValue(newValue.length > 0);
-    } else {
-      setHasValue(newValue.length > 0);
     }
+    setHasValue(newValue.length > 0);
     if (onChange) onChange(e);
   };
 

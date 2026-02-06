@@ -20,14 +20,14 @@ export const Dark = {
   },
 };
 
-export const PaletaPrimary = {
+export const PrimaryPalette = {
   render: () => {
     const palette = materialTheme.palettes.primary;
     const tones = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100];
 
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h3 style={{ marginBottom: "8px" }}>Primary Palette (Rosa)</h3>
+        <h3 style={{ marginBottom: "8px" }}>Primary Palette (Pink)</h3>
         {tones.map((tone) => (
           <div
             key={tone}
@@ -35,11 +35,11 @@ export const PaletaPrimary = {
           >
             <div
               style={{
-                backgroundColor: palette[tone],
+                backgroundColor: `var(--md-ref-palette-primary${tone})`,
                 width: "100px",
                 height: "40px",
-                borderRadius: "4px",
-                border: tone > 90 ? "1px solid #ccc" : "none",
+                borderRadius: "var(--md-sys-shape-corner-extra-small)",
+                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -52,14 +52,14 @@ export const PaletaPrimary = {
   },
 };
 
-export const PaletaSecondary = {
+export const SecondaryPalette = {
   render: () => {
     const palette = materialTheme.palettes.secondary;
     const tones = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100];
 
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h3 style={{ marginBottom: "8px" }}>Secondary Palette (Rojo oscuro)</h3>
+        <h3 style={{ marginBottom: "8px" }}>Secondary Palette (Dark Red)</h3>
         {tones.map((tone) => (
           <div
             key={tone}
@@ -67,11 +67,11 @@ export const PaletaSecondary = {
           >
             <div
               style={{
-                backgroundColor: palette[tone],
+                backgroundColor: `var(--md-ref-palette-secondary${tone})`,
                 width: "100px",
                 height: "40px",
-                borderRadius: "4px",
-                border: tone > 90 ? "1px solid #ccc" : "none",
+                borderRadius: "var(--md-sys-shape-corner-extra-small)",
+                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -84,7 +84,7 @@ export const PaletaSecondary = {
   },
 };
 
-export const PaletaTertiary = {
+export const TertiaryPalette = {
   render: () => {
     const palette = materialTheme.palettes.tertiary;
     const tones = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100];
@@ -92,7 +92,7 @@ export const PaletaTertiary = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <h3 style={{ marginBottom: "8px" }}>
-          Tertiary Palette (Naranja/Dorado)
+          Tertiary Palette (Orange/Gold)
         </h3>
         {tones.map((tone) => (
           <div
@@ -101,11 +101,11 @@ export const PaletaTertiary = {
           >
             <div
               style={{
-                backgroundColor: palette[tone],
+                backgroundColor: `var(--md-ref-palette-tertiary${tone})`,
                 width: "100px",
                 height: "40px",
-                borderRadius: "4px",
-                border: tone > 90 ? "1px solid #ccc" : "none",
+                borderRadius: "var(--md-sys-shape-corner-extra-small)",
+                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -118,14 +118,14 @@ export const PaletaTertiary = {
   },
 };
 
-export const PaletaNeutral = {
+export const NeutralPalette = {
   render: () => {
     const palette = materialTheme.palettes.neutral;
     const tones = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100];
 
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h3 style={{ marginBottom: "8px" }}>Neutral Palette (Grises)</h3>
+        <h3 style={{ marginBottom: "8px" }}>Neutral Palette (Grays)</h3>
         {tones.map((tone) => (
           <div
             key={tone}
@@ -133,11 +133,11 @@ export const PaletaNeutral = {
           >
             <div
               style={{
-                backgroundColor: palette[tone],
+                backgroundColor: `var(--md-ref-palette-neutral${tone})`,
                 width: "100px",
                 height: "40px",
-                borderRadius: "4px",
-                border: tone > 90 ? "1px solid #ccc" : "none",
+                borderRadius: "var(--md-sys-shape-corner-extra-small)",
+                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -150,7 +150,7 @@ export const PaletaNeutral = {
   },
 };
 
-export const TodasLasPaletas = {
+export const AllPalettes = {
   render: () => {
     const palettes = {
       Primary: materialTheme.palettes.primary,
@@ -176,7 +176,7 @@ export const TodasLasPaletas = {
                 <div
                   key={tone}
                   style={{
-                    backgroundColor: palette[tone],
+                    backgroundColor: `var(--md-ref-palette-${name.toLowerCase()}${tone})`,
                     flex: 1,
                     position: "relative",
                   }}

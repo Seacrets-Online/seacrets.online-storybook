@@ -82,46 +82,6 @@ export const Button = ({
     },
   };
 
-  const hoverStyles = disabled ? {} : {
-    filled: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      boxShadow: 'var(--md-sys-elevation-level-1)',
-      opacity: 0.92,
-    },
-    outlined: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.08,
-    },
-    text: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.08,
-    },
-    elevated: {
-      boxShadow: 'var(--md-sys-elevation-level-2)',
-    },
-  };
-
-  const activeStyles = disabled ? {} : {
-    filled: {
-      opacity: 0.88,
-    },
-    outlined: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.12,
-    },
-    text: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.12,
-    },
-    elevated: {
-      boxShadow: 'var(--md-sys-elevation-level-1)',
-    },
-  };
-
   const disabledStyles = {
     filled: {
       backgroundColor: 'var(--md-sys-color-surface-variant)',
@@ -152,22 +112,13 @@ export const Button = ({
     ...(disabled ? disabledStyles[variant] : {}),
   };
 
-  const handleKeyDown = (e) => {
-    if (disabled) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (onClick) onClick(e);
-    }
-  };
-
   const stateClasses = `button-hover-${variant} button-active-${variant} button-focus-${variant}`;
 
   return (
     <button
       type={type}
       disabled={disabled}
-      onClick={disabled ? undefined : onClick}
-      onKeyDown={handleKeyDown}
+      onClick={onClick}
       aria-label={ariaLabel}
       aria-disabled={disabled}
       className={`${stateClasses} ${className}`}
