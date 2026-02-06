@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "tokens:build": "style-dictionary build --config style-dictionary.config.js",
+    "tokens:build": "node scripts/build-tokens.js",
     "predev": "npm run tokens:build",
     "dev": "storybook dev -p 6006",
     "prebuild": "npm run tokens:build",
