@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
+import * as tokens from '../style-dictionary-dist/variables.js';
+import { getTypographyStyles } from '../utils/typography.js';
+import { getShapeToken } from '../utils/shapes.js';
 
 /**
  * TextField component following Material Design 3 Expressive guidelines
@@ -52,7 +55,8 @@ export const TextField = ({
 
   const isControlled = controlledValue !== undefined;
   const value = isControlled ? controlledValue : internalValue;
-  const inputId = id || `textfield-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id || generatedId;
   const helperId = `${inputId}-helper`;
   const errorId = `${inputId}-error`;
   const describedBy = [
@@ -65,10 +69,8 @@ export const TextField = ({
     const newValue = e.target.value;
     if (!isControlled) {
       setInternalValue(newValue);
-      setHasValue(newValue.length > 0);
-    } else {
-      setHasValue(newValue.length > 0);
     }
+    setHasValue(newValue.length > 0);
     if (onChange) onChange(e);
   };
 
@@ -91,16 +93,12 @@ export const TextField = ({
   };
 
   const labelStyles = {
-    fontFamily: 'var(--md-sys-typescale-body-small-font-family)',
-    fontSize: 'var(--md-sys-typescale-body-small-font-size)',
-    lineHeight: 'var(--md-sys-typescale-body-small-line-height)',
-    fontWeight: 'var(--md-sys-typescale-body-small-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-body-small-letter-spacing)',
+    ...getTypographyStyles('body-small'),
     color: error
-      ? 'var(--md-sys-color-error)'
+      ? tokens.mdSysColorError
       : disabled
-      ? 'var(--md-sys-color-on-surface-variant)'
-      : 'var(--md-sys-color-on-surface-variant)',
+      ? tokens.mdSysColorOnsurfacevariant
+      : tokens.mdSysColorOnsurfacevariant,
     marginBottom: '4px',
     transition: 'color 0.2s ease',
     opacity: disabled ? 0.38 : 1,
@@ -113,46 +111,38 @@ export const TextField = ({
   };
 
   const inputStyles = {
-    fontFamily: 'var(--md-sys-typescale-body-large-font-family)',
-    fontSize: 'var(--md-sys-typescale-body-large-font-size)',
-    lineHeight: 'var(--md-sys-typescale-body-large-line-height)',
-    fontWeight: 'var(--md-sys-typescale-body-large-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-body-large-letter-spacing)',
+    ...getTypographyStyles('body-large'),
     width: '100%',
     padding: variant === 'filled' ? '16px 16px 16px 16px' : '16px',
-    borderRadius: 'var(--md-sys-shape-corner-extra-small)',
+    borderRadius: getShapeToken('corner-extra-small'),
     border: variant === 'outlined'
-      ? `1px solid ${error ? 'var(--md-sys-color-error)' : isFocused ? 'var(--md-sys-color-primary)' : 'var(--md-sys-color-outline)'}`
+      ? `1px solid ${error ? tokens.mdSysColorError : isFocused ? tokens.mdSysColorPrimary : tokens.mdSysColorOutline}`
       : 'none',
     borderBottom: variant === 'filled'
-      ? `1px solid ${error ? 'var(--md-sys-color-error)' : isFocused ? 'var(--md-sys-color-primary)' : 'var(--md-sys-color-outline-variant)'}`
+      ? `1px solid ${error ? tokens.mdSysColorError : isFocused ? tokens.mdSysColorPrimary : tokens.mdSysColorOutlinevariant}`
       : 'none',
     backgroundColor: variant === 'filled'
       ? disabled
-        ? 'var(--md-sys-color-surface-variant)'
-        : 'var(--md-sys-color-surface-variant)'
+        ? tokens.mdSysColorSurfacevariant
+        : tokens.mdSysColorSurfacevariant
       : 'transparent',
     color: disabled
-      ? 'var(--md-sys-color-on-surface-variant)'
-      : 'var(--md-sys-color-on-surface)',
+      ? tokens.mdSysColorOnsurfacevariant
+      : tokens.mdSysColorOnsurface,
     outline: 'none',
     transition: 'all 0.2s ease',
     cursor: disabled ? 'not-allowed' : 'text',
   };
 
   const helperTextStyles = {
-    fontFamily: 'var(--md-sys-typescale-body-small-font-family)',
-    fontSize: 'var(--md-sys-typescale-body-small-font-size)',
-    lineHeight: 'var(--md-sys-typescale-body-small-line-height)',
-    fontWeight: 'var(--md-sys-typescale-body-small-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-body-small-letter-spacing)',
+    ...getTypographyStyles('body-small'),
     marginTop: '4px',
     paddingLeft: '16px',
     color: error
-      ? 'var(--md-sys-color-error)'
+      ? tokens.mdSysColorError
       : disabled
-      ? 'var(--md-sys-color-on-surface-variant)'
-      : 'var(--md-sys-color-on-surface-variant)',
+      ? tokens.mdSysColorOnsurfacevariant
+      : tokens.mdSysColorOnsurfacevariant,
     opacity: disabled ? 0.38 : 1,
   };
 

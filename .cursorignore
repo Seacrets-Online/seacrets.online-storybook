@@ -1,0 +1,32 @@
+# Storybook specific ignores for Cursor
+# This file manages all exclusions for this subproject
+
+# Exclude problematic/generated directories
+node_modules/
+storybook-static/
+dist/
+build/
+.cache/
+
+# Logs and temp
+*.log
+tmp/
+temp/
+coverage/
+
+# Environment files
+.env.local
+.env.production
+.env.*.local
+
+# IDE specific
+.fleet/
+*.swp
+*.swo
+
+# OS specific additional
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db

@@ -1,26 +1,28 @@
+@import '../style-dictionary-dist/variables.scss';
+
 /* Component-specific styles using design tokens */
 
 /* Button hover states */
 .button-hover-filled:hover:not(:disabled) {
-  background-color: var(--md-sys-color-primary);
-  box-shadow: var(--md-sys-elevation-level-1);
+  background-color: $md-sys-color-primary;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   opacity: 0.92;
 }
 
 .button-hover-outlined:hover:not(:disabled) {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: $md-sys-color-primary;
+  color: $md-sys-color-on-primary;
   opacity: 0.08;
 }
 
 .button-hover-text:hover:not(:disabled) {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: $md-sys-color-primary;
+  color: $md-sys-color-on-primary;
   opacity: 0.08;
 }
 
 .button-hover-elevated:hover:not(:disabled) {
-  box-shadow: var(--md-sys-elevation-level-2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Button active states */
@@ -29,57 +31,57 @@
 }
 
 .button-active-outlined:active:not(:disabled) {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: $md-sys-color-primary;
+  color: $md-sys-color-on-primary;
   opacity: 0.12;
 }
 
 .button-active-text:active:not(:disabled) {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: $md-sys-color-primary;
+  color: $md-sys-color-on-primary;
   opacity: 0.12;
 }
 
 .button-active-elevated:active:not(:disabled) {
-  box-shadow: var(--md-sys-elevation-level-1);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 /* Button focus states */
 .button-focus-filled:focus-visible:not(:disabled) {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }
 
 .button-focus-outlined:focus-visible:not(:disabled) {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }
 
 .button-focus-text:focus-visible:not(:disabled) {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }
 
 .button-focus-elevated:focus-visible:not(:disabled) {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }
 
 /* TextField focus states */
 .textfield-filled:focus-within {
-  border-bottom-color: var(--md-sys-color-primary);
+  border-bottom-color: $md-sys-color-primary;
 }
 
 .textfield-outlined:focus-within input {
-  border-color: var(--md-sys-color-primary);
+  border-color: $md-sys-color-primary;
 }
 
 .textfield-filled input:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }
 
 .textfield-outlined input:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary);
+  outline: 2px solid $md-sys-color-primary;
   outline-offset: 2px;
 }

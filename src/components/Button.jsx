@@ -1,4 +1,8 @@
 import React from 'react';
+import * as tokens from '../style-dictionary-dist/variables.js';
+import { getTypographyStyles } from '../utils/typography.js';
+import { getShapeToken } from '../utils/shapes.js';
+import { getElevationToken } from '../utils/elevation.js';
 
 /**
  * Button component following Material Design 3 Expressive guidelines
@@ -25,13 +29,9 @@ export const Button = ({
   ...props
 }) => {
   const baseStyles = {
-    fontFamily: 'var(--md-sys-typescale-label-large-font-family)',
-    fontSize: 'var(--md-sys-typescale-label-large-font-size)',
-    lineHeight: 'var(--md-sys-typescale-label-large-line-height)',
-    fontWeight: 'var(--md-sys-typescale-label-large-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-label-large-letter-spacing)',
+    ...getTypographyStyles('label-large'),
     border: 'none',
-    borderRadius: 'var(--md-sys-shape-corner-extra-small)',
+    borderRadius: getShapeToken('corner-extra-small'),
     cursor: disabled ? 'not-allowed' : 'pointer',
     transition: 'all 0.2s ease',
     outline: 'none',
@@ -60,86 +60,46 @@ export const Button = ({
 
   const variantStyles = {
     filled: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
+      backgroundColor: tokens.mdSysColorPrimary,
+      color: tokens.mdSysColorOnprimary,
       boxShadow: 'none',
     },
     outlined: {
       backgroundColor: 'transparent',
-      color: 'var(--md-sys-color-primary)',
-      border: '1px solid var(--md-sys-color-outline)',
+      color: tokens.mdSysColorPrimary,
+      border: `1px solid ${tokens.mdSysColorOutline}`,
       boxShadow: 'none',
     },
     text: {
       backgroundColor: 'transparent',
-      color: 'var(--md-sys-color-primary)',
+      color: tokens.mdSysColorPrimary,
       boxShadow: 'none',
     },
     elevated: {
-      backgroundColor: 'var(--md-sys-color-surface)',
-      color: 'var(--md-sys-color-primary)',
-      boxShadow: 'var(--md-sys-elevation-level-1)',
-    },
-  };
-
-  const hoverStyles = disabled ? {} : {
-    filled: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      boxShadow: 'var(--md-sys-elevation-level-1)',
-      opacity: 0.92,
-    },
-    outlined: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.08,
-    },
-    text: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.08,
-    },
-    elevated: {
-      boxShadow: 'var(--md-sys-elevation-level-2)',
-    },
-  };
-
-  const activeStyles = disabled ? {} : {
-    filled: {
-      opacity: 0.88,
-    },
-    outlined: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.12,
-    },
-    text: {
-      backgroundColor: 'var(--md-sys-color-primary)',
-      color: 'var(--md-sys-color-on-primary)',
-      opacity: 0.12,
-    },
-    elevated: {
-      boxShadow: 'var(--md-sys-elevation-level-1)',
+      backgroundColor: tokens.mdSysColorSurface,
+      color: tokens.mdSysColorPrimary,
+      boxShadow: getElevationToken('level-1'),
     },
   };
 
   const disabledStyles = {
     filled: {
-      backgroundColor: 'var(--md-sys-color-surface-variant)',
-      color: 'var(--md-sys-color-on-surface-variant)',
+      backgroundColor: tokens.mdSysColorSurfacevariant,
+      color: tokens.mdSysColorOnsurfacevariant,
       opacity: 0.38,
     },
     outlined: {
-      borderColor: 'var(--md-sys-color-outline-variant)',
-      color: 'var(--md-sys-color-on-surface-variant)',
+      borderColor: tokens.mdSysColorOutlinevariant,
+      color: tokens.mdSysColorOnsurfacevariant,
       opacity: 0.38,
     },
     text: {
-      color: 'var(--md-sys-color-on-surface-variant)',
+      color: tokens.mdSysColorOnsurfacevariant,
       opacity: 0.38,
     },
     elevated: {
-      backgroundColor: 'var(--md-sys-color-surface-variant)',
-      color: 'var(--md-sys-color-on-surface-variant)',
+      backgroundColor: tokens.mdSysColorSurfacevariant,
+      color: tokens.mdSysColorOnsurfacevariant,
       opacity: 0.38,
       boxShadow: 'none',
     },
@@ -152,22 +112,13 @@ export const Button = ({
     ...(disabled ? disabledStyles[variant] : {}),
   };
 
-  const handleKeyDown = (e) => {
-    if (disabled) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (onClick) onClick(e);
-    }
-  };
-
   const stateClasses = `button-hover-${variant} button-active-${variant} button-focus-${variant}`;
 
   return (
     <button
       type={type}
       disabled={disabled}
-      onClick={disabled ? undefined : onClick}
-      onKeyDown={handleKeyDown}
+      onClick={onClick}
       aria-label={ariaLabel}
       aria-disabled={disabled}
       className={`${stateClasses} ${className}`}

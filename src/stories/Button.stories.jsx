@@ -1,5 +1,7 @@
-import { fn } from '@storybook/test';
+import { fn } from 'storybook/test';
 import { Button } from '../components/Button';
+import * as tokens from '../style-dictionary-dist/variables.js';
+import { getTypographyStyles } from '../utils/typography.js';
 
 /**
  * Button component following Material Design 3 Expressive guidelines.
@@ -107,14 +109,14 @@ export const States = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>Default</h3>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>Default</h3>
         <Button variant="filled" onClick={fn()}>
           Default State
         </Button>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>Hover</h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-small-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '8px' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>Hover</h3>
+        <p style={{ ...getTypographyStyles('body-small'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '8px' }}>
           Hover over the button to see the hover state
         </p>
         <Button variant="filled" onClick={fn()}>
@@ -122,8 +124,8 @@ export const States = {
         </Button>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>Focus</h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-small-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '8px' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>Focus</h3>
+        <p style={{ ...getTypographyStyles('body-small'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '8px' }}>
           Tab to focus the button (keyboard navigation)
         </p>
         <Button variant="filled" onClick={fn()}>
@@ -131,8 +133,8 @@ export const States = {
         </Button>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>Active</h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-small-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '8px' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>Active</h3>
+        <p style={{ ...getTypographyStyles('body-small'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '8px' }}>
           Click and hold to see the active state
         </p>
         <Button variant="filled" onClick={fn()}>
@@ -140,7 +142,7 @@ export const States = {
         </Button>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>Disabled</h3>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>Disabled</h3>
         <Button variant="filled" disabled onClick={fn()}>
           Disabled State
         </Button>
@@ -212,10 +214,10 @@ export const Accessibility = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start', maxWidth: '600px' }}>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>
           Keyboard Navigation
         </h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-medium-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '16px' }}>
+        <p style={{ ...getTypographyStyles('body-medium'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '16px' }}>
           Buttons are keyboard accessible. Use Tab to navigate, Enter or Space to activate.
         </p>
         <div style={{ display: 'flex', gap: '8px' }}>
@@ -228,10 +230,10 @@ export const Accessibility = {
         </div>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>
           ARIA Labels
         </h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-medium-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '16px' }}>
+        <p style={{ ...getTypographyStyles('body-medium'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '16px' }}>
           Buttons support aria-label for screen readers when the visible text is not descriptive enough.
         </p>
         <Button variant="filled" aria-label="Close dialog" onClick={fn()}>
@@ -239,10 +241,10 @@ export const Accessibility = {
         </Button>
       </div>
       <div>
-        <h3 style={{ marginBottom: '8px', fontFamily: 'var(--md-sys-typescale-title-medium-font-family)', fontSize: 'var(--md-sys-typescale-title-medium-font-size)' }}>
+        <h3 style={{ marginBottom: '8px', ...getTypographyStyles('title-medium') }}>
           Disabled State
         </h3>
-        <p style={{ fontSize: 'var(--md-sys-typescale-body-medium-font-size)', color: 'var(--md-sys-color-on-surface-variant)', marginBottom: '16px' }}>
+        <p style={{ ...getTypographyStyles('body-medium'), color: tokens.mdSysColorOnsurfacevariant, marginBottom: '16px' }}>
           Disabled buttons have aria-disabled="true" and cannot be focused or activated via keyboard.
         </p>
         <Button variant="filled" disabled aria-label="This action is not available" onClick={fn()}>

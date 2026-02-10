@@ -1,10 +1,32 @@
+import * as tokens from './style-dictionary-dist/variables.js';
+import { getTypographyStyles } from './utils/typography.js';
+
 function App() {
+  const containerStyles = {
+    minHeight: '100vh',
+    backgroundColor: tokens.mdSysColorSurface,
+    padding: '32px',
+  };
+
+  const headingStyles = {
+    ...getTypographyStyles('headline-large'),
+    color: tokens.mdSysColorOnsurface,
+    margin: 0,
+  };
+
+  const paragraphStyles = {
+    ...getTypographyStyles('body-medium'),
+    color: tokens.mdSysColorOnsurfacevariant,
+    marginTop: '16px',
+    marginBottom: 0,
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <h1 className="text-3xl font-bold text-gray-900">
+    <div style={containerStyles}>
+      <h1 style={headingStyles}>
         Seacrets Design System
       </h1>
-      <p className="mt-4 text-gray-600">
+      <p style={paragraphStyles}>
         Design System workspace initialized with React + Vite
       </p>
     </div>

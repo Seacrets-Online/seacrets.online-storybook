@@ -1,6 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import './tokens.css';
-@import './components.css';
+@import './components.scss';

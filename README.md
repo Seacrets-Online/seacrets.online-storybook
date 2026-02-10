@@ -11,8 +11,9 @@ The Design System serves as the single source of truth for all UI components and
 - **Framework**: React 18
 - **Documentation**: Storybook 8
 - **Design Guidelines**: Material Design 3 (Expressive)
-- **Styling**: Tailwind CSS & Design Tokens (JSON/CSS Variables)
+- **Styling**: Design Tokens (CSS Variables) & Pure MD3
 - **Testing**: Chromatic / Visual Regression Testing
+- **Token Pipeline**: Style Dictionary
 
 ## 📂 Repository Structure
 
@@ -35,7 +36,10 @@ seacrets.online-storybook/
 
 - **`.storybook/main.js`**: Storybook configuration
 - **`.storybook/preview.js`**: Global decorators and parameters
-- **`src/styles/tokens.css`**: CSS variables for design tokens
+N- **`style-dictionary.config.json`**: Style Dictionary configuration
+- **`src/style-dictionary-dist/variables.scss`**: SCSS variables for design tokens
+- **`src/style-dictionary-dist/variables.js`**: JavaScript tokens for colors
+- **`src/styles/tokens.css`**: CSS variables (legacy, used for typography/shapes/elevation)
 - **`src/tokens/tokens.json`**: Source design tokens from Figma
 
 ## 🚀 Getting Started
@@ -57,25 +61,57 @@ npm install --legacy-peer-deps
 ### Development
 
 ```bash
-# Run Storybook locally (http://localhost:6006)
-npm run storybook
+# Start Storybook dev server (http://localhost:6006)
+# Note: Design tokens are automatically built before starting
+npm run dev
+```
 
+**What happens when you run `npm run dev`:**
+1. Design tokens are built automatically (`predev` hook) using **Style Dictionary**
+2. Storybook dev server starts with hot reload for components
+3. When you modify token JSON files, run `npm run build-dictionary` manually
+4. Storybook automatically detects changes in generated files and reloads
+
+**Other useful commands:**
+
+```bash
 # Build Storybook for production
-npm run build-storybook
+# Note: Design tokens are automatically built before building
+npm run build
+
+# Validate that everything builds correctly
+npm run validate
 
 # Run Chromatic visual regression tests
 npm run chromatic
 ```
 
+**Important:** Design tokens are automatically generated before running `dev` or `build` commands via npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates:
+- `src/style-dictionary-dist/variables.scss` - SCSS variables
+- `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors)
+- `src/styles/tokens.css` - CSS variables (legacy)
+
+When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
+
+**Note:** `npm run storybook` and `npm run build-storybook` are also available as aliases for `dev` and `build` respectively.
+
 ### Local Chromatic Setup
 
 For local testing, create a `.env` file in the project root:
 
-```bash
-CHROMATIC_PROJECT_TOKEN=your_token_here
-```
+1. **Copy the example file**:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Add your Chromatic project token** to `.env`:
+   ```bash
+   CHROMATIC_PROJECT_TOKEN=your_token_here
+   ```
 
 The `.env` file is already in `.gitignore` and won't be committed. The `chromatic` script automatically loads environment variables from `.env` using `dotenv-cli`.
+
+**Security Note**: If your `.env` file contains a real token that may have been exposed, rotate it immediately in the Chromatic dashboard and update your local `.env` file with the new token.
 
 ## 🧪 Visual Regression Testing
 
@@ -91,16 +127,22 @@ This project uses [Chromatic](https://www.chromatic.com/) for visual regression 
 ### Local Testing
 
 1. **Get your Chromatic project token** from [chromatic.com](https://www.chromatic.com/)
-2. **Create `.env` file** in the project root:
+2. **Copy `.env.example` to `.env`**:
+   ```bash
+   cp .env.example .env
+   ```
+3. **Add your token** to `.env`:
    ```bash
    CHROMATIC_PROJECT_TOKEN=your_token_here
    ```
-3. **Run Chromatic**:
+4. **Run Chromatic**:
    ```bash
    npm run chromatic
    ```
 
 The script uses `dotenv-cli` to automatically load the token from `.env`. The `.env` file is gitignored and won't be committed.
+
+**Token Rotation**: If your token is exposed or compromised, rotate it in the Chromatic dashboard and update your local `.env` file.
 
 ### CI/CD Integration
 
@@ -131,11 +173,18 @@ The workflow uses the secret `CHROMATIC_PROJECT_TOKEN` from GitHub Actions secre
 
 When making visual changes to components:
 
-1. **Make your changes** to components, styles, or tokens
-2. **Test locally** with `npm run storybook`
-3. **Publish to Chromatic** with `npm run chromatic`
-4. **Review changes** in the Chromatic dashboard
-5. **Approve or request changes** as needed
+1. **Update design tokens** (if needed):
+   - Edit `src/tokens/tokens.json` or export from Figma
+   - Run `npm run build-dictionary` to rebuild tokens using **Style Dictionary**
+2. **Make your changes** to components:
+   - Use JavaScript tokens for colors: `import * as tokens from '../style-dictionary-dist/variables.js'`
+   - Use CSS variables for typography/shapes/elevation: `var(--md-sys-typescale-*)`
+   - Or use SCSS variables: `@import '../style-dictionary-dist/variables.scss'`
+3. **Test locally** with `npm run storybook` (tokens auto-built)
+4. **Validate changes** with `npm run validate` (optional)
+5. **Publish to Chromatic** with `npm run chromatic`
+6. **Review changes** in the Chromatic dashboard
+7. **Approve or request changes** as needed
 
 Chromatic will detect:
 - Color palette changes
@@ -148,13 +197,16 @@ Chromatic will detect:
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start Vite dev server |
-| `npm run build` | Build Vite app for production |
-| `npm run preview` | Preview production build |
-| `npm run storybook` | Start Storybook dev server (port 6006) |
-| `npm run build-storybook` | Build Storybook for production |
+| `npm run dev` | Start Storybook dev server on port 6006 (tokens auto-built) |
+| `npm run build` | Build Storybook for production (tokens auto-built) |
+| `npm run storybook` | Alias for `dev` (tokens auto-built) |
+| `npm run build-storybook` | Alias for `build` (tokens auto-built) |
+| `npm run build-dictionary` | Build design tokens from JSON to SCSS/JS using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
+| `npm run tokens:build` | Alias for `build-dictionary` |
+| `npm run validate` | Validate imports and build (builds tokens + Vite build) |
 | `npm run chromatic` | Run Chromatic visual regression tests |
-| `npm run tokens:build` | Build design tokens (to be implemented) |
+
+**Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates SCSS variables, JavaScript tokens, and CSS variables. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
 ## 🔗 Related Documentation
 
@@ -189,4 +241,4 @@ nvm alias default 20
 ```
 
 ---
-*Part of the Seacrets.Online GitOps Platform*
+*Part of the Seacrets.Online Platform*
