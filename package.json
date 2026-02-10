@@ -4,16 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "tokens:build": "node scripts/build-tokens.js",
-    "predev": "npm run tokens:build",
+    "build-dictionary": "style-dictionary build --config style-dictionary.config.js",
+    "tokens:build": "npm run build-dictionary",
+    "predev": "npm run build-dictionary",
     "dev": "storybook dev -p 6006",
-    "prebuild": "npm run tokens:build",
+    "prebuild": "npm run build-dictionary",
     "build": "storybook build",
-    "prestorybook": "npm run tokens:build",
+    "prestorybook": "npm run build-dictionary",
     "storybook": "storybook dev -p 6006",
-    "prebuild-storybook": "npm run tokens:build",
+    "prebuild-storybook": "npm run build-dictionary",
     "build-storybook": "storybook build",
-    "validate": "npm run tokens:build && vite build --mode development",
+    "validate": "npm run build-dictionary && vite build --mode development",
     "chromatic": "dotenv -e .env -- chromatic --exit-zero-on-changes"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "@vitejs/plugin-react": "^5.1.3",
     "chromatic": "^15.0.0",
     "dotenv-cli": "^11.0.0",
+    "sass-embedded": "^1.97.3",
     "storybook": "^10.2.7",
     "style-dictionary": "^5.2.0",
     "vite": "^7.3.1"

@@ -26,32 +26,71 @@ This guide documents the process for exporting design tokens (colors, typography
      `src/tokens/material-theme.json`
    - **Note**: The file should be named `material-theme.json`.
 
-5. **Build CSS Tokens**
-   - Run the build script to generate CSS variables using Style Dictionary:
+5. **Build Design Tokens**
+   - Run the build script to generate tokens using Style Dictionary:
      ```bash
-     npm run tokens:build
+     npm run build-dictionary
      ```
-   - This generates `src/styles/tokens.css` from the source JSON files.
+   - This generates:
+     - `src/style-dictionary-dist/variables.scss` - SCSS variables for all tokens
+     - `src/style-dictionary-dist/variables.js` - JavaScript tokens for colors
+     - `src/styles/tokens.css` - CSS variables (legacy, used for typography/shapes/elevation)
 
 6. **Verification**
-   - Run Storybook (`npm run storybook`) and verify that components reflect the correct colors.
+   - Run `npm run build-dictionary` and check for any broken reference warnings
+   - Review [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) if you see reference errors
+   - Run Storybook (`npm run storybook`) and verify that components reflect the correct colors
 
 ## Token Pipeline Architecture
 
 - **Source of Truth**: `src/tokens/tokens.json` (Standard Design Tokens format)
 - **Secondary Source**: `src/tokens/material-theme.json` (Material Theme Builder export)
 - **Build Tool**: [Style Dictionary](https://styledictionary.com/)
-- **Output**: `src/styles/tokens.css` (CSS Variables)
+- **Output**: 
+  - `src/style-dictionary-dist/variables.scss` - SCSS variables (all tokens)
+  - `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors only)
+  - `src/styles/tokens.css` - CSS variables (legacy, typography/shapes/elevation)
 
 ### How Style Dictionary Works
 
-Style Dictionary is configured in `style-dictionary.config.js`. It reads all JSON files in `src/tokens/` and transforms them into standard CSS variables.
+Style Dictionary is configured in `style-dictionary.config.js` (JavaScript format to support preprocessors). It reads all JSON files in `src/tokens/**/*.json` and transforms them into multiple output formats.
+
+**Important**: A preprocessor (`style-dictionary-preprocessor.js`) automatically adds missing base tokens that are referenced but not exported from Figma. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for details on what must be included in the export.
 
 The pipeline implements:
 - **Theme Support**: Automatically handles light and dark mode tokens.
-- **Pure MD3**: Generates standard Material Design 3 CSS variables (e.g., `--md-sys-color-primary`).
+- **Multiple Formats**: Generates SCSS variables, JavaScript tokens, and CSS variables.
 - **Standard Compliance**: Follows the Design Tokens Community Group specification.
+
+### Using Tokens in Components
+
+**JavaScript Tokens (Recommended for colors):**
+```javascript
+import * as tokens from '../style-dictionary-dist/variables.js';
+
+const styles = {
+  backgroundColor: tokens.MdLightMdSysColorPrimary,
+  color: tokens.MdLightMdSysColorOnPrimary,
+};
+```
+
+**SCSS Variables:**
+```scss
+@import '../style-dictionary-dist/variables.scss';
+
+.component {
+  background-color: $token-md-light-md-sys-color-primary;
+}
+```
+
+**CSS Variables (Legacy - for typography/shapes/elevation):**
+```css
+.component {
+  font-family: var(--md-sys-typescale-body-large-font-family);
+  border-radius: var(--md-sys-shape-corner-extra-small);
+}
+```
 
 ### Manual Rebuild
 
-While tokens are automatically built during `npm run dev` and `npm run build`, you should run `npm run tokens:build` manually after updating any JSON file in `src/tokens/` to see the changes immediately in a running Storybook instance.
+While tokens are automatically built during `npm run dev` and `npm run build`, you should run `npm run build-dictionary` manually after updating any JSON file in `src/tokens/` to see the changes immediately in a running Storybook instance.

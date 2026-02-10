@@ -1,5 +1,7 @@
 import { TestBox } from "./TestBox";
 import materialTheme from "../../tokens/material-theme.json";
+import { getShapeToken } from "../../utils/shapes.js";
+import * as tokens from "../../style-dictionary-dist/variables.js";
 
 export default {
   title: "Examples/TestBox",
@@ -35,11 +37,11 @@ export const PrimaryPalette = {
           >
             <div
               style={{
-                backgroundColor: `var(--md-ref-palette-primary${tone})`,
+                backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: "var(--md-sys-shape-corner-extra-small)",
-                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
+                borderRadius: getShapeToken('corner-extra-small'),
+                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -67,11 +69,11 @@ export const SecondaryPalette = {
           >
             <div
               style={{
-                backgroundColor: `var(--md-ref-palette-secondary${tone})`,
+                backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: "var(--md-sys-shape-corner-extra-small)",
-                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
+                borderRadius: getShapeToken('corner-extra-small'),
+                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -101,11 +103,11 @@ export const TertiaryPalette = {
           >
             <div
               style={{
-                backgroundColor: `var(--md-ref-palette-tertiary${tone})`,
+                backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: "var(--md-sys-shape-corner-extra-small)",
-                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
+                borderRadius: getShapeToken('corner-extra-small'),
+                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -133,11 +135,11 @@ export const NeutralPalette = {
           >
             <div
               style={{
-                backgroundColor: `var(--md-ref-palette-neutral${tone})`,
+                backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: "var(--md-sys-shape-corner-extra-small)",
-                border: tone > 90 ? "1px solid var(--md-sys-color-outline-variant)" : "none",
+                borderRadius: getShapeToken('corner-extra-small'),
+                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -176,7 +178,7 @@ export const AllPalettes = {
                 <div
                   key={tone}
                   style={{
-                    backgroundColor: `var(--md-ref-palette-${name.toLowerCase()}${tone})`,
+                    backgroundColor: palette[tone],
                     flex: 1,
                     position: "relative",
                   }}

@@ -1,27 +1,22 @@
+import * as tokens from './style-dictionary-dist/variables.js';
+import { getTypographyStyles } from './utils/typography.js';
+
 function App() {
   const containerStyles = {
     minHeight: '100vh',
-    backgroundColor: 'var(--md-sys-color-surface)',
+    backgroundColor: tokens.mdSysColorSurface,
     padding: '32px',
   };
 
   const headingStyles = {
-    fontFamily: 'var(--md-sys-typescale-headline-large-font-family)',
-    fontSize: 'var(--md-sys-typescale-headline-large-font-size)',
-    lineHeight: 'var(--md-sys-typescale-headline-large-line-height)',
-    fontWeight: 'var(--md-sys-typescale-headline-large-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-headline-large-letter-spacing)',
-    color: 'var(--md-sys-color-on-surface)',
+    ...getTypographyStyles('headline-large'),
+    color: tokens.mdSysColorOnsurface,
     margin: 0,
   };
 
   const paragraphStyles = {
-    fontFamily: 'var(--md-sys-typescale-body-medium-font-family)',
-    fontSize: 'var(--md-sys-typescale-body-medium-font-size)',
-    lineHeight: 'var(--md-sys-typescale-body-medium-line-height)',
-    fontWeight: 'var(--md-sys-typescale-body-medium-font-weight)',
-    letterSpacing: 'var(--md-sys-typescale-body-medium-letter-spacing)',
-    color: 'var(--md-sys-color-on-surface-variant)',
+    ...getTypographyStyles('body-medium'),
+    color: tokens.mdSysColorOnsurfacevariant,
     marginTop: '16px',
     marginBottom: 0,
   };

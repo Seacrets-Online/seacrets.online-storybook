@@ -36,7 +36,10 @@ seacrets.online-storybook/
 
 - **`.storybook/main.js`**: Storybook configuration
 - **`.storybook/preview.js`**: Global decorators and parameters
-- **`src/styles/tokens.css`**: CSS variables for design tokens
+N- **`style-dictionary.config.json`**: Style Dictionary configuration
+- **`src/style-dictionary-dist/variables.scss`**: SCSS variables for design tokens
+- **`src/style-dictionary-dist/variables.js`**: JavaScript tokens for colors
+- **`src/styles/tokens.css`**: CSS variables (legacy, used for typography/shapes/elevation)
 - **`src/tokens/tokens.json`**: Source design tokens from Figma
 
 ## 🚀 Getting Started
@@ -66,8 +69,8 @@ npm run dev
 **What happens when you run `npm run dev`:**
 1. Design tokens are built automatically (`predev` hook) using **Style Dictionary**
 2. Storybook dev server starts with hot reload for components
-3. When you modify token JSON files, run `npm run tokens:build` manually
-4. Storybook automatically detects changes in `tokens.css` and reloads
+3. When you modify token JSON files, run `npm run build-dictionary` manually
+4. Storybook automatically detects changes in generated files and reloads
 
 **Other useful commands:**
 
@@ -83,7 +86,12 @@ npm run validate
 npm run chromatic
 ```
 
-**Important:** Design tokens (`src/styles/tokens.css`) are automatically generated before running `dev` or `build` commands via npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary**. When you modify token JSON files during development, run `npm run tokens:build` manually to rebuild them. Storybook will automatically detect the updated `tokens.css` file and reload.
+**Important:** Design tokens are automatically generated before running `dev` or `build` commands via npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates:
+- `src/style-dictionary-dist/variables.scss` - SCSS variables
+- `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors)
+- `src/styles/tokens.css` - CSS variables (legacy)
+
+When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
 **Note:** `npm run storybook` and `npm run build-storybook` are also available as aliases for `dev` and `build` respectively.
 
@@ -167,8 +175,11 @@ When making visual changes to components:
 
 1. **Update design tokens** (if needed):
    - Edit `src/tokens/tokens.json` or export from Figma
-   - Run `npm run tokens:build` to rebuild tokens using **Style Dictionary**
-2. **Make your changes** to components or styles (using pure MD3 CSS variables)
+   - Run `npm run build-dictionary` to rebuild tokens using **Style Dictionary**
+2. **Make your changes** to components:
+   - Use JavaScript tokens for colors: `import * as tokens from '../style-dictionary-dist/variables.js'`
+   - Use CSS variables for typography/shapes/elevation: `var(--md-sys-typescale-*)`
+   - Or use SCSS variables: `@import '../style-dictionary-dist/variables.scss'`
 3. **Test locally** with `npm run storybook` (tokens auto-built)
 4. **Validate changes** with `npm run validate` (optional)
 5. **Publish to Chromatic** with `npm run chromatic`
@@ -190,11 +201,12 @@ Chromatic will detect:
 | `npm run build` | Build Storybook for production (tokens auto-built) |
 | `npm run storybook` | Alias for `dev` (tokens auto-built) |
 | `npm run build-storybook` | Alias for `build` (tokens auto-built) |
-| `npm run tokens:build` | Build design tokens from JSON to CSS using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
+| `npm run build-dictionary` | Build design tokens from JSON to SCSS/JS using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
+| `npm run tokens:build` | Alias for `build-dictionary` |
 | `npm run validate` | Validate imports and build (builds tokens + Vite build) |
 | `npm run chromatic` | Run Chromatic visual regression tests |
 
-**Note:** Commands marked with "(tokens auto-built)" automatically run `tokens:build` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary**. When you modify token JSON files during development, run `npm run tokens:build` manually to rebuild them. Storybook will automatically detect the updated CSS file and reload.
+**Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates SCSS variables, JavaScript tokens, and CSS variables. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
 ## 🔗 Related Documentation
 
