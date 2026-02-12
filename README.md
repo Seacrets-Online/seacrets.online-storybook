@@ -36,10 +36,10 @@ seacrets.online-storybook/
 
 - **`.storybook/main.js`**: Storybook configuration
 - **`.storybook/preview.js`**: Global decorators and parameters
-N- **`style-dictionary.config.json`**: Style Dictionary configuration
+- **`style-dictionary.config.json`**: Style Dictionary configuration
 - **`src/style-dictionary-dist/variables.scss`**: SCSS variables for design tokens
 - **`src/style-dictionary-dist/variables.js`**: JavaScript tokens for colors
-- **`src/styles/tokens.css`**: CSS variables (legacy, used for typography/shapes/elevation)
+- **`src/style-dictionary-dist/theme.css`**: CSS variables for light/dark themes (auto-generated)
 - **`src/tokens/tokens.json`**: Source design tokens from Figma
 
 ## 🚀 Getting Started
@@ -67,6 +67,7 @@ npm run dev
 ```
 
 **What happens when you run `npm run dev`:**
+
 1. Design tokens are built automatically (`predev` hook) using **Style Dictionary**
 2. Storybook dev server starts with hot reload for components
 3. When you modify token JSON files, run `npm run build-dictionary` manually
@@ -87,9 +88,10 @@ npm run chromatic
 ```
 
 **Important:** Design tokens are automatically generated before running `dev` or `build` commands via npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates:
+
 - `src/style-dictionary-dist/variables.scss` - SCSS variables
 - `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors)
-- `src/styles/tokens.css` - CSS variables (legacy)
+- `src/style-dictionary-dist/theme.css` - CSS variables for light/dark
 
 When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
@@ -100,6 +102,7 @@ When you modify token JSON files during development, run `npm run build-dictiona
 For local testing, create a `.env` file in the project root:
 
 1. **Copy the example file**:
+
    ```bash
    cp .env.example .env
    ```
@@ -149,7 +152,7 @@ The script uses `dotenv-cli` to automatically load the token from `.env`. The `.
 The Chromatic workflow (`.github/workflows/chromatic.yml`) automatically runs on:
 
 - **Pull requests** to `main`, `devel`, or `stage` branches
-- **Pushes** to `main`, `devel`, or `stage` branches  
+- **Pushes** to `main`, `devel`, or `stage` branches
 - **Manual dispatch** via GitHub Actions UI
 
 #### GitHub Secret Setup
@@ -159,6 +162,7 @@ The Chromatic workflow (`.github/workflows/chromatic.yml`) automatically runs on
 3. Paste your Chromatic project token
 
 The workflow will:
+
 - Install dependencies
 - Build Storybook
 - Publish to Chromatic
@@ -177,7 +181,7 @@ When making visual changes to components:
    - Edit `src/tokens/tokens.json` or export from Figma
    - Run `npm run build-dictionary` to rebuild tokens using **Style Dictionary**
 2. **Make your changes** to components:
-   - Use JavaScript tokens for colors: `import * as tokens from '../style-dictionary-dist/variables.js'`
+   - Use CSS variables for colors: `var(--md-sys-color-*)`
    - Use CSS variables for typography/shapes/elevation: `var(--md-sys-typescale-*)`
    - Or use SCSS variables: `@import '../style-dictionary-dist/variables.scss'`
 3. **Test locally** with `npm run storybook` (tokens auto-built)
@@ -187,24 +191,35 @@ When making visual changes to components:
 7. **Approve or request changes** as needed
 
 Chromatic will detect:
+
 - Color palette changes
 - Typography adjustments
 - Layout modifications
 - Size and scale changes
 - Any visual differences in component rendering
 
+## 🌗 Theme Switching (Light/Dark)
+
+The light theme is the default (`:root`). A dark preview is enabled by setting `data-theme="dark"` on the `html` element. Storybook already applies this via the toolbar.
+
+Example (app integration):
+
+```js
+document.documentElement.setAttribute("data-theme", "dark");
+```
+
 ## 📝 Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start Storybook dev server on port 6006 (tokens auto-built) |
-| `npm run build` | Build Storybook for production (tokens auto-built) |
-| `npm run storybook` | Alias for `dev` (tokens auto-built) |
-| `npm run build-storybook` | Alias for `build` (tokens auto-built) |
+| Script                     | Description                                                                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`              | Start Storybook dev server on port 6006 (tokens auto-built)                                                                         |
+| `npm run build`            | Build Storybook for production (tokens auto-built)                                                                                  |
+| `npm run storybook`        | Alias for `dev` (tokens auto-built)                                                                                                 |
+| `npm run build-storybook`  | Alias for `build` (tokens auto-built)                                                                                               |
 | `npm run build-dictionary` | Build design tokens from JSON to SCSS/JS using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
-| `npm run tokens:build` | Alias for `build-dictionary` |
-| `npm run validate` | Validate imports and build (builds tokens + Vite build) |
-| `npm run chromatic` | Run Chromatic visual regression tests |
+| `npm run tokens:build`     | Alias for `build-dictionary`                                                                                                        |
+| `npm run validate`         | Validate imports and build (builds tokens + Vite build)                                                                             |
+| `npm run chromatic`        | Run Chromatic visual regression tests                                                                                               |
 
 **Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates SCSS variables, JavaScript tokens, and CSS variables. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
@@ -219,6 +234,7 @@ Chromatic will detect:
 ### npm install fails
 
 If you encounter peer dependency conflicts, use:
+
 ```bash
 npm install --legacy-peer-deps
 ```
@@ -234,6 +250,7 @@ This is required due to Vite 7 compatibility with Storybook 8.
 ### Node.js version issues
 
 This project requires Node.js 20+. If using `nvm`:
+
 ```bash
 nvm install 20
 nvm use 20
@@ -241,4 +258,5 @@ nvm alias default 20
 ```
 
 ---
-*Part of the Seacrets.Online Platform*
+
+_Part of the Seacrets.Online Platform_
