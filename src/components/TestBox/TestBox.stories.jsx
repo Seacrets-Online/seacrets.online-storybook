@@ -1,7 +1,6 @@
 import { TestBox } from "./TestBox";
 import materialTheme from "../../tokens/material-theme.json";
 import { getShapeToken } from "../../utils/shapes.js";
-import * as tokens from "../../style-dictionary-dist/variables.js";
 
 export default {
   title: "Examples/TestBox",
@@ -40,8 +39,11 @@ export const PrimaryPalette = {
                 backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: getShapeToken('corner-extra-small'),
-                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
+                borderRadius: getShapeToken("corner-extra-small"),
+                border:
+                  tone > 90
+                    ? "1px solid var(--md-sys-color-outline-variant)"
+                    : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -72,8 +74,11 @@ export const SecondaryPalette = {
                 backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: getShapeToken('corner-extra-small'),
-                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
+                borderRadius: getShapeToken("corner-extra-small"),
+                border:
+                  tone > 90
+                    ? "1px solid var(--md-sys-color-outline-variant)"
+                    : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -93,9 +98,7 @@ export const TertiaryPalette = {
 
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h3 style={{ marginBottom: "8px" }}>
-          Tertiary Palette (Orange/Gold)
-        </h3>
+        <h3 style={{ marginBottom: "8px" }}>Tertiary Palette (Orange/Gold)</h3>
         {tones.map((tone) => (
           <div
             key={tone}
@@ -106,8 +109,11 @@ export const TertiaryPalette = {
                 backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: getShapeToken('corner-extra-small'),
-                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
+                borderRadius: getShapeToken("corner-extra-small"),
+                border:
+                  tone > 90
+                    ? "1px solid var(--md-sys-color-outline-variant)"
+                    : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
@@ -138,8 +144,11 @@ export const NeutralPalette = {
                 backgroundColor: palette[tone],
                 width: "100px",
                 height: "40px",
-                borderRadius: getShapeToken('corner-extra-small'),
-                border: tone > 90 ? `1px solid ${tokens.mdSysColorOutlinevariant}` : "none",
+                borderRadius: getShapeToken("corner-extra-small"),
+                border:
+                  tone > 90
+                    ? "1px solid var(--md-sys-color-outline-variant)"
+                    : "none",
               }}
             />
             <span style={{ fontFamily: "monospace", fontSize: "14px" }}>

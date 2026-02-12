@@ -1,12 +1,11 @@
-import React from 'react';
-import * as tokens from '../style-dictionary-dist/variables.js';
-import { getTypographyStyles } from '../utils/typography.js';
-import { getShapeToken } from '../utils/shapes.js';
-import { getElevationToken } from '../utils/elevation.js';
+import React from "react";
+import { getTypographyStyles } from "../utils/typography.js";
+import { getShapeToken } from "../utils/shapes.js";
+import { getElevationToken } from "../utils/elevation.js";
 
 /**
  * Button component following Material Design 3 Expressive guidelines
- * 
+ *
  * @param {Object} props
  * @param {string} props.variant - Button variant: 'filled' | 'outlined' | 'text' | 'elevated'
  * @param {string} props.size - Button size: 'small' | 'medium' | 'large'
@@ -18,90 +17,90 @@ import { getElevationToken } from '../utils/elevation.js';
  * @param {string} props['aria-label'] - Accessible label for screen readers
  */
 export const Button = ({
-  variant = 'filled',
-  size = 'medium',
+  variant = "filled",
+  size = "medium",
   disabled = false,
   children,
-  className = '',
+  className = "",
   onClick,
-  type = 'button',
-  'aria-label': ariaLabel,
+  type = "button",
+  "aria-label": ariaLabel,
   ...props
 }) => {
   const baseStyles = {
-    ...getTypographyStyles('label-large'),
-    border: 'none',
-    borderRadius: getShapeToken('corner-extra-small'),
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    transition: 'all 0.2s ease',
-    outline: 'none',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    textTransform: 'none',
-    userSelect: 'none',
+    ...getTypographyStyles("label-large"),
+    border: "none",
+    borderRadius: getShapeToken("corner-extra-small"),
+    cursor: disabled ? "not-allowed" : "pointer",
+    transition: "all 0.2s ease",
+    outline: "none",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    textTransform: "none",
+    userSelect: "none",
   };
 
   const sizeStyles = {
     small: {
-      padding: '12px 28px',
-      height: '36px',
+      padding: "12px 28px",
+      height: "36px",
     },
     medium: {
-      padding: '14px 32px',
-      height: '44px',
+      padding: "14px 32px",
+      height: "44px",
     },
     large: {
-      padding: '16px 36px',
-      height: '52px',
+      padding: "16px 36px",
+      height: "52px",
     },
   };
 
   const variantStyles = {
     filled: {
-      backgroundColor: tokens.mdSysColorPrimary,
-      color: tokens.mdSysColorOnprimary,
-      boxShadow: 'none',
+      backgroundColor: "var(--md-sys-color-primary)",
+      color: "var(--md-sys-color-on-primary)",
+      boxShadow: "none",
     },
     outlined: {
-      backgroundColor: 'transparent',
-      color: tokens.mdSysColorPrimary,
-      border: `1px solid ${tokens.mdSysColorOutline}`,
-      boxShadow: 'none',
+      backgroundColor: "transparent",
+      color: "var(--md-sys-color-primary)",
+      border: "1px solid var(--md-sys-color-outline)",
+      boxShadow: "none",
     },
     text: {
-      backgroundColor: 'transparent',
-      color: tokens.mdSysColorPrimary,
-      boxShadow: 'none',
+      backgroundColor: "transparent",
+      color: "var(--md-sys-color-primary)",
+      boxShadow: "none",
     },
     elevated: {
-      backgroundColor: tokens.mdSysColorSurface,
-      color: tokens.mdSysColorPrimary,
-      boxShadow: getElevationToken('level-1'),
+      backgroundColor: "var(--md-sys-color-surface)",
+      color: "var(--md-sys-color-primary)",
+      boxShadow: getElevationToken("level-1"),
     },
   };
 
   const disabledStyles = {
     filled: {
-      backgroundColor: tokens.mdSysColorSurfacevariant,
-      color: tokens.mdSysColorOnsurfacevariant,
+      backgroundColor: "var(--md-sys-color-surface-variant)",
+      color: "var(--md-sys-color-on-surface-variant)",
       opacity: 0.38,
     },
     outlined: {
-      borderColor: tokens.mdSysColorOutlinevariant,
-      color: tokens.mdSysColorOnsurfacevariant,
+      borderColor: "var(--md-sys-color-outline-variant)",
+      color: "var(--md-sys-color-on-surface-variant)",
       opacity: 0.38,
     },
     text: {
-      color: tokens.mdSysColorOnsurfacevariant,
+      color: "var(--md-sys-color-on-surface-variant)",
       opacity: 0.38,
     },
     elevated: {
-      backgroundColor: tokens.mdSysColorSurfacevariant,
-      color: tokens.mdSysColorOnsurfacevariant,
+      backgroundColor: "var(--md-sys-color-surface-variant)",
+      color: "var(--md-sys-color-on-surface-variant)",
       opacity: 0.38,
-      boxShadow: 'none',
+      boxShadow: "none",
     },
   };
 
