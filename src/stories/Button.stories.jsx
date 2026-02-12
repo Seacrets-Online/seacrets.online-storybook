@@ -10,6 +10,7 @@ import { getTypographyStyles } from "../utils/typography.js";
  * - ✅ M3 States: Supports hover, focus, active, and disabled states
  * - ✅ Accessibility: Keyboard navigable and ARIA-compliant
  * - ✅ Storybook: Includes stories for all variants and states
+ * - ✅ Icon Support: Handles leading and trailing icons
  */
 export default {
   title: "Primitives/Button",
@@ -38,6 +39,14 @@ export default {
     disabled: {
       control: "boolean",
       description: "Whether the button is disabled",
+    },
+    iconLeading: {
+      control: "text",
+      description: "Icon element to display before the label",
+    },
+    iconTrailing: {
+      control: "text",
+      description: "Icon element to display after the label",
     },
     children: {
       control: "text",
@@ -82,6 +91,30 @@ export const Elevated = {
   },
 };
 
+export const WithIcons = {
+  render: (args) => (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <Button {...args} variant="filled" iconLeading="+">
+        Add Item
+      </Button>
+      <Button {...args} variant="outlined" iconTrailing="→">
+        Next Step
+      </Button>
+      <Button {...args} variant="text" iconLeading="♥" iconTrailing="★">
+        Favorites
+      </Button>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Buttons support leading and trailing icons. Padding automatically adjusts based on the icon position to maintain visual balance (M3 Spec).",
+      },
+    },
+  },
+};
+
 export const Sizes = {
   render: () => (
     <div
@@ -107,7 +140,7 @@ export const Sizes = {
     docs: {
       description: {
         story:
-          "Button component supports three sizes: small (32px), medium (40px), and large (48px).",
+          "Button component supports three sizes: small (36px), medium (44px), and large (52px).",
       },
     },
   },
@@ -154,7 +187,7 @@ export const States = {
         >
           Hover over the button to see the hover state
         </p>
-        <Button variant="filled" onClick={fn()}>
+        <Button variant="filled" className="pseudo-hover" onClick={fn()}>
           Hover State
         </Button>
       </div>
@@ -187,7 +220,7 @@ export const States = {
             ...getTypographyStyles("title-medium"),
           }}
         >
-          Active
+          Pressed
         </h3>
         <p
           style={{
@@ -196,10 +229,10 @@ export const States = {
             marginBottom: "8px",
           }}
         >
-          Click and hold to see the active state
+          Click and hold to see the pressed state
         </p>
         <Button variant="filled" onClick={fn()}>
-          Active State
+          Pressed State
         </Button>
       </div>
       <div>
@@ -221,7 +254,7 @@ export const States = {
     docs: {
       description: {
         story:
-          "Button component supports all M3 states: default, hover, focus, active, and disabled. States are implemented using design tokens and CSS transitions.",
+          "Button component supports all M3 states: default, hover, focus, active, and disabled.",
       },
     },
   },
