@@ -59,7 +59,7 @@ export const Button = ({
     const sp16 = tokens.primitivesMode1MdSysSpacing16 || 16;
     const sp24 = tokens.primitivesMode1MdSysSpacing24 || 24;
     // Values 20 and 28 might not be in the current token set, using fallbacks
-    const sp20 = 20; 
+    const sp20 = 20;
     const sp28 = 28;
 
     const configs = {
@@ -90,7 +90,7 @@ export const Button = ({
 
   const variantStyles = {
     filled: {
-      backgroundColor: "var(--md-sys-color-primary)",
+      backgroundColor: "red",
       color: "var(--md-sys-color-on-primary)",
       boxShadow: "none",
     },
@@ -157,23 +157,17 @@ export const Button = ({
     >
       {/* Leading Icon */}
       {iconLeading && (
-        <span 
-          aria-hidden="true" 
-          style={{ display: "flex", fontSize: "18px" }}
-        >
+        <span aria-hidden="true" style={{ display: "flex", fontSize: "18px" }}>
           {iconLeading}
         </span>
       )}
-      
+
       {/* Button Label */}
       <span>{children}</span>
 
       {/* Trailing Icon */}
       {iconTrailing && (
-        <span 
-          aria-hidden="true" 
-          style={{ display: "flex", fontSize: "18px" }}
-        >
+        <span aria-hidden="true" style={{ display: "flex", fontSize: "18px" }}>
           {iconTrailing}
         </span>
       )}
