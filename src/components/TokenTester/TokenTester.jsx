@@ -2,7 +2,7 @@ import React from "react";
 import tokens from "../../tokens/tokens.json";
 
 export const TokenTester = () => {
-  // Obtengo las llaves principales para "md/Light" y "md/Dark"
+  // Obtaining all keys from the tokens object and filtering those that include "md/" (e.g., "md/Light", "md/Dark")
   const modes = Object.keys(tokens).filter((key) => key.includes("md/"));
 
   return (
@@ -17,7 +17,7 @@ export const TokenTester = () => {
       <h2>🎨 Token Validation (Light & Dark)</h2>
 
       {modes.map((modeName) => {
-        // aquí accedemos dinámicamente a tokens["md/Light"].md.sys.color
+        // Here we dynamically access tokens["md/Light"].md.sys.color
         const modeColors = tokens[modeName].md.sys.color;
 
         return (
