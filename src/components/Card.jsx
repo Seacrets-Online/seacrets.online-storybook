@@ -49,7 +49,7 @@ export const Card = ({
       border: "none",
     },
     filled: {
-      backgroundColor: tokens.mdSysColorSurfacecontainerhighest,
+      backgroundColor: "red",
       boxShadow: "none",
       border: "none",
     },
