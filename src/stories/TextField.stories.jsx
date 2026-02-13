@@ -64,6 +64,22 @@ export default {
       control: "text",
       description: "Error text to display below the field",
     },
+    prefixIcon: {
+      control: "text",
+      description: "Prefix icon content",
+    },
+    suffixIcon: {
+      control: "text",
+      description: "Suffix icon content",
+    },
+    maxLength: {
+      control: "number",
+      description: "Maximum length for character counter",
+    },
+    showCounter: {
+      control: "boolean",
+      description: "Whether to display the character counter",
+    },
     onChange: {
       action: "changed",
       description: "Change handler",
@@ -153,6 +169,47 @@ export const WithHelperText = {
     docs: {
       description: {
         story: "Helper text provides additional context or instructions.",
+      },
+    },
+  },
+};
+
+export const WithIcons = {
+  args: {
+    variant: "filled",
+    label: "Username",
+    placeholder: "Type your handle",
+    prefixIcon: "@",
+    suffixIcon: "#",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "TextField with prefix and suffix icons.",
+      },
+    },
+  },
+};
+
+export const WithCounter = {
+  args: {
+    variant: "filled",
+    label: "Bio",
+    placeholder: "Tell us about yourself",
+    defaultValue: "Short bio",
+    maxLength: 80,
+    showCounter: true,
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "TextField with a character counter based on maxLength.",
       },
     },
   },
