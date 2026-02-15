@@ -4,6 +4,7 @@ export const shapeTokens = {
   'corner-medium': '12px',
   'corner-large': '16px',
   'corner-extra-large': '28px',
+  'corner-full': '9999px',
 };
 
 export const getShapeToken = (tokenName) => {
