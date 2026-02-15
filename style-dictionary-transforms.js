@@ -57,21 +57,16 @@ function filterMd3Path(path) {
 }
 
 /**
- * Transform name: removes theme and duplicate 'md' from token path for SCSS
- * Converts: md/Light/md/sys/color/primary -> md-sys-color-primary
- * Converts: md/Dark/md/sys/color/primary -> md-sys-color-primary (same name)
+ * Transform name: removes duplicate 'md' from path; includes theme for uniqueness.
+ * Avoids token name collisions when Light/Dark share the same semantic path.
+ * Format (css/variables-theme) builds CSS var names from path, not from this name.
  */
 StyleDictionary.registerTransform({
   name: 'name/md3/scss',
   type: 'name',
   transform: (token) => {
-    // Style Dictionary's attribute/cti transform sets token.path as an array
-    // The path includes the full hierarchy: ['md/Light', 'md', 'sys', 'color', 'primary']
     let path = token.path;
-    
-    // If path is not an array, try to get it from other sources
     if (!Array.isArray(path)) {
-      // Try to construct from originalPath if available
       if (token.originalPath) {
         path = token.originalPath.split('/').filter(p => p.length > 0);
       } else if (typeof path === 'string') {
@@ -80,15 +75,16 @@ StyleDictionary.registerTransform({
         path = [];
       }
     }
-    
-    // Filter out theme and duplicate md
+
+    const pathArr = Array.isArray(path) ? path : String(path).split('/');
+    const flat = pathArr.flatMap((p) =>
+      typeof p === 'string' && p.includes('/') ? p.split('/').filter(Boolean) : [p]
+    );
+    const theme = flat.includes('Light') ? 'light' : flat.includes('Dark') ? 'dark' : null;
     const filteredPath = filterMd3Path(path);
-    
-    // Join with hyphens and convert to lowercase
-    // No 'token-' prefix for MD3 compliance
-    const result = filteredPath.join('-').toLowerCase();
-    
-    // Ensure valid SCSS variable name (no special characters, no leading/trailing hyphens)
+    const baseName = filteredPath.join('-').toLowerCase();
+    const result = theme ? `${baseName}-${theme}` : baseName;
+
     return result.replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
   }
 });

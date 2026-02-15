@@ -1,134 +1,153 @@
 /**
  * Style Dictionary Preprocessor
- * 
- * This preprocessor:
+ *
  * 1. Adds missing base tokens (paragraphSpacing, paragraphIndent, textCase, textDecoration)
- * 2. Fixes broken token references by resolving them to the correct paths
- * 
- * According to Style Dictionary architecture, references must resolve to existing tokens.
- * Typography tokens reference base tokens using relative paths like {fontFamilies.roboto},
- * but these need to resolve to the correct location within the theme structure.
+ * 2. Resolves typography references explicitly so Style Dictionary does not report broken refs
+ *
+ * Typography tokens use references like {fontFamilies.roboto} which Style Dictionary
+ * cannot resolve due to path structure. This preprocessor replaces them with
+ * actual values before the build.
  */
+
+const THEMES = ['md/Light', 'md/Dark'];
+const TYPO_CATEGORIES = ['display', 'headline', 'body', 'label', 'title'];
+const REF_PATTERN = /^\{([^}]+)\}$/;
+
+const ensurePath = (obj, path, value) => {
+  let current = obj;
+  for (let i = 0; i < path.length - 1; i++) {
+    const key = path[i];
+    if (!current[key] || typeof current[key] !== 'object') {
+      current[key] = {};
+    }
+    current = current[key];
+  }
+  const lastKey = path[path.length - 1];
+  if (!current[lastKey]) {
+    current[lastKey] = value;
+  }
+};
+
+const setPathTokenValue = (obj, path, value, type = 'color') => {
+  let current = obj;
+  for (let i = 0; i < path.length - 1; i++) {
+    const key = path[i];
+    if (!current[key] || typeof current[key] !== 'object') {
+      current[key] = {};
+    }
+    current = current[key];
+  }
+
+  const lastKey = path[path.length - 1];
+  const existing = current[lastKey];
+  if (existing && typeof existing === 'object') {
+    current[lastKey] = {
+      ...existing,
+      value,
+      type: existing.type ?? type,
+    };
+    return;
+  }
+
+  current[lastKey] = { value, type };
+};
+
+const getBaseTokens = (themeObj) => {
+  if (!themeObj) return null;
+  return {
+    fontFamilies: themeObj.fontFamilies,
+    fontWeights: themeObj.fontWeights,
+    lineHeights: themeObj.lineHeights,
+    fontSize: themeObj.fontSize,
+    letterSpacing: themeObj.letterSpacing,
+    paragraphSpacing: themeObj.paragraphSpacing,
+    paragraphIndent: themeObj.paragraphIndent,
+    textCase: themeObj.textCase,
+    textDecoration: themeObj.textDecoration,
+  };
+};
+
+const resolveRef = (ref, bases) => {
+  const [category, key] = ref.split('.');
+  const cat = bases[category];
+  if (!cat || !cat[key]) return null;
+  const token = cat[key];
+  return token?.value ?? null;
+};
+
+const resolveTypographyValue = (val, bases) => {
+  if (typeof val !== 'string') return val;
+  const m = val.match(REF_PATTERN);
+  if (!m) return val;
+  const resolved = resolveRef(m[1], bases);
+  return resolved !== null ? resolved : val;
+};
+
+const resolveTypographyToken = (tokenValue, bases) => {
+  if (!tokenValue || typeof tokenValue !== 'object') return tokenValue;
+  const resolved = {};
+  for (const [k, v] of Object.entries(tokenValue)) {
+    resolved[k] = resolveTypographyValue(v, bases);
+  }
+  return resolved;
+};
+
+const processThemeTypo = (themeObj, bases) => {
+  const md = themeObj?.md;
+  if (!md || !bases) return;
+
+  for (const cat of TYPO_CATEGORIES) {
+    const scale = md[cat];
+    if (!scale || typeof scale !== 'object') continue;
+
+    for (const [variant, token] of Object.entries(scale)) {
+      if (token?.value && typeof token.value === 'object') {
+        token.value = resolveTypographyToken(token.value, bases);
+      }
+    }
+  }
+};
 
 export default {
   name: 'fix-token-references-and-add-missing',
-  
+
   preprocessor: (dictionary) => {
-    const fixedDictionary = JSON.parse(JSON.stringify(dictionary));
-    
-    // Helper to ensure a path exists in the dictionary
-    const ensurePath = (obj, path, value) => {
-      let current = obj;
-      for (let i = 0; i < path.length - 1; i++) {
-        const key = path[i];
-        if (!current[key] || typeof current[key] !== 'object') {
-          current[key] = {};
-        }
-        current = current[key];
-      }
-      const lastKey = path[path.length - 1];
-      if (!current[lastKey]) {
-        current[lastKey] = value;
-      }
-    };
-    
-    // Helper to find a token by path
-    const findToken = (obj, pathParts) => {
-      let current = obj;
-      for (const part of pathParts) {
-        if (current && typeof current === 'object' && part in current) {
-          current = current[part];
-        } else {
-          return null;
-        }
-      }
-      return current && typeof current === 'object' && 'value' in current ? current : null;
-    };
-    
-    // Add missing base tokens and fix references for each theme
-    const themes = ['md/Light', 'md/Dark'];
-    
-    themes.forEach(themePath => {
-      const themeParts = themePath.split('/');
-      let themeObj = fixedDictionary;
-      for (const part of themeParts) {
-        if (themeObj && themeObj[part]) {
-          themeObj = themeObj[part];
-        } else {
-          return; // Theme doesn't exist, skip
-        }
-      }
-      
-      // Ensure md object exists
-      if (!themeObj.md) {
-        themeObj.md = {};
-      }
-      
-      // Add missing paragraphSpacing token
-      ensurePath(themeObj.md, ['paragraphSpacing', '0'], {
+    const fixed = JSON.parse(JSON.stringify(dictionary));
+
+    for (const themeKey of THEMES) {
+      const themeObj = fixed[themeKey];
+      if (!themeObj) continue;
+
+      if (!themeObj.md) themeObj.md = {};
+
+      ensurePath(themeObj, ['paragraphSpacing', '0'], {
         value: 0,
-        type: 'paragraphSpacing'
+        type: 'paragraphSpacing',
       });
-      
-      // Add missing paragraphIndent token
-      ensurePath(themeObj.md, ['paragraphIndent', '0'], {
-        value: 0,
-        type: 'paragraphIndent'
+      ensurePath(themeObj, ['paragraphIndent', '0'], {
+        value: '0px',
+        type: 'dimension',
       });
-      
-      // Add missing textCase token
-      ensurePath(themeObj.md, ['textCase', 'none'], {
+      ensurePath(themeObj, ['textCase', 'none'], {
         value: 'none',
-        type: 'textCase'
+        type: 'textCase',
       });
-      
-      // Add missing textDecoration token
-      ensurePath(themeObj.md, ['textDecoration', 'none'], {
+      ensurePath(themeObj, ['textDecoration', 'none'], {
         value: 'none',
-        type: 'textDecoration'
+        type: 'textDecoration',
       });
-    });
-    
-    // Fix references in typography tokens
-    // Style Dictionary resolves references relative to the token's location
-    // We need to ensure references point to the correct location
-    const fixReferences = (obj, currentPath = []) => {
-      if (typeof obj !== 'object' || obj === null) {
-        return obj;
+
+      if (themeKey === 'md/Dark') {
+        // Keep Storybook dark canvas aligned with product dark background
+        // without editing Figma-exported source tokens directly.
+        setPathTokenValue(themeObj, ['md', 'sys', 'color', 'background'], '#151515');
       }
-      
-      if (Array.isArray(obj)) {
-        return obj.map(item => fixReferences(item, currentPath));
-      }
-      
-      const fixed = {};
-      
-      for (const [key, value] of Object.entries(obj)) {
-        const newPath = [...currentPath, key];
-        
-        if (typeof value === 'string' && value.startsWith('{') && value.endsWith('}')) {
-          // This is a reference - Style Dictionary will resolve it
-          // We just need to ensure the referenced token exists
-          fixed[key] = value;
-        } else if (typeof value === 'object' && value !== null && 'value' in value) {
-          // This is a token with a value
-          if (typeof value.value === 'object' && value.value !== null) {
-            // Token value is an object (like typography tokens)
-            // Fix references within the value object
-            const fixedValue = { ...value };
-            fixedValue.value = fixReferences(value.value, newPath);
-            fixed[key] = fixedValue;
-          } else {
-            fixed[key] = value;
-          }
-        } else {
-          fixed[key] = fixReferences(value, newPath);
-        }
-      }
-      
-      return fixed;
-    };
-    
-    return fixReferences(fixedDictionary);
-  }
+
+      const lightBases = getBaseTokens(fixed['md/Light']);
+      const themeBases = getBaseTokens(themeObj) ?? lightBases;
+      processThemeTypo(themeObj, themeBases);
+    }
+
+    return fixed;
+  },
 };
