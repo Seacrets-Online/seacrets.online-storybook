@@ -22,75 +22,49 @@ This guide documents the process for exporting design tokens (colors, typography
    - The plugin will download a file (e.g., `material-theme.json`).
 
 4. **Update the Repository**
-   - Take the downloaded file and replace the existing file at:
-     `src/tokens/material-theme.json`
-   - **Note**: The file should be named `material-theme.json`.
+   - Merge or replace tokens in `src/tokens/tokens.json` (the only source used by Style Dictionary).
+   - Ensure `md/Light` and `md/Dark` themes include base tokens (fontFamilies, fontWeights, lineHeights, fontSize, letterSpacing) at the theme root.
 
 5. **Build Design Tokens**
    - Run the build script to generate tokens using Style Dictionary:
      ```bash
      npm run build-dictionary
      ```
-   - This generates:
-     - `src/style-dictionary-dist/variables.scss` - SCSS variables for all tokens
-     - `src/style-dictionary-dist/variables.js` - JavaScript tokens for colors
-     - `src/styles/tokens.css` - CSS variables (legacy, used for typography/shapes/elevation)
+   - This generates `src/style-dictionary-dist/theme.css` (CSS variables for light/dark).
 
 6. **Verification**
-   - Run `npm run build-dictionary` and check for any broken reference warnings
+   - Run `npm run build-dictionary` – it must complete without errors (broken references fail the build)
    - Review [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) if you see reference errors
    - Run Storybook (`npm run storybook`) and verify that components reflect the correct colors
 
 ## Token Pipeline Architecture
 
-- **Source of Truth**: `src/tokens/tokens.json` (Standard Design Tokens format)
-- **Secondary Source**: `src/tokens/material-theme.json` (Material Theme Builder export)
+- **Source of Truth**: `src/tokens/tokens.json` (only file used by Style Dictionary)
 - **Build Tool**: [Style Dictionary](https://styledictionary.com/)
-- **Output**: 
-  - `src/style-dictionary-dist/variables.scss` - SCSS variables (all tokens)
-  - `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors only)
-  - `src/styles/tokens.css` - CSS variables (legacy, typography/shapes/elevation)
+- **Output**: `src/style-dictionary-dist/theme.css` - CSS variables for light (`:root`) and dark (`[data-theme="dark"]`)
 
 ### How Style Dictionary Works
 
-Style Dictionary is configured in `style-dictionary.config.js` (JavaScript format to support preprocessors). It reads all JSON files in `src/tokens/**/*.json` and transforms them into multiple output formats.
+Style Dictionary is configured in `style-dictionary.config.js`. It reads `src/tokens/tokens.json` and transforms it into `theme.css`.
 
-**Important**: A preprocessor (`style-dictionary-preprocessor.js`) automatically adds missing base tokens that are referenced but not exported from Figma. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for details on what must be included in the export.
+**Important**: A preprocessor (`style-dictionary-preprocessor.js`) adds missing base tokens and resolves typography references before the build. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for export requirements.
 
 The pipeline implements:
 - **Theme Support**: Automatically handles light and dark mode tokens.
-- **Multiple Formats**: Generates SCSS variables, JavaScript tokens, and CSS variables.
 - **Standard Compliance**: Follows the Design Tokens Community Group specification.
 
 ### Using Tokens in Components
 
-**JavaScript Tokens (Recommended for colors):**
-```javascript
-import * as tokens from '../style-dictionary-dist/variables.js';
-
-const styles = {
-  backgroundColor: tokens.MdLightMdSysColorPrimary,
-  color: tokens.MdLightMdSysColorOnPrimary,
-};
-```
-
-**SCSS Variables:**
-```scss
-@import '../style-dictionary-dist/variables.scss';
-
-.component {
-  background-color: $token-md-light-md-sys-color-primary;
-}
-```
-
-**CSS Variables (Legacy - for typography/shapes/elevation):**
+**CSS Variables (recommended):**
 ```css
 .component {
-  font-family: var(--md-sys-typescale-body-large-font-family);
-  border-radius: var(--md-sys-shape-corner-extra-small);
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 ```
+
+MUI components use the theme from `createTheme.js`, which maps palette values to `var(--md-sys-color-*)`. See [mui-token-bridge.md](./mui-token-bridge.md).
 
 ### Manual Rebuild
 
-While tokens are automatically built during `npm run dev` and `npm run build`, you should run `npm run build-dictionary` manually after updating any JSON file in `src/tokens/` to see the changes immediately in a running Storybook instance.
+While tokens are automatically built during `npm run dev` and `npm run build`, run `npm run build-dictionary` manually after updating `src/tokens/tokens.json` to see changes immediately in a running Storybook instance.

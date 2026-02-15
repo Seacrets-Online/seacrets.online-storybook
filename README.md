@@ -6,41 +6,39 @@ This repository contains the official Design System for Seacrets.Online, built o
 
 The Design System serves as the single source of truth for all UI components and design decisions (tokens). It is used to ensure consistency across the main application and any future frontend projects.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
-- **Framework**: React 18
-- **Documentation**: Storybook 8
+- **Framework**: React 19
+- **Documentation**: Storybook 10
+- **UI Library**: MUI (Material UI) with MD3 theme
 - **Design Guidelines**: Material Design 3 (Expressive)
-- **Styling**: Design Tokens (CSS Variables) & Pure MD3
-- **Testing**: Chromatic / Visual Regression Testing
+- **Styling**: Design Tokens (CSS Variables) + MUI theme bridge
+- **Testing**: Chromatic, addon-a11y
 - **Token Pipeline**: Style Dictionary
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 seacrets.online-storybook/
 ├── .storybook/          # Storybook configuration
-├── .github/
-│   └── workflows/       # CI/CD workflows (Chromatic)
+├── .github/workflows/   # CI/CD (Chromatic)
+├── docs/                # Guides (mui-token-bridge, mui-component-plan)
 ├── src/
-│   ├── components/      # Reusable UI components
+│   ├── components/      # Atomic Design: atoms, molecules, organisms, templates
+│   ├── theme/mui/       # MUI theme from MD3 tokens
 │   ├── tokens/          # Design tokens (JSON from Figma)
-│   ├── stories/         # Story files and documentation
-│   └── styles/         # Global styles and CSS variables
-├── .env                 # Local environment variables (gitignored)
-├── package.json         # Dependencies and scripts
-└── README.md            # This file
+│   ├── stories/         # Stories by level (atoms, molecules, organisms, templates)
+│   └── style-dictionary-dist/  # Generated tokens (theme.css)
+└── README.md
 ```
 
 ### Key Files
 
-- **`.storybook/main.js`**: Storybook configuration
-- **`.storybook/preview.js`**: Global decorators and parameters
-- **`style-dictionary.config.json`**: Style Dictionary configuration
-- **`src/style-dictionary-dist/variables.scss`**: SCSS variables for design tokens
-- **`src/style-dictionary-dist/variables.js`**: JavaScript tokens for colors
-- **`src/style-dictionary-dist/theme.css`**: CSS variables for light/dark themes (auto-generated)
-- **`src/tokens/tokens.json`**: Source design tokens from Figma
+- **`.storybook/main.js`**: Storybook + addon-themes
+- **`.storybook/preview.js`**: MUI ThemeProvider, CssBaseline, theme switcher
+- **`src/theme/mui/createTheme.js`**: MD3 token bridge to MUI theme (palette from CSS vars in theme.css)
+- **`docs/mui-token-bridge.md`**: Token consumption guide
+- **`docs/mui-component-plan.md`**: Component backlog by wave
 
 ## 🚀 Getting Started
 
@@ -89,9 +87,7 @@ npm run chromatic
 
 **Important:** Design tokens are automatically generated before running `dev` or `build` commands via npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates:
 
-- `src/style-dictionary-dist/variables.scss` - SCSS variables
-- `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors)
-- `src/style-dictionary-dist/theme.css` - CSS variables for light/dark
+- `src/style-dictionary-dist/theme.css` - CSS variables for light/dark; source for MUI theme palette
 
 When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
@@ -183,7 +179,6 @@ When making visual changes to components:
 2. **Make your changes** to components:
    - Use CSS variables for colors: `var(--md-sys-color-*)`
    - Use CSS variables for typography/shapes/elevation: `var(--md-sys-typescale-*)`
-   - Or use SCSS variables: `@import '../style-dictionary-dist/variables.scss'`
 3. **Test locally** with `npm run storybook` (tokens auto-built)
 4. **Validate changes** with `npm run validate` (optional)
 5. **Publish to Chromatic** with `npm run chromatic`
@@ -198,15 +193,9 @@ Chromatic will detect:
 - Size and scale changes
 - Any visual differences in component rendering
 
-## 🌗 Theme Switching (Light/Dark)
+## Theme Switching (Light/Dark)
 
-The light theme is the default (`:root`). A dark preview is enabled by setting `data-theme="dark"` on the `html` element. Storybook already applies this via the toolbar.
-
-Example (app integration):
-
-```js
-document.documentElement.setAttribute("data-theme", "dark");
-```
+MUI ThemeProvider + addon-themes provide light/dark switching. The toolbar theme selector switches between `lightTheme` and `darkTheme` from `src/theme/mui/createTheme.js`. The `data-theme` attribute is synced for CSS variables in `theme.css`.
 
 ## 📝 Available Scripts
 
@@ -216,18 +205,23 @@ document.documentElement.setAttribute("data-theme", "dark");
 | `npm run build`            | Build Storybook for production (tokens auto-built)                                                                                  |
 | `npm run storybook`        | Alias for `dev` (tokens auto-built)                                                                                                 |
 | `npm run build-storybook`  | Alias for `build` (tokens auto-built)                                                                                               |
-| `npm run build-dictionary` | Build design tokens from JSON to SCSS/JS using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
+| `npm run build-dictionary` | Build design tokens from JSON to theme.css using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
 | `npm run tokens:build`     | Alias for `build-dictionary`                                                                                                        |
 | `npm run validate`         | Validate imports and build (builds tokens + Vite build)                                                                             |
 | `npm run chromatic`        | Run Chromatic visual regression tests                                                                                               |
 
-**Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates SCSS variables, JavaScript tokens, and CSS variables. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
+**Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates `theme.css`. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.
 
-## 🔗 Related Documentation
+## MUI Integration
+
+- [docs/mui-token-bridge.md](docs/mui-token-bridge.md) - Consuming tokens in MUI
+- [docs/mui-component-plan.md](docs/mui-component-plan.md) - Component backlog
+- [docs/ATOMIC_DESIGN_RULES.md](docs/ATOMIC_DESIGN_RULES.md) - Atomic Design rules
+
+## Related Documentation
 
 - [Frontend Architecture](../seacrets.online-docs/architecture/frontend-architecture.md)
 - [Figma to Storybook Pipeline](../seacrets.online-docs/guides/figma-to-storybook-pipeline.md)
-- [Material Design 3 Implementation Guide](../seacrets.online-docs/guides/material-design3-implementation-guide.md)
 
 ## 🔧 Troubleshooting
 

@@ -15,8 +15,7 @@ Se crearon transforms personalizados que:
 - ✅ Generan el mismo nombre para ambos temas (cumpliendo con MD3)
 
 **Transforms creados**:
-- `name/md3/scss`: Para variables SCSS
-- `name/md3/js`: Para exportaciones JavaScript
+- `name/md3/scss`: Para nombres de variables CSS
 
 ### 2. Configuración Actualizada
 
@@ -25,40 +24,28 @@ Se crearon transforms personalizados que:
 - ✅ Convertido de JSON a JavaScript para soportar transforms personalizados
 - ✅ Eliminado `prefix: 'token'` (ahora `prefix: ''`)
 - ✅ Configurados transforms personalizados en lugar de `transformGroup`
-- ✅ Filtro para JavaScript: solo tokens del tema Light (para evitar duplicados)
+- ✅ Salida única: theme.css con Light/Dark vía `:root` y `[data-theme="dark"]`
 
 ### 3. Tokens Generados (Ahora Cumplen con MD3)
 
-**SCSS** (`variables.scss`):
-```scss
-// ✅ Correcto según MD3
-$md-sys-color-primary: #8d495a;
-$md-sys-color-on-primary: #ffffff;
-$md-sys-color-surface: #f5fafb;
+**theme.css** (única salida actual):
+```css
+:root {
+  --md-sys-color-primary: #8d495a;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-surface: #f5fafb;
+}
 
-// Ambos temas tienen el mismo nombre (correcto)
-// Light: $md-sys-color-primary: #8d495a;
-// Dark:  $md-sys-color-primary: #ffb1c1;
-```
-
-**JavaScript** (`variables.js`):
-```javascript
-// ✅ Correcto según MD3 (solo tema Light para evitar duplicados)
-export const mdSysColorPrimary = "#8d495a";
-export const mdSysColorOnprimary = "#ffffff";
-export const mdSysColorSurface = "#f5fafb";
+[data-theme="dark"] {
+  --md-sys-color-primary: #ffb1c1;
+  --md-sys-color-on-primary: #551d2c;
+  --md-sys-color-surface: #0e1415;
+}
 ```
 
 ### 4. Componentes Actualizados
 
-**Archivos modificados**:
-- ✅ `src/components/Button.jsx`
-- ✅ `src/components/TextField.jsx`
-- ✅ `src/App.jsx`
-- ✅ `src/stories/Button.stories.jsx`
-- ✅ `src/stories/TextField.stories.jsx`
-- ✅ `src/components/TestBox/TestBox.stories.jsx`
-- ✅ `src/styles/components.scss`
+Todos los componentes usan Atomic Design (`atoms/`, `molecules/`, `organisms/`, `templates/`). El bridge MUI (`createTheme.js`) consume `var(--md-sys-color-*)` desde `theme.css`. Los componentes legacy y outputs `variables.js`/`variables.scss` han sido eliminados.
 
 **Mapeo de nombres antiguos a nuevos**:
 
@@ -84,30 +71,14 @@ export const mdSysColorSurface = "#f5fafb";
 
 ### ✅ Manejo de Temas
 
-- **SCSS**: Ambos temas (Light/Dark) tienen el mismo nombre de variable
-- **JavaScript**: Solo tema Light (para evitar duplicados en exports)
+- **theme.css**: `:root` para Light, `[data-theme="dark"]` para Dark
 - **Estructura fuente**: Mantiene `md/Light` y `md/Dark` (correcto)
 
 ## Notas Importantes
 
-### Tokens JavaScript
+### Tokens CSS
 
-Los tokens JavaScript solo incluyen el tema Light para evitar conflictos de nombres duplicados. Si necesitas acceso a tokens Dark, considera:
-
-1. **Opción 1**: Usar SCSS que tiene ambos temas disponibles
-2. **Opción 2**: Crear un sistema de temas que maneje la selección de valores
-3. **Opción 3**: Generar archivos separados para cada tema (`variables-light.js`, `variables-dark.js`)
-
-### Tokens SCSS
-
-Los tokens SCSS tienen el mismo nombre para ambos temas. El sistema de temas de la aplicación debe manejar qué valores usar según el tema activo.
-
-**Ejemplo de uso**:
-```scss
-// Ambos temas disponibles con el mismo nombre
-$md-sys-color-primary: #8d495a;  // Light theme
-$md-sys-color-primary: #ffb1c1;  // Dark theme (sobrescribe si se importa después)
-```
+Los tokens se consumen vía CSS variables en `theme.css`. El atributo `data-theme` en el documento alterna entre light y dark. MUI `createTheme` usa `var(--md-sys-color-*)` directamente.
 
 ## Verificación
 
@@ -117,9 +88,8 @@ Para verificar que todo funciona correctamente:
 # Regenerar tokens
 npm run build-dictionary
 
-# Verificar nombres generados
-grep "md-sys-color-primary" src/style-dictionary-dist/variables.scss
-grep "mdSysColorPrimary" src/style-dictionary-dist/variables.js
+# Verificar theme.css
+grep "md-sys-color-primary" src/style-dictionary-dist/theme.css
 
 # Ejecutar Storybook
 npm run storybook
