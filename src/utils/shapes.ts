@@ -1,4 +1,4 @@
-export const shapeTokens = {
+export const shapeTokens: Record<string, string> = {
   'corner-extra-small': '4px',
   'corner-small': '8px',
   'corner-medium': '12px',
@@ -7,8 +7,7 @@ export const shapeTokens = {
   'corner-full': '9999px',
 };
 
-export const getShapeToken = (tokenName) => {
-  return shapeTokens[tokenName] || '0px';
-};
+export const getShapeToken = (tokenName: string): string =>
+  shapeTokens[tokenName] ?? '0px';
 
 export default shapeTokens;
