@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Link from '../../components/atoms/Link';
+import Icon from '../../components/atoms/Icon';
+import { Star } from '../../icons';
 
 const meta = {
-  title: 'Atoms/Link',
-  component: Link,
+  title: 'Atoms/Icon',
+  component: Icon,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
-} satisfies Meta<typeof Link>;
+} satisfies Meta<typeof Icon>;
 
 export default meta;
 
@@ -14,15 +15,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    href: '#',
-    children: 'Link',
+    icon: Star,
   },
 };
 
-export const Primary: Story = {
+export const CustomSize: Story = {
   args: {
-    href: '#',
-    children: 'Primary link',
-    color: 'primary',
+    icon: Star,
+    sx: { fontSize: 32 },
   },
 };

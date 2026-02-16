@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Alert from '../../components/atoms/Alert';
 
-const meta: Meta<typeof Alert> = {
+const meta = {
   title: 'Atoms/Alert',
   component: Alert,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   argTypes: {
     severity: {
       control: 'select',
       options: ['error', 'warning', 'info', 'success'],
     },
   },
-};
+} satisfies Meta<typeof Alert>;
 
 export default meta;
 

@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import IconButton from '../../components/atoms/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Delete as DeleteIcon } from '@mui/icons-material';
 
-const meta: Meta<typeof IconButton> = {
+const meta = {
   title: 'Atoms/IconButton',
   component: IconButton,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   argTypes: {
     color: {
       control: 'select',
@@ -16,7 +17,7 @@ const meta: Meta<typeof IconButton> = {
       options: ['small', 'medium', 'large'],
     },
   },
-};
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 

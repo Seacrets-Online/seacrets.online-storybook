@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FileUpload from '../../components/organisms/FileUpload';
 
-const meta: Meta<typeof FileUpload> = {
+const meta = {
   title: 'Organisms/FileUpload',
   component: FileUpload,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof FileUpload>;
 
 export default meta;
 
@@ -13,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onSelect: (f) => console.log('Selected', f),
+    onSelect: () => {},
     label: 'Choose file',
     hint: 'PNG, JPG up to 5MB',
   },

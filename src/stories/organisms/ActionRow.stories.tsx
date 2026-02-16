@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ActionRow from '../../components/organisms/ActionRow';
 
-const meta: Meta<typeof ActionRow> = {
+const meta = {
   title: 'Organisms/ActionRow',
   component: ActionRow,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof ActionRow>;
 
 export default meta;
 

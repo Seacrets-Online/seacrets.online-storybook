@@ -6,10 +6,12 @@ Consolidated backlog for Seacrets.Online design system. Components are classifie
 
 | Level | Imports | Description |
 |-------|---------|-------------|
-| Atoms | None from design system | Primitives only |
+| Atoms | None from design system; MUI (`@mui/material`) allowed | Primitives only |
 | Molecules | Atoms only | Composed inputs, labels |
 | Organisms | Atoms + Molecules | Forms, cards, lists |
 | Templates | Organisms + layout | Page structure, no API logic |
+
+MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The restriction applies only to design-system component imports (atoms, molecules, organisms, templates).
 
 ## Naming Convention
 

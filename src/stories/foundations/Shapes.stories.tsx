@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import { shapeTokens } from '../../utils/shapes';
@@ -59,10 +58,10 @@ const ShapeShowcase = () => {
   );
 };
 
-const meta: Meta = {
+const meta = {
   title: 'Foundations/Shapes & Shadows',
   component: ShapeShowcase,
-};
+} satisfies Meta<typeof ShapeShowcase>;
 
 export default meta;
 

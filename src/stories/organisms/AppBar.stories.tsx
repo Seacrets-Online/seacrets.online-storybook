@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import AppBar from '../../components/organisms/AppBar';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Menu as MenuIcon } from '@mui/icons-material';
 
-const meta: Meta<typeof AppBar> = {
+const meta = {
   title: 'Organisms/AppBar',
   component: AppBar,
   parameters: { layout: 'fullscreen' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof AppBar>;
 
 export default meta;
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useTheme, Box, Typography, Grid, Paper } from '@mui/material';
 
@@ -54,13 +53,13 @@ const ColorsShowcase = () => {
   );
 };
 
-const meta: Meta = {
+const meta = {
   title: 'Foundations/Colors',
   component: ColorsShowcase,
   parameters: {
     layout: 'fullscreen',
   },
-};
+} satisfies Meta<typeof ColorsShowcase>;
 
 export default meta;
 

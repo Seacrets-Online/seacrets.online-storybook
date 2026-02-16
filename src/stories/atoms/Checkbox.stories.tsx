@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Checkbox from '../../components/atoms/Checkbox';
 
-const meta: Meta<typeof Checkbox> = {
+const meta = {
   title: 'Atoms/Checkbox',
   component: Checkbox,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
 

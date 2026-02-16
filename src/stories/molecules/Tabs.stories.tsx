@@ -1,29 +1,33 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from 'storybook/preview-api';
 import Tabs from '../../components/molecules/Tabs';
 
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: 'Molecules/Tabs',
   component: Tabs,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => {
-    const [value, setValue] = useState(0);
+  args: {
+    value: 0,
+    tabs: [
+      { label: 'Tab 1', value: 0 },
+      { label: 'Tab 2', value: 1 },
+      { label: 'Tab 3', value: 2 },
+    ],
+  },
+  render: function Render(args) {
+    const [, updateArgs] = useArgs();
     return (
       <Tabs
-        value={value}
-        onChange={(_e, v) => setValue(v)}
-        tabs={[
-          { label: 'Tab 1', value: 0 },
-          { label: 'Tab 2', value: 1 },
-          { label: 'Tab 3', value: 2 },
-        ]}
+        {...args}
+        onChange={(_, v) => updateArgs({ value: v })}
       />
     );
   },
