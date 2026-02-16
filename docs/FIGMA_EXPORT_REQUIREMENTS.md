@@ -2,30 +2,26 @@
 
 This document describes what must be included in the token export from Figma to ensure Style Dictionary builds successfully without errors.
 
-## Preprocessor Resolution
+## Pipeline: @tokens-studio/sd-transforms
 
-A preprocessor (`style-dictionary-preprocessor.js`) runs before the build and:
+The build uses [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms), the official Token Studio integration for Style Dictionary. It:
 
-1. **Adds missing base tokens**: `paragraphSpacing`, `paragraphIndent`, `textCase`, `textDecoration` when absent
-2. **Resolves typography references**: Replaces `{fontFamilies.roboto}`, `{fontWeights.roboto-0}`, etc. with actual values so Style Dictionary does not report broken references
+- Parses Token Studio single-file export (md/Light, md/Dark, Primitives/Mode 1)
+- Aligns Token Studio token types to DTCG
+- Handles typography and references when present
 
-Typography tokens use references like `{fontFamilies.roboto}` that Style Dictionary cannot resolve due to path structure. The preprocessor resolves them explicitly per theme (`md/Light`, `md/Dark`).
+## Token Studio Compatibility (Required)
 
-## Required Base Tokens
+The repository includes a pre-build validation step in `scripts/build-dictionary.ts` to fail fast when token exports are incompatible.
 
-The following base tokens **must be included** in the export for each theme (Light and Dark) at the theme root (e.g. `md/Light.fontFamilies`, not `md/Light.md.fontFamilies`):
+- Required token format: **W3C DTCG** (`$value` / `$type`)
+- Required token set names:
+  - `md/Light`
+  - `md/Dark`
+  - `Primitives/Mode 1`
+- Required metadata: `"$metadata".tokenSetOrder` must include the same set names
 
-- `fontFamilies` (e.g. `roboto`)
-- `fontWeights` (e.g. `roboto-0`, `roboto-1`, `roboto-2`)
-- `lineHeights` (indices `0` through `29` as referenced by typography)
-- `fontSize` (indices `0` through `10`)
-- `letterSpacing` (indices `0` through `6`)
-
-The preprocessor adds if missing: `paragraphSpacing.0`, `paragraphIndent.0`, `textCase.none`, `textDecoration.none`.
-
-## Token Reference Structure
-
-Typography tokens reference base tokens using: `{fontFamilies.roboto}`, `{fontWeights.roboto-0}`, `{lineHeights.N}`, `{fontSize.N}`, `{letterSpacing.N}`, etc. Base tokens live at the theme root (e.g. `md/Light.fontFamilies.roboto`).
+If any rule is violated, `npm run build-dictionary` fails before Style Dictionary execution.
 
 ## Verification Checklist
 
@@ -40,22 +36,15 @@ After exporting from Figma and updating `src/tokens/tokens.json`:
 ```
 md/Light/
   md/
-    display/, headline/, body/, label/, title/  (typography)
-    ref/, sys/                                 (colors)
-  fontFamilies/
-  fontWeights/
-  lineHeights/
-  fontSize/
-  letterSpacing/
-  paragraphSpacing/   (preprocessor adds if missing)
-  paragraphIndent/
-  textCase/
-  textDecoration/
+    ref/, sys/        (colors)
+    [typography if exported]
 
 md/Dark/
   md/
-    ref/, sys/        (colors; typography may inherit from Light)
-  [base tokens if different from Light]
+    ref/, sys/        (colors)
+
+Primitives/Mode 1/
+  md/sys/spacing/     (optional)
 ```
 
 ## Notes

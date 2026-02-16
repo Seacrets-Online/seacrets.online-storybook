@@ -6,6 +6,30 @@ This guide documents the process for exporting design tokens (colors, typography
 - Edit access to the Figma file.
 - **Material Theme Builder** plugin installed in Figma.
 
+## Token Studio Settings (if you export with Tokens Studio)
+
+This repository expects **W3C DTCG** token format.
+
+- Set **Token Format = W3C DTCG** (`$value` / `$type`).
+- Keep token set names exactly as:
+  - `md/Light`
+  - `md/Dark`
+  - `Primitives/Mode 1`
+- Keep token references/aliases enabled (for example `{fontFamilies.roboto}` in typography).
+- Optional: define Theme Groups (for design-side workflows) so Light/Dark mapping is explicit when exporting Variables in Figma.
+
+The token build validates these expectations before running Style Dictionary and fails fast when they are not met.
+
+### Optional Theme Group Setup (Figma Variables workflow)
+
+If your design team exports Variables from Token Studio, configure a Theme Group such as `Color Mode`:
+
+1. Add theme option `Light` with `md/Light` enabled and `md/Dark` disabled.
+2. Add theme option `Dark` with `md/Dark` enabled and `md/Light` disabled.
+3. Keep `Primitives/Mode 1` enabled on both options when needed by your variable strategy.
+
+This is optional for the code pipeline, but reduces ambiguity when exporting Light/Dark modes to Figma Variables.
+
 ## Export Steps
 
 1. **Open the Plugin**
@@ -24,6 +48,7 @@ This guide documents the process for exporting design tokens (colors, typography
 4. **Update the Repository**
    - Merge or replace tokens in `src/tokens/tokens.json` (the only source used by Style Dictionary).
    - Ensure `md/Light` and `md/Dark` themes include base tokens (fontFamilies, fontWeights, lineHeights, fontSize, letterSpacing) at the theme root.
+   - Preserve the expected token set names and metadata ordering (`$metadata.tokenSetOrder`) used by this repository.
 
 5. **Build Design Tokens**
    - Run the build script to generate tokens using Style Dictionary:
@@ -39,15 +64,15 @@ This guide documents the process for exporting design tokens (colors, typography
 
 ## Token Pipeline Architecture
 
-- **Source of Truth**: `src/tokens/tokens.json` (only file used by Style Dictionary)
-- **Build Tool**: [Style Dictionary](https://styledictionary.com/)
+- **Source of Truth**: `src/tokens/tokens.json` (only file used by Style Dictionary). **NEVER edit this file manually; it is exported from Figma.**
+- **Build Tool**: [Style Dictionary](https://styledictionary.com/) + [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms)
 - **Output**: `src/style-dictionary-dist/theme.css` - CSS variables for light (`:root`) and dark (`[data-theme="dark"]`)
 
-### How Style Dictionary Works
+### How the Pipeline Works
 
-Style Dictionary is configured in `style-dictionary.config.js`. It reads `src/tokens/tokens.json` and transforms it into `theme.css`.
+The pipeline uses `@tokens-studio/sd-transforms` (official Token Studio integration) and Style Dictionary. The config reads `src/tokens/tokens.json`, runs the `tokens-studio` preprocessor and transform group, and outputs `theme.css`.
 
-**Important**: A preprocessor (`style-dictionary-preprocessor.js`) adds missing base tokens and resolves typography references before the build. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for export requirements.
+**Important**: sd-transforms handles Token Studio format parsing, DTCG type alignment, and typography when present. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for export requirements.
 
 The pipeline implements:
 - **Theme Support**: Automatically handles light and dark mode tokens.

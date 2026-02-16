@@ -13,9 +13,9 @@ Consolidated backlog for Seacrets.Online design system. Components are classifie
 
 ## Naming Convention
 
-- Component: `ComponentName.jsx`
-- Stories: `ComponentName.stories.jsx`
-- Tests: `ComponentName.test.jsx`
+- Component: `ComponentName.tsx`
+- Stories: `ComponentName.stories.tsx`
+- Tests: `ComponentName.test.tsx`
 - Story title: `Atoms/Button`, `Molecules/TextField`, etc.
 
 ---

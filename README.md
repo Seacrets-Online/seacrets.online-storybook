@@ -8,6 +8,7 @@ The Design System serves as the single source of truth for all UI components and
 
 ## Technology Stack
 
+- **Language**: TypeScript (strict mode)
 - **Framework**: React 19
 - **Documentation**: Storybook 10
 - **UI Library**: MUI (Material UI) with MD3 theme
@@ -34,9 +35,9 @@ seacrets.online-storybook/
 
 ### Key Files
 
-- **`.storybook/main.js`**: Storybook + addon-themes
-- **`.storybook/preview.js`**: MUI ThemeProvider, CssBaseline, theme switcher
-- **`src/theme/mui/createTheme.js`**: MD3 token bridge to MUI theme (palette from CSS vars in theme.css)
+- **`.storybook/main.ts`**: Storybook + addon-themes
+- **`.storybook/preview.ts`**: MUI ThemeProvider, CssBaseline, theme switcher
+- **`src/theme/mui/createTheme.ts`**: MD3 token bridge to MUI theme (palette from CSS vars in theme.css)
 - **`docs/mui-token-bridge.md`**: Token consumption guide
 - **`docs/mui-component-plan.md`**: Component backlog by wave
 
@@ -195,7 +196,7 @@ Chromatic will detect:
 
 ## Theme Switching (Light/Dark)
 
-MUI ThemeProvider + addon-themes provide light/dark switching. The toolbar theme selector switches between `lightTheme` and `darkTheme` from `src/theme/mui/createTheme.js`. The `data-theme` attribute is synced for CSS variables in `theme.css`.
+MUI ThemeProvider + addon-themes provide light/dark switching. The toolbar theme selector switches between `lightTheme` and `darkTheme` from `src/theme/mui/createTheme.ts`. The `data-theme` attribute is synced for CSS variables in `theme.css`.
 
 ## 📝 Available Scripts
 
@@ -207,7 +208,8 @@ MUI ThemeProvider + addon-themes provide light/dark switching. The toolbar theme
 | `npm run build-storybook`  | Alias for `build` (tokens auto-built)                                                                                               |
 | `npm run build-dictionary` | Build design tokens from JSON to theme.css using **Style Dictionary** (runs automatically via hooks, run manually when tokens change) |
 | `npm run tokens:build`     | Alias for `build-dictionary`                                                                                                        |
-| `npm run validate`         | Validate imports and build (builds tokens + Vite build)                                                                             |
+| `npm run typecheck`        | Run TypeScript compiler check (no emit)                                                                                              |
+| `npm run validate`         | Validate imports, types, and build (builds tokens + typecheck + Vite build)                                                          |
 | `npm run chromatic`        | Run Chromatic visual regression tests                                                                                               |
 
 **Note:** Commands marked with "(tokens auto-built)" automatically run `build-dictionary` before execution using npm lifecycle hooks (`predev`, `prebuild`). The transformation is handled by **Style Dictionary** and generates `theme.css`. When you modify token JSON files during development, run `npm run build-dictionary` manually to rebuild them. Storybook will automatically detect the updated files and reload.

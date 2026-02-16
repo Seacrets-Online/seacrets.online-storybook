@@ -27,9 +27,9 @@ src/stories/
 
 ## Naming
 
-- `ComponentName.jsx` - component file
-- `ComponentName.stories.jsx` - Storybook stories
-- `ComponentName.test.jsx` - tests
+- `ComponentName.tsx` - component file
+- `ComponentName.stories.tsx` - Storybook stories
+- `ComponentName.test.tsx` - tests
 - Story title: `Atoms/Button`, `Molecules/TextField`, etc.
 
 ## Enforcement
