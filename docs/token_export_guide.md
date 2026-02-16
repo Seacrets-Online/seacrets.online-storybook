@@ -6,6 +6,30 @@ This guide documents the process for exporting design tokens (colors, typography
 - Edit access to the Figma file.
 - **Material Theme Builder** plugin installed in Figma.
 
+## Token Studio Settings (if you export with Tokens Studio)
+
+This repository expects **W3C DTCG** token format.
+
+- Set **Token Format = W3C DTCG** (`$value` / `$type`).
+- Keep token set names exactly as:
+  - `md/Light`
+  - `md/Dark`
+  - `Primitives/Mode 1`
+- Keep token references/aliases enabled (for example `{fontFamilies.roboto}` in typography).
+- Optional: define Theme Groups (for design-side workflows) so Light/Dark mapping is explicit when exporting Variables in Figma.
+
+The token build validates these expectations before running Style Dictionary and fails fast when they are not met.
+
+### Optional Theme Group Setup (Figma Variables workflow)
+
+If your design team exports Variables from Token Studio, configure a Theme Group such as `Color Mode`:
+
+1. Add theme option `Light` with `md/Light` enabled and `md/Dark` disabled.
+2. Add theme option `Dark` with `md/Dark` enabled and `md/Light` disabled.
+3. Keep `Primitives/Mode 1` enabled on both options when needed by your variable strategy.
+
+This is optional for the code pipeline, but reduces ambiguity when exporting Light/Dark modes to Figma Variables.
+
 ## Export Steps
 
 1. **Open the Plugin**
@@ -22,75 +46,50 @@ This guide documents the process for exporting design tokens (colors, typography
    - The plugin will download a file (e.g., `material-theme.json`).
 
 4. **Update the Repository**
-   - Take the downloaded file and replace the existing file at:
-     `src/tokens/material-theme.json`
-   - **Note**: The file should be named `material-theme.json`.
+   - Merge or replace tokens in `src/tokens/tokens.json` (the only source used by Style Dictionary).
+   - Ensure `md/Light` and `md/Dark` themes include base tokens (fontFamilies, fontWeights, lineHeights, fontSize, letterSpacing) at the theme root.
+   - Preserve the expected token set names and metadata ordering (`$metadata.tokenSetOrder`) used by this repository.
 
 5. **Build Design Tokens**
    - Run the build script to generate tokens using Style Dictionary:
      ```bash
      npm run build-dictionary
      ```
-   - This generates:
-     - `src/style-dictionary-dist/variables.scss` - SCSS variables for all tokens
-     - `src/style-dictionary-dist/variables.js` - JavaScript tokens for colors
-     - `src/styles/tokens.css` - CSS variables (legacy, used for typography/shapes/elevation)
+   - This generates `src/style-dictionary-dist/theme.css` (CSS variables for light/dark).
 
 6. **Verification**
-   - Run `npm run build-dictionary` and check for any broken reference warnings
+   - Run `npm run build-dictionary` – it must complete without errors (broken references fail the build)
    - Review [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) if you see reference errors
    - Run Storybook (`npm run storybook`) and verify that components reflect the correct colors
 
 ## Token Pipeline Architecture
 
-- **Source of Truth**: `src/tokens/tokens.json` (Standard Design Tokens format)
-- **Secondary Source**: `src/tokens/material-theme.json` (Material Theme Builder export)
-- **Build Tool**: [Style Dictionary](https://styledictionary.com/)
-- **Output**: 
-  - `src/style-dictionary-dist/variables.scss` - SCSS variables (all tokens)
-  - `src/style-dictionary-dist/variables.js` - JavaScript tokens (colors only)
-  - `src/styles/tokens.css` - CSS variables (legacy, typography/shapes/elevation)
+- **Source of Truth**: `src/tokens/tokens.json` (only file used by Style Dictionary). **NEVER edit this file manually; it is exported from Figma.**
+- **Build Tool**: [Style Dictionary](https://styledictionary.com/) + [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms)
+- **Output**: `src/style-dictionary-dist/theme.css` - CSS variables for light (`:root`) and dark (`[data-theme="dark"]`)
 
-### How Style Dictionary Works
+### How the Pipeline Works
 
-Style Dictionary is configured in `style-dictionary.config.js` (JavaScript format to support preprocessors). It reads all JSON files in `src/tokens/**/*.json` and transforms them into multiple output formats.
+The pipeline uses `@tokens-studio/sd-transforms` (official Token Studio integration) and Style Dictionary. The config reads `src/tokens/tokens.json`, runs the `tokens-studio` preprocessor and transform group, and outputs `theme.css`.
 
-**Important**: A preprocessor (`style-dictionary-preprocessor.js`) automatically adds missing base tokens that are referenced but not exported from Figma. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for details on what must be included in the export.
+**Important**: sd-transforms handles Token Studio format parsing, DTCG type alignment, and typography when present. See [FIGMA_EXPORT_REQUIREMENTS.md](./FIGMA_EXPORT_REQUIREMENTS.md) for export requirements.
 
 The pipeline implements:
 - **Theme Support**: Automatically handles light and dark mode tokens.
-- **Multiple Formats**: Generates SCSS variables, JavaScript tokens, and CSS variables.
 - **Standard Compliance**: Follows the Design Tokens Community Group specification.
 
 ### Using Tokens in Components
 
-**JavaScript Tokens (Recommended for colors):**
-```javascript
-import * as tokens from '../style-dictionary-dist/variables.js';
-
-const styles = {
-  backgroundColor: tokens.MdLightMdSysColorPrimary,
-  color: tokens.MdLightMdSysColorOnPrimary,
-};
-```
-
-**SCSS Variables:**
-```scss
-@import '../style-dictionary-dist/variables.scss';
-
-.component {
-  background-color: $token-md-light-md-sys-color-primary;
-}
-```
-
-**CSS Variables (Legacy - for typography/shapes/elevation):**
+**CSS Variables (recommended):**
 ```css
 .component {
-  font-family: var(--md-sys-typescale-body-large-font-family);
-  border-radius: var(--md-sys-shape-corner-extra-small);
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 ```
+
+MUI components use the theme from `createTheme.js`, which maps palette values to `var(--md-sys-color-*)`. See [mui-token-bridge.md](./mui-token-bridge.md).
 
 ### Manual Rebuild
 
-While tokens are automatically built during `npm run dev` and `npm run build`, you should run `npm run build-dictionary` manually after updating any JSON file in `src/tokens/` to see the changes immediately in a running Storybook instance.
+While tokens are automatically built during `npm run dev` and `npm run build`, run `npm run build-dictionary` manually after updating `src/tokens/tokens.json` to see changes immediately in a running Storybook instance.
