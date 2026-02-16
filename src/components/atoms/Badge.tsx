@@ -1,8 +1,6 @@
 import MuiBadge from '@mui/material/Badge';
+import type { BadgeProps } from '@mui/material/Badge';
 
-/**
- * Badge atom - MUI Badge with MD3 theme.
- */
 export const Badge = ({
   badgeContent = 0,
   color = 'primary',
@@ -11,7 +9,7 @@ export const Badge = ({
   max = 99,
   children,
   ...props
-}) => (
+}: BadgeProps) => (
   <MuiBadge
     badgeContent={badgeContent}
     color={color}

@@ -1,15 +1,13 @@
 import MuiSkeleton from '@mui/material/Skeleton';
+import type { SkeletonProps } from '@mui/material/Skeleton';
 
-/**
- * Skeleton atom - MUI Skeleton with MD3 theme.
- */
 export const Skeleton = ({
   variant = 'text',
   width,
   height,
   animation = 'pulse',
   ...props
-}) => (
+}: SkeletonProps) => (
   <MuiSkeleton
     variant={variant}
     width={width}

@@ -1,16 +1,13 @@
 import MuiCheckbox from '@mui/material/Checkbox';
+import type { CheckboxProps } from '@mui/material/Checkbox';
 
-/**
- * Checkbox atom - MUI Checkbox with MD3 theme.
- * No design-system imports.
- */
 export const Checkbox = ({
   checked = false,
   disabled = false,
   indeterminate = false,
   'aria-label': ariaLabel,
   ...props
-}) => (
+}: CheckboxProps) => (
   <MuiCheckbox
     checked={checked}
     disabled={disabled}

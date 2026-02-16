@@ -1,12 +1,11 @@
-import IconButton from '../../components/atoms/IconButton.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import IconButton from '../../components/atoms/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default {
+const meta: Meta<typeof IconButton> = {
   title: 'Atoms/IconButton',
   component: IconButton,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     color: {
       control: 'select',
@@ -19,14 +18,18 @@ export default {
   },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     children: <DeleteIcon />,
     'aria-label': 'Delete',
   },
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     children: <DeleteIcon />,
     'aria-label': 'Delete',

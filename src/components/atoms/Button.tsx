@@ -1,8 +1,11 @@
 import MuiButton from '@mui/material/Button';
-import { shapeTokens } from '../../utils/shapes.js';
+import type { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import { shapeTokens } from '../../utils/shapes';
 
-/** Standard sizing: M3 component heights (px). */
-const SIZES = {
+export type ButtonSize = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
+type ButtonShape = 'pill' | 'rounded';
+
+const SIZES: Record<ButtonSize, { minHeight: number; paddingInline: number; fontSize: string }> = {
   extraSmall: { minHeight: 28, paddingInline: 12, fontSize: '0.75rem' },
   small: { minHeight: 32, paddingInline: 16, fontSize: '0.8125rem' },
   medium: { minHeight: 40, paddingInline: 20, fontSize: '0.875rem' },
@@ -10,7 +13,7 @@ const SIZES = {
   extraLarge: { minHeight: 56, paddingInline: 28, fontSize: '1rem' },
 };
 
-const MUI_SIZE_MAP = {
+const MUI_SIZE_MAP: Record<ButtonSize, 'small' | 'medium' | 'large'> = {
   extraSmall: 'small',
   small: 'small',
   medium: 'medium',
@@ -18,12 +21,11 @@ const MUI_SIZE_MAP = {
   extraLarge: 'large',
 };
 
-/**
- * Button atom - MUI Button with MD3 theme.
- * Variants: filled (contained), outlined, text.
- * Sizes: extraSmall, small, medium, large, extraLarge (standard sizing).
- * Shape: pill (full radius), rounded (corner-large).
- */
+export interface ButtonProps extends Omit<MuiButtonProps, 'size'> {
+  size?: ButtonSize;
+  shape?: ButtonShape;
+}
+
 export const Button = ({
   variant = 'contained',
   size = 'medium',
@@ -36,7 +38,7 @@ export const Button = ({
   endIcon,
   sx,
   ...props
-}) => {
+}: ButtonProps) => {
   const sizeConfig = SIZES[size] ?? SIZES.medium;
   const muiSize = MUI_SIZE_MAP[size] ?? 'medium';
   const borderRadius =
@@ -53,10 +55,10 @@ export const Button = ({
       endIcon={endIcon}
       sx={{
         minHeight: sizeConfig.minHeight,
-        paddingLeft: sizeConfig.paddingInline,
-        paddingRight: sizeConfig.paddingInline,
+        px: { xs: Math.max(8, sizeConfig.paddingInline / 2), sm: sizeConfig.paddingInline }, // Responsive padding
         borderRadius,
         fontSize: sizeConfig.fontSize,
+        maxWidth: '100%', // Ensure button doesn't overflow container
         ...sx,
       }}
       {...props}

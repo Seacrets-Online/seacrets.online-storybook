@@ -1,11 +1,10 @@
-import Alert from '../../components/atoms/Alert.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import Alert from '../../components/atoms/Alert';
 
-export default {
+const meta: Meta<typeof Alert> = {
   title: 'Atoms/Alert',
   component: Alert,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     severity: {
       control: 'select',
@@ -14,28 +13,32 @@ export default {
   },
 };
 
-export const Info = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Info: Story = {
   args: {
     severity: 'info',
     children: 'This is an info alert.',
   },
 };
 
-export const Success = {
+export const Success: Story = {
   args: {
     severity: 'success',
     children: 'This is a success alert.',
   },
 };
 
-export const Warning = {
+export const Warning: Story = {
   args: {
     severity: 'warning',
     children: 'This is a warning alert.',
   },
 };
 
-export const Error = {
+export const Error: Story = {
   args: {
     severity: 'error',
     children: 'This is an error alert.',

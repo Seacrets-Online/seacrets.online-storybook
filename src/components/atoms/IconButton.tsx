@@ -1,9 +1,10 @@
 import MuiIconButton from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton';
 
-/**
- * IconButton atom - MUI IconButton with MD3 theme.
- * No design-system imports.
- */
+export interface IconButtonPropsExtended extends IconButtonProps {
+  'aria-label'?: string;
+}
+
 export const IconButton = ({
   color = 'primary',
   size = 'medium',
@@ -11,7 +12,7 @@ export const IconButton = ({
   'aria-label': ariaLabel,
   children,
   ...props
-}) => (
+}: IconButtonPropsExtended) => (
   <MuiIconButton
     color={color}
     size={size}

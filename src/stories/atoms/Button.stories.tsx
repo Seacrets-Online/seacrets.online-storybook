@@ -1,17 +1,17 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from 'storybook/test';
 import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import StarIcon from '@mui/icons-material/Star';
-import Button from '../../components/atoms/Button.jsx';
+import Button from '../../components/atoms/Button';
+import type { ButtonSize } from '../../components/atoms/Button';
 
-const SIZES = ['extraSmall', 'small', 'medium', 'large', 'extraLarge'];
+const SIZES: ButtonSize[] = ['extraSmall', 'small', 'medium', 'large', 'extraLarge'];
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     variant: {
       control: 'select',
@@ -19,7 +19,7 @@ export default {
     },
     size: {
       control: 'select',
-      options: ['extraSmall', 'small', 'medium', 'large', 'extraLarge'],
+      options: SIZES,
     },
     shape: {
       control: 'select',
@@ -32,7 +32,11 @@ export default {
   },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     children: 'Button',
     variant: 'contained',
@@ -40,7 +44,7 @@ export const Default = {
   },
 };
 
-export const WithClick = {
+export const WithClick: Story = {
   args: {
     children: 'Click me',
     variant: 'contained',
@@ -51,29 +55,28 @@ export const WithClick = {
   },
 };
 
-export const Outlined = {
+export const Outlined: Story = {
   args: {
     children: 'Outlined',
     variant: 'outlined',
   },
 };
 
-export const Text = {
+export const Text: Story = {
   args: {
     children: 'Text',
     variant: 'text',
   },
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     children: 'Disabled',
     disabled: true,
   },
 };
 
-/** Figma design: 5 sizes, pill vs rounded, flat vs elevated, icon + Label. */
-export const FigmaSizingShowcase = {
+export const FigmaSizingShowcase: Story = {
   render: () => (
     <Box
       sx={{
@@ -87,10 +90,10 @@ export const FigmaSizingShowcase = {
       }}
     >
       {[
-        { shape: 'pill', disableElevation: true },
-        { shape: 'pill', disableElevation: true },
-        { shape: 'pill', disableElevation: true },
-        { shape: 'rounded', disableElevation: true },
+        { shape: 'pill' as const, disableElevation: true },
+        { shape: 'pill' as const, disableElevation: true },
+        { shape: 'pill' as const, disableElevation: true },
+        { shape: 'rounded' as const, disableElevation: true },
       ].map((opts, col) => (
         <Box key={col} sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
           {SIZES.map((size) => (
@@ -109,10 +112,10 @@ export const FigmaSizingShowcase = {
         </Box>
       ))}
       {[
-        { shape: 'pill', disableElevation: false },
-        { shape: 'pill', disableElevation: false },
-        { shape: 'pill', disableElevation: false },
-        { shape: 'rounded', disableElevation: false },
+        { shape: 'pill' as const, disableElevation: false },
+        { shape: 'pill' as const, disableElevation: false },
+        { shape: 'pill' as const, disableElevation: false },
+        { shape: 'rounded' as const, disableElevation: false },
       ].map((opts, col) => (
         <Box key={col} sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
           {SIZES.map((size) => (
@@ -134,7 +137,7 @@ export const FigmaSizingShowcase = {
   ),
 };
 
-export const WithIconAndLabel = {
+export const WithIconAndLabel: Story = {
   args: {
     children: 'Label',
     variant: 'contained',
@@ -143,7 +146,7 @@ export const WithIconAndLabel = {
   },
 };
 
-export const PillShape = {
+export const PillShape: Story = {
   args: {
     children: 'Pill button',
     variant: 'contained',
@@ -151,7 +154,7 @@ export const PillShape = {
   },
 };
 
-export const AllSizes = {
+export const AllSizes: Story = {
   render: () => (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
       {SIZES.map((size) => (

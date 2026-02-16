@@ -1,16 +1,13 @@
 import MuiAlert from '@mui/material/Alert';
+import type { AlertProps } from '@mui/material/Alert';
 
-/**
- * Alert atom - MUI Alert with MD3 theme.
- * No design-system imports.
- */
 export const Alert = ({
   severity = 'info',
   variant = 'standard',
   onClose,
   children,
   ...props
-}) => (
+}: AlertProps) => (
   <MuiAlert severity={severity} variant={variant} onClose={onClose} {...props}>
     {children}
   </MuiAlert>
