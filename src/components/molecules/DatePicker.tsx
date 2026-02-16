@@ -1,9 +1,15 @@
 import MuiTextField from '@mui/material/TextField';
+import type { TextFieldProps } from '@mui/material/TextField';
 
-/**
- * DatePicker molecule - Wrapper for date input.
- * Uses native date input for simplicity (no @mui/x-date-pickers dep).
- */
+export interface DatePickerProps extends Omit<TextFieldProps, 'variant' | 'type'> {
+  label?: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  error?: boolean;
+  helperText?: string;
+}
+
 export const DatePicker = ({
   label,
   value,
@@ -12,7 +18,7 @@ export const DatePicker = ({
   error = false,
   helperText,
   ...props
-}) => (
+}: DatePickerProps) => (
   <MuiTextField
     type="date"
     label={label}

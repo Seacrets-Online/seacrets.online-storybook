@@ -1,8 +1,6 @@
 import MuiChip from '@mui/material/Chip';
+import type { ChipProps } from '@mui/material/Chip';
 
-/**
- * Chip molecule - MUI Chip with MD3 theme.
- */
 export const Chip = ({
   label,
   onDelete,
@@ -13,7 +11,7 @@ export const Chip = ({
   icon,
   avatar,
   ...props
-}) => (
+}: ChipProps) => (
   <MuiChip
     label={label}
     onDelete={onDelete}

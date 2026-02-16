@@ -1,19 +1,24 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import List from '@mui/material/List';
-import ListItem from '../../components/molecules/ListItem.jsx';
-import Avatar from '../../components/atoms/Avatar.jsx';
+import ListItem from '../../components/molecules/ListItem';
+import Avatar from '../../components/atoms/Avatar';
 
-export default {
+const meta: Meta<typeof ListItem> = {
   title: 'Molecules/ListItem',
   component: ListItem,
   parameters: { layout: 'centered' },
   decorators: [(Story) => <List sx={{ width: 320 }}><Story /></List>],
 };
 
-export const Simple = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Simple: Story = {
   args: { primary: 'List item', secondary: 'Secondary text' },
 };
 
-export const WithAvatar = {
+export const WithAvatar: Story = {
   args: {
     primary: 'User',
     secondary: 'user@example.com',

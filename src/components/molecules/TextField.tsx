@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import MuiTextField from '@mui/material/TextField';
+import type { TextFieldProps } from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '../atoms/IconButton.jsx';
+import IconButton from '../atoms/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-/**
- * TextField molecule - MUI TextField with password toggle.
- * Composes atoms only (IconButton).
- */
+export interface TextFieldPropsExtended extends Omit<TextFieldProps, 'variant'> {
+  showPasswordToggle?: boolean;
+}
+
 export const TextField = ({
   type: typeProp = 'text',
   label,
@@ -21,7 +22,7 @@ export const TextField = ({
   helperText,
   showPasswordToggle,
   ...props
-}) => {
+}: TextFieldPropsExtended) => {
   const isPassword = typeProp === 'password';
   const [showPassword, setShowPassword] = useState(false);
   const type = isPassword && showPassword ? 'text' : typeProp;

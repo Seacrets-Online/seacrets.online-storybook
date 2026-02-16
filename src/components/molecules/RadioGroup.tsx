@@ -1,11 +1,18 @@
 import MuiRadioGroup from '@mui/material/RadioGroup';
 import MuiFormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '../atoms/Radio.jsx';
+import Radio from '../atoms/Radio';
+import type { RadioGroupProps } from '@mui/material/RadioGroup';
 
-/**
- * RadioGroup molecule - MUI RadioGroup with RadioLabel.
- * Composes Radio atom.
- */
+export interface RadioOption {
+  value: string;
+  label: string;
+}
+
+export interface RadioGroupPropsExtended extends Omit<RadioGroupProps, 'children'> {
+  options?: RadioOption[];
+  disabled?: boolean;
+}
+
 export const RadioGroup = ({
   value,
   onChange,
@@ -14,7 +21,7 @@ export const RadioGroup = ({
   options = [],
   disabled = false,
   ...props
-}) => (
+}: RadioGroupPropsExtended) => (
   <MuiRadioGroup
     value={value}
     onChange={onChange}

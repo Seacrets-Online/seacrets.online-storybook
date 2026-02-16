@@ -2,11 +2,24 @@ import MuiSelect from '@mui/material/Select';
 import MuiMenuItem from '@mui/material/MenuItem';
 import MuiFormControl from '@mui/material/FormControl';
 import MuiInputLabel from '@mui/material/InputLabel';
+import type { SelectChangeEvent } from '@mui/material/Select';
 
-/**
- * Select molecule - MUI Select with label.
- * Composes MUI primitives (no atoms).
- */
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+export interface SelectProps {
+  label?: string;
+  value?: string;
+  onChange?: (event: SelectChangeEvent<string>) => void;
+  options?: SelectOption[];
+  disabled?: boolean;
+  error?: boolean;
+  fullWidth?: boolean;
+  [key: string]: unknown;
+}
+
 export const Select = ({
   label,
   value = '',
@@ -16,7 +29,7 @@ export const Select = ({
   error = false,
   fullWidth = true,
   ...props
-}) => (
+}: SelectProps) => (
   <MuiFormControl fullWidth={fullWidth} disabled={disabled} error={error}>
     {label && <MuiInputLabel id={`${label}-label`}>{label}</MuiInputLabel>}
     <MuiSelect

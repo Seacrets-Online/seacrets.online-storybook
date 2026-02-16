@@ -1,11 +1,10 @@
-import TextField from '../../components/molecules/TextField.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import TextField from '../../components/molecules/TextField';
 
-export default {
+const meta: Meta<typeof TextField> = {
   title: 'Molecules/TextField',
   component: TextField,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
       <div style={{ width: 320 }}>
@@ -15,14 +14,18 @@ export default {
   ],
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     label: 'Label',
     placeholder: 'Placeholder',
   },
 };
 
-export const WithPasswordToggle = {
+export const WithPasswordToggle: Story = {
   args: {
     label: 'Password',
     type: 'password',
@@ -30,7 +33,7 @@ export const WithPasswordToggle = {
   },
 };
 
-export const Error = {
+export const Error: Story = {
   args: {
     label: 'Email',
     error: true,
@@ -38,7 +41,7 @@ export const Error = {
   },
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     label: 'Disabled',
     disabled: true,
