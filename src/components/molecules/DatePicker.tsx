@@ -1,5 +1,5 @@
-import MuiTextField from '@mui/material/TextField';
-import type { TextFieldProps } from '@mui/material/TextField';
+import { TextField as MuiTextField } from '@mui/material';
+import type { TextFieldProps } from '@mui/material';
 
 export interface DatePickerProps extends Omit<TextFieldProps, 'variant' | 'type'> {
   label?: string;

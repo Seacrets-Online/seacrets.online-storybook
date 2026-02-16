@@ -1,5 +1,5 @@
-import MuiDivider from '@mui/material/Divider';
-import type { DividerProps } from '@mui/material/Divider';
+import { Divider as MuiDivider } from '@mui/material';
+import type { DividerProps } from '@mui/material';
 
 export const Divider = ({
   orientation = 'horizontal',

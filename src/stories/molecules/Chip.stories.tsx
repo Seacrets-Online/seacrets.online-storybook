@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Chip from '../../components/molecules/Chip';
 
-const meta: Meta<typeof Chip> = {
+const meta = {
   title: 'Molecules/Chip',
   component: Chip,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof Chip>;
 
 export default meta;
 

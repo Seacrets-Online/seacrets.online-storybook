@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import AuthForm from '../../components/organisms/AuthForm';
 
-const meta: Meta<typeof AuthForm> = {
+const meta = {
   title: 'Organisms/AuthForm',
   component: AuthForm,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   decorators: [
     (Story) => (
       <div style={{ width: 360 }}>
@@ -12,7 +13,7 @@ const meta: Meta<typeof AuthForm> = {
       </div>
     ),
   ],
-};
+} satisfies Meta<typeof AuthForm>;
 
 export default meta;
 
@@ -20,13 +21,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onSubmit: (data) => console.log('Login', data),
+    onSubmit: () => {},
   },
 };
 
 export const WithForgotPassword: Story = {
   args: {
-    onSubmit: (data) => console.log('Login', data),
-    onForgotPassword: () => console.log('Forgot password'),
+    onSubmit: () => {},
+    onForgotPassword: () => {},
+  },
+};
+
+export const WithRememberMe: Story = {
+  args: {
+    onSubmit: () => {},
+    onForgotPassword: () => {},
+    showRememberMe: true,
+  },
+};
+
+export const ForgotPassword: Story = {
+  args: {
+    mode: 'forgotPassword',
+    onRequestReset: (email: string) => console.log('Request reset for', email),
   },
 };

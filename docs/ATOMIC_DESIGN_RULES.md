@@ -20,10 +20,12 @@ src/stories/
 
 | Level | Allowed Imports |
 |-------|-----------------|
-| Atoms | MUI primitives, React, no other design-system components |
+| Atoms | MUI primitives (`@mui/material`), React, no other design-system components |
 | Molecules | Atoms only |
 | Organisms | Atoms + Molecules |
 | Templates | Organisms + layout primitives |
+
+MUI imports are allowed at any level. The restriction applies to imports between design-system component levels (atoms, molecules, organisms, templates).
 
 ## Naming
 

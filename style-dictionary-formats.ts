@@ -44,6 +44,13 @@ const toCssVarName = (pathParts: PathInput): string => {
   return `--${cleaned}`;
 };
 
+const hexToRgb = (hex: string): string | null => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `${parseInt(result[1], 16)} ${parseInt(result[2], 16)} ${parseInt(result[3], 16)}`
+    : null;
+};
+
 StyleDictionary.registerFormat({
   name: 'css/variables-theme',
   format: ({
@@ -66,7 +73,16 @@ StyleDictionary.registerFormat({
     dictionary.allTokens.forEach((token) => {
       const tokenType = token.$type ?? token.type;
       if (tokenType !== 'color') return;
-      const theme = getThemeFromPath(token.path ?? token.originalPath);
+      
+      // Determine theme from path
+      let theme: 'light' | 'dark' | null = null;
+      const parts = normalizePathParts(token.path ?? token.originalPath);
+      
+      // Check for 'Light' or 'Dark' in path parts
+      if (parts.some(p => p.toLowerCase() === 'light')) theme = 'light';
+      else if (parts.some(p => p.toLowerCase() === 'dark')) theme = 'dark';
+      
+      // If no theme found, skip (or maybe default to light? but let's be safe)
       if (!theme) return;
 
       const varName = toCssVarName(token.path ?? token.originalPath);
@@ -76,6 +92,19 @@ StyleDictionary.registerFormat({
         lightVars.set(varName, value);
       } else if (theme === 'dark') {
         darkVars.set(varName, value);
+      }
+
+      // Generate channel variable if value is hex
+      if (value.startsWith('#')) {
+        const channels = hexToRgb(value);
+        if (channels) {
+          const channelVarName = `${varName}-channel`;
+          if (theme === 'light') {
+            lightVars.set(channelVarName, channels);
+          } else if (theme === 'dark') {
+            darkVars.set(channelVarName, channels);
+          }
+        }
       }
     });
 

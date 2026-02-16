@@ -33,3 +33,10 @@ lerna-debug.log*
 *.swp
 *.swo
 *~
+
+# Local config (keep .cursor/rules/ versioned)
+.agents/
+.cursor/mcp.json
+
+# Debug/temp scripts
+check_exports.js

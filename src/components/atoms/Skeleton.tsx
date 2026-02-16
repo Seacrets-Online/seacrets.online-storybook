@@ -1,5 +1,5 @@
-import MuiSkeleton from '@mui/material/Skeleton';
-import type { SkeletonProps } from '@mui/material/Skeleton';
+import { Skeleton as MuiSkeleton } from '@mui/material';
+import type { SkeletonProps } from '@mui/material';
 
 export const Skeleton = ({
   variant = 'text',

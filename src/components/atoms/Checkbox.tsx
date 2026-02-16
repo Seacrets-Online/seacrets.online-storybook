@@ -1,5 +1,5 @@
-import MuiCheckbox from '@mui/material/Checkbox';
-import type { CheckboxProps } from '@mui/material/Checkbox';
+import { Checkbox as MuiCheckbox } from '@mui/material';
+import type { CheckboxProps } from '@mui/material';
 
 export const Checkbox = ({
   checked = false,

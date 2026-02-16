@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from 'storybook/test';
-import Box from '@mui/material/Box';
-import AddIcon from '@mui/icons-material/Add';
-import StarIcon from '@mui/icons-material/Star';
+import { Box } from '@mui/material';
+import { Star as StarIcon } from '@mui/icons-material';
 import Button from '../../components/atoms/Button';
 import type { ButtonSize } from '../../components/atoms/Button';
 
 const SIZES: ButtonSize[] = ['extraSmall', 'small', 'medium', 'large', 'extraLarge'];
 
-const meta: Meta<typeof Button> = {
+const meta = {
   title: 'Atoms/Button',
   component: Button,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
@@ -30,7 +30,7 @@ const meta: Meta<typeof Button> = {
       options: ['primary', 'secondary', 'error', 'success'],
     },
   },
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 
@@ -74,67 +74,6 @@ export const Disabled: Story = {
     children: 'Disabled',
     disabled: true,
   },
-};
-
-export const FigmaSizingShowcase: Story = {
-  render: () => (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: 3,
-        p: 3,
-        bgcolor: 'action.hover',
-        borderRadius: 2,
-        maxWidth: 900,
-      }}
-    >
-      {[
-        { shape: 'pill' as const, disableElevation: true },
-        { shape: 'pill' as const, disableElevation: true },
-        { shape: 'pill' as const, disableElevation: true },
-        { shape: 'rounded' as const, disableElevation: true },
-      ].map((opts, col) => (
-        <Box key={col} sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
-          {SIZES.map((size) => (
-            <Button
-              key={size}
-              variant="contained"
-              color="primary"
-              size={size}
-              shape={opts.shape}
-              disableElevation={opts.disableElevation}
-              startIcon={size === 'extraSmall' ? <AddIcon /> : <StarIcon />}
-            >
-              Label
-            </Button>
-          ))}
-        </Box>
-      ))}
-      {[
-        { shape: 'pill' as const, disableElevation: false },
-        { shape: 'pill' as const, disableElevation: false },
-        { shape: 'pill' as const, disableElevation: false },
-        { shape: 'rounded' as const, disableElevation: false },
-      ].map((opts, col) => (
-        <Box key={col} sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
-          {SIZES.map((size) => (
-            <Button
-              key={size}
-              variant="contained"
-              color="primary"
-              size={size}
-              shape={opts.shape}
-              disableElevation={opts.disableElevation}
-              startIcon={size === 'extraSmall' ? <AddIcon /> : <StarIcon />}
-            >
-              Label
-            </Button>
-          ))}
-        </Box>
-      ))}
-    </Box>
-  ),
 };
 
 export const WithIconAndLabel: Story = {

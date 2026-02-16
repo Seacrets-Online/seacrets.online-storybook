@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import List from '@mui/material/List';
+import { List } from '@mui/material';
 import ListItem from '../../components/molecules/ListItem';
 import Avatar from '../../components/atoms/Avatar';
 
-const meta: Meta<typeof ListItem> = {
+const meta = {
   title: 'Molecules/ListItem',
   component: ListItem,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   decorators: [(Story) => <List sx={{ width: 320 }}><Story /></List>],
-};
+} satisfies Meta<typeof ListItem>;
 
 export default meta;
 

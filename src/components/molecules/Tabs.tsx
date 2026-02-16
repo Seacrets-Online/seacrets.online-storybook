@@ -1,6 +1,5 @@
-import MuiTabs from '@mui/material/Tabs';
-import MuiTab from '@mui/material/Tab';
-import type { TabsProps } from '@mui/material/Tabs';
+import { Tabs as MuiTabs, Tab as MuiTab } from '@mui/material';
+import type { TabsProps } from '@mui/material';
 
 export interface TabItem {
   label: string;

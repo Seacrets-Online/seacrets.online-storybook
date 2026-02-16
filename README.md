@@ -235,7 +235,7 @@ If you encounter peer dependency conflicts, use:
 npm install --legacy-peer-deps
 ```
 
-This is required due to Vite 7 compatibility with Storybook 8.
+This is required due to Vite 7 compatibility with Storybook 10.
 
 ### Chromatic not detecting changes
 

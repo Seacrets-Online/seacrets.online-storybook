@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Typography, Box, Divider } from '@mui/material';
 
@@ -36,10 +35,10 @@ const TypographyShowcase = () => {
   );
 };
 
-const meta: Meta = {
+const meta = {
   title: 'Foundations/Typography',
   component: TypographyShowcase,
-};
+} satisfies Meta<typeof TypographyShowcase>;
 
 export default meta;
 

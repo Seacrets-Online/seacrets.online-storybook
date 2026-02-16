@@ -1,8 +1,10 @@
-import MuiSelect from '@mui/material/Select';
-import MuiMenuItem from '@mui/material/MenuItem';
-import MuiFormControl from '@mui/material/FormControl';
-import MuiInputLabel from '@mui/material/InputLabel';
-import type { SelectChangeEvent } from '@mui/material/Select';
+import {
+  Select as MuiSelect,
+  MenuItem as MuiMenuItem,
+  FormControl as MuiFormControl,
+  InputLabel as MuiInputLabel,
+} from '@mui/material';
+import type { SelectChangeEvent } from '@mui/material';
 
 export interface SelectOption {
   value: string;

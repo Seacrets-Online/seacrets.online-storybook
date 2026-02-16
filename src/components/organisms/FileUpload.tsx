@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import Box from '@mui/material/Box';
+import { Box, Typography } from '@mui/material';
+import type { BoxProps } from '@mui/material';
 import Button from '../atoms/Button';
-import Typography from '@mui/material/Typography';
-import type { BoxProps } from '@mui/material/Box';
 
 export interface FileUploadProps extends Omit<BoxProps, 'onSelect'> {
   onSelect?: (files: File | File[]) => void;

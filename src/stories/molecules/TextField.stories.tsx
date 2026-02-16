@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TextField from '../../components/molecules/TextField';
 
-const meta: Meta<typeof TextField> = {
+const meta = {
   title: 'Molecules/TextField',
   component: TextField,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   decorators: [
     (Story) => (
       <div style={{ width: 320 }}>
@@ -12,7 +13,7 @@ const meta: Meta<typeof TextField> = {
       </div>
     ),
   ],
-};
+} satisfies Meta<typeof TextField>;
 
 export default meta;
 

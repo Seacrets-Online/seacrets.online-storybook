@@ -2,12 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card from '../../components/organisms/Card';
 import Avatar from '../../components/atoms/Avatar';
 
-const meta: Meta<typeof Card> = {
+const meta = {
   title: 'Organisms/Card',
   component: Card,
   parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   decorators: [(Story) => <div style={{ width: 360 }}><Story /></div>],
-};
+} satisfies Meta<typeof Card>;
 
 export default meta;
 

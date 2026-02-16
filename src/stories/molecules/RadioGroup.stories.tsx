@@ -1,28 +1,42 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from 'storybook/preview-api';
 import RadioGroup from '../../components/molecules/RadioGroup';
-const meta: Meta<typeof RadioGroup> = {
+
+const options = [
+  { value: 'a', label: 'Option A' },
+  { value: 'b', label: 'Option B' },
+  { value: 'c', label: 'Option C' },
+];
+
+const meta = {
   title: 'Molecules/RadioGroup',
   component: RadioGroup,
   parameters: { layout: 'centered' },
-};
+  tags: ['autodocs'],
+  args: {
+    value: 'a',
+    name: 'radio-demo',
+    options,
+  },
+  argTypes: {
+    value: {
+      control: 'radio',
+      options: ['a', 'b', 'c'],
+    },
+  },
+} satisfies Meta<typeof RadioGroup>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => {
-    const [value, setValue] = useState('a');
+  render: function Render(args) {
+    const [, updateArgs] = useArgs();
     return (
       <RadioGroup
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        options={[
-          { value: 'a', label: 'Option A' },
-          { value: 'b', label: 'Option B' },
-          { value: 'c', label: 'Option C' },
-        ]}
+        {...args}
+        onChange={(e) => updateArgs({ value: e.target.value })}
       />
     );
   },
