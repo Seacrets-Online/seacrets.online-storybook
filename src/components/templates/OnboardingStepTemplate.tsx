@@ -1,12 +1,20 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import LinearProgress from '../atoms/LinearProgress.jsx';
-import Button from '../atoms/Button.jsx';
+import LinearProgress from '../atoms/LinearProgress';
+import Button from '../atoms/Button';
+import type { BoxProps } from '@mui/material/Box';
 
-/**
- * OnboardingStepTemplate - Step layout with progress.
- * Composes atoms (LinearProgress, Button).
- */
+export interface OnboardingStepTemplateProps extends BoxProps {
+  title?: string;
+  subtitle?: string;
+  step?: number;
+  totalSteps?: number;
+  onNext?: () => void;
+  onBack?: () => void;
+  nextLabel?: string;
+  backLabel?: string;
+}
+
 export const OnboardingStepTemplate = ({
   title,
   subtitle,
@@ -18,7 +26,7 @@ export const OnboardingStepTemplate = ({
   backLabel = 'Back',
   children,
   ...props
-}) => (
+}: OnboardingStepTemplateProps) => (
   <Box sx={{ maxWidth: 480, mx: 'auto', p: 3 }} {...props}>
     <LinearProgress
       variant="determinate"

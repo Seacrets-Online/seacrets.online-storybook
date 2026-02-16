@@ -1,14 +1,17 @@
-import LoginTemplate from '../../components/templates/LoginTemplate.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import LoginTemplate from '../../components/templates/LoginTemplate';
 
-export default {
+const meta: Meta<typeof LoginTemplate> = {
   title: 'Templates/LoginTemplate',
   component: LoginTemplate,
-  parameters: {
-    layout: 'fullscreen',
-  },
+  parameters: { layout: 'fullscreen' },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'Sign in',
     subtitle: 'Enter your credentials to continue',
@@ -16,7 +19,7 @@ export const Default = {
   },
 };
 
-export const WithForgotPassword = {
+export const WithForgotPassword: Story = {
   args: {
     title: 'Sign in',
     onLogin: (data) => console.log('Login', data),

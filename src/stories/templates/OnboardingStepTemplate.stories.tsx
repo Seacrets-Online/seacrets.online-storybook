@@ -1,12 +1,17 @@
-import OnboardingStepTemplate from '../../components/templates/OnboardingStepTemplate.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import OnboardingStepTemplate from '../../components/templates/OnboardingStepTemplate';
 
-export default {
+const meta: Meta<typeof OnboardingStepTemplate> = {
   title: 'Templates/OnboardingStepTemplate',
   component: OnboardingStepTemplate,
   parameters: { layout: 'centered' },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'Step 1',
     subtitle: 'Enter your details',
