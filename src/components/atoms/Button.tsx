@@ -1,16 +1,16 @@
-import MuiButton from '@mui/material/Button';
-import type { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import { Button as MuiButton } from '@mui/material';
+import type { ButtonProps as MuiButtonProps, SxProps, Theme } from '@mui/material';
 import { shapeTokens } from '../../utils/shapes';
 
 export type ButtonSize = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 type ButtonShape = 'pill' | 'rounded';
 
-const SIZES: Record<ButtonSize, { minHeight: number; paddingInline: number; fontSize: string }> = {
-  extraSmall: { minHeight: 28, paddingInline: 12, fontSize: '0.75rem' },
-  small: { minHeight: 32, paddingInline: 16, fontSize: '0.8125rem' },
-  medium: { minHeight: 40, paddingInline: 20, fontSize: '0.875rem' },
-  large: { minHeight: 48, paddingInline: 24, fontSize: '0.875rem' },
-  extraLarge: { minHeight: 56, paddingInline: 28, fontSize: '1rem' },
+const SIZES: Record<ButtonSize, { minHeight: number; paddingInline: number; paddingBlock: number; fontSize: string }> = {
+  extraSmall: { minHeight: 28, paddingInline: 12, paddingBlock: 4, fontSize: '0.75rem' },
+  small: { minHeight: 32, paddingInline: 12, paddingBlock: 4, fontSize: '0.8125rem' },
+  medium: { minHeight: 40, paddingInline: 12, paddingBlock: 4, fontSize: '0.875rem' },
+  large: { minHeight: 48, paddingInline: 12, paddingBlock: 4, fontSize: '0.875rem' },
+  extraLarge: { minHeight: 48, paddingInline: 12, paddingBlock: 4, fontSize: '1rem' },
 };
 
 const MUI_SIZE_MAP: Record<ButtonSize, 'small' | 'medium' | 'large'> = {
@@ -44,6 +44,15 @@ export const Button = ({
   const borderRadius =
     shape === 'pill' ? shapeTokens['corner-full'] : shapeTokens['corner-large'];
 
+  const baseButtonSx = {
+    minHeight: sizeConfig.minHeight,
+    px: { xs: Math.max(8, sizeConfig.paddingInline / 2), sm: sizeConfig.paddingInline },
+    py: `${sizeConfig.paddingBlock}px`,
+    borderRadius,
+    fontSize: sizeConfig.fontSize,
+    maxWidth: '100%',
+  };
+
   return (
     <MuiButton
       variant={variant}
@@ -53,14 +62,7 @@ export const Button = ({
       disableElevation={disableElevation}
       startIcon={startIcon}
       endIcon={endIcon}
-      sx={{
-        minHeight: sizeConfig.minHeight,
-        px: { xs: Math.max(8, sizeConfig.paddingInline / 2), sm: sizeConfig.paddingInline }, // Responsive padding
-        borderRadius,
-        fontSize: sizeConfig.fontSize,
-        maxWidth: '100%', // Ensure button doesn't overflow container
-        ...sx,
-      }}
+      sx={[baseButtonSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
       {...props}
     >
       {children}

@@ -1,5 +1,5 @@
-import MuiLinearProgress from '@mui/material/LinearProgress';
-import type { LinearProgressProps } from '@mui/material/LinearProgress';
+import { LinearProgress as MuiLinearProgress } from '@mui/material';
+import type { LinearProgressProps } from '@mui/material';
 
 export const LinearProgress = ({
   variant = 'indeterminate',

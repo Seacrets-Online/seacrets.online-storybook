@@ -1,5 +1,5 @@
-import MuiLink from '@mui/material/Link';
-import type { LinkProps } from '@mui/material/Link';
+import { Link as MuiLink } from '@mui/material';
+import type { LinkProps } from '@mui/material';
 
 export const Link = ({
   href,

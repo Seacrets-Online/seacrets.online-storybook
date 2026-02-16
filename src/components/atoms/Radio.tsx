@@ -1,13 +1,19 @@
-import MuiRadio from '@mui/material/Radio';
-import type { RadioProps } from '@mui/material/Radio';
+import { forwardRef } from 'react';
+import { Radio as MuiRadio } from '@mui/material';
+import type { RadioProps } from '@mui/material';
 
-export const Radio = ({
-  checked = false,
-  disabled = false,
-  'aria-label': ariaLabel,
-  ...props
-}: RadioProps) => (
-  <MuiRadio checked={checked} disabled={disabled} aria-label={ariaLabel} {...props} />
-);
+export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio(
+  { disabled = false, 'aria-label': ariaLabel, ...props },
+  ref
+) {
+  return (
+    <MuiRadio
+      ref={ref}
+      disabled={disabled}
+      aria-label={ariaLabel}
+      {...props}
+    />
+  );
+});
 
 export default Radio;

@@ -1,5 +1,5 @@
-import MuiIconButton from '@mui/material/IconButton';
-import type { IconButtonProps } from '@mui/material/IconButton';
+import { IconButton as MuiIconButton } from '@mui/material';
+import type { IconButtonProps } from '@mui/material';
 
 export interface IconButtonPropsExtended extends IconButtonProps {
   'aria-label'?: string;

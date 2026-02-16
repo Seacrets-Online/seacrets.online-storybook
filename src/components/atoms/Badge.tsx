@@ -1,5 +1,5 @@
-import MuiBadge from '@mui/material/Badge';
-import type { BadgeProps } from '@mui/material/Badge';
+import { Badge as MuiBadge } from '@mui/material';
+import type { BadgeProps } from '@mui/material';
 
 export const Badge = ({
   badgeContent = 0,
