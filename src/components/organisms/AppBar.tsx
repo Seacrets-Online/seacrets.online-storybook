@@ -1,8 +1,6 @@
-import MuiAppBar from '@mui/material/AppBar';
-import MuiToolbar from '@mui/material/Toolbar';
-import MuiTypography from '@mui/material/Typography';
+import { AppBar as MuiAppBar, Toolbar as MuiToolbar, Typography as MuiTypography } from '@mui/material';
+import type { AppBarProps } from '@mui/material';
 import IconButton from '../atoms/IconButton';
-import type { AppBarProps } from '@mui/material/AppBar';
 
 export interface AppBarPropsExtended extends AppBarProps {
   title?: string;

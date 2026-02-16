@@ -1,8 +1,7 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Box, Typography } from '@mui/material';
+import type { BoxProps } from '@mui/material';
 import Button from '../atoms/Button';
 import Divider from '../atoms/Divider';
-import type { BoxProps } from '@mui/material/Box';
 
 export interface SocialAuthProvider {
   id?: string;
@@ -22,6 +21,15 @@ export const SocialAuthRow = ({
   ...props
 }: SocialAuthRowProps) => (
   <Box {...props}>
+    {dividerLabel && providers.length > 0 && (
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+        <Divider sx={{ flex: 1 }} />
+        <Typography component="span" variant="body2" sx={{ px: 2 }}>
+          {dividerLabel}
+        </Typography>
+        <Divider sx={{ flex: 1 }} />
+      </Box>
+    )}
     {providers.map((p, i) => (
       <Button
         key={p.id ?? i}
@@ -34,15 +42,6 @@ export const SocialAuthRow = ({
         {p.label}
       </Button>
     ))}
-    {dividerLabel && providers.length > 0 && (
-      <Box sx={{ display: 'flex', alignItems: 'center', my: 2 }}>
-        <Divider sx={{ flex: 1 }} />
-        <Typography component="span" variant="body2" sx={{ px: 2 }}>
-          {dividerLabel}
-        </Typography>
-        <Divider sx={{ flex: 1 }} />
-      </Box>
-    )}
   </Box>
 );
 

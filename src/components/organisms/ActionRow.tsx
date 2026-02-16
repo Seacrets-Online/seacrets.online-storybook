@@ -1,6 +1,6 @@
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
+import type { BoxProps, SxProps, Theme } from '@mui/material';
 import Button from '../atoms/Button';
-import type { BoxProps } from '@mui/material/Box';
 import type { ButtonProps } from '../atoms/Button';
 
 export interface ActionRowProps extends BoxProps {
@@ -8,20 +8,20 @@ export interface ActionRowProps extends BoxProps {
   secondaryActions?: ButtonProps[];
 }
 
+const baseActionRowSx = {
+  display: 'flex',
+  gap: 1,
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+};
+
 export const ActionRow = ({
   primaryAction,
   secondaryActions = [],
+  sx,
   ...props
 }: ActionRowProps) => (
-  <Box
-    sx={{
-      display: 'flex',
-      gap: 1,
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-    }}
-    {...props}
-  >
+  <Box sx={[baseActionRowSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
     {secondaryActions.map((action, i) => (
       <Button key={i} variant="outlined" {...action} />
     ))}

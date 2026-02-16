@@ -1,11 +1,13 @@
 import React from 'react';
-import MuiCard from '@mui/material/Card';
-import MuiCardContent from '@mui/material/CardContent';
-import MuiCardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
+import {
+  Card as MuiCard,
+  CardContent as MuiCardContent,
+  CardActions as MuiCardActions,
+  Typography,
+} from '@mui/material';
+import type { CardProps } from '@mui/material';
 import Button from '../atoms/Button';
 import Avatar from '../atoms/Avatar';
-import type { CardProps } from '@mui/material/Card';
 import type { ButtonProps } from '../atoms/Button';
 
 export type CardAction = ButtonProps | React.ReactNode;

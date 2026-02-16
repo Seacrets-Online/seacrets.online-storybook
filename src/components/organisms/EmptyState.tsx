@@ -1,7 +1,6 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Box, Typography } from '@mui/material';
+import type { BoxProps, SxProps, Theme } from '@mui/material';
 import Button from '../atoms/Button';
-import type { BoxProps } from '@mui/material/Box';
 
 export interface EmptyStateProps extends BoxProps {
   title?: string;
@@ -11,26 +10,26 @@ export interface EmptyStateProps extends BoxProps {
   icon?: React.ReactNode;
 }
 
+const baseEmptyStateSx = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  py: 6,
+  px: 3,
+  textAlign: 'center',
+};
+
 export const EmptyState = ({
   title = 'No items',
   description,
   actionLabel,
   onAction,
   icon,
+  sx,
   ...props
 }: EmptyStateProps) => (
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      py: 6,
-      px: 3,
-      textAlign: 'center',
-    }}
-    {...props}
-  >
+  <Box sx={[baseEmptyStateSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
     {icon && <Box sx={{ mb: 2, color: 'text.secondary' }}>{icon}</Box>}
     <Typography variant="h6" gutterBottom>
       {title}

@@ -1,38 +1,62 @@
 import { useState } from 'react';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
+import type { BoxProps } from '@mui/material';
 import Button from '../atoms/Button';
 import TextField from '../molecules/TextField';
-import type { BoxProps } from '@mui/material/Box';
+import LabeledCheckbox from '../molecules/LabeledCheckbox';
 
 export interface AuthFormCredentials {
   email: string;
   password: string;
+  rememberMe?: boolean;
 }
 
 export interface AuthFormProps extends Omit<BoxProps, 'onSubmit'> {
+  /** Form mode: login (email + password) or forgotPassword (email only) */
+  mode?: 'login' | 'forgotPassword';
   onSubmit?: (credentials: AuthFormCredentials) => void;
   onForgotPassword?: () => void;
+  /** Called when user submits email on forgotPassword mode */
+  onRequestReset?: (email: string) => void;
   submitLabel?: string;
+  sendResetLabel?: string;
   emailLabel?: string;
   passwordLabel?: string;
   forgotPasswordLabel?: string;
+  rememberMeLabel?: string;
+  showRememberMe?: boolean;
+  /** Dark filled input style for auth screens on gradient background */
+  inputVariant?: 'default' | 'auth-filled';
 }
 
 export const AuthForm = ({
+  mode = 'login',
   onSubmit,
   onForgotPassword,
+  onRequestReset,
   submitLabel = 'Sign in',
+  sendResetLabel = 'Send reset link',
   emailLabel = 'Email',
   passwordLabel = 'Password',
-  forgotPasswordLabel = 'Forgot password?',
+  forgotPasswordLabel = 'Forgot Password?',
+  rememberMeLabel = 'Remember Me',
+  showRememberMe = false,
+  inputVariant = 'default',
   ...props
 }: AuthFormProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const isForgotPassword = mode === 'forgotPassword';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit?.({ email, password });
+    if (isForgotPassword) {
+      onRequestReset?.(email);
+    } else {
+      onSubmit?.({ email, password, rememberMe: showRememberMe ? rememberMe : undefined });
+    }
   };
 
   return (
@@ -45,33 +69,52 @@ export const AuthForm = ({
         required
         fullWidth
         margin="normal"
-        autoComplete="email"
+        autoComplete={isForgotPassword ? 'email' : 'email'}
       />
-      <TextField
-        label={passwordLabel}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-        showPasswordToggle
-        autoComplete="current-password"
-      />
-      {onForgotPassword && (
-        <Box sx={{ mt: 1, mb: 2, display: 'flex', justifyContent: 'flex-end' }}>
-          <Button
-            variant="text"
-            type="button"
-            onClick={() => onForgotPassword()}
-            sx={{ maxWidth: '100%' }}
-          >
-            {forgotPasswordLabel}
-          </Button>
-        </Box>
+      {!isForgotPassword && (
+        <>
+          <TextField
+            label={passwordLabel}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            fullWidth
+            margin="normal"
+            autoComplete="current-password"
+          />
+          {(onForgotPassword || showRememberMe) && (
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 4, width: '100%' }}>
+              {onForgotPassword ? (
+                <Button
+                  variant="text"
+                  type="button"
+                  onClick={() => onForgotPassword()}
+                >
+                  {forgotPasswordLabel}
+                </Button>
+              ) : (
+                <span />
+              )}
+              {showRememberMe && (
+                <LabeledCheckbox
+                  label={rememberMeLabel}
+                  checked={rememberMe}
+                  onChange={(_, checked) => setRememberMe(checked)}
+                />
+              )}
+            </Box>
+          )}
+        </>
       )}
-      <Button type="submit" variant="contained" fullWidth size="large">
-        {submitLabel}
+      <Button
+        type="submit"
+        variant="contained"
+        fullWidth
+        size="extraLarge"
+        shape="pill"
+      >
+        {isForgotPassword ? sendResetLabel : submitLabel}
       </Button>
     </Box>
   );

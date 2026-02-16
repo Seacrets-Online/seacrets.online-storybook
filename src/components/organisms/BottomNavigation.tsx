@@ -1,6 +1,8 @@
-import MuiBottomNavigation from '@mui/material/BottomNavigation';
-import MuiBottomNavigationAction from '@mui/material/BottomNavigationAction';
-import type { BottomNavigationProps } from '@mui/material/BottomNavigation';
+import {
+  BottomNavigation as MuiBottomNavigation,
+  BottomNavigationAction as MuiBottomNavigationAction,
+} from '@mui/material';
+import type { BottomNavigationProps } from '@mui/material';
 
 export interface BottomNavigationAction {
   value: number | string;
@@ -22,7 +24,7 @@ export const BottomNavigation = ({
 }: BottomNavigationPropsExtended) => (
   <MuiBottomNavigation
     value={value}
-    onChange={(_e, v) => onChange?.(v as number | string)}
+    onChange={(_, v) => onChange?.(v as number | string)}
     showLabels={showLabels}
     {...props}
   >
