@@ -1,14 +1,26 @@
 import { useState } from 'react';
-import MuiTextField from '@mui/material/TextField';
-import type { TextFieldProps } from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import { TextField as MuiTextField, InputAdornment } from '@mui/material';
+import type { TextFieldProps, SxProps, Theme } from '@mui/material';
 import IconButton from '../atoms/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-export interface TextFieldPropsExtended extends Omit<TextFieldProps, 'variant'> {
+export type TextFieldPropsExtended = Omit<TextFieldProps, 'variant' | 'InputProps'> & {
+  variant?: TextFieldProps['variant'];
+  InputProps?: TextFieldProps['InputProps'];
   showPasswordToggle?: boolean;
-}
+};
+
+const baseTextFieldSx = {
+  '& .MuiOutlinedInput-root': {
+    bgcolor: 'var(--md-sys-color-surface-container-lowest)',
+  },
+  '& .MuiInputLabel-root': {
+    transform: 'translate(14px, 16px) scale(1)',
+    '&.Mui-focused, &.MuiFormLabel-filled': {
+      transform: 'translate(14px, -9px) scale(0.75)',
+    },
+  },
+};
 
 export const TextField = ({
   type: typeProp = 'text',
@@ -21,6 +33,9 @@ export const TextField = ({
   error = false,
   helperText,
   showPasswordToggle,
+  variant = 'outlined',
+  InputProps: inputPropsProp,
+  sx,
   ...props
 }: TextFieldPropsExtended) => {
   const isPassword = typeProp === 'password';
@@ -52,11 +67,13 @@ export const TextField = ({
       required={required}
       error={error}
       helperText={helperText}
-      variant="outlined"
+      variant={variant}
       fullWidth
       InputProps={{
-        endAdornment,
+        ...inputPropsProp,
+        endAdornment: endAdornment ?? inputPropsProp?.endAdornment,
       }}
+      sx={[baseTextFieldSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
       {...props}
     />
   );

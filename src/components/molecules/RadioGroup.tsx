@@ -1,7 +1,6 @@
-import MuiRadioGroup from '@mui/material/RadioGroup';
-import MuiFormControlLabel from '@mui/material/FormControlLabel';
+import { RadioGroup as MuiRadioGroup, FormControlLabel as MuiFormControlLabel } from '@mui/material';
+import type { RadioGroupProps } from '@mui/material';
 import Radio from '../atoms/Radio';
-import type { RadioGroupProps } from '@mui/material/RadioGroup';
 
 export interface RadioOption {
   value: string;

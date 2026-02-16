@@ -1,7 +1,5 @@
-import MuiSnackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
-import type { SnackbarProps } from '@mui/material/Snackbar';
-import type { AlertColor } from '@mui/material/Alert';
+import { Snackbar as MuiSnackbar, Alert as MuiAlert } from '@mui/material';
+import type { SnackbarProps, AlertColor } from '@mui/material';
 
 export interface SnackbarPropsExtended extends Omit<SnackbarProps, 'children' | 'onClose'> {
   message?: React.ReactNode;

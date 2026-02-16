@@ -1,5 +1,5 @@
-import MuiChip from '@mui/material/Chip';
-import type { ChipProps } from '@mui/material/Chip';
+import { Chip as MuiChip } from '@mui/material';
+import type { ChipProps } from '@mui/material';
 
 export const Chip = ({
   label,

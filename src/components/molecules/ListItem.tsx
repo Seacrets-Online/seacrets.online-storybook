@@ -1,7 +1,9 @@
-import MuiListItem from '@mui/material/ListItem';
-import MuiListItemText from '@mui/material/ListItemText';
-import MuiListItemAvatar from '@mui/material/ListItemAvatar';
-import type { ListItemProps } from '@mui/material/ListItem';
+import {
+  ListItem as MuiListItem,
+  ListItemText as MuiListItemText,
+  ListItemAvatar as MuiListItemAvatar,
+} from '@mui/material';
+import type { ListItemProps } from '@mui/material';
 
 export interface ListItemPropsExtended extends ListItemProps {
   primary?: React.ReactNode;
