@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '../atoms/Button.jsx';
-import TextField from '../molecules/TextField.jsx';
+import Button from '../atoms/Button';
+import TextField from '../molecules/TextField';
+import type { BoxProps } from '@mui/material/Box';
 
-/**
- * AuthForm organism - Login form.
- * Composes atoms + molecules. No business logic/API calls.
- */
+export interface AuthFormCredentials {
+  email: string;
+  password: string;
+}
+
+export interface AuthFormProps extends Omit<BoxProps, 'onSubmit'> {
+  onSubmit?: (credentials: AuthFormCredentials) => void;
+  onForgotPassword?: () => void;
+  submitLabel?: string;
+  emailLabel?: string;
+  passwordLabel?: string;
+  forgotPasswordLabel?: string;
+}
+
 export const AuthForm = ({
   onSubmit,
   onForgotPassword,
@@ -15,11 +26,11 @@ export const AuthForm = ({
   passwordLabel = 'Password',
   forgotPasswordLabel = 'Forgot password?',
   ...props
-}) => {
+}: AuthFormProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit?.({ email, password });
   };
@@ -53,13 +64,13 @@ export const AuthForm = ({
             variant="text"
             type="button"
             onClick={() => onForgotPassword()}
-            sx={{ whiteSpace: 'nowrap' }}
+            sx={{ maxWidth: '100%' }}
           >
             {forgotPasswordLabel}
           </Button>
         </Box>
       )}
-      <Button type="submit" variant="contained" fullWidth size="large" sx={{ whiteSpace: 'nowrap' }}>
+      <Button type="submit" variant="contained" fullWidth size="large">
         {submitLabel}
       </Button>
     </Box>

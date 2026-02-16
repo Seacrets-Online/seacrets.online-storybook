@@ -1,17 +1,26 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '../atoms/Button.jsx';
-import Divider from '../atoms/Divider.jsx';
+import Button from '../atoms/Button';
+import Divider from '../atoms/Divider';
+import type { BoxProps } from '@mui/material/Box';
 
-/**
- * SocialAuthRow organism - Social login buttons.
- * Composes Button, Divider atoms.
- */
+export interface SocialAuthProvider {
+  id?: string;
+  label: string;
+  icon?: React.ReactNode;
+  onClick?: () => void;
+}
+
+export interface SocialAuthRowProps extends BoxProps {
+  providers?: SocialAuthProvider[];
+  dividerLabel?: string;
+}
+
 export const SocialAuthRow = ({
   providers = [],
   dividerLabel = 'or',
   ...props
-}) => (
+}: SocialAuthRowProps) => (
   <Box {...props}>
     {providers.map((p, i) => (
       <Button

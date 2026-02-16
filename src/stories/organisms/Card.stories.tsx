@@ -1,14 +1,19 @@
-import Card from '../../components/organisms/Card.jsx';
-import Avatar from '../../components/atoms/Avatar.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import Card from '../../components/organisms/Card';
+import Avatar from '../../components/atoms/Avatar';
 
-export default {
+const meta: Meta<typeof Card> = {
   title: 'Organisms/Card',
   component: Card,
   parameters: { layout: 'centered' },
   decorators: [(Story) => <div style={{ width: 360 }}><Story /></div>],
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'Title',
     subtitle: 'Subtitle',

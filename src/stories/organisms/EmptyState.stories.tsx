@@ -1,12 +1,17 @@
-import EmptyState from '../../components/organisms/EmptyState.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import EmptyState from '../../components/organisms/EmptyState';
 
-export default {
+const meta: Meta<typeof EmptyState> = {
   title: 'Organisms/EmptyState',
   component: EmptyState,
   parameters: { layout: 'centered' },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'No items',
     description: 'Add your first item to get started.',

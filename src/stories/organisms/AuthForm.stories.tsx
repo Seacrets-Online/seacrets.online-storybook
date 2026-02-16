@@ -1,11 +1,10 @@
-import AuthForm from '../../components/organisms/AuthForm.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import AuthForm from '../../components/organisms/AuthForm';
 
-export default {
+const meta: Meta<typeof AuthForm> = {
   title: 'Organisms/AuthForm',
   component: AuthForm,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
       <div style={{ width: 360 }}>
@@ -15,13 +14,17 @@ export default {
   ],
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     onSubmit: (data) => console.log('Login', data),
   },
 };
 
-export const WithForgotPassword = {
+export const WithForgotPassword: Story = {
   args: {
     onSubmit: (data) => console.log('Login', data),
     onForgotPassword: () => console.log('Forgot password'),

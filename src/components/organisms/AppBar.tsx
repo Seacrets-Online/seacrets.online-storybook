@@ -1,19 +1,23 @@
 import MuiAppBar from '@mui/material/AppBar';
 import MuiToolbar from '@mui/material/Toolbar';
 import MuiTypography from '@mui/material/Typography';
-import IconButton from '../atoms/IconButton.jsx';
+import IconButton from '../atoms/IconButton';
+import type { AppBarProps } from '@mui/material/AppBar';
 
-/**
- * AppBar organism - Top app bar.
- * Composes IconButton atom.
- */
+export interface AppBarPropsExtended extends AppBarProps {
+  title?: string;
+  startIcon?: React.ReactNode;
+  onStartIconClick?: () => void;
+  endActions?: React.ReactNode;
+}
+
 export const AppBar = ({
   title,
   startIcon,
   onStartIconClick,
   endActions,
   ...props
-}) => (
+}: AppBarPropsExtended) => (
   <MuiAppBar position="static" {...props}>
     <MuiToolbar>
       {startIcon && (

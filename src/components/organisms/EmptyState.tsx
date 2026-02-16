@@ -1,11 +1,16 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '../atoms/Button.jsx';
+import Button from '../atoms/Button';
+import type { BoxProps } from '@mui/material/Box';
 
-/**
- * EmptyState organism - Empty list/feed state.
- * Composes Button atom.
- */
+export interface EmptyStateProps extends BoxProps {
+  title?: string;
+  description?: string;
+  actionLabel?: string;
+  onAction?: () => void;
+  icon?: React.ReactNode;
+}
+
 export const EmptyState = ({
   title = 'No items',
   description,
@@ -13,7 +18,7 @@ export const EmptyState = ({
   onAction,
   icon,
   ...props
-}) => (
+}: EmptyStateProps) => (
   <Box
     sx={{
       display: 'flex',

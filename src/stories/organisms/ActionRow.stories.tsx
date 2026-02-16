@@ -1,12 +1,17 @@
-import ActionRow from '../../components/organisms/ActionRow.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import ActionRow from '../../components/organisms/ActionRow';
 
-export default {
+const meta: Meta<typeof ActionRow> = {
   title: 'Organisms/ActionRow',
   component: ActionRow,
   parameters: { layout: 'centered' },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     primaryAction: { children: 'Save', onClick: () => {} },
     secondaryActions: [

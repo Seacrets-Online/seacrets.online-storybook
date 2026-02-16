@@ -1,13 +1,18 @@
-import AppBar from '../../components/organisms/AppBar.jsx';
+import type { Meta, StoryObj } from '@storybook/react';
+import AppBar from '../../components/organisms/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default {
+const meta: Meta<typeof AppBar> = {
   title: 'Organisms/AppBar',
   component: AppBar,
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: 'App',
     startIcon: <MenuIcon />,

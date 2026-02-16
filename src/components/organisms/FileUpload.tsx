@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '../atoms/Button.jsx';
+import Button from '../atoms/Button';
 import Typography from '@mui/material/Typography';
+import type { BoxProps } from '@mui/material/Box';
 
-/**
- * FileUpload organism - Upload area wrapper.
- * Composes Button atom.
- */
+export interface FileUploadProps extends Omit<BoxProps, 'onSelect'> {
+  onSelect?: (files: File | File[]) => void;
+  accept?: string;
+  multiple?: boolean;
+  label?: string;
+  hint?: string;
+}
+
 export const FileUpload = ({
   onSelect,
   accept,
@@ -14,16 +19,16 @@ export const FileUpload = ({
   label = 'Choose file',
   hint,
   ...props
-}) => {
+}: FileUploadProps) => {
   const [fileName, setFileName] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files?.length) {
       setFileName(
-        multiple ? `${files.length} files` : files[0].name
+        multiple ? `${files.length} files` : files[0]!.name
       );
-      onSelect?.(multiple ? Array.from(files) : files[0]);
+      onSelect?.(multiple ? Array.from(files) : files[0]!);
     }
   };
 
