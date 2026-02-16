@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import '../src/styles/index.css';
 
 import '@fontsource/roboto/300.css';
@@ -9,15 +10,19 @@ import '@fontsource/material-icons';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
-import { lightTheme, darkTheme } from '../src/theme/mui/createTheme.js';
+import { lightTheme, darkTheme } from '../src/theme/mui/createTheme';
 
-/** @type {import('@storybook/react-vite').Preview} */
 const preview = {
   initialGlobals: {
     theme: 'dark',
     viewport: { value: 'iphone14pro', isRotated: false },
   },
   parameters: {
+    options: {
+      storySort: {
+        order: ['Foundations', 'Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages'],
+      },
+    },
     viewport: {
       options: INITIAL_VIEWPORTS,
       defaultViewport: 'iphone14pro',
@@ -49,8 +54,8 @@ const preview = {
       Provider: ThemeProvider,
       GlobalStyles: CssBaseline,
     }),
-    (Story, context) => {
-      const theme = context.globals.theme || 'dark';
+    (Story: () => ReactNode, context: { globals: { theme?: string } }) => {
+      const theme = context.globals.theme ?? 'dark';
       const root = document.documentElement;
       root.classList.remove('theme-light', 'theme-dark');
       root.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
