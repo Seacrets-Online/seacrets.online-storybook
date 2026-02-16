@@ -3,7 +3,7 @@
  * Palette reads from CSS variables in theme.css (:root / [data-theme="dark"]).
  * Single source of truth for typography, shape, and component overrides.
  */
-import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material/styles';
+import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material';
 import typographyTokens from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
 
@@ -11,7 +11,7 @@ const mapTypographyToMui = () => {
   const t = typographyTokens;
   
   const toUnitless = (tokenName: string) => {
-    const style = t[tokenName] ?? {};
+    const style = (t[tokenName] ?? {}) as Partial<{ fontSize: string; lineHeight: string }>;
     // Convert px line-height to unitless for MUI responsiveFontSizes compatibility
     if (style.fontSize && style.lineHeight && typeof style.lineHeight === 'string' && style.lineHeight.endsWith('px')) {
        const fs = parseFloat(style.fontSize);
@@ -41,36 +41,44 @@ const mapTypographyToMui = () => {
   };
 };
 
-const getPalette = (mode: 'light' | 'dark') => ({
+const getPalette = (_mode: 'light' | 'dark') => ({
   primary: {
     main: '#ff0061',
     contrastText: '#ffffff',
   },
   secondary: {
-    main: mode === 'light' ? '#8d495a' : '#ffb1c1',
-    contrastText: mode === 'light' ? '#ffffff' : '#551d2c',
+    main: 'var(--md-sys-color-secondary)',
+    light: 'var(--md-sys-color-secondary)',
+    dark: 'var(--md-sys-color-secondary)',
+    contrastText: 'var(--md-sys-color-on-secondary)',
   },
   error: {
-    main: mode === 'light' ? '#904b40' : '#ffb4a8',
-    contrastText: mode === 'light' ? '#ffffff' : '#561e16',
+    main: 'var(--md-sys-color-error)',
+    light: 'var(--md-sys-color-error)',
+    dark: 'var(--md-sys-color-error)',
+    contrastText: 'var(--md-sys-color-on-error)',
   },
   success: {
-    main: '#146c2e',
-    contrastText: '#ffffff',
+    main: 'var(--md-sys-color-success)',
+    light: 'var(--md-sys-color-success)',
+    dark: 'var(--md-sys-color-success)',
+    contrastText: 'var(--md-sys-color-on-success)',
   },
   info: {
-    main: mode === 'light' ? '#b80044' : '#ffb2bb',
-    contrastText: mode === 'light' ? '#ffffff' : '#670022',
+    main: '#ff0061',
+    light: 'var(--md-extended-colors-custom-color-1-container)',
+    dark: 'var(--md-extended-colors-custom-color-1)',
+    contrastText: '#ffffff',
   },
   background: {
-    default: mode === 'light' ? '#fff8f7' : '#151515',
-    paper: mode === 'light' ? '#f5fafb' : '#0e1415',
+    default: '#151515',
+    paper: 'var(--md-sys-color-surface)',
   },
   text: {
-    primary: mode === 'light' ? '#291619' : '#efdee0',
-    secondary: mode === 'light' ? '#5d3e42' : '#d6c2c4',
+    primary: 'var(--md-sys-color-on-background)',
+    secondary: 'var(--md-sys-color-on-surface-variant)',
   },
-  divider: mode === 'light' ? '#d6c2c4' : '#514346',
+  divider: 'var(--md-sys-color-outline-variant)',
 });
 
 const buildComponentOverrides = () => ({
@@ -78,13 +86,10 @@ const buildComponentOverrides = () => ({
     styleOverrides: {
       root: {
         borderRadius: shapeTokens['corner-medium'] ?? '12px',
-        // display: 'inline-flex', // Default is inline-flex
-        // alignItems: 'center', // Default
-        // justifyContent: 'center', // Default
-        // verticalAlign: 'middle', // Default
-        // whiteSpace: 'nowrap', // Commented out to allow text wrapping if needed, though usually not desired for buttons
-        // flexShrink: 0, // Removed to allow fullWidth to work properly in constrained containers
-        overflow: 'hidden', // Ensure ripple/background respects border radius
+        overflow: 'hidden',
+        '&.MuiButton-text': {
+          '--mui-spacing': '2px',
+        },
       },
       startIcon: {
         display: 'inherit',
@@ -119,7 +124,33 @@ const buildComponentOverrides = () => ({
   MuiCardActions: {
     styleOverrides: {
       root: {
-        flexWrap: 'wrap', // Ensure actions wrap on small screens
+        flexWrap: 'wrap' as const, // Ensure actions wrap on small screens
+      },
+    },
+  },
+  MuiAlert: {
+    styleOverrides: {
+      standardError: {
+        backgroundColor: 'var(--md-palettes-error-30)',
+        color: 'var(--md-ref-error-error-90)',
+        '& .MuiAlert-icon': {
+          color: 'var(--md-ref-error-error-90)',
+        },
+      },
+    },
+  },
+  // Linear progress: 8dp height, 4dp radius (pill). Track + bar rounded per reference.
+  MuiLinearProgress: {
+    styleOverrides: {
+      root: {
+        height: 8,
+        borderRadius: 4,
+        backgroundColor: 'var(--md-schemes-surface-container-highest)',
+        overflow: 'hidden',
+      },
+      bar: {
+        borderRadius: 4,
+        boxShadow: 'inset -1px 0 0 rgba(0,0,0,0.12)',
       },
     },
   },
