@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LoginTemplate from '../../components/templates/LoginTemplate';
 import { Google as GoogleIcon, Apple as AppleIcon } from '@mui/icons-material';
+import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 
 const meta = {
   title: 'Templates/LoginTemplate',
   component: LoginTemplate,
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className="template-story-wrapper">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof LoginTemplate>;
 
 export default meta;

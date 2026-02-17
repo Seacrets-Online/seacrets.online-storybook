@@ -1,13 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from 'storybook/preview-api';
 import BottomNavigation from '../../components/organisms/BottomNavigation';
-import { Home as HomeIcon, Favorite as FavoriteIcon, Person as PersonIcon } from '@mui/icons-material';
+import { Add, Home, Notifications, Search, Send } from '@mui/icons-material';
 
 const meta = {
   title: 'Organisms/BottomNavigation',
   component: BottomNavigation,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ width: 414 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof BottomNavigation>;
 
 export default meta;
@@ -16,22 +23,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    value: 0,
+    value: 'home',
+    primaryValue: 'add',
     actions: [
-      { label: 'Home', icon: <HomeIcon />, value: 0 },
-      { label: 'Favorites', icon: <FavoriteIcon />, value: 1 },
-      { label: 'Profile', icon: <PersonIcon />, value: 2 },
+      { label: 'Home', value: 'home', icon: <Home /> },
+      { label: 'Search', value: 'search', icon: <Search /> },
+      { label: 'Add', value: 'add', icon: <Add sx={{ fontSize: 26 }} /> },
+      { label: 'Send', value: 'send', icon: <Send /> },
+      { label: 'Notifications', value: 'notifications', icon: <Notifications /> },
     ],
   },
   render: function Render(args) {
     const [, updateArgs] = useArgs();
     return (
-      <div style={{ width: 360 }}>
-        <BottomNavigation
-          {...args}
-          onChange={(v) => updateArgs({ value: typeof v === 'number' ? v : 0 })}
-        />
-      </div>
+      <BottomNavigation {...args} onChange={(v) => updateArgs({ value: v })} />
     );
   },
 };

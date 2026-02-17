@@ -6,6 +6,7 @@
 import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material';
 import typographyTokens from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
+import { colorTokens } from '../../utils/colors';
 
 const mapTypographyToMui = () => {
   const t = typographyTokens;
@@ -41,45 +42,41 @@ const mapTypographyToMui = () => {
   };
 };
 
-const getPalette = (_mode: 'light' | 'dark') => ({
-  primary: {
-    main: '#ff0061',
-    contrastText: '#ffffff',
-  },
-  secondary: {
-    main: 'var(--md-sys-color-secondary)',
-    light: 'var(--md-sys-color-secondary)',
-    dark: 'var(--md-sys-color-secondary)',
-    contrastText: 'var(--md-sys-color-on-secondary)',
-  },
-  error: {
-    main: 'var(--md-sys-color-error)',
-    light: 'var(--md-sys-color-error)',
-    dark: 'var(--md-sys-color-error)',
-    contrastText: 'var(--md-sys-color-on-error)',
-  },
-  success: {
-    main: 'var(--md-sys-color-success)',
-    light: 'var(--md-sys-color-success)',
-    dark: 'var(--md-sys-color-success)',
-    contrastText: 'var(--md-sys-color-on-success)',
-  },
-  info: {
-    main: '#ff0061',
-    light: 'var(--md-extended-colors-custom-color-1-container)',
-    dark: 'var(--md-extended-colors-custom-color-1)',
-    contrastText: '#ffffff',
-  },
-  background: {
-    default: '#151515',
-    paper: 'var(--md-sys-color-surface)',
-  },
-  text: {
-    primary: 'var(--md-sys-color-on-background)',
-    secondary: 'var(--md-sys-color-on-surface-variant)',
-  },
-  divider: 'var(--md-sys-color-outline-variant)',
-});
+const getPalette = (_mode: 'light' | 'dark') => {
+  const colors = colorTokens[_mode];
+  
+  return {
+    primary: {
+      main: '#ff0061',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: colors.mdSysColorSecondary,
+      contrastText: colors.mdSysColorOnSecondary,
+    },
+    error: {
+      main: colors.mdSysColorError,
+      contrastText: colors.mdSysColorOnError,
+    },
+    success: {
+      main: colors.mdSysColorSuccess,
+      contrastText: colors.mdSysColorOnSuccess,
+    },
+    info: {
+      main: '#ff0061',
+      contrastText: '#ffffff',
+    },
+    background: {
+      default: _mode === 'dark' ? '#151515' : colors.mdSysColorBackground,
+      paper: colors.mdSysColorSurface,
+    },
+    text: {
+      primary: _mode === 'dark' ? '#ffffff' : colors.mdSysColorOnBackground,
+      secondary: colors.mdSysColorOnSurfaceVariant,
+    },
+    divider: colors.mdSysColorOutlineVariant,
+  };
+};
 
 const buildComponentOverrides = () => ({
   MuiButton: {

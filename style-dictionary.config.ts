@@ -25,5 +25,16 @@ export default {
         },
       ],
     },
+    typescript: {
+      transformGroup: 'tokens-studio',
+      transforms: ['name/kebab'],
+      buildPath: 'src/utils/',
+      files: [
+        {
+          destination: 'colors.ts',
+          format: 'typescript/color-tokens',
+        },
+      ],
+    },
   },
 };

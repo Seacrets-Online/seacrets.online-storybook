@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import OnboardingStepTemplate from '../../components/templates/OnboardingStepTemplate';
 import TextField from '../../components/molecules/TextField';
+import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 
 const meta = {
   title: 'Templates/OnboardingStepTemplate',
   component: OnboardingStepTemplate,
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className="template-story-wrapper">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof OnboardingStepTemplate>;
 
 export default meta;
