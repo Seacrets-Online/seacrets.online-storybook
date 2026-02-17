@@ -22,8 +22,8 @@ export const Login: Story = {
     onForgotPassword: () => {},
     onLanguageClick: () => {},
     providers: [
-      { id: 'google', label: 'Login with Google', icon: <GoogleIcon />, onClick: () => {} },
-      { id: 'apple', label: 'Login with Apple', icon: <AppleIcon />, onClick: () => {} },
+      { id: 'google', label: 'LOGIN WITH GOOGLE', icon: <GoogleIcon />, onClick: () => {} },
+      { id: 'apple', label: 'LOGIN WITH APPLE', icon: <AppleIcon />, onClick: () => {} },
     ],
     onCreateAccount: () => {},
     onPrivacyTermsClick: () => {},

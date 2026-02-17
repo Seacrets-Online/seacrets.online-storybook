@@ -36,10 +36,10 @@ export const AuthForm = ({
   onRequestReset,
   submitLabel = 'Sign in',
   sendResetLabel = 'Send reset link',
-  emailLabel = 'Email',
-  passwordLabel = 'Password',
-  forgotPasswordLabel = 'Forgot Password?',
-  rememberMeLabel = 'Remember Me',
+  emailLabel = 'EMAIL',
+  passwordLabel = 'PASSWORD',
+  forgotPasswordLabel = 'FORGOT PASSWORD?',
+  rememberMeLabel = 'REMEMBER ME',
   showRememberMe = false,
   inputVariant = 'default',
   ...props
@@ -84,12 +84,13 @@ export const AuthForm = ({
             autoComplete="current-password"
           />
           {(onForgotPassword || showRememberMe) && (
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 4, width: '100%' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 4, width: '100%', fontSize: '0.875rem' }}>
               {onForgotPassword ? (
                 <Button
                   variant="text"
                   type="button"
                   onClick={() => onForgotPassword()}
+                  sx={{ whiteSpace: 'nowrap', fontSize: 'inherit' }}
                 >
                   {forgotPasswordLabel}
                 </Button>
@@ -101,6 +102,7 @@ export const AuthForm = ({
                   label={rememberMeLabel}
                   checked={rememberMe}
                   onChange={(_, checked) => setRememberMe(checked)}
+                  sx={{ whiteSpace: 'nowrap', '& .MuiFormControlLabel-label': { fontSize: 'inherit' } }}
                 />
               )}
             </Box>
