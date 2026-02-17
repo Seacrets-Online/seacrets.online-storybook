@@ -1,47 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Typography, Box, Divider } from '@mui/material';
+import React from 'react';
+import typographyTokens from '../../utils/typography';
 
-const TypographyShowcase = () => {
-  const variants = [
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'subtitle1',
-    'subtitle2',
-    'body1',
-    'body2',
-    'button',
-    'caption',
-    'overline',
-  ] as const;
-
-  return (
-    <Box sx={{ maxWidth: 800, mx: 'auto', p: 3 }}>
-      {variants.map((variant) => (
-        <Box key={variant} sx={{ mb: 4 }}>
-          <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-            {variant}
-          </Typography>
-          <Typography variant={variant} gutterBottom>
-            The quick brown fox jumps over the lazy dog
-          </Typography>
-          <Divider sx={{ mt: 2 }} />
-        </Box>
-      ))}
-    </Box>
-  );
+export default {
+  title: 'Foundations/Typography',
+  parameters: {
+    layout: 'padded',
+  },
 };
 
-const meta = {
-  title: 'Foundations/Typography',
-  component: TypographyShowcase,
-} satisfies Meta<typeof TypographyShowcase>;
+export const Scale = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      {Object.entries(typographyTokens).map(([name, styles]) => (
+        <div key={name} style={{ borderBottom: '1px solid #e0e0e0', paddingBottom: '16px' }}>
+          <div style={{
+            fontFamily: 'monospace',
+            fontSize: '12px',
+            color: '#666',
+            marginBottom: '8px',
+            display: 'flex',
+            gap: '16px'
+          }}>
+            <span style={{ fontWeight: 'bold', color: 'var(--md-sys-color-on-surface)' }}>{name}</span>
+            <span>Weight: {styles.fontWeight}</span>
+            <span>Size: {styles.fontSize}</span>
+            <span>Line: {styles.lineHeight}</span>
+          </div>
 
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-export const Scale: Story = {};
+          <div style={{ color: 'var(--md-sys-color-on-surface)', ...(styles as React.CSSProperties) }}>
+            {name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+          </div>
+          <div style={{ color: 'var(--md-sys-color-on-surface)', ...(styles as React.CSSProperties) }}>
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+};

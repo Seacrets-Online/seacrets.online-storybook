@@ -3,7 +3,11 @@ import { resolve } from 'node:path';
 
 type JsonObject = Record<string, unknown>;
 
-const REQUIRED_TOKEN_SETS = ['md/Light', 'md/Dark', 'Primitives/Mode 1'] as const;
+// The exact paths that Token Studio saves in the $metadata
+const REQUIRED_TOKEN_SETS = [
+  'seacrets.online/Light',
+  'seacrets.online/Dark'
+];
 
 const isObject = (value: unknown): value is JsonObject =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -18,21 +22,8 @@ const validateTokenStudioExportObject = (tokens: unknown): void => {
     throw new Error('Invalid tokens file: root must be a JSON object.');
   }
 
-  const requiredSets = new Set(REQUIRED_TOKEN_SETS);
-  const topLevelSets = Object.keys(tokens).filter((key) => !key.startsWith('$'));
-  const missingSets = REQUIRED_TOKEN_SETS.filter((setName) => !(setName in tokens));
-
-  if (missingSets.length > 0) {
-    throw new Error(
-      [
-        'Token set validation failed.',
-        'Missing required token sets:',
-        formatList(missingSets),
-        '',
-        'Required token sets:',
-        formatList([...requiredSets]),
-      ].join('\n')
-    );
+  if (!('seacrets' in tokens)) {
+    throw new Error('Token set validation failed.\nMissing root token folder: "seacrets"');
   }
 
   const metadata = isObject(tokens.$metadata) ? tokens.$metadata : null;
@@ -47,19 +38,22 @@ const validateTokenStudioExportObject = (tokens: unknown): void => {
         formatList(missingInOrder),
         '',
         'Current token set order:',
-        tokenSetOrder.length > 0 ? formatList(tokenSetOrder) : '- (empty)',
-        '',
-        'Top-level token sets detected:',
-        topLevelSets.length > 0 ? formatList(topLevelSets) : '- (none)',
+        tokenSetOrder.length > 0 ? formatList(tokenSetOrder) : '- (empty)'
       ].join('\n')
     );
   }
 };
 
 export const validateTokenStudioExportFile = (relativePath = 'src/tokens/tokens.json'): void => {
-  const absolutePath = resolve(process.cwd(), relativePath);
-  const raw = readFileSync(absolutePath, 'utf8');
-  const parsed: unknown = JSON.parse(raw);
-  validateTokenStudioExportObject(parsed);
+  const filePath = resolve(process.cwd(), relativePath);
+  try {
+    const fileContent = readFileSync(filePath, 'utf-8');
+    const tokens = JSON.parse(fileContent);
+    validateTokenStudioExportObject(tokens);
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('ENOENT')) {
+      throw new Error(`Tokens file not found at: ${filePath}`);
+    }
+    throw error;
+  }
 };
-
