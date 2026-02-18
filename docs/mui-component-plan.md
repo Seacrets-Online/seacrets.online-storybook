@@ -26,14 +26,17 @@ MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The r
 
 | Component | Level | Status | Notes |
 |-----------|-------|--------|-------|
-| Button | Atom | Pending | Variants: filled, outlined, text |
-| IconButton | Atom | Pending | |
-| Checkbox | Atom | Pending | |
-| Link | Atom | Pending | |
-| Alert | Atom | Pending | Base alert |
-| TextField | Molecule | Pending | Includes password toggle |
-| AuthForm | Organism | Pending | Login form |
-| LoginTemplate | Template | Pending | Auth layout |
+| Button | Atom | Done | Variants: filled, outlined, text |
+| IconButton | Atom | Done | |
+| Icon | Atom | Done | |
+| Text | Atom | Done | |
+| Checkbox | Atom | Done | |
+| Link | Atom | Done | |
+| Alert | Atom | Done | Base alert |
+| TextField | Molecule | Done | Includes password toggle |
+| LegalLinks | Molecule | Done | |
+| AuthForm | Organism | Done | Login form |
+| LoginTemplate | Template | Done | Auth layout |
 
 ---
 
@@ -41,16 +44,17 @@ MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The r
 
 | Component | Level | Status | Notes |
 |-----------|-------|--------|-------|
-| Radio | Atom | Pending | |
-| LinearProgress | Atom | Pending | |
-| Divider | Atom | Pending | |
-| Avatar | Atom | Pending | |
-| RadioGroup/RadioLabel | Molecule | Pending | |
-| Select | Molecule | Pending | |
-| DatePicker | Molecule | Pending | Wrapper |
-| Chip/Tag | Molecule | Pending | |
-| Snackbar | Molecule | Pending | Wrapper |
-| OnboardingStepTemplate | Template | Pending | Step layout |
+| Radio | Atom | Done | |
+| LinearProgress | Atom | Done | |
+| Divider | Atom | Done | |
+| Avatar | Atom | Done | |
+| RadioGroup/RadioLabel | Molecule | Done | |
+| Select | Molecule | Done | |
+| DatePicker | Molecule | Done | Wrapper |
+| Chip/Tag | Molecule | Done | |
+| LabeledCheckbox | Molecule | Done | |
+| Snackbar | Molecule | Done | Wrapper |
+| OnboardingStepTemplate | Template | Done | Step layout |
 
 ---
 
@@ -58,12 +62,12 @@ MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The r
 
 | Component | Level | Status | Notes |
 |-----------|-------|--------|-------|
-| Skeleton | Atom | Pending | |
-| Badge | Atom | Pending | |
-| ListItem | Molecule | Pending | |
-| Card/Post | Organism | Pending | |
-| EmptyState | Organism | Pending | |
-| ActionRow | Organism | Pending | |
+| Skeleton | Atom | Done | |
+| Badge | Atom | Done | |
+| ListItem | Molecule | Done | |
+| Card/Post | Organism | Partial | Card implemented; Post-specific variant pending if needed |
+| EmptyState | Organism | Done | |
+| ActionRow | Organism | Done | |
 | FeedTemplate | Template | Pending | |
 
 ---
@@ -72,9 +76,9 @@ MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The r
 
 | Component | Level | Status | Notes |
 |-----------|-------|--------|-------|
-| AppBar | Molecule/Organism | Pending | TopAppBar variants |
-| Tabs | Molecule | Pending | |
-| BottomNavigation | Organism | Pending | ADR-003 |
+| AppBar | Molecule/Organism | Done | TopAppBar variants |
+| Tabs | Molecule | Done | |
+| BottomNavigation | Organism | Done | ADR-003 |
 | ProfileTemplate | Template | Pending | |
 
 ---
@@ -83,8 +87,8 @@ MUI (`@mui/material`, `@mui/icons-material`) can be imported at any level. The r
 
 | Component | Level | Status | Notes |
 |-----------|-------|--------|-------|
-| SocialAuthRow | Organism | Pending | |
-| Upload/Crop wrappers | Organism | Pending | |
+| SocialAuthRow | Organism | Done | |
+| Upload/Crop wrappers | Organism | Partial | FileUpload implemented; crop wrapper pending |
 | Multi-step forms | Organism/Template | Pending | |
 
 ---

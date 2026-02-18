@@ -1,12 +1,13 @@
 /**
  * MUI theme factory - maps MD3 tokens to MUI theme.
- * Palette reads from CSS variables in theme.css (:root / [data-theme="dark"]).
- * Single source of truth for typography, shape, and component overrides.
+ * Palette uses CSS variables from theme.css (:root / [data-theme="dark"]).
+ * Theme switching is done via data-theme attribute; vars resolve automatically.
  */
 import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material';
 import typographyTokens from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
-import { colorTokens } from '../../utils/colors';
+
+const schemesVar = (name: string) => `var(--seacrets-online-schemes-${name})`;
 
 const mapTypographyToMui = () => {
   const t = typographyTokens;
@@ -42,41 +43,37 @@ const mapTypographyToMui = () => {
   };
 };
 
-const getPalette = (_mode: 'light' | 'dark') => {
-  const colors = colorTokens[_mode];
-  
-  return {
-    primary: {
-      main: '#ff0061',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: colors.mdSysColorSecondary,
-      contrastText: colors.mdSysColorOnSecondary,
-    },
-    error: {
-      main: colors.mdSysColorError,
-      contrastText: colors.mdSysColorOnError,
-    },
-    success: {
-      main: colors.mdSysColorSuccess,
-      contrastText: colors.mdSysColorOnSuccess,
-    },
-    info: {
-      main: '#ff0061',
-      contrastText: '#ffffff',
-    },
-    background: {
-      default: _mode === 'dark' ? '#151515' : colors.mdSysColorBackground,
-      paper: colors.mdSysColorSurface,
-    },
-    text: {
-      primary: _mode === 'dark' ? '#ffffff' : colors.mdSysColorOnBackground,
-      secondary: colors.mdSysColorOnSurfaceVariant,
-    },
-    divider: colors.mdSysColorOutlineVariant,
-  };
-};
+const getPalette = (mode: 'light' | 'dark') => ({
+  primary: {
+    main: '#ff0061',
+    contrastText: '#ffffff',
+  },
+  secondary: {
+    main: schemesVar('secondary'),
+    contrastText: schemesVar('on-secondary'),
+  },
+  error: {
+    main: schemesVar('error'),
+    contrastText: schemesVar('on-error'),
+  },
+  success: {
+    main: schemesVar('tertiary'),
+    contrastText: schemesVar('on-tertiary'),
+  },
+  info: {
+    main: '#ff0061',
+    contrastText: '#ffffff',
+  },
+  background: {
+    default: mode === 'dark' ? '#151515' : schemesVar('background'),
+    paper: mode === 'dark' ? '#0e1415' : schemesVar('surface'),
+  },
+  text: {
+    primary: schemesVar('on-background'),
+    secondary: schemesVar('on-surface-variant'),
+  },
+  divider: schemesVar('outline-variant'),
+});
 
 const buildComponentOverrides = () => ({
   MuiButton: {
@@ -128,21 +125,20 @@ const buildComponentOverrides = () => ({
   MuiAlert: {
     styleOverrides: {
       standardError: {
-        backgroundColor: 'var(--md-palettes-error-30)',
-        color: 'var(--md-ref-error-error-90)',
+        backgroundColor: 'var(--seacrets-online-schemes-error-container)',
+        color: 'var(--seacrets-online-schemes-on-error-container)',
         '& .MuiAlert-icon': {
-          color: 'var(--md-ref-error-error-90)',
+          color: 'var(--seacrets-online-schemes-on-error-container)',
         },
       },
     },
   },
-  // Linear progress: 8dp height, 4dp radius (pill). Track + bar rounded per reference.
   MuiLinearProgress: {
     styleOverrides: {
       root: {
         height: 8,
         borderRadius: 4,
-        backgroundColor: 'var(--md-schemes-surface-container-highest)',
+        backgroundColor: 'var(--seacrets-online-schemes-surface-container-highest)',
         overflow: 'hidden',
       },
       bar: {

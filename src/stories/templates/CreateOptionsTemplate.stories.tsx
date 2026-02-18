@@ -6,8 +6,7 @@ import Text from '../../components/atoms/Text';
 const meta = {
   title: 'Templates/CreateOptionsTemplate',
   component: CreateOptionsTemplate,
-  parameters: { layout: 'fullscreen' },
-  tags: ['autodocs'],
+  parameters: { layout: 'fullscreen', docs: { page: null } },
   decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof CreateOptionsTemplate>;
 

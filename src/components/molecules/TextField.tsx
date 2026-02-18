@@ -14,6 +14,15 @@ const baseTextFieldSx = {
   '& .MuiOutlinedInput-root': {
     bgcolor: 'var(--md-sys-color-surface-container-lowest)',
   },
+  '& .MuiOutlinedInput-input': {
+    '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active': {
+      WebkitBoxShadow:
+        '0 0 0 30px var(--seacrets-online-schemes-surface-variant) inset',
+      boxShadow:
+        '0 0 0 30px var(--seacrets-online-schemes-surface-variant) inset',
+      WebkitTextFillColor: 'inherit',
+    },
+  },
   '& .MuiInputLabel-root': {
     transform: 'translate(14px, 16px) scale(1)',
     '&.Mui-focused, &.MuiFormLabel-filled': {

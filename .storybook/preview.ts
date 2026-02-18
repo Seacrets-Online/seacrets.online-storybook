@@ -16,10 +16,10 @@ import { lightTheme, darkTheme } from '../src/theme/mui/createTheme';
 
 const docsTheme = {
   ...themes.dark,
-  appBg: 'var(--md-sys-color-background)',
-  appContentBg: 'var(--md-sys-color-background)',
-  barBg: 'var(--md-sys-color-background)',
-  inputBg: 'var(--md-sys-color-background)',
+  appBg: 'var(--seacrets-online-schemes-background)',
+  appContentBg: 'var(--seacrets-online-schemes-background)',
+  barBg: 'var(--seacrets-online-schemes-surface)',
+  inputBg: 'var(--seacrets-online-schemes-surface)',
 };
 
 const preview: Preview = {

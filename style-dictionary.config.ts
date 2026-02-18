@@ -1,12 +1,18 @@
 import StyleDictionary from 'style-dictionary';
 import { register } from '@tokens-studio/sd-transforms';
+import { expandTokenReferences } from './scripts/expand-token-references';
 import './style-dictionary-formats';
 
 register(StyleDictionary, { excludeParentKeys: false });
 
+StyleDictionary.registerPreprocessor({
+  name: 'expand-token-references',
+  preprocessor: expandTokenReferences,
+});
+
 export default {
   source: ['src/tokens/tokens.json'],
-  preprocessors: ['tokens-studio'],
+  preprocessors: ['expand-token-references', 'tokens-studio'],
   log: {
     verbosity: 'verbose',
     errors: {

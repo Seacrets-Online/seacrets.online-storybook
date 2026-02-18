@@ -6,8 +6,7 @@ import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 const meta = {
   title: 'Templates/OnboardingStepTemplate',
   component: OnboardingStepTemplate,
-  parameters: { layout: 'fullscreen' },
-  tags: ['autodocs'],
+  parameters: { layout: 'fullscreen', docs: { page: null } },
   decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof OnboardingStepTemplate>;
 

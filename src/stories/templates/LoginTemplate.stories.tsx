@@ -6,8 +6,7 @@ import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 const meta = {
   title: 'Templates/LoginTemplate',
   component: LoginTemplate,
-  parameters: { layout: 'fullscreen' },
-  tags: ['autodocs'],
+  parameters: { layout: 'fullscreen', docs: { page: null } },
   decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof LoginTemplate>;
 
@@ -20,7 +19,8 @@ export const Login: Story = {
     variant: 'login',
     onLogin: () => {},
     onForgotPassword: () => {},
-    onLanguageClick: () => {},
+    languageValue: 'en',
+    onLanguageChange: (code: string) => console.log('Language changed to', code),
     providers: [
       { id: 'google', label: 'LOGIN WITH GOOGLE', icon: <GoogleIcon />, onClick: () => {} },
       { id: 'apple', label: 'LOGIN WITH APPLE', icon: <AppleIcon />, onClick: () => {} },
@@ -34,8 +34,8 @@ export const ForgotPassword: Story = {
   args: {
     screen: 'forgotPassword',
     variant: 'default',
-    title: 'Forgot password?',
-    subtitle: "Enter your email and we'll send you a reset link.",
+    forgotPasswordTitle: 'Forgot password?',
+    forgotPasswordSubtitle: "Enter your email and we'll send you a reset link.",
     onRequestReset: (email: string) => console.log('Request reset for', email),
     onBackToLogin: () => {},
   },

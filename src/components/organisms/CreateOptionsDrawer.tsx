@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Box, Drawer } from '@mui/material';
+import { Box, SwipeableDrawer } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
 import {
   ImageOutlined,
@@ -55,7 +55,7 @@ const panelSx: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
   pt: '16px',
-  pb: '92px', // Space for BottomNavigation at the bottom of the drawer
+  pb: '24px',
 };
 
 const contentSx: SxProps<Theme> = {
@@ -115,7 +115,7 @@ const interactiveBaseSx: SxProps<Theme> = {
 };
 
 const surfaceSx: SxProps<Theme> = {
-  bgcolor: 'var(--md-sys-color-surface-container)',
+  bgcolor: '#1C1C1C',
   borderRadius: '10px',
 };
 
@@ -233,10 +233,12 @@ export const CreateOptionsDrawer = ({
   const rowOptions = options.filter((o) => o.variant === 'row');
 
   return (
-    <Drawer
+    <SwipeableDrawer
       open={open}
       onClose={onClose}
+      onOpen={() => {}}
       anchor="bottom"
+      disableSwipeToOpen
       slotProps={{
         paper: { sx: paperSx },
       }}
@@ -263,7 +265,7 @@ export const CreateOptionsDrawer = ({
 
         {footer && <Box sx={footerSx}>{footer}</Box>}
       </Box>
-    </Drawer>
+    </SwipeableDrawer>
   );
 };
 

@@ -1,15 +1,15 @@
+import { useState, useEffect } from 'react';
 import { Container, Box } from '@mui/material';
 import AuthForm from '../organisms/AuthForm';
 import SocialAuthRow from '../organisms/SocialAuthRow';
 import Button from '../atoms/Button';
 import Link from '../atoms/Link';
 import LegalLinks from '../molecules/LegalLinks';
-import Icon from '../atoms/Icon';
+import LanguagePopper, { type LanguageOption } from '../molecules/LanguagePopper';
 import Text from '../atoms/Text';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
 import type { AuthFormCredentials } from '../organisms/AuthForm';
 import type { SocialAuthProvider } from '../organisms/SocialAuthRow';
-import { Star } from '../../icons';
 import logoSvg from '../../assets/seacrets-logo.svg';
 import paymentBadgesSvg from '../../assets/payment-badges.svg';
 
@@ -18,6 +18,10 @@ export interface LoginTemplateProps extends BoxProps {
   screen?: 'login' | 'forgotPassword';
   title?: string;
   subtitle?: string;
+  /** Title when on forgot-password screen (default: "Forgot password?") */
+  forgotPasswordTitle?: string;
+  /** Subtitle when on forgot-password screen */
+  forgotPasswordSubtitle?: string;
   onLogin?: (credentials: AuthFormCredentials) => void;
   onForgotPassword?: () => void;
   /** Called when user submits email on forgot-password screen */
@@ -27,8 +31,9 @@ export interface LoginTemplateProps extends BoxProps {
   /** LOGIN layout: show language selector, logo, OR divider, Google login, reCAPTCHA, footer */
   variant?: 'default' | 'login';
   logoSrc?: string;
-  languageLabel?: string;
-  onLanguageClick?: () => void;
+  languageValue?: string;
+  languageOptions?: LanguageOption[];
+  onLanguageChange?: (code: string) => void;
   providers?: SocialAuthProvider[];
   dividerLabel?: string;
   onCreateAccount?: () => void;
@@ -42,14 +47,17 @@ export const LoginTemplate = ({
   screen = 'login',
   title = 'Sign in',
   subtitle,
+  forgotPasswordTitle = 'Forgot password?',
+  forgotPasswordSubtitle = "Enter your email and we'll send you a reset link.",
   onLogin,
   onForgotPassword,
   onRequestReset,
   onBackToLogin,
   variant = 'login',
   logoSrc,
-  languageLabel = 'Idiom : ENGLISH',
-  onLanguageClick,
+  languageValue = 'en',
+  languageOptions,
+  onLanguageChange,
   providers = [],
   dividerLabel = 'OR',
   onCreateAccount,
@@ -60,8 +68,20 @@ export const LoginTemplate = ({
   sx,
   ...props
 }: LoginTemplateProps) => {
+  const [currentScreen, setCurrentScreen] = useState(screen);
+  useEffect(() => setCurrentScreen(screen), [screen]);
   const isLogin = variant === 'login';
-  const isForgotPassword = screen === 'forgotPassword';
+  const isForgotPassword = currentScreen === 'forgotPassword';
+
+  const handleForgotPassword = () => {
+    setCurrentScreen('forgotPassword');
+    onForgotPassword?.();
+  };
+
+  const handleBackToLogin = () => {
+    setCurrentScreen('login');
+    onBackToLogin?.();
+  };
   const logoSrcResolved = logoSrc ?? (isLogin ? logoSvg : undefined);
 
   const baseLoginTemplateSx = {
@@ -79,16 +99,16 @@ export const LoginTemplate = ({
           {isForgotPassword ? (
             <>
               <Text variant="h4" component="h1" gutterBottom align="center">
-                {title}
+                {forgotPasswordTitle}
               </Text>
-              {subtitle && (
+              {forgotPasswordSubtitle && (
                 <Text
                   variant="body2"
                   color="text.secondary"
                   align="center"
                   sx={{ mb: 3 }}
                 >
-                  {subtitle}
+                  {forgotPasswordSubtitle}
                 </Text>
               )}
               <AuthForm
@@ -97,15 +117,13 @@ export const LoginTemplate = ({
                 sendResetLabel={sendResetLabel}
                 sx={{ width: '100%' }}
               />
-              {onBackToLogin && (
-                <Button
+              <Button
                   variant="text"
-                  onClick={onBackToLogin}
+                  onClick={handleBackToLogin}
                   sx={{ mt: 3, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
                 >
                   {backToLoginLabel}
                 </Button>
-              )}
             </>
           ) : (
             <>
@@ -125,23 +143,14 @@ export const LoginTemplate = ({
                       }}
                     />
                   )}
-                  {onLanguageClick && (
-                    <Button
-                      variant="text"
-                      onClick={onLanguageClick}
-                      startIcon={<Icon icon={Star} sx={{ fontSize: 18 }} />}
-                      sx={{
-                        color: 'text.primary',
-                        alignSelf: 'center',
-                        mb: 5,
-                        fontSize: '0.875rem',
-                        fontWeight: 500,
-                        textTransform: 'none',
-                        '& .MuiButton-startIcon': { marginRight: 1 },
-                      }}
-                    >
-                      {languageLabel}
-                    </Button>
+                  {onLanguageChange && (
+                    <Box sx={{ mb: 5, alignSelf: 'center' }}>
+                      <LanguagePopper
+                        value={languageValue}
+                        options={languageOptions}
+                        onChange={onLanguageChange}
+                      />
+                    </Box>
                   )}
                 </>
               )}
@@ -164,7 +173,7 @@ export const LoginTemplate = ({
               )}
               <AuthForm
                 onSubmit={onLogin}
-                onForgotPassword={onForgotPassword}
+                onForgotPassword={onForgotPassword ? handleForgotPassword : undefined}
                 submitLabel={isLogin ? 'Login' : 'Sign in'}
                 showRememberMe={isLogin}
                 sx={{ width: '100%' }}
@@ -181,11 +190,11 @@ export const LoginTemplate = ({
               />
               <Text
                 variant="caption"
-                sx={{ color: 'text.secondary', mt: 3, textAlign: 'center', fontSize: '0.75rem' }}
+                sx={{ color: 'text.disabled', mt: 3, textAlign: 'center', fontSize: '0.75rem' }}
               >
                 protected by reCAPTCHA{' '}
                 {onPrivacyTermsClick && (
-                  <Link component="button" onClick={onPrivacyTermsClick} sx={{ cursor: 'pointer', fontSize: 'inherit', fontWeight: 400, color: 'primary.main', textDecoration: 'none' }}>
+                  <Link component="button" onClick={onPrivacyTermsClick} sx={{ cursor: 'pointer', fontSize: 'inherit', fontWeight: 400, color: 'text.disabled', textDecoration: 'none' }}>
                     Privacy - Terms
                   </Link>
                 )}
