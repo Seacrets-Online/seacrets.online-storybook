@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LoginTemplate from '../../components/templates/LoginTemplate';
 import { Google as GoogleIcon, Apple as AppleIcon } from '@mui/icons-material';
+import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 
 const meta = {
   title: 'Templates/LoginTemplate',
   component: LoginTemplate,
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className="template-story-wrapper">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof LoginTemplate>;
 
 export default meta;
@@ -27,8 +22,8 @@ export const Login: Story = {
     onForgotPassword: () => {},
     onLanguageClick: () => {},
     providers: [
-      { id: 'google', label: 'Login with Google', icon: <GoogleIcon />, onClick: () => {} },
-      { id: 'apple', label: 'Login with Apple', icon: <AppleIcon />, onClick: () => {} },
+      { id: 'google', label: 'LOGIN WITH GOOGLE', icon: <GoogleIcon />, onClick: () => {} },
+      { id: 'apple', label: 'LOGIN WITH APPLE', icon: <AppleIcon />, onClick: () => {} },
     ],
     onCreateAccount: () => {},
     onPrivacyTermsClick: () => {},

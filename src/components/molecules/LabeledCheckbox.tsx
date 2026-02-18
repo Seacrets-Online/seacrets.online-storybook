@@ -8,7 +8,10 @@ export interface LabeledCheckboxProps
   checkboxProps?: CheckboxProps;
 }
 
-const baseLabeledCheckboxSx = {};
+const baseLabeledCheckboxSx = {
+  alignItems: 'center',
+  '& > .MuiButtonBase-root': { marginTop: '1px', alignSelf: 'center' },
+} as const;
 
 export const LabeledCheckbox = ({
   label,

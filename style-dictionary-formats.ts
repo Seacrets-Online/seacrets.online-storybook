@@ -70,6 +70,9 @@ StyleDictionary.registerFormat({
     const lightVars = new Map<string, string>();
     const darkVars = new Map<string, string>();
 
+    const lightTokens: Record<string, string> = {};
+    const darkTokens: Record<string, string> = {};
+
     dictionary.allTokens.forEach((token) => {
       const tokenType = token.$type ?? token.type;
       if (tokenType !== 'color') return;
@@ -88,10 +91,15 @@ StyleDictionary.registerFormat({
       const varName = toCssVarName(token.path ?? token.originalPath);
       const value = (token.$value ?? token.value) ?? '';
 
+      // For TS export, we want a camelCase key
+      const tsKey = varName.replace(/^--/, '').replace(/-([a-z0-9])/g, (_, g) => g.toUpperCase());
+
       if (theme === 'light') {
         lightVars.set(varName, value);
+        lightTokens[tsKey] = value;
       } else if (theme === 'dark') {
         darkVars.set(varName, value);
+        darkTokens[tsKey] = value;
       }
 
       // Generate channel variable if value is hex
@@ -118,6 +126,48 @@ StyleDictionary.registerFormat({
     const lightBlock = serializeVars(lightVars);
     const darkBlock = serializeVars(darkVars);
 
-    return `/* Do not edit directly, this file was auto-generated. */\n:root {\n${lightBlock}\n}\n\n[data-theme="dark"] {\n${darkBlock}\n}\n`;
+    const tsOutput = `export const colorTokens = ${JSON.stringify({ light: lightTokens, dark: darkTokens }, null, 2)};\n\nexport default colorTokens;`;
+
+    // We can't easily write a second file from a format, but we can return a comment with the TS content 
+    // or better, we'll add a new platform to the config.
+    return `/* Do not edit directly, this file was auto-generated. */\n:root {\n${lightBlock}\n}\n\n[data-theme="dark"] {\n${darkBlock}\n}\n\n/* TS_EXPORT_START\n${tsOutput}\nTS_EXPORT_END */\n`;
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'typescript/color-tokens',
+  format: ({ dictionary }) => {
+    const lightTokens: Record<string, string> = {};
+    const darkTokens: Record<string, string> = {};
+
+    dictionary.allTokens.forEach((token) => {
+      const tokenType = token.$type ?? token.type;
+      if (tokenType !== 'color') return;
+
+      let theme: 'light' | 'dark' | null = null;
+      const parts = normalizePathParts(token.path ?? token.originalPath);
+      if (parts.some((p) => p.toLowerCase() === 'light')) theme = 'light';
+      else if (parts.some((p) => p.toLowerCase() === 'dark')) theme = 'dark';
+
+      if (!theme) return;
+
+      const varName = toCssVarName(token.path ?? token.originalPath);
+      const value = (token.$value ?? token.value) ?? '';
+      const tsKey = varName
+        .replace(/^--/, '')
+        .replace(/-([a-z0-9])/g, (_, g) => g.toUpperCase());
+
+      if (theme === 'light') {
+        lightTokens[tsKey] = value;
+      } else if (theme === 'dark') {
+        darkTokens[tsKey] = value;
+      }
+    });
+
+    return `/* Do not edit directly, this file was auto-generated. */\nexport const colorTokens = ${JSON.stringify(
+      { light: lightTokens, dark: darkTokens },
+      null,
+      2
+    )} as const;\n\nexport default colorTokens;\n`;
   },
 });
