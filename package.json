@@ -1,8 +1,23 @@
 {
   "name": "@seacrets/design-system",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./styles": "./src/styles/index.css",
+    "./theme": "./src/theme/mui/createTheme.ts"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "build-dictionary": "tsx scripts/build-dictionary.ts",
     "tokens:build": "npm run build-dictionary",
