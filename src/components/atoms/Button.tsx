@@ -3,7 +3,7 @@ import type { ButtonProps as MuiButtonProps, SxProps, Theme } from '@mui/materia
 import { shapeTokens } from '../../utils/shapes';
 
 export type ButtonSize = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
-type ButtonShape = 'pill' | 'rounded';
+export type ButtonShape = 'pill' | 'rounded' | 'square';
 
 const SIZES: Record<ButtonSize, { minHeight: number; paddingInline: number; paddingBlock: number; fontSize: string }> = {
   extraSmall: { minHeight: 28, paddingInline: 12, paddingBlock: 4, fontSize: '0.75rem' },
@@ -42,7 +42,11 @@ export const Button = ({
   const sizeConfig = SIZES[size] ?? SIZES.medium;
   const muiSize = MUI_SIZE_MAP[size] ?? 'medium';
   const borderRadius =
-    shape === 'pill' ? shapeTokens['corner-full'] : shapeTokens['corner-large'];
+    shape === 'pill'
+      ? shapeTokens['corner-full']
+      : shape === 'square'
+        ? shapeTokens['corner-small']
+        : shapeTokens['corner-large'];
 
   const baseButtonSx = {
     minHeight: sizeConfig.minHeight,
@@ -51,6 +55,9 @@ export const Button = ({
     borderRadius,
     fontSize: sizeConfig.fontSize,
     maxWidth: '100%',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   };
 
   return (
