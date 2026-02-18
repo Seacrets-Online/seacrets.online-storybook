@@ -4,7 +4,7 @@ import type { BoxProps, SxProps, Theme } from '@mui/material';
 import { Add, Home, Notifications, Search, Send, KeyboardArrowDown } from '@mui/icons-material';
 import BottomNavigation from '../organisms/BottomNavigation';
 import type { BottomNavigationAction } from '../organisms/BottomNavigation';
-import CreateOptionsDrawer from '../organisms/CreateOptionsDrawer';
+import BottomSliderPanel from '../organisms/BottomSliderPanel';
 import Text from '../atoms/Text';
 
 type NavigationValue = number | string;
@@ -149,7 +149,7 @@ export const CreateOptionsTemplate = ({
 
       {bottomNavigation}
 
-      <CreateOptionsDrawer
+      <BottomSliderPanel
         open={drawerOpen}
         onClose={closeDrawer}
         title={drawerTitle}
@@ -158,8 +158,8 @@ export const CreateOptionsTemplate = ({
         uploadMediaLabel={uploadMediaLabel}
         uploadTrendLabel={uploadTrendLabel}
         onCreateStory={() => {
-          onCreateStory?.();
           closeDrawer();
+          onCreateStory?.();
         }}
         onCreateLive={() => {
           onCreateLive?.();
