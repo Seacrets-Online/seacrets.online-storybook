@@ -44,8 +44,9 @@ const pillSx: SxProps<Theme> = {
   right: 14,
   bottom: 16,
   borderRadius: '46px',
-  // Close match for the #0c0c0c pill in dark mode; keeps a sensible light mode value.
-  bgcolor: 'var(--md-sys-color-surface-container-lowest)',
+  // TODO: Replace with token from tokens.json when available
+  bgcolor: '#0C0C0C',
+  // TODO: Replace with token from tokens.json when available
   boxShadow: 'inset 0px 4px 4px rgba(0,0,0,0.25)',
   display: 'grid',
   gridAutoFlow: 'column',
