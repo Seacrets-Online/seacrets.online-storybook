@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CreateOptionsTemplate from '../../components/templates/CreateOptionsTemplate';
-import { withTemplateStoryWrapper } from '../decorators/templateStoryWrapper';
 import Text from '../../components/atoms/Text';
 
 const meta = {
   title: 'Templates/CreateOptionsTemplate',
   component: CreateOptionsTemplate,
   parameters: { layout: 'fullscreen', docs: { page: null } },
-  decorators: [withTemplateStoryWrapper],
 } satisfies Meta<typeof CreateOptionsTemplate>;
 
 export default meta;

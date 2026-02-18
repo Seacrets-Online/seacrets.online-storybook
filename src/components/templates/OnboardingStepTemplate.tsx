@@ -23,9 +23,7 @@ const progressValue = (step: number, total: number) =>
 
 const baseOnboardingSx = {
   flex: 1,
-  height: '100%',
-  maxHeight: '100%',
-  minHeight: 0,
+  minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   bgcolor: 'background.default',
@@ -49,7 +47,6 @@ export const OnboardingStepTemplate = ({
       maxWidth="xs"
       sx={{
         flex: 1,
-        height: '100%',
         minHeight: 0,
         width: '100%',
         display: 'flex',
@@ -110,7 +107,7 @@ export const OnboardingStepTemplate = ({
         )}
       </Stack>
 
-      <Box sx={{ flexShrink: 0, pt: 4, pb: 2 }}>
+      <Box sx={{ flexShrink: 0, mt: 'auto', pt: 4, pb: 2 }}>
         <LegalLinks />
       </Box>
     </Container>
