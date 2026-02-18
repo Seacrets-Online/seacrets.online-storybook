@@ -23,7 +23,7 @@ export const Default: Story = {
     name: 'Daniela',
     priceLabel: 'Gratis',
     hashtag: '#tetas',
-    imageUrl: 'https://picsum.photos/seed/daniela/400/533',
+    imageUrl: 'https://100k-faces.vercel.app/api/random-image?seed=1',
     onViewProfile: () => {},
     onSubscribe: () => {},
   },

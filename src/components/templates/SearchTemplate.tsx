@@ -67,8 +67,10 @@ const defaultActiveFilters: SearchFilterTag[] = [
   { id: '5', label: 'Hentai', removable: false },
 ];
 
-const getPlaceholderImage = (seed: string) =>
-  `https://picsum.photos/seed/${seed}/400/533`;
+const getPlaceholderImage = (seed: string) => {
+  const hash = Math.abs(seed.split('').reduce((a, c) => a + c.charCodeAt(0), 0));
+  return `https://100k-faces.vercel.app/api/random-image?seed=${hash}`;
+};
 
 const defaultResults: SearchResultItem[] = [
   { id: '1', name: 'Daniela', priceLabel: 'Gratis', hashtag: '#tetas', imageUrl: getPlaceholderImage('1') },
