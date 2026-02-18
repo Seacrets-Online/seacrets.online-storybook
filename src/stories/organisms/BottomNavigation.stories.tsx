@@ -7,7 +7,6 @@ const meta = {
   title: 'Organisms/BottomNavigation',
   component: BottomNavigation,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
   decorators: [
     (Story) => (
       <div style={{ width: 414 }}>

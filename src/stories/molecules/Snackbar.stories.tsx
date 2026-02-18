@@ -7,7 +7,6 @@ const meta = {
   title: 'Molecules/Snackbar',
   component: Snackbar,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Snackbar>;
 
 export default meta;
