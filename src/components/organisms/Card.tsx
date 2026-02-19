@@ -49,7 +49,12 @@ export const Card = ({
     {actions && actions.length > 0 && (
       <MuiCardActions>
         {actions.map((a, i) => (
-          <Button key={i} {...(typeof a === 'object' && a !== null && !React.isValidElement(a) ? (a as ButtonProps) : { children: a })} />
+          <Button
+            key={i}
+            {...(typeof a === 'object' && a !== null && !React.isValidElement(a)
+              ? (a as ButtonProps)
+              : { children: a as React.ReactNode })}
+          />
         ))}
       </MuiCardActions>
     )}

@@ -39,4 +39,4 @@ lerna-debug.log*
 .cursor/mcp.json
 
 # Debug/temp scripts
-check_exports.js
+check_exports.ts
