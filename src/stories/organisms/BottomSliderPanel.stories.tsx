@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CreateOptionsDrawer from '../../components/organisms/CreateOptionsDrawer';
+import BottomSliderPanel from '../../components/organisms/BottomSliderPanel';
 
 const meta = {
-  title: 'Organisms/CreateOptionsDrawer',
-  component: CreateOptionsDrawer,
+  title: 'Organisms/BottomSliderPanel',
+  component: BottomSliderPanel,
   parameters: { layout: 'fullscreen', docs: { page: null } },
-} satisfies Meta<typeof CreateOptionsDrawer>;
+} satisfies Meta<typeof BottomSliderPanel>;
 
 export default meta;
 
@@ -17,4 +17,3 @@ export const Open: Story = {
     onClose: () => {},
   },
 };
-

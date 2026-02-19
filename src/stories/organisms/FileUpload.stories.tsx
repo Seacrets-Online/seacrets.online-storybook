@@ -5,7 +5,6 @@ const meta = {
   title: 'Organisms/FileUpload',
   component: FileUpload,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FileUpload>;
 
 export default meta;

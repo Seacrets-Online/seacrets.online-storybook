@@ -1,15 +1,17 @@
-import type { ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Box, SwipeableDrawer } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
 import {
+  ChevronLeft,
   ImageOutlined,
   LocalFireDepartmentOutlined,
   PlayCircleOutline,
   WifiTethering,
 } from '@mui/icons-material';
+import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 
-export interface CreateOptionsDrawerProps {
+export interface BottomSliderPanelProps {
   open: boolean;
   onClose: () => void;
   title?: string;
@@ -26,6 +28,15 @@ export interface CreateOptionsDrawerProps {
    * The Figma node `2441:1502` places a 92px footer at the bottom.
    */
   footer?: ReactNode;
+  /**
+   * Optional content for step 2 (shown after selecting an option).
+   * Receives the selected action id and helpers. Call onConfirm() to complete and close.
+   */
+  renderStep2?: (
+    selectedOption: ActionId,
+    helpers: { onConfirm: () => void; onClose: () => void }
+  ) => ReactNode;
+  nextLabel?: string;
 }
 
 type ActionId = 'createStory' | 'createLive' | 'uploadMedia' | 'uploadTrend';
@@ -45,7 +56,8 @@ const paperSx: SxProps<Theme> = {
   height: 430, // Full height as per original design
   overflow: 'hidden',
   borderRadius: '30px',
-  bgcolor: 'var(--md-sys-color-surface-container-lowest)',
+  // TODO: Replace with token from tokens.json when available
+  bgcolor: '#101010',
   boxShadow: 'none',
   backgroundImage: 'none', // Disable MUI elevation overlay
 };
@@ -68,7 +80,7 @@ const handleSx: SxProps<Theme> = {
   height: 3,
   borderRadius: '21px',
   alignSelf: 'center',
-  // Matches Figma #6d6b6b.
+  // TODO: Replace with token from tokens.json when available (Figma #6d6b6b)
   bgcolor: '#6d6b6b',
   flexShrink: 0,
 };
@@ -115,6 +127,7 @@ const interactiveBaseSx: SxProps<Theme> = {
 };
 
 const surfaceSx: SxProps<Theme> = {
+  // TODO: Replace with token from tokens.json when available
   bgcolor: '#1C1C1C',
   borderRadius: '10px',
 };
@@ -184,7 +197,7 @@ const OptionButton = ({
   </Box>
 );
 
-export const CreateOptionsDrawer = ({
+export const BottomSliderPanel = ({
   open,
   onClose,
   title = 'Que Quieres Crear',
@@ -197,40 +210,84 @@ export const CreateOptionsDrawer = ({
   onUploadMedia,
   onUploadTrend,
   footer,
-}: CreateOptionsDrawerProps) => {
+  renderStep2,
+  nextLabel = 'Siguiente',
+}: BottomSliderPanelProps) => {
+  const [step, setStep] = useState<1 | 2>(1);
+  const [selectedOption, setSelectedOption] = useState<ActionId | null>(null);
+
+  useEffect(() => {
+    if (!open) {
+      setStep(1);
+      setSelectedOption(null);
+    }
+  }, [open]);
+
+  const handleOptionClick = (id: ActionId) => {
+    if (id === 'createStory') {
+      onCreateStory?.();
+      onClose();
+      return;
+    }
+    setSelectedOption(id);
+    setStep(2);
+  };
+
+  const handleBack = () => {
+    setStep(1);
+    setSelectedOption(null);
+  };
+
+  const confirmStep2 = () => {
+    if (selectedOption === 'createStory') onCreateStory?.();
+    else if (selectedOption === 'createLive') onCreateLive?.();
+    else if (selectedOption === 'uploadMedia') onUploadMedia?.();
+    else if (selectedOption === 'uploadTrend') onUploadTrend?.();
+    onClose();
+  };
+
   const options: CreateOption[] = [
     {
       id: 'createStory',
       label: createStoryLabel,
       icon: <PlayCircleOutline sx={{ fontSize: 30 }} />,
-      onClick: onCreateStory,
+      onClick: () => handleOptionClick('createStory'),
       variant: 'tile',
     },
     {
       id: 'createLive',
       label: createLiveLabel,
       icon: <WifiTethering sx={{ fontSize: 30 }} />,
-      onClick: onCreateLive,
+      onClick: () => handleOptionClick('createLive'),
       variant: 'tile',
     },
     {
       id: 'uploadMedia',
       label: uploadMediaLabel,
       icon: <ImageOutlined sx={{ fontSize: 26 }} />,
-      onClick: onUploadMedia,
+      onClick: () => handleOptionClick('uploadMedia'),
       variant: 'row',
     },
     {
       id: 'uploadTrend',
       label: uploadTrendLabel,
       icon: <LocalFireDepartmentOutlined sx={{ fontSize: 26 }} />,
-      onClick: onUploadTrend,
+      onClick: () => handleOptionClick('uploadTrend'),
       variant: 'row',
     },
   ];
 
   const tileOptions = options.filter((o) => o.variant === 'tile');
   const rowOptions = options.filter((o) => o.variant === 'row');
+
+  const step2Title = selectedOption
+    ? {
+        createStory: createStoryLabel,
+        createLive: createLiveLabel,
+        uploadMedia: uploadMediaLabel,
+        uploadTrend: uploadTrendLabel,
+      }[selectedOption]
+    : '';
 
   return (
     <SwipeableDrawer
@@ -246,21 +303,74 @@ export const CreateOptionsDrawer = ({
       <Box sx={panelSx}>
         <Box sx={handleSx} />
         <Box sx={contentSx}>
-          <Text variant="body1" sx={titleSx}>
-            {title}
-          </Text>
+          {step === 1 ? (
+            <>
+              <Text variant="body1" sx={titleSx}>
+                {title}
+              </Text>
 
-          <Box sx={gridSx}>
-            {tileOptions.map((option) => (
-              <OptionButton key={option.id} option={option} />
-            ))}
-          </Box>
+              <Box sx={gridSx}>
+                {tileOptions.map((option) => (
+                  <OptionButton key={option.id} option={option} />
+                ))}
+              </Box>
 
-          <Box sx={rowsSx}>
-            {rowOptions.map((option) => (
-              <OptionButton key={option.id} option={option} />
-            ))}
-          </Box>
+              <Box sx={rowsSx}>
+                {rowOptions.map((option) => (
+                  <OptionButton key={option.id} option={option} />
+                ))}
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box
+                component="button"
+                type="button"
+                aria-label="Volver"
+                onClick={handleBack}
+                sx={[
+                  interactiveBaseSx,
+                  {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                    mb: 2,
+                    color: 'text.secondary',
+                  },
+                ] as SxProps<Theme>}
+              >
+                <ChevronLeft sx={{ fontSize: 24 }} />
+                <Text variant="body2" sx={{ color: 'inherit' }}>
+                  Volver
+                </Text>
+              </Box>
+              <Text variant="body1" sx={titleSx}>
+                {step2Title}
+              </Text>
+              {renderStep2 && selectedOption ? (
+                renderStep2(selectedOption, { onConfirm: confirmStep2, onClose })
+              ) : (
+                <Box sx={{ mt: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Box
+                    sx={{
+                      p: 3,
+                      // TODO: Replace with token from tokens.json when available
+                      bgcolor: '#1C1C1C',
+                      borderRadius: '10px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    <Text variant="body2" color="text.secondary">
+                      Step 2 placeholder. Customize with renderStep2 prop.
+                    </Text>
+                  </Box>
+                  <Button variant="contained" onClick={confirmStep2} fullWidth>
+                    {nextLabel}
+                  </Button>
+                </Box>
+              )}
+            </>
+          )}
         </Box>
 
         {footer && <Box sx={footerSx}>{footer}</Box>}
@@ -269,4 +379,4 @@ export const CreateOptionsDrawer = ({
   );
 };
 
-export default CreateOptionsDrawer;
+export default BottomSliderPanel;

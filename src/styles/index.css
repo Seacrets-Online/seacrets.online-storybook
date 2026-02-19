@@ -28,21 +28,3 @@
   display: flex !important;
   flex-direction: column !important;
 }
-
-/* Fullscreen template stories: wrapper for Story view and Docs preview */
-.template-story-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-height: 100%;
-}
-
-/* Docs: make wrapper fill .docs-story */
-.docs-story .template-story-wrapper,
-.docs-canvas-mobile .template-story-wrapper {
-  min-height: 0 !important;
-  flex: 1 !important;
-  height: 896px !important;
-  display: flex !important;
-  flex-direction: column !important;
-}

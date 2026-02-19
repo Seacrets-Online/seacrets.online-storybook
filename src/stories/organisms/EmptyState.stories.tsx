@@ -5,7 +5,6 @@ const meta = {
   title: 'Organisms/EmptyState',
   component: EmptyState,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof EmptyState>;
 
 export default meta;

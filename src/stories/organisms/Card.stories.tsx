@@ -6,7 +6,6 @@ const meta = {
   title: 'Organisms/Card',
   component: Card,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
   decorators: [(Story) => <div style={{ width: 360 }}><Story /></div>],
 } satisfies Meta<typeof Card>;
 

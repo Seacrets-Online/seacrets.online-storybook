@@ -23,7 +23,7 @@ const meta = {
     },
     shape: {
       control: 'select',
-      options: ['pill', 'rounded'],
+      options: ['pill', 'rounded', 'square'],
     },
     color: {
       control: 'select',
@@ -90,6 +90,14 @@ export const PillShape: Story = {
     children: 'Pill button',
     variant: 'contained',
     shape: 'pill',
+  },
+};
+
+export const SquareShape: Story = {
+  args: {
+    children: 'Square button',
+    variant: 'contained',
+    shape: 'square',
   },
 };
 

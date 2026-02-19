@@ -6,7 +6,6 @@ const meta = {
   title: 'Organisms/SocialAuthRow',
   component: SocialAuthRow,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
   decorators: [(Story) => <div style={{ width: 320 }}><Story /></div>],
 } satisfies Meta<typeof SocialAuthRow>;
 

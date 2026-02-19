@@ -6,7 +6,6 @@ const meta = {
   title: 'Molecules/Select',
   component: Select,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
   decorators: [(Story) => <div style={{ width: 200 }}><Story /></div>],
 } satisfies Meta<typeof Select>;
 

@@ -6,7 +6,6 @@ const meta = {
   title: 'Organisms/AppBar',
   component: AppBar,
   parameters: { layout: 'fullscreen' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof AppBar>;
 
 export default meta;

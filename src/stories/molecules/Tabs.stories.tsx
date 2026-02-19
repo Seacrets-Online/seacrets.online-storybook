@@ -6,7 +6,6 @@ const meta = {
   title: 'Molecules/Tabs',
   component: Tabs,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

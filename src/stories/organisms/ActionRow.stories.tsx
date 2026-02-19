@@ -5,7 +5,6 @@ const meta = {
   title: 'Organisms/ActionRow',
   component: ActionRow,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
 } satisfies Meta<typeof ActionRow>;
 
 export default meta;

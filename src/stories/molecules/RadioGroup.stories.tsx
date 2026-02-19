@@ -12,7 +12,6 @@ const meta = {
   title: 'Molecules/RadioGroup',
   component: RadioGroup,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
   args: {
     value: 'a',
     name: 'radio-demo',
