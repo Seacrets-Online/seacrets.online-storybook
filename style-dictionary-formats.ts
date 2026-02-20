@@ -2,6 +2,17 @@ import StyleDictionary from 'style-dictionary';
 
 type PathInput = string | string[] | undefined;
 
+const toTsKey = (varName: string): string =>
+  varName.replace(/^--/, '').replace(/-([a-z0-9])/g, (_, g: string) => g.toUpperCase());
+
+const toKebab = (value: string): string =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
 const normalizePathParts = (path: PathInput): string[] => {
   if (!path) return [];
   const parts = Array.isArray(path) ? path : String(path).split('/');
@@ -16,13 +27,6 @@ const normalizePathParts = (path: PathInput): string[] => {
   return expanded.filter(Boolean);
 };
 
-const getThemeFromPath = (pathParts: PathInput): 'light' | 'dark' | null => {
-  const parts = normalizePathParts(pathParts);
-  if (parts.includes('Light')) return 'light';
-  if (parts.includes('Dark')) return 'dark';
-  return null;
-};
-
 const filterMd3Path = (pathParts: PathInput): string[] => {
   const parts = normalizePathParts(pathParts);
   const filtered: string[] = [];
@@ -35,13 +39,53 @@ const filterMd3Path = (pathParts: PathInput): string[] => {
 };
 
 const toCssVarName = (pathParts: PathInput): string => {
-  const filtered = filterMd3Path(pathParts);
-  const name = filtered.join('-').toLowerCase();
-  const cleaned = name
-    .replace(/[^a-z0-9-]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-  return `--${cleaned}`;
+  // Canonical MD3-ish naming derived from token groups (Schemes/Palettes/...).
+  // Example:
+  // - seacrets.online/Light/Schemes/Primary -> --md-sys-color-primary
+  // - seacrets.online/Light/Palettes/Primary/40 -> --md-ref-palette-primary40
+  const parts = filterMd3Path(pathParts);
+  const slugs = parts.map(toKebab).filter(Boolean);
+
+  const indexOf = (slug: string) => slugs.findIndex((p) => p === slug);
+  const after = (idx: number) => slugs.slice(idx + 1).filter(Boolean);
+
+  const fallback = slugs.length > 0 ? `--${slugs.join('-')}` : '--unknown';
+
+  const schemesIndex = indexOf('schemes');
+  if (schemesIndex >= 0) {
+    const tokenName = after(schemesIndex).join('-');
+    return tokenName ? `--md-sys-color-${tokenName}` : fallback;
+  }
+
+  const palettesIndex = indexOf('palettes');
+  if (palettesIndex >= 0) {
+    const rest = after(palettesIndex);
+    const [family, tone, ...tail] = rest;
+    if (family && tone && /^\d+$/.test(tone) && tail.length === 0) {
+      return `--md-ref-palette-${family}${tone}`;
+    }
+    return rest.length > 0 ? `--md-ref-palette-${rest.join('-')}` : fallback;
+  }
+
+  const stateLayersIndex = indexOf('state-layers');
+  if (stateLayersIndex >= 0) {
+    const rest = after(stateLayersIndex).join('-');
+    return rest ? `--md-sys-state-layer-${rest}` : fallback;
+  }
+
+  const extendedColorsIndex = indexOf('extended-colors');
+  if (extendedColorsIndex >= 0) {
+    const rest = after(extendedColorsIndex).join('-');
+    return rest ? `--md-ext-color-${rest}` : fallback;
+  }
+
+  const surfacesIndex = indexOf('surfaces');
+  if (surfacesIndex >= 0) {
+    const rest = after(surfacesIndex).join('-');
+    return rest ? `--md-sys-surface-${rest}` : fallback;
+  }
+
+  return fallback;
 };
 
 const hexToRgb = (hex: string): string | null => {
@@ -49,6 +93,131 @@ const hexToRgb = (hex: string): string | null => {
   return result
     ? `${parseInt(result[1], 16)} ${parseInt(result[2], 16)} ${parseInt(result[3], 16)}`
     : null;
+};
+
+type ColorVars = Map<string, string>;
+
+const copyVar = (source: ColorVars, target: ColorVars, varName: string): void => {
+  const value = source.get(varName);
+  if (value !== undefined) {
+    target.set(varName, value);
+  }
+};
+
+const aliasVar = (source: ColorVars, target: ColorVars, targetVarName: string, sourceVarName: string): void => {
+  const value = source.get(sourceVarName);
+  if (value !== undefined) {
+    target.set(targetVarName, value);
+  }
+};
+
+const copyVarWithChannel = (source: ColorVars, target: ColorVars, varName: string): void => {
+  copyVar(source, target, varName);
+  copyVar(source, target, `${varName}-channel`);
+};
+
+const aliasVarWithChannel = (
+  source: ColorVars,
+  target: ColorVars,
+  targetVarName: string,
+  sourceVarName: string
+): void => {
+  aliasVar(source, target, targetVarName, sourceVarName);
+  aliasVar(source, target, `${targetVarName}-channel`, `${sourceVarName}-channel`);
+};
+
+const setHexWithChannel = (target: ColorVars, varName: string, hex: string): void => {
+  target.set(varName, hex);
+  const channels = hexToRgb(hex);
+  if (channels) {
+    target.set(`${varName}-channel`, channels);
+  }
+};
+
+/**
+ * Brand rule: in dark mode keep dark surfaces, but reuse Light accent colors
+ * so primary actions are consistent across modes.
+ *
+ * This is applied at export time (no edits to src/tokens/tokens.json).
+ */
+const applyDarkThemeBrandOverrides = (lightVars: ColorVars, darkVars: ColorVars): void => {
+  // Keep dark backgrounds (brand override)
+  setHexWithChannel(darkVars, '--md-sys-color-background', '#151515');
+  setHexWithChannel(darkVars, '--md-sys-color-surface', '#0e1415');
+  setHexWithChannel(darkVars, '--md-sys-color-on-background', '#ffffff');
+
+  // Reuse Light accents in dark mode
+  const accentSchemeNames = [
+    'primary',
+    'on-primary',
+    'primary-container',
+    'on-primary-container',
+    'secondary',
+    'on-secondary',
+    'secondary-container',
+    'on-secondary-container',
+    'tertiary',
+    'on-tertiary',
+    'tertiary-container',
+    'on-tertiary-container',
+    'error',
+    'on-error',
+    'error-container',
+    'on-error-container',
+    'surface-tint',
+  ] as const;
+
+  accentSchemeNames.forEach((name) => {
+    const varName = `--md-sys-color-${name}`;
+    copyVarWithChannel(lightVars, darkVars, varName);
+  });
+
+  // State layers for the overridden accents (hover/pressed overlays)
+  const stateLayerNames = [
+    'primary',
+    'on-primary',
+    'primary-container',
+    'on-primary-container',
+    'secondary',
+    'on-secondary',
+    'secondary-container',
+    'on-secondary-container',
+    'tertiary',
+    'on-tertiary',
+    'tertiary-container',
+    'on-tertiary-container',
+    'error',
+    'on-error',
+    'error-container',
+    'on-error-container',
+  ] as const;
+
+  const opacities = ['08', '10', '16'] as const;
+  stateLayerNames.forEach((name) => {
+    opacities.forEach((opacity) => {
+      const varName = `--md-sys-state-layer-${name}-opacity-${opacity}`;
+      copyVar(lightVars, darkVars, varName);
+    });
+  });
+
+  // Primary actions: use container tones (filled surfaces) while keeping dark backgrounds.
+  // This affects components that key off `--md-sys-color-primary` (e.g. contained primary buttons).
+  aliasVarWithChannel(lightVars, darkVars, '--md-sys-color-primary', '--md-sys-color-primary-container');
+  aliasVarWithChannel(lightVars, darkVars, '--md-sys-color-on-primary', '--md-sys-color-on-primary-container');
+  opacities.forEach((opacity) => {
+    aliasVar(
+      lightVars,
+      darkVars,
+      `--md-sys-state-layer-primary-opacity-${opacity}`,
+      `--md-sys-state-layer-primary-container-opacity-${opacity}`
+    );
+    aliasVar(
+      lightVars,
+      darkVars,
+      `--md-sys-state-layer-on-primary-opacity-${opacity}`,
+      `--md-sys-state-layer-on-primary-container-opacity-${opacity}`
+    );
+  });
 };
 
 StyleDictionary.registerFormat({
@@ -116,6 +285,8 @@ StyleDictionary.registerFormat({
       }
     });
 
+    applyDarkThemeBrandOverrides(lightVars, darkVars);
+
     const serializeVars = (vars: Map<string, string>) => {
       const entries = Array.from(vars.entries()).sort(([a], [b]) =>
         a.localeCompare(b)
@@ -139,6 +310,8 @@ StyleDictionary.registerFormat({
   format: ({ dictionary }) => {
     const lightTokens: Record<string, string> = {};
     const darkTokens: Record<string, string> = {};
+    const lightVars = new Map<string, string>();
+    const darkVars = new Map<string, string>();
 
     dictionary.allTokens.forEach((token) => {
       const tokenType = token.$type ?? token.type;
@@ -153,14 +326,23 @@ StyleDictionary.registerFormat({
 
       const varName = toCssVarName(token.path ?? token.originalPath);
       const value = (token.$value ?? token.value) ?? '';
-      const tsKey = varName
-        .replace(/^--/, '')
-        .replace(/-([a-z0-9])/g, (_, g) => g.toUpperCase());
+      const tsKey = toTsKey(varName);
 
       if (theme === 'light') {
         lightTokens[tsKey] = value;
+        lightVars.set(varName, value);
       } else if (theme === 'dark') {
         darkTokens[tsKey] = value;
+        darkVars.set(varName, value);
+      }
+    });
+
+    applyDarkThemeBrandOverrides(lightVars, darkVars);
+
+    // Re-sync token objects from the overridden var maps
+    darkVars.forEach((value, varName) => {
+      if (!varName.endsWith('-channel')) {
+        darkTokens[toTsKey(varName)] = value;
       }
     });
 

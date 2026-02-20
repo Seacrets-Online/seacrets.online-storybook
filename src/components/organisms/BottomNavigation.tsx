@@ -7,6 +7,7 @@ export interface BottomNavigationAction {
   /** Used as `aria-label` for the action button */
   label: string;
   icon: React.ReactNode;
+  activeIcon?: React.ReactNode;
   disabled?: boolean;
   onClick?: () => void;
   sx?: SxProps<Theme>;
@@ -63,9 +64,14 @@ const iconButtonBaseSx: SxProps<Theme> = {
   p: 0,
   width: 48,
   height: 48,
+  transition: 'all 0.2s ease-in-out',
   // Remove default background so the pill reads cleanly.
   '&:hover': {
     backgroundColor: 'transparent',
+    transform: 'scale(1.1)',
+  },
+  '&:active': {
+    transform: 'scale(0.95)',
   },
 };
 
@@ -102,9 +108,16 @@ export const BottomNavigation = ({
                 action.onClick?.();
                 onChange?.(action.value);
               }}
-              sx={[iconButtonBaseSx, { color }, ...(action.sx ? [action.sx] : [])] as SxProps<Theme>}
+              sx={[
+                iconButtonBaseSx,
+                {
+                  color,
+                  transform: isSelected && !isPrimary ? 'scale(1.1)' : 'scale(1)',
+                },
+                ...(action.sx ? [action.sx] : []),
+              ] as SxProps<Theme>}
             >
-              {action.icon}
+              {isSelected && action.activeIcon ? action.activeIcon : action.icon}
             </IconButton>
           </Box>
         );

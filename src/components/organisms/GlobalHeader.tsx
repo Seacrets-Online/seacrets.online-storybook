@@ -88,7 +88,7 @@ export const GlobalHeader = ({
         src={logoSvg}
         alt="Seacrets"
         sx={{
-          height: 28,
+          height: 50,
           width: 'auto',
           filter: 'none',
         }}

@@ -20,7 +20,7 @@ tokens.json -> style-dictionary -> src/style-dictionary-dist/theme.css
 
 ## Token Sources
 
-- **theme.css**: Generated CSS variables for MD3 color tokens.
+- **theme.css**: Generated CSS variables for Material Design 3 tokens (canonical `--md-*` naming).
   - Light: `:root`
   - Dark: `[data-theme="dark"]`
 - **TypeScript utilities (current)**:
@@ -75,7 +75,7 @@ From `src/utils/shapes.ts` (`shapeTokens`), used for MUI `shape.borderRadius` an
 
 ## CSS Variables
 
-Components can use `var(--md-sys-color-*)` for custom styling when needed.
+Components can use `var(--md-sys-color-*)` (and related groups like `--md-sys-state-layer-*`) for custom styling when needed.
 
 Theme switching:
 
