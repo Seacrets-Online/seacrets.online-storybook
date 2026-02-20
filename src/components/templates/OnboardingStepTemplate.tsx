@@ -23,7 +23,9 @@ const progressValue = (step: number, total: number) =>
 
 const baseOnboardingSx = {
   flex: 1,
-  minHeight: '100vh',
+  minHeight: 0,
+  height: '100%',
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
   bgcolor: 'background.default',
@@ -93,7 +95,7 @@ export const OnboardingStepTemplate = ({
         )}
         <Box sx={{ width: '100%', minWidth: 0 }}>{children}</Box>
         {onNext && (
-          <Box sx={{ pt: 8, width: '100%' }}>
+          <Box sx={{ pt: 4, width: '100%' }}>
             <Button
               variant="contained"
               onClick={onNext}

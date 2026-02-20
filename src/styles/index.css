@@ -1,16 +1,9 @@
 @import '../style-dictionary-dist/theme.css';
 
-/* Brand overrides from commits 7ca0160 / a2473a0 / 4ae3aa2 */
-[data-theme="dark"] {
-  --seacrets-online-schemes-background: #151515;
-  --seacrets-online-schemes-surface: #0e1415;
-  --seacrets-online-schemes-on-background: #ffffff;
-}
-
 /* Constrain Docs canvas to mobile viewport (414px x 896px) */
 .docs-canvas-mobile {
   max-width: 414px;
-  max-height: calc(896px+40px) !important;
+  max-height: calc(896px + 40px) !important;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden !important;

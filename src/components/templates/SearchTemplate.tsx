@@ -1,5 +1,5 @@
-import { type ReactNode } from 'react';
-import { Box, Container } from '@mui/material';
+import { useState, useEffect, type ReactNode } from 'react';
+import { Box, Container, CircularProgress } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
 import GlobalHeader from '../organisms/GlobalHeader';
 import SearchSection from '../organisms/SearchSection';
@@ -36,6 +36,10 @@ export interface SearchTemplateProps extends Omit<BoxProps, 'results'> {
   onSubscribe?: (item: SearchResultItem) => void;
   results?: SearchResultItem[];
   renderResults?: (props: { results: SearchResultItem[] }) => ReactNode;
+  /** Callback when user scrolls near the bottom */
+  onLoadMore?: () => void;
+  /** Whether more results are currently being loaded */
+  isLoadingMore?: boolean;
 }
 
 const rootSx: SxProps<Theme> = {
@@ -44,6 +48,8 @@ const rootSx: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
   bgcolor: 'background.default',
+  height: '100%',
+  overflowY: 'auto', // Enable scroll here
 };
 
 const defaultSearchTypes = [
@@ -97,64 +103,89 @@ export const SearchTemplate = ({
   onSubscribe,
   results = defaultResults,
   renderResults,
+  onLoadMore,
+  isLoadingMore = false,
   sx,
   ...props
-}: SearchTemplateProps) => (
-  <Box sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
-    <Container
-      maxWidth="xs"
-      sx={{
-        flex: 1,
-        minHeight: 0,
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        px: 4,
-        py: 3,
-      }}
-    >
-      <GlobalHeader
-        balance={balance}
-        navItems={headerNavItems}
-        onProfileClick={onProfileClick}
-        onBalanceClick={onBalanceClick}
-        onNavClick={onNavClick}
-        sx={{ flexShrink: 0, mb: 3 }}
-      />
-      <SearchSection
-        title={title}
-        searchTypes={searchTypes}
-        filterCategories={filterCategories}
-        activeFilters={activeFilters}
-        onSearchTypeChange={onSearchTypeChange}
-        onSearch={onSearch}
-        onFilterCategoryClick={onFilterCategoryClick}
-        onRemoveFilter={onRemoveFilter}
-        onClearFilters={onClearFilters}
-        sx={{ flexShrink: 0, mb: 2 }}
-      />
+}: SearchTemplateProps) => {
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    // 1000px threshold for proactive loading
+    const bottom = target.scrollHeight - target.scrollTop <= target.clientHeight + 1000;
+    if (bottom && onLoadMore && !isLoadingMore) {
+      onLoadMore();
+    }
+  };
 
-      <Box sx={{ flex: 1, minHeight: 0, overflow: 'auto' }}>
-        {renderResults ? (
-          renderResults({ results })
-        ) : (
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            {results.map((item) => (
-              <SearchResultCard
-                key={item.id}
-                name={item.name}
-                priceLabel={item.priceLabel}
-                hashtag={item.hashtag}
-                imageUrl={item.imageUrl ?? getPlaceholderImage(item.id)}
-                onViewProfile={() => onViewProfile?.(item)}
-                onSubscribe={() => onSubscribe?.(item)}
-              />
-            ))}
-          </Box>
-        )}
-      </Box>
-    </Container>
-  </Box>
-);
+  return (
+    <Box
+      onScroll={handleScroll}
+      sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
+      {...props}
+    >
+      <Container
+        maxWidth="xs"
+        sx={{
+          flex: 1,
+          minHeight: 0,
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          px: 4,
+          py: 3,
+        }}
+      >
+        <GlobalHeader
+          balance={balance}
+          navItems={headerNavItems}
+          onProfileClick={onProfileClick}
+          onBalanceClick={onBalanceClick}
+          onNavClick={onNavClick}
+          sx={{ flexShrink: 0, mb: 3 }}
+        />
+        <SearchSection
+          title={title}
+          searchTypes={searchTypes}
+          filterCategories={filterCategories}
+          activeFilters={activeFilters}
+          onSearchTypeChange={onSearchTypeChange}
+          onSearch={onSearch}
+          onFilterCategoryClick={onFilterCategoryClick}
+          onRemoveFilter={onRemoveFilter}
+          onClearFilters={onClearFilters}
+          sx={{ flexShrink: 0, mb: 2 }}
+        />
+
+        <Box sx={{ flex: 1, minHeight: 0 }}>
+          {renderResults ? (
+            renderResults({ results })
+          ) : (
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              {results.map((item) => (
+                <SearchResultCard
+                  key={item.id}
+                  name={item.name}
+                  priceLabel={item.priceLabel}
+                  hashtag={item.hashtag}
+                  imageUrl={item.imageUrl ?? getPlaceholderImage(item.id)}
+                  onViewProfile={() => onViewProfile?.(item)}
+                  onSubscribe={() => onSubscribe?.(item)}
+                />
+              ))}
+              
+              {/* Skeleton placeholders for natural infinite loading */}
+              {isLoadingMore && (
+                <>
+                  <SearchResultCard name="" sx={{ opacity: 0.6 }} />
+                  <SearchResultCard name="" sx={{ opacity: 0.3 }} />
+                </>
+              )}
+            </Box>
+          )}
+        </Box>
+      </Container>
+    </Box>
+  );
+};
 
 export default SearchTemplate;
