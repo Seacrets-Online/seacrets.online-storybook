@@ -2,28 +2,32 @@
 
 Este documento describe los cambios realizados para adaptar el proyecto al estándar de nomenclatura de Material Design 3.
 
+## Nota (estado actual)
+
+- El output actual de Style Dictionary genera variables CSS con naming canónico MD3: `--md-sys-color-*` (y `--md-ref-palette-*`).
+- La configuración vigente está en `style-dictionary.config.ts` y `style-dictionary-formats.ts`.
+- Este documento se mantiene como referencia histórica, pero los ejemplos se han ajustado para no contradecir el output real.
+
 ## Cambios Realizados
 
 ### 1. Transforms Personalizados Creados
 
-**Archivo**: `style-dictionary-transforms.js`
+**Archivo**: `style-dictionary-formats.ts`
 
-Se crearon transforms personalizados que:
-- ✅ Eliminan el tema (`Light`/`Dark`) del nombre transformado
-- ✅ Eliminan la duplicación de `md` (causada por `md/Light/md/...`)
-- ✅ Eliminan el prefijo `token-`
-- ✅ Generan el mismo nombre para ambos temas (cumpliendo con MD3)
+Se registraron formatos personalizados que:
+- ✅ Generan nombres canónicos (`--md-sys-color-*`, `--md-ref-palette-*`)
+- ✅ Mantienen el mismo nombre en Light/Dark (cambia solo el valor por `data-theme`)
 
-**Transforms creados**:
-- `name/md3/scss`: Para nombres de variables CSS
+**Formatos**:
+- `css/variables-theme`: genera `theme.css` con bloques `:root` y `[data-theme="dark"]`
+- `typescript/color-tokens`: genera `src/utils/colors.ts`
 
 ### 2. Configuración Actualizada
 
-**Archivo**: `style-dictionary.config.js`
+**Archivo**: `style-dictionary.config.ts`
 
-- ✅ Convertido de JSON a JavaScript para soportar transforms personalizados
-- ✅ Eliminado `prefix: 'token'` (ahora `prefix: ''`)
-- ✅ Configurados transforms personalizados en lugar de `transformGroup`
+- ✅ Configuración en TypeScript
+- ✅ Usa `@tokens-studio/sd-transforms` + preprocessor de referencias
 - ✅ Salida única: theme.css con Light/Dark vía `:root` y `[data-theme="dark"]`
 
 ### 3. Tokens Generados (Ahora Cumplen con MD3)
@@ -31,48 +35,33 @@ Se crearon transforms personalizados que:
 **theme.css** (única salida actual):
 ```css
 :root {
-  --md-sys-color-primary: #8d495a;
+  --md-sys-color-primary: #b80044;
   --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-surface: #f5fafb;
+  --md-sys-color-surface: #fdf8f8;
 }
 
 [data-theme="dark"] {
-  --md-sys-color-primary: #ffb1c1;
-  --md-sys-color-on-primary: #551d2c;
+  --md-sys-color-primary: #b80044;
+  --md-sys-color-on-primary: #ffffff;
   --md-sys-color-surface: #0e1415;
 }
 ```
 
 ### 4. Componentes Actualizados
 
-Todos los componentes usan Atomic Design (`atoms/`, `molecules/`, `organisms/`, `templates/`). El bridge MUI (`createTheme.js`) consume `var(--md-sys-color-*)` desde `theme.css`. Los componentes legacy y outputs `variables.js`/`variables.scss` han sido eliminados.
+Todos los componentes usan Atomic Design (`atoms/`, `molecules/`, `organisms/`, `templates/`). El bridge MUI (`src/theme/mui/createTheme.ts`) consume variables CSS desde `src/style-dictionary-dist/theme.css` (por ejemplo `var(--md-sys-color-*)`).
 
-**Mapeo de nombres antiguos a nuevos**:
+## Estado actual
 
-| Antiguo (No MD3) | Nuevo (MD3) |
-|------------------|-------------|
-| `MdLightMdSysColorPrimary` | `mdSysColorPrimary` |
-| `MdLightMdSysColorOnPrimary` | `mdSysColorOnprimary` |
-| `MdLightMdSysColorSurface` | `mdSysColorSurface` |
-| `MdLightMdSysColorOnSurfaceVariant` | `mdSysColorOnsurfacevariant` |
-| `MdLightMdSysColorOutline` | `mdSysColorOutline` |
-| `MdLightMdSysColorOutlineVariant` | `mdSysColorOutlinevariant` |
-| `MdLightMdSysColorError` | `mdSysColorError` |
-| `$token-md-light-md-sys-color-primary` | `$md-sys-color-primary` |
+### ✅ Nombres de Tokens (CSS)
 
-## Estándar MD3 Cumplido
-
-### ✅ Nombres de Tokens
-
-- **Colores**: `md-sys-color-<nombre>` (SCSS) / `mdSysColor<Nombre>` (JS)
-- **Sin prefijo personalizado**: Eliminado `token-`
-- **Sin tema en el nombre**: Eliminado `light`/`dark` del nombre
-- **Sin duplicación**: Eliminado `md-md`
+- **Colores (Schemes)**: `--md-sys-color-<nombre>` (por ejemplo `--md-sys-color-primary`)
+- **Sin tema en el nombre**: el mismo nombre existe en light/dark; el valor cambia por `data-theme`
 
 ### ✅ Manejo de Temas
 
 - **theme.css**: `:root` para Light, `[data-theme="dark"]` para Dark
-- **Estructura fuente**: Mantiene `md/Light` y `md/Dark` (correcto)
+- **Token sets validados**: `seacrets.online/Light` y `seacrets.online/Dark`
 
 ## Notas Importantes
 
@@ -101,9 +90,8 @@ npm run storybook
 
 ## Archivos de Configuración
 
-- `style-dictionary.config.js`: Configuración principal (actualizada)
-- `style-dictionary-transforms.js`: Transforms personalizados (nuevo)
-- `style-dictionary-preprocessor.js`: Preprocessor para tokens faltantes (existente)
+- `style-dictionary.config.ts`: Configuración principal
+- `style-dictionary-formats.ts`: Formatos de salida (CSS + TS)
 
 ## Próximos Pasos (Opcional)
 

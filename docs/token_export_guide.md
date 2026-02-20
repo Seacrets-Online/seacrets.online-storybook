@@ -12,9 +12,8 @@ This repository expects **W3C DTCG** token format.
 
 - Set **Token Format = W3C DTCG** (`$value` / `$type`).
 - Keep token set names exactly as:
-  - `md/Light`
-  - `md/Dark`
-  - `Primitives/Mode 1`
+  - `seacrets.online/Light`
+  - `seacrets.online/Dark`
 - Keep token references/aliases enabled (for example `{fontFamilies.roboto}` in typography).
 - Optional: define Theme Groups (for design-side workflows) so Light/Dark mapping is explicit when exporting Variables in Figma.
 
@@ -24,9 +23,8 @@ The token build validates these expectations before running Style Dictionary and
 
 If your design team exports Variables from Token Studio, configure a Theme Group such as `Color Mode`:
 
-1. Add theme option `Light` with `md/Light` enabled and `md/Dark` disabled.
-2. Add theme option `Dark` with `md/Dark` enabled and `md/Light` disabled.
-3. Keep `Primitives/Mode 1` enabled on both options when needed by your variable strategy.
+1. Add theme option `Light` with `seacrets.online/Light` enabled and `seacrets.online/Dark` disabled.
+2. Add theme option `Dark` with `seacrets.online/Dark` enabled and `seacrets.online/Light` disabled.
 
 This is optional for the code pipeline, but reduces ambiguity when exporting Light/Dark modes to Figma Variables.
 
@@ -46,8 +44,8 @@ This is optional for the code pipeline, but reduces ambiguity when exporting Lig
    - The plugin will download a file (e.g., `material-theme.json`).
 
 4. **Update the Repository**
-   - Merge or replace tokens in `src/tokens/tokens.json` (the only source used by Style Dictionary).
-   - Ensure `md/Light` and `md/Dark` themes include base tokens (fontFamilies, fontWeights, lineHeights, fontSize, letterSpacing) at the theme root.
+   - Replace `src/tokens/tokens.json` with the exported JSON (this is the only source used by Style Dictionary).
+   - Ensure `seacrets.online/Light` and `seacrets.online/Dark` token sets are present and listed in `$metadata.tokenSetOrder`.
    - Preserve the expected token set names and metadata ordering (`$metadata.tokenSetOrder`) used by this repository.
 
 5. **Build Design Tokens**
@@ -88,7 +86,7 @@ The pipeline implements:
 }
 ```
 
-MUI components use the theme from `createTheme.js`, which maps palette values to `var(--md-sys-color-*)`. See [mui-token-bridge.md](./mui-token-bridge.md).
+MUI components use the theme from `src/theme/mui/createTheme.ts`, which maps palette values to `var(--md-sys-color-*)`. See [mui-token-bridge.md](./mui-token-bridge.md).
 
 ### Manual Rebuild
 
