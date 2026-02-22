@@ -80,8 +80,8 @@ const handleSx: SxProps<Theme> = {
   height: 3,
   borderRadius: '21px',
   alignSelf: 'center',
-  // TODO: Replace with token from tokens.json when available (Figma #6d6b6b)
-  bgcolor: '#6d6b6b',
+  // Neutral palette token close to the Figma handle gray.
+  bgcolor: 'var(--md-ref-palette-neutral-50)',
   flexShrink: 0,
 };
 
@@ -127,8 +127,7 @@ const interactiveBaseSx: SxProps<Theme> = {
 };
 
 const surfaceSx: SxProps<Theme> = {
-  // TODO: Replace with token from tokens.json when available
-  bgcolor: '#1C1C1C',
+  bgcolor: 'var(--md-sys-color-surface-container-low)',
   borderRadius: '10px',
 };
 

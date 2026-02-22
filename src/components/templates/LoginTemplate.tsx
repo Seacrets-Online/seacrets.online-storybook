@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Box } from '@mui/material';
+import { Container, Box, useTheme } from '@mui/material';
 import AuthForm from '../organisms/AuthForm';
 import SocialAuthRow from '../organisms/SocialAuthRow';
 import Button from '../atoms/Button';
@@ -83,6 +83,8 @@ export const LoginTemplate = ({
     onBackToLogin?.();
   };
   const logoSrcResolved = logoSrc ?? (isLogin ? logoSvg : undefined);
+  const theme = useTheme();
+  const layout = theme.layout;
 
   const baseLoginTemplateSx = {
     minHeight: '100vh',
@@ -97,16 +99,15 @@ export const LoginTemplate = ({
       <Container maxWidth="xs" sx={{ px: 4, py: 3 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
           {isForgotPassword ? (
-            <>
-              <Text variant="h4" component="h1" gutterBottom align="center">
+            <Box sx={{ width: '100%', mt: layout.contentBlockMt }}>
+              <Text variant="pageTitle" component="h1" align="center">
                 {forgotPasswordTitle}
               </Text>
               {forgotPasswordSubtitle && (
                 <Text
-                  variant="body2"
+                  variant="pageSubtitle"
                   color="text.secondary"
                   align="center"
-                  sx={{ mb: 3 }}
                 >
                   {forgotPasswordSubtitle}
                 </Text>
@@ -118,13 +119,13 @@ export const LoginTemplate = ({
                 sx={{ width: '100%' }}
               />
               <Button
-                  variant="text"
-                  onClick={handleBackToLogin}
-                  sx={{ mt: 3, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
-                >
-                  {backToLoginLabel}
-                </Button>
-            </>
+                variant="text"
+                onClick={handleBackToLogin}
+                sx={{ mt: layout.afterForm, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
+              >
+                {backToLoginLabel}
+              </Button>
+            </Box>
           ) : (
             <>
               {isLogin && (
@@ -137,14 +138,14 @@ export const LoginTemplate = ({
                       sx={{
                         height: 80,
                         width: 'auto',
-                        mb: 4,
-                        mt: 2,
+                        mb: layout.space32,
+                        mt: layout.space16,
                         filter: 'none',
                       }}
                     />
                   )}
                   {onLanguageChange && (
-                    <Box sx={{ mb: 5, alignSelf: 'center' }}>
+                    <Box sx={{ mb: layout.space32, alignSelf: 'center' }}>
                       <LanguagePopper
                         value={languageValue}
                         options={languageOptions}
@@ -156,15 +157,14 @@ export const LoginTemplate = ({
               )}
               {!isLogin && (
                 <>
-                  <Text variant="h4" component="h1" gutterBottom align="center">
+                  <Text variant="pageTitle" component="h1" align="center">
                     {title}
                   </Text>
                   {subtitle && (
                     <Text
-                      variant="body2"
+                      variant="pageSubtitle"
                       color="text.secondary"
                       align="center"
-                      sx={{ mb: 3 }}
                     >
                       {subtitle}
                     </Text>
@@ -185,12 +185,12 @@ export const LoginTemplate = ({
                 dividerLabel={dividerLabel}
                 sx={{
                   width: '100%',
-                  mt: 4
+                  mt: layout.space32
                 }}
               />
               <Text
                 variant="caption"
-                sx={{ color: 'text.disabled', mt: 3, textAlign: 'center', fontSize: '0.75rem' }}
+                sx={{ color: 'text.disabled', mt: layout.space24, textAlign: 'center', fontSize: '0.75rem' }}
               >
                 protected by reCAPTCHA{' '}
                 {onPrivacyTermsClick && (
@@ -203,7 +203,7 @@ export const LoginTemplate = ({
                 <Button
                   variant="text"
                   onClick={onCreateAccount}
-                  sx={{ mt: 4, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
+                  sx={{ mt: layout.space32, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
                 >
                   {createAccountLabel}
                 </Button>
@@ -212,9 +212,9 @@ export const LoginTemplate = ({
                 component="img"
                 src={paymentBadgesSvg}
                 alt="Payment methods"
-                sx={{ mt: 6, height: 32, width: 'auto' }}
+                sx={{ mt: layout.space48, height: 32, width: 'auto' }}
               />
-              <LegalLinks sx={{ mt: 3, pb: 2 }} />
+              <LegalLinks sx={{ mt: layout.space24, pb: layout.space16 }} />
             </>
               )}
             </>

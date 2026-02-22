@@ -12,7 +12,7 @@ export interface CreateStoryTemplateProps extends Omit<BoxProps, 'onSubmit'> {
 }
 
 const rootSx: SxProps<Theme> = {
-  flex: 1,
+  width: '100%',
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
@@ -28,7 +28,18 @@ export const CreateStoryTemplate = ({
   ...props
 }: CreateStoryTemplateProps) => (
   <Box sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
-    <Container maxWidth="xs" sx={{ flex: 1, minHeight: 0, width: '100%', px: 4, py: 3, display: 'flex', flexDirection: 'column' }}>
+    <Container
+      maxWidth={false}
+      sx={{
+        flex: 1,
+        width: '100%',
+        maxWidth: '100%',
+        px: 4,
+        py: 3,
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       {onBack && (
         <Box
           component="button"

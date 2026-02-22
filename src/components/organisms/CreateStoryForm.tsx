@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
 import Button from '../atoms/Button';
@@ -26,6 +26,19 @@ export const CreateStoryForm = ({
 }: CreateStoryFormProps) => {
   const [file, setFile] = useState<File | undefined>();
   const [description, setDescription] = useState('');
+  const [previewUrl, setPreviewUrl] = useState<string | undefined>();
+
+  useEffect(() => {
+    if (!file) {
+      setPreviewUrl(undefined);
+      return;
+    }
+
+    const url = URL.createObjectURL(file);
+    setPreviewUrl(url);
+
+    return () => URL.revokeObjectURL(url);
+  }, [file]);
 
   const handleSubmit = () => {
     onSubmit?.({ file, description });
@@ -60,7 +73,9 @@ export const CreateStoryForm = ({
         label={uploadLabel}
         fileName={file?.name}
         onSelect={setFile}
+        previewUrl={previewUrl}
         accept="image/*,video/*"
+        sx={{ flex: 1, minHeight: 200 }}
       />
 
       <TextField
@@ -76,10 +91,18 @@ export const CreateStoryForm = ({
         variant="contained"
         fullWidth
         size="large"
+        disabled={!file}
         sx={{
-          bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
-          color: 'text.primary',
-          '&:hover': { bgcolor: 'var(--seacrets-online-schemes-surface-container)' },
+          bgcolor: 'primary.main',
+          color: 'primary.contrastText',
+          '&:hover': { 
+            bgcolor: 'primary.dark',
+          },
+          '&.Mui-disabled': {
+            bgcolor: 'var(--md-sys-color-surface-container-low)',
+            color: 'text.disabled',
+            opacity: 1,
+          },
         }}
       >
         {submitLabel}

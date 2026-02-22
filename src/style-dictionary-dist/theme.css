@@ -1,1589 +1,1589 @@
 /* Do not edit directly, this file was auto-generated. */
 :root {
-  --seacrets-online-extended-colors-custom-color-1: #b80044;
-  --seacrets-online-extended-colors-custom-color-1-channel: 184 0 68;
-  --seacrets-online-extended-colors-custom-color-1-container: #e70057;
-  --seacrets-online-extended-colors-custom-color-1-container-channel: 231 0 87;
-  --seacrets-online-extended-colors-on-custom-color-1: #ffffff;
-  --seacrets-online-extended-colors-on-custom-color-1-channel: 255 255 255;
-  --seacrets-online-extended-colors-on-custom-color-1-container: #fffbff;
-  --seacrets-online-extended-colors-on-custom-color-1-container-channel: 255 251 255;
-  --seacrets-online-palettes-error-0: #000000;
-  --seacrets-online-palettes-error-0-channel: 0 0 0;
-  --seacrets-online-palettes-error-10: #410002;
-  --seacrets-online-palettes-error-10-channel: 65 0 2;
-  --seacrets-online-palettes-error-100: #ffffff;
-  --seacrets-online-palettes-error-100-channel: 255 255 255;
-  --seacrets-online-palettes-error-15: #540003;
-  --seacrets-online-palettes-error-15-channel: 84 0 3;
-  --seacrets-online-palettes-error-20: #690005;
-  --seacrets-online-palettes-error-20-channel: 105 0 5;
-  --seacrets-online-palettes-error-25: #7e0007;
-  --seacrets-online-palettes-error-25-channel: 126 0 7;
-  --seacrets-online-palettes-error-30: #93000a;
-  --seacrets-online-palettes-error-30-channel: 147 0 10;
-  --seacrets-online-palettes-error-35: #a80710;
-  --seacrets-online-palettes-error-35-channel: 168 7 16;
-  --seacrets-online-palettes-error-40: #ba1a1a;
-  --seacrets-online-palettes-error-40-channel: 186 26 26;
-  --seacrets-online-palettes-error-5: #2d0001;
-  --seacrets-online-palettes-error-5-channel: 45 0 1;
-  --seacrets-online-palettes-error-50: #de3730;
-  --seacrets-online-palettes-error-50-channel: 222 55 48;
-  --seacrets-online-palettes-error-60: #ff5449;
-  --seacrets-online-palettes-error-60-channel: 255 84 73;
-  --seacrets-online-palettes-error-70: #ff897d;
-  --seacrets-online-palettes-error-70-channel: 255 137 125;
-  --seacrets-online-palettes-error-80: #ffb4ab;
-  --seacrets-online-palettes-error-80-channel: 255 180 171;
-  --seacrets-online-palettes-error-90: #ffdad6;
-  --seacrets-online-palettes-error-90-channel: 255 218 214;
-  --seacrets-online-palettes-error-95: #ffedea;
-  --seacrets-online-palettes-error-95-channel: 255 237 234;
-  --seacrets-online-palettes-error-98: #fff8f7;
-  --seacrets-online-palettes-error-98-channel: 255 248 247;
-  --seacrets-online-palettes-error-99: #fffbff;
-  --seacrets-online-palettes-error-99-channel: 255 251 255;
-  --seacrets-online-palettes-neutral-0: #000000;
-  --seacrets-online-palettes-neutral-0-channel: 0 0 0;
-  --seacrets-online-palettes-neutral-10: #1c1b1b;
-  --seacrets-online-palettes-neutral-10-channel: 28 27 27;
-  --seacrets-online-palettes-neutral-100: #ffffff;
-  --seacrets-online-palettes-neutral-100-channel: 255 255 255;
-  --seacrets-online-palettes-neutral-15: #262625;
-  --seacrets-online-palettes-neutral-15-channel: 38 38 37;
-  --seacrets-online-palettes-neutral-20: #313030;
-  --seacrets-online-palettes-neutral-20-channel: 49 48 48;
-  --seacrets-online-palettes-neutral-25: #3c3b3b;
-  --seacrets-online-palettes-neutral-25-channel: 60 59 59;
-  --seacrets-online-palettes-neutral-30: #484646;
-  --seacrets-online-palettes-neutral-30-channel: 72 70 70;
-  --seacrets-online-palettes-neutral-35: #545252;
-  --seacrets-online-palettes-neutral-35-channel: 84 82 82;
-  --seacrets-online-palettes-neutral-40: #605e5e;
-  --seacrets-online-palettes-neutral-40-channel: 96 94 94;
-  --seacrets-online-palettes-neutral-5: #111111;
-  --seacrets-online-palettes-neutral-5-channel: 17 17 17;
-  --seacrets-online-palettes-neutral-50: #797676;
-  --seacrets-online-palettes-neutral-50-channel: 121 118 118;
-  --seacrets-online-palettes-neutral-60: #939090;
-  --seacrets-online-palettes-neutral-60-channel: 147 144 144;
-  --seacrets-online-palettes-neutral-70: #adaaaa;
-  --seacrets-online-palettes-neutral-70-channel: 173 170 170;
-  --seacrets-online-palettes-neutral-80: #c9c6c5;
-  --seacrets-online-palettes-neutral-80-channel: 201 198 197;
-  --seacrets-online-palettes-neutral-90: #e5e2e1;
-  --seacrets-online-palettes-neutral-90-channel: 229 226 225;
-  --seacrets-online-palettes-neutral-95: #f4f0ef;
-  --seacrets-online-palettes-neutral-95-channel: 244 240 239;
-  --seacrets-online-palettes-neutral-98: #fdf8f8;
-  --seacrets-online-palettes-neutral-98-channel: 253 248 248;
-  --seacrets-online-palettes-neutral-99: #f6feff;
-  --seacrets-online-palettes-neutral-99-channel: 246 254 255;
-  --seacrets-online-palettes-neutral-variant-0: #000000;
-  --seacrets-online-palettes-neutral-variant-0-channel: 0 0 0;
-  --seacrets-online-palettes-neutral-variant-10: #24181a;
-  --seacrets-online-palettes-neutral-variant-10-channel: 36 24 26;
-  --seacrets-online-palettes-neutral-variant-100: #ffffff;
-  --seacrets-online-palettes-neutral-variant-100-channel: 255 255 255;
-  --seacrets-online-palettes-neutral-variant-15: #2f2324;
-  --seacrets-online-palettes-neutral-variant-15-channel: 47 35 36;
-  --seacrets-online-palettes-neutral-variant-20: #3a2d2e;
-  --seacrets-online-palettes-neutral-variant-20-channel: 58 45 46;
-  --seacrets-online-palettes-neutral-variant-25: #463839;
-  --seacrets-online-palettes-neutral-variant-25-channel: 70 56 57;
-  --seacrets-online-palettes-neutral-variant-30: #524344;
-  --seacrets-online-palettes-neutral-variant-30-channel: 82 67 68;
-  --seacrets-online-palettes-neutral-variant-35: #5e4f50;
-  --seacrets-online-palettes-neutral-variant-35-channel: 94 79 80;
-  --seacrets-online-palettes-neutral-variant-40: #6b5a5c;
-  --seacrets-online-palettes-neutral-variant-40-channel: 107 90 92;
-  --seacrets-online-palettes-neutral-variant-5: #190e0f;
-  --seacrets-online-palettes-neutral-variant-5-channel: 25 14 15;
-  --seacrets-online-palettes-neutral-variant-50: #847374;
-  --seacrets-online-palettes-neutral-variant-50-channel: 132 115 116;
-  --seacrets-online-palettes-neutral-variant-60: #9f8c8e;
-  --seacrets-online-palettes-neutral-variant-60-channel: 159 140 142;
-  --seacrets-online-palettes-neutral-variant-70: #baa6a8;
-  --seacrets-online-palettes-neutral-variant-70-channel: 186 166 168;
-  --seacrets-online-palettes-neutral-variant-80: #d7c1c3;
-  --seacrets-online-palettes-neutral-variant-80-channel: 215 193 195;
-  --seacrets-online-palettes-neutral-variant-90: #f4dddf;
-  --seacrets-online-palettes-neutral-variant-90-channel: 244 221 223;
-  --seacrets-online-palettes-neutral-variant-95: #ffeced;
-  --seacrets-online-palettes-neutral-variant-95-channel: 255 236 237;
-  --seacrets-online-palettes-neutral-variant-98: #fff8f7;
-  --seacrets-online-palettes-neutral-variant-98-channel: 255 248 247;
-  --seacrets-online-palettes-neutral-variant-99: #fffbff;
-  --seacrets-online-palettes-neutral-variant-99-channel: 255 251 255;
-  --seacrets-online-palettes-primary-0: #000000;
-  --seacrets-online-palettes-primary-0-channel: 0 0 0;
-  --seacrets-online-palettes-primary-10: #400012;
-  --seacrets-online-palettes-primary-10-channel: 64 0 18;
-  --seacrets-online-palettes-primary-100: #ffffff;
-  --seacrets-online-palettes-primary-100-channel: 255 255 255;
-  --seacrets-online-palettes-primary-15: #53001a;
-  --seacrets-online-palettes-primary-15-channel: 83 0 26;
-  --seacrets-online-palettes-primary-20: #670022;
-  --seacrets-online-palettes-primary-20-channel: 103 0 34;
-  --seacrets-online-palettes-primary-25: #7b002b;
-  --seacrets-online-palettes-primary-25-channel: 123 0 43;
-  --seacrets-online-palettes-primary-30: #910033;
-  --seacrets-online-palettes-primary-30-channel: 145 0 51;
-  --seacrets-online-palettes-primary-35: #a7003c;
-  --seacrets-online-palettes-primary-35-channel: 167 0 60;
-  --seacrets-online-palettes-primary-40: #bd0046;
-  --seacrets-online-palettes-primary-40-channel: 189 0 70;
-  --seacrets-online-palettes-primary-5: #2c000a;
-  --seacrets-online-palettes-primary-5-channel: 44 0 10;
-  --seacrets-online-palettes-primary-50: #eb0059;
-  --seacrets-online-palettes-primary-50-channel: 235 0 89;
-  --seacrets-online-palettes-primary-60: #ff4f77;
-  --seacrets-online-palettes-primary-60-channel: 255 79 119;
-  --seacrets-online-palettes-primary-70: #ff869a;
-  --seacrets-online-palettes-primary-70-channel: 255 134 154;
-  --seacrets-online-palettes-primary-80: #ffb2bb;
-  --seacrets-online-palettes-primary-80-channel: 255 178 187;
-  --seacrets-online-palettes-primary-90: #ffd9dd;
-  --seacrets-online-palettes-primary-90-channel: 255 217 221;
-  --seacrets-online-palettes-primary-95: #ffeced;
-  --seacrets-online-palettes-primary-95-channel: 255 236 237;
-  --seacrets-online-palettes-primary-98: #fff8f7;
-  --seacrets-online-palettes-primary-98-channel: 255 248 247;
-  --seacrets-online-palettes-primary-99: #fffbff;
-  --seacrets-online-palettes-primary-99-channel: 255 251 255;
-  --seacrets-online-palettes-secondary-0: #000000;
-  --seacrets-online-palettes-secondary-0-channel: 0 0 0;
-  --seacrets-online-palettes-secondary-10: #3a0814;
-  --seacrets-online-palettes-secondary-10-channel: 58 8 20;
-  --seacrets-online-palettes-secondary-100: #ffffff;
-  --seacrets-online-palettes-secondary-100-channel: 255 255 255;
-  --seacrets-online-palettes-secondary-15: #47131e;
-  --seacrets-online-palettes-secondary-15-channel: 71 19 30;
-  --seacrets-online-palettes-secondary-20: #551e28;
-  --seacrets-online-palettes-secondary-20-channel: 85 30 40;
-  --seacrets-online-palettes-secondary-25: #632833;
-  --seacrets-online-palettes-secondary-25-channel: 99 40 51;
-  --seacrets-online-palettes-secondary-30: #71333e;
-  --seacrets-online-palettes-secondary-30-channel: 113 51 62;
-  --seacrets-online-palettes-secondary-35: #7f3f49;
-  --seacrets-online-palettes-secondary-35-channel: 127 63 73;
-  --seacrets-online-palettes-secondary-40: #8d4a55;
-  --seacrets-online-palettes-secondary-40-channel: 141 74 85;
-  --seacrets-online-palettes-secondary-5: #2b010a;
-  --seacrets-online-palettes-secondary-5-channel: 43 1 10;
-  --seacrets-online-palettes-secondary-50: #aa626d;
-  --seacrets-online-palettes-secondary-50-channel: 170 98 109;
-  --seacrets-online-palettes-secondary-60: #c87b86;
-  --seacrets-online-palettes-secondary-60-channel: 200 123 134;
-  --seacrets-online-palettes-secondary-70: #e695a0;
-  --seacrets-online-palettes-secondary-70-channel: 230 149 160;
-  --seacrets-online-palettes-secondary-80: #ffb2bb;
-  --seacrets-online-palettes-secondary-80-channel: 255 178 187;
-  --seacrets-online-palettes-secondary-90: #ffd9dd;
-  --seacrets-online-palettes-secondary-90-channel: 255 217 221;
-  --seacrets-online-palettes-secondary-95: #ffeced;
-  --seacrets-online-palettes-secondary-95-channel: 255 236 237;
-  --seacrets-online-palettes-secondary-98: #fff8f7;
-  --seacrets-online-palettes-secondary-98-channel: 255 248 247;
-  --seacrets-online-palettes-secondary-99: #fffbff;
-  --seacrets-online-palettes-secondary-99-channel: 255 251 255;
-  --seacrets-online-palettes-tertiary-0: #000000;
-  --seacrets-online-palettes-tertiary-0-channel: 0 0 0;
-  --seacrets-online-palettes-tertiary-10: #2a1700;
-  --seacrets-online-palettes-tertiary-10-channel: 42 23 0;
-  --seacrets-online-palettes-tertiary-100: #ffffff;
-  --seacrets-online-palettes-tertiary-100-channel: 255 255 255;
-  --seacrets-online-palettes-tertiary-15: #382000;
-  --seacrets-online-palettes-tertiary-15-channel: 56 32 0;
-  --seacrets-online-palettes-tertiary-20: #472a00;
-  --seacrets-online-palettes-tertiary-20-channel: 71 42 0;
-  --seacrets-online-palettes-tertiary-25: #563400;
-  --seacrets-online-palettes-tertiary-25-channel: 86 52 0;
-  --seacrets-online-palettes-tertiary-30: #653e00;
-  --seacrets-online-palettes-tertiary-30-channel: 101 62 0;
-  --seacrets-online-palettes-tertiary-35: #754900;
-  --seacrets-online-palettes-tertiary-35-channel: 117 73 0;
-  --seacrets-online-palettes-tertiary-40: #855300;
-  --seacrets-online-palettes-tertiary-40-channel: 133 83 0;
-  --seacrets-online-palettes-tertiary-5: #1c0e00;
-  --seacrets-online-palettes-tertiary-5-channel: 28 14 0;
-  --seacrets-online-palettes-tertiary-50: #a76900;
-  --seacrets-online-palettes-tertiary-50-channel: 167 105 0;
-  --seacrets-online-palettes-tertiary-60: #ca8104;
-  --seacrets-online-palettes-tertiary-60-channel: 202 129 4;
-  --seacrets-online-palettes-tertiary-70: #e99a28;
-  --seacrets-online-palettes-tertiary-70-channel: 233 154 40;
-  --seacrets-online-palettes-tertiary-80: #ffb960;
-  --seacrets-online-palettes-tertiary-80-channel: 255 185 96;
-  --seacrets-online-palettes-tertiary-90: #ffddb8;
-  --seacrets-online-palettes-tertiary-90-channel: 255 221 184;
-  --seacrets-online-palettes-tertiary-95: #ffeede;
-  --seacrets-online-palettes-tertiary-95-channel: 255 238 222;
-  --seacrets-online-palettes-tertiary-98: #fff8f4;
-  --seacrets-online-palettes-tertiary-98-channel: 255 248 244;
-  --seacrets-online-palettes-tertiary-99: #fffbff;
-  --seacrets-online-palettes-tertiary-99-channel: 255 251 255;
-  --seacrets-online-schemes-background: #fff8f7;
-  --seacrets-online-schemes-background-channel: 255 248 247;
-  --seacrets-online-schemes-error: #ba1a1a;
-  --seacrets-online-schemes-error-channel: 186 26 26;
-  --seacrets-online-schemes-error-container: #ffdad6;
-  --seacrets-online-schemes-error-container-channel: 255 218 214;
-  --seacrets-online-schemes-inverse-on-surface: #f4f0ef;
-  --seacrets-online-schemes-inverse-on-surface-channel: 244 240 239;
-  --seacrets-online-schemes-inverse-primary: #ffb2bb;
-  --seacrets-online-schemes-inverse-primary-channel: 255 178 187;
-  --seacrets-online-schemes-inverse-surface: #313030;
-  --seacrets-online-schemes-inverse-surface-channel: 49 48 48;
-  --seacrets-online-schemes-on-background: #291619;
-  --seacrets-online-schemes-on-background-channel: 41 22 25;
-  --seacrets-online-schemes-on-error: #ffffff;
-  --seacrets-online-schemes-on-error-channel: 255 255 255;
-  --seacrets-online-schemes-on-error-container: #93000a;
-  --seacrets-online-schemes-on-error-container-channel: 147 0 10;
-  --seacrets-online-schemes-on-primary: #ffffff;
-  --seacrets-online-schemes-on-primary-channel: 255 255 255;
-  --seacrets-online-schemes-on-primary-container: #fffbff;
-  --seacrets-online-schemes-on-primary-container-channel: 255 251 255;
-  --seacrets-online-schemes-on-primary-fixed: #400012;
-  --seacrets-online-schemes-on-primary-fixed-channel: 64 0 18;
-  --seacrets-online-schemes-on-primary-fixed-variant: #910033;
-  --seacrets-online-schemes-on-primary-fixed-variant-channel: 145 0 51;
-  --seacrets-online-schemes-on-secondary: #ffffff;
-  --seacrets-online-schemes-on-secondary-channel: 255 255 255;
-  --seacrets-online-schemes-on-secondary-container: #630021;
-  --seacrets-online-schemes-on-secondary-container-channel: 99 0 33;
-  --seacrets-online-schemes-on-secondary-fixed: #400012;
-  --seacrets-online-schemes-on-secondary-fixed-channel: 64 0 18;
-  --seacrets-online-schemes-on-secondary-fixed-variant: #900334;
-  --seacrets-online-schemes-on-secondary-fixed-variant-channel: 144 3 52;
-  --seacrets-online-schemes-on-surface: #1c1b1b;
-  --seacrets-online-schemes-on-surface-channel: 28 27 27;
-  --seacrets-online-schemes-on-surface-variant: #5d3e42;
-  --seacrets-online-schemes-on-surface-variant-channel: 93 62 66;
-  --seacrets-online-schemes-on-tertiary: #ffffff;
-  --seacrets-online-schemes-on-tertiary-channel: 255 255 255;
-  --seacrets-online-schemes-on-tertiary-container: #fffbff;
-  --seacrets-online-schemes-on-tertiary-container-channel: 255 251 255;
-  --seacrets-online-schemes-on-tertiary-fixed: #370e00;
-  --seacrets-online-schemes-on-tertiary-fixed-channel: 55 14 0;
-  --seacrets-online-schemes-on-tertiary-fixed-variant: #7f2b00;
-  --seacrets-online-schemes-on-tertiary-fixed-variant-channel: 127 43 0;
-  --seacrets-online-schemes-outline: #926e72;
-  --seacrets-online-schemes-outline-channel: 146 110 114;
-  --seacrets-online-schemes-outline-variant: #e7bcc0;
-  --seacrets-online-schemes-outline-variant-channel: 231 188 192;
-  --seacrets-online-schemes-primary: #b80044;
-  --seacrets-online-schemes-primary-channel: 184 0 68;
-  --seacrets-online-schemes-primary-container: #e70057;
-  --seacrets-online-schemes-primary-container-channel: 231 0 87;
-  --seacrets-online-schemes-primary-fixed: #ffd9dd;
-  --seacrets-online-schemes-primary-fixed-channel: 255 217 221;
-  --seacrets-online-schemes-primary-fixed-dim: #ffb2bb;
-  --seacrets-online-schemes-primary-fixed-dim-channel: 255 178 187;
-  --seacrets-online-schemes-scrim: #000000;
-  --seacrets-online-schemes-scrim-channel: 0 0 0;
-  --seacrets-online-schemes-secondary: #b2254a;
-  --seacrets-online-schemes-secondary-channel: 178 37 74;
-  --seacrets-online-schemes-secondary-container: #fc5f7f;
-  --seacrets-online-schemes-secondary-container-channel: 252 95 127;
-  --seacrets-online-schemes-secondary-fixed: #ffd9dd;
-  --seacrets-online-schemes-secondary-fixed-channel: 255 217 221;
-  --seacrets-online-schemes-secondary-fixed-dim: #ffb2bb;
-  --seacrets-online-schemes-secondary-fixed-dim-channel: 255 178 187;
-  --seacrets-online-schemes-shadow: #000000;
-  --seacrets-online-schemes-shadow-channel: 0 0 0;
-  --seacrets-online-schemes-surface: #fdf8f8;
-  --seacrets-online-schemes-surface-bright: #fdf8f8;
-  --seacrets-online-schemes-surface-bright-channel: 253 248 248;
-  --seacrets-online-schemes-surface-channel: 253 248 248;
-  --seacrets-online-schemes-surface-container: #f1edec;
-  --seacrets-online-schemes-surface-container-channel: 241 237 236;
-  --seacrets-online-schemes-surface-container-high: #ebe7e6;
-  --seacrets-online-schemes-surface-container-high-channel: 235 231 230;
-  --seacrets-online-schemes-surface-container-highest: #e5e2e1;
-  --seacrets-online-schemes-surface-container-highest-channel: 229 226 225;
-  --seacrets-online-schemes-surface-container-low: #f7f3f2;
-  --seacrets-online-schemes-surface-container-low-channel: 247 243 242;
-  --seacrets-online-schemes-surface-container-lowest: #ffffff;
-  --seacrets-online-schemes-surface-container-lowest-channel: 255 255 255;
-  --seacrets-online-schemes-surface-dim: #ddd9d8;
-  --seacrets-online-schemes-surface-dim-channel: 221 217 216;
-  --seacrets-online-schemes-surface-tint: #bd0046;
-  --seacrets-online-schemes-surface-tint-channel: 189 0 70;
-  --seacrets-online-schemes-surface-variant: #ffd9dd;
-  --seacrets-online-schemes-surface-variant-channel: 255 217 221;
-  --seacrets-online-schemes-tertiary: #a23900;
-  --seacrets-online-schemes-tertiary-channel: 162 57 0;
-  --seacrets-online-schemes-tertiary-container: #cc4900;
-  --seacrets-online-schemes-tertiary-container-channel: 204 73 0;
-  --seacrets-online-schemes-tertiary-fixed: #ffdbce;
-  --seacrets-online-schemes-tertiary-fixed-channel: 255 219 206;
-  --seacrets-online-schemes-tertiary-fixed-dim: #ffb599;
-  --seacrets-online-schemes-tertiary-fixed-dim-channel: 255 181 153;
-  --seacrets-online-state-layers-background-opacity-08: rgba(255, 248, 247, 0.08);
-  --seacrets-online-state-layers-background-opacity-10: rgba(255, 248, 247, 0.1);
-  --seacrets-online-state-layers-background-opacity-16: rgba(255, 248, 247, 0.16);
-  --seacrets-online-state-layers-error-container-opacity-08: rgba(255, 218, 214, 0.08);
-  --seacrets-online-state-layers-error-container-opacity-10: rgba(255, 218, 214, 0.1);
-  --seacrets-online-state-layers-error-container-opacity-16: rgba(255, 218, 214, 0.16);
-  --seacrets-online-state-layers-error-opacity-08: rgba(186, 26, 26, 0.08);
-  --seacrets-online-state-layers-error-opacity-10: rgba(186, 26, 26, 0.1);
-  --seacrets-online-state-layers-error-opacity-16: rgba(186, 26, 26, 0.16);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-08: rgba(244, 240, 239, 0.08);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-10: rgba(244, 240, 239, 0.1);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-16: rgba(244, 240, 239, 0.16);
-  --seacrets-online-state-layers-inverse-primary-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-inverse-primary-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-inverse-primary-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-inverse-surface-opacity-08: rgba(49, 48, 48, 0.08);
-  --seacrets-online-state-layers-inverse-surface-opacity-10: rgba(49, 48, 48, 0.1);
-  --seacrets-online-state-layers-inverse-surface-opacity-16: rgba(49, 48, 48, 0.16);
-  --seacrets-online-state-layers-on-background-opacity-08: rgba(41, 22, 25, 0.08);
-  --seacrets-online-state-layers-on-background-opacity-10: rgba(41, 22, 25, 0.1);
-  --seacrets-online-state-layers-on-background-opacity-16: rgba(41, 22, 25, 0.16);
-  --seacrets-online-state-layers-on-error-container-opacity-08: rgba(147, 0, 10, 0.08);
-  --seacrets-online-state-layers-on-error-container-opacity-10: rgba(147, 0, 10, 0.1);
-  --seacrets-online-state-layers-on-error-container-opacity-16: rgba(147, 0, 10, 0.16);
-  --seacrets-online-state-layers-on-error-opacity-08: rgba(255, 255, 255, 0.08);
-  --seacrets-online-state-layers-on-error-opacity-10: rgba(255, 255, 255, 0.1);
-  --seacrets-online-state-layers-on-error-opacity-16: rgba(255, 255, 255, 0.16);
-  --seacrets-online-state-layers-on-primary-container-opacity-08: rgba(255, 251, 255, 0.08);
-  --seacrets-online-state-layers-on-primary-container-opacity-10: rgba(255, 251, 255, 0.1);
-  --seacrets-online-state-layers-on-primary-container-opacity-16: rgba(255, 251, 255, 0.16);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-08: rgba(145, 0, 51, 0.08);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-10: rgba(145, 0, 51, 0.1);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-16: rgba(145, 0, 51, 0.16);
-  --seacrets-online-state-layers-on-primary-opacity-08: rgba(255, 255, 255, 0.08);
-  --seacrets-online-state-layers-on-primary-opacity-10: rgba(255, 255, 255, 0.1);
-  --seacrets-online-state-layers-on-primary-opacity-16: rgba(255, 255, 255, 0.16);
-  --seacrets-online-state-layers-on-secondary-container-opacity-08: rgba(99, 0, 33, 0.08);
-  --seacrets-online-state-layers-on-secondary-container-opacity-10: rgba(99, 0, 33, 0.1);
-  --seacrets-online-state-layers-on-secondary-container-opacity-16: rgba(99, 0, 33, 0.16);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-08: rgba(144, 3, 52, 0.08);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-10: rgba(144, 3, 52, 0.1);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-16: rgba(144, 3, 52, 0.16);
-  --seacrets-online-state-layers-on-secondary-opacity-08: rgba(255, 255, 255, 0.08);
-  --seacrets-online-state-layers-on-secondary-opacity-10: rgba(255, 255, 255, 0.1);
-  --seacrets-online-state-layers-on-secondary-opacity-16: rgba(255, 255, 255, 0.16);
-  --seacrets-online-state-layers-on-surface-opacity-08: rgba(28, 27, 27, 0.08);
-  --seacrets-online-state-layers-on-surface-opacity-10: rgba(28, 27, 27, 0.1);
-  --seacrets-online-state-layers-on-surface-opacity-16: rgba(28, 27, 27, 0.16);
-  --seacrets-online-state-layers-on-surface-variant-opacity-08: rgba(93, 62, 66, 0.08);
-  --seacrets-online-state-layers-on-surface-variant-opacity-10: rgba(93, 62, 66, 0.1);
-  --seacrets-online-state-layers-on-surface-variant-opacity-16: rgba(93, 62, 66, 0.16);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-08: rgba(255, 251, 255, 0.08);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-10: rgba(255, 251, 255, 0.1);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-16: rgba(255, 251, 255, 0.16);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-08: rgba(55, 14, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-10: rgba(55, 14, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-16: rgba(55, 14, 0, 0.16);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-08: rgba(127, 43, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-10: rgba(127, 43, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-16: rgba(127, 43, 0, 0.16);
-  --seacrets-online-state-layers-on-tertiary-opacity-08: rgba(255, 255, 255, 0.08);
-  --seacrets-online-state-layers-on-tertiary-opacity-10: rgba(255, 255, 255, 0.1);
-  --seacrets-online-state-layers-on-tertiary-opacity-16: rgba(255, 255, 255, 0.16);
-  --seacrets-online-state-layers-outline-opacity-08: rgba(146, 110, 114, 0.08);
-  --seacrets-online-state-layers-outline-opacity-10: rgba(146, 110, 114, 0.1);
-  --seacrets-online-state-layers-outline-opacity-16: rgba(146, 110, 114, 0.16);
-  --seacrets-online-state-layers-outline-variant-opacity-08: rgba(231, 188, 192, 0.08);
-  --seacrets-online-state-layers-outline-variant-opacity-10: rgba(231, 188, 192, 0.1);
-  --seacrets-online-state-layers-outline-variant-opacity-16: rgba(231, 188, 192, 0.16);
-  --seacrets-online-state-layers-primary-container-opacity-08: rgba(231, 0, 87, 0.08);
-  --seacrets-online-state-layers-primary-container-opacity-10: rgba(231, 0, 87, 0.1);
-  --seacrets-online-state-layers-primary-container-opacity-16: rgba(231, 0, 87, 0.16);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-primary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
-  --seacrets-online-state-layers-primary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
-  --seacrets-online-state-layers-primary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
-  --seacrets-online-state-layers-primary-opacity-08: rgba(184, 0, 68, 0.08);
-  --seacrets-online-state-layers-primary-opacity-10: rgba(184, 0, 68, 0.1);
-  --seacrets-online-state-layers-primary-opacity-16: rgba(184, 0, 68, 0.16);
-  --seacrets-online-state-layers-scrim-opacity-08: rgba(0, 0, 0, 0.08);
-  --seacrets-online-state-layers-scrim-opacity-10: rgba(0, 0, 0, 0.1);
-  --seacrets-online-state-layers-scrim-opacity-16: rgba(0, 0, 0, 0.16);
-  --seacrets-online-state-layers-secondary-container-opacity-08: rgba(252, 95, 127, 0.08);
-  --seacrets-online-state-layers-secondary-container-opacity-10: rgba(252, 95, 127, 0.1);
-  --seacrets-online-state-layers-secondary-container-opacity-16: rgba(252, 95, 127, 0.16);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-secondary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
-  --seacrets-online-state-layers-secondary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
-  --seacrets-online-state-layers-secondary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
-  --seacrets-online-state-layers-secondary-opacity-08: rgba(178, 37, 74, 0.08);
-  --seacrets-online-state-layers-secondary-opacity-10: rgba(178, 37, 74, 0.1);
-  --seacrets-online-state-layers-secondary-opacity-16: rgba(178, 37, 74, 0.16);
-  --seacrets-online-state-layers-shadow-opacity-08: rgba(0, 0, 0, 0.08);
-  --seacrets-online-state-layers-shadow-opacity-10: rgba(0, 0, 0, 0.1);
-  --seacrets-online-state-layers-shadow-opacity-16: rgba(0, 0, 0, 0.16);
-  --seacrets-online-state-layers-surface-bright-opacity-08: rgba(253, 248, 248, 0.08);
-  --seacrets-online-state-layers-surface-bright-opacity-10: rgba(253, 248, 248, 0.1);
-  --seacrets-online-state-layers-surface-bright-opacity-16: rgba(253, 248, 248, 0.16);
-  --seacrets-online-state-layers-surface-container-high-opacity-08: rgba(235, 231, 230, 0.08);
-  --seacrets-online-state-layers-surface-container-high-opacity-10: rgba(235, 231, 230, 0.1);
-  --seacrets-online-state-layers-surface-container-high-opacity-16: rgba(235, 231, 230, 0.16);
-  --seacrets-online-state-layers-surface-container-highest-opacity-08: rgba(229, 226, 225, 0.08);
-  --seacrets-online-state-layers-surface-container-highest-opacity-10: rgba(229, 226, 225, 0.1);
-  --seacrets-online-state-layers-surface-container-highest-opacity-16: rgba(229, 226, 225, 0.16);
-  --seacrets-online-state-layers-surface-container-low-opacity-08: rgba(247, 243, 242, 0.08);
-  --seacrets-online-state-layers-surface-container-low-opacity-10: rgba(247, 243, 242, 0.1);
-  --seacrets-online-state-layers-surface-container-low-opacity-16: rgba(247, 243, 242, 0.16);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-08: rgba(255, 255, 255, 0.08);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-10: rgba(255, 255, 255, 0.1);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-16: rgba(255, 255, 255, 0.16);
-  --seacrets-online-state-layers-surface-container-opacity-08: rgba(241, 237, 236, 0.08);
-  --seacrets-online-state-layers-surface-container-opacity-10: rgba(241, 237, 236, 0.1);
-  --seacrets-online-state-layers-surface-container-opacity-16: rgba(241, 237, 236, 0.16);
-  --seacrets-online-state-layers-surface-dim-opacity-08: rgba(221, 217, 216, 0.08);
-  --seacrets-online-state-layers-surface-dim-opacity-10: rgba(221, 217, 216, 0.1);
-  --seacrets-online-state-layers-surface-dim-opacity-16: rgba(221, 217, 216, 0.16);
-  --seacrets-online-state-layers-surface-opacity-08: rgba(253, 248, 248, 0.08);
-  --seacrets-online-state-layers-surface-opacity-10: rgba(253, 248, 248, 0.1);
-  --seacrets-online-state-layers-surface-opacity-16: rgba(253, 248, 248, 0.16);
-  --seacrets-online-state-layers-surface-tint-opacity-08: rgba(189, 0, 70, 0.08);
-  --seacrets-online-state-layers-surface-tint-opacity-10: rgba(189, 0, 70, 0.1);
-  --seacrets-online-state-layers-surface-tint-opacity-16: rgba(189, 0, 70, 0.16);
-  --seacrets-online-state-layers-surface-variant-opacity-08: rgba(255, 217, 221, 0.08);
-  --seacrets-online-state-layers-surface-variant-opacity-10: rgba(255, 217, 221, 0.1);
-  --seacrets-online-state-layers-surface-variant-opacity-16: rgba(255, 217, 221, 0.16);
-  --seacrets-online-state-layers-tertiary-container-opacity-08: rgba(204, 73, 0, 0.08);
-  --seacrets-online-state-layers-tertiary-container-opacity-10: rgba(204, 73, 0, 0.1);
-  --seacrets-online-state-layers-tertiary-container-opacity-16: rgba(204, 73, 0, 0.16);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-08: rgba(255, 181, 153, 0.08);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-10: rgba(255, 181, 153, 0.1);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-16: rgba(255, 181, 153, 0.16);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-08: rgba(255, 219, 206, 0.08);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-10: rgba(255, 219, 206, 0.1);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-16: rgba(255, 219, 206, 0.16);
-  --seacrets-online-state-layers-tertiary-opacity-08: rgba(162, 57, 0, 0.08);
-  --seacrets-online-state-layers-tertiary-opacity-10: rgba(162, 57, 0, 0.1);
-  --seacrets-online-state-layers-tertiary-opacity-16: rgba(162, 57, 0, 0.16);
-  --seacrets-online-surfaces-surface-tint-11: rgba(189, 0, 70, 0.11);
-  --seacrets-online-surfaces-surface-tint-12: rgba(189, 0, 70, 0.12);
-  --seacrets-online-surfaces-surface-tint-14: rgba(189, 0, 70, 0.14);
-  --seacrets-online-surfaces-surface-tint-5: rgba(189, 0, 70, 0.05);
-  --seacrets-online-surfaces-surface-tint-8: rgba(189, 0, 70, 0.08);
+  --md-ext-color-custom-color-1: #b80044;
+  --md-ext-color-custom-color-1-channel: 184 0 68;
+  --md-ext-color-custom-color-1-container: #e70057;
+  --md-ext-color-custom-color-1-container-channel: 231 0 87;
+  --md-ext-color-on-custom-color-1: #ffffff;
+  --md-ext-color-on-custom-color-1-channel: 255 255 255;
+  --md-ext-color-on-custom-color-1-container: #fffbff;
+  --md-ext-color-on-custom-color-1-container-channel: 255 251 255;
+  --md-ref-palette-error-0: #000000;
+  --md-ref-palette-error-0-channel: 0 0 0;
+  --md-ref-palette-error-10: #410002;
+  --md-ref-palette-error-10-channel: 65 0 2;
+  --md-ref-palette-error-100: #ffffff;
+  --md-ref-palette-error-100-channel: 255 255 255;
+  --md-ref-palette-error-15: #540003;
+  --md-ref-palette-error-15-channel: 84 0 3;
+  --md-ref-palette-error-20: #690005;
+  --md-ref-palette-error-20-channel: 105 0 5;
+  --md-ref-palette-error-25: #7e0007;
+  --md-ref-palette-error-25-channel: 126 0 7;
+  --md-ref-palette-error-30: #93000a;
+  --md-ref-palette-error-30-channel: 147 0 10;
+  --md-ref-palette-error-35: #a80710;
+  --md-ref-palette-error-35-channel: 168 7 16;
+  --md-ref-palette-error-40: #ba1a1a;
+  --md-ref-palette-error-40-channel: 186 26 26;
+  --md-ref-palette-error-5: #2d0001;
+  --md-ref-palette-error-5-channel: 45 0 1;
+  --md-ref-palette-error-50: #de3730;
+  --md-ref-palette-error-50-channel: 222 55 48;
+  --md-ref-palette-error-60: #ff5449;
+  --md-ref-palette-error-60-channel: 255 84 73;
+  --md-ref-palette-error-70: #ff897d;
+  --md-ref-palette-error-70-channel: 255 137 125;
+  --md-ref-palette-error-80: #ffb4ab;
+  --md-ref-palette-error-80-channel: 255 180 171;
+  --md-ref-palette-error-90: #ffdad6;
+  --md-ref-palette-error-90-channel: 255 218 214;
+  --md-ref-palette-error-95: #ffedea;
+  --md-ref-palette-error-95-channel: 255 237 234;
+  --md-ref-palette-error-98: #fff8f7;
+  --md-ref-palette-error-98-channel: 255 248 247;
+  --md-ref-palette-error-99: #fffbff;
+  --md-ref-palette-error-99-channel: 255 251 255;
+  --md-ref-palette-neutral-0: #000000;
+  --md-ref-palette-neutral-0-channel: 0 0 0;
+  --md-ref-palette-neutral-10: #1c1b1b;
+  --md-ref-palette-neutral-10-channel: 28 27 27;
+  --md-ref-palette-neutral-100: #ffffff;
+  --md-ref-palette-neutral-100-channel: 255 255 255;
+  --md-ref-palette-neutral-15: #262625;
+  --md-ref-palette-neutral-15-channel: 38 38 37;
+  --md-ref-palette-neutral-20: #313030;
+  --md-ref-palette-neutral-20-channel: 49 48 48;
+  --md-ref-palette-neutral-25: #3c3b3b;
+  --md-ref-palette-neutral-25-channel: 60 59 59;
+  --md-ref-palette-neutral-30: #484646;
+  --md-ref-palette-neutral-30-channel: 72 70 70;
+  --md-ref-palette-neutral-35: #545252;
+  --md-ref-palette-neutral-35-channel: 84 82 82;
+  --md-ref-palette-neutral-40: #605e5e;
+  --md-ref-palette-neutral-40-channel: 96 94 94;
+  --md-ref-palette-neutral-5: #111111;
+  --md-ref-palette-neutral-5-channel: 17 17 17;
+  --md-ref-palette-neutral-50: #797676;
+  --md-ref-palette-neutral-50-channel: 121 118 118;
+  --md-ref-palette-neutral-60: #939090;
+  --md-ref-palette-neutral-60-channel: 147 144 144;
+  --md-ref-palette-neutral-70: #adaaaa;
+  --md-ref-palette-neutral-70-channel: 173 170 170;
+  --md-ref-palette-neutral-80: #c9c6c5;
+  --md-ref-palette-neutral-80-channel: 201 198 197;
+  --md-ref-palette-neutral-90: #e5e2e1;
+  --md-ref-palette-neutral-90-channel: 229 226 225;
+  --md-ref-palette-neutral-95: #f4f0ef;
+  --md-ref-palette-neutral-95-channel: 244 240 239;
+  --md-ref-palette-neutral-98: #fdf8f8;
+  --md-ref-palette-neutral-98-channel: 253 248 248;
+  --md-ref-palette-neutral-99: #f6feff;
+  --md-ref-palette-neutral-99-channel: 246 254 255;
+  --md-ref-palette-neutral-variant-0: #000000;
+  --md-ref-palette-neutral-variant-0-channel: 0 0 0;
+  --md-ref-palette-neutral-variant-10: #24181a;
+  --md-ref-palette-neutral-variant-10-channel: 36 24 26;
+  --md-ref-palette-neutral-variant-100: #ffffff;
+  --md-ref-palette-neutral-variant-100-channel: 255 255 255;
+  --md-ref-palette-neutral-variant-15: #2f2324;
+  --md-ref-palette-neutral-variant-15-channel: 47 35 36;
+  --md-ref-palette-neutral-variant-20: #3a2d2e;
+  --md-ref-palette-neutral-variant-20-channel: 58 45 46;
+  --md-ref-palette-neutral-variant-25: #463839;
+  --md-ref-palette-neutral-variant-25-channel: 70 56 57;
+  --md-ref-palette-neutral-variant-30: #524344;
+  --md-ref-palette-neutral-variant-30-channel: 82 67 68;
+  --md-ref-palette-neutral-variant-35: #5e4f50;
+  --md-ref-palette-neutral-variant-35-channel: 94 79 80;
+  --md-ref-palette-neutral-variant-40: #6b5a5c;
+  --md-ref-palette-neutral-variant-40-channel: 107 90 92;
+  --md-ref-palette-neutral-variant-5: #190e0f;
+  --md-ref-palette-neutral-variant-5-channel: 25 14 15;
+  --md-ref-palette-neutral-variant-50: #847374;
+  --md-ref-palette-neutral-variant-50-channel: 132 115 116;
+  --md-ref-palette-neutral-variant-60: #9f8c8e;
+  --md-ref-palette-neutral-variant-60-channel: 159 140 142;
+  --md-ref-palette-neutral-variant-70: #baa6a8;
+  --md-ref-palette-neutral-variant-70-channel: 186 166 168;
+  --md-ref-palette-neutral-variant-80: #d7c1c3;
+  --md-ref-palette-neutral-variant-80-channel: 215 193 195;
+  --md-ref-palette-neutral-variant-90: #f4dddf;
+  --md-ref-palette-neutral-variant-90-channel: 244 221 223;
+  --md-ref-palette-neutral-variant-95: #ffeced;
+  --md-ref-palette-neutral-variant-95-channel: 255 236 237;
+  --md-ref-palette-neutral-variant-98: #fff8f7;
+  --md-ref-palette-neutral-variant-98-channel: 255 248 247;
+  --md-ref-palette-neutral-variant-99: #fffbff;
+  --md-ref-palette-neutral-variant-99-channel: 255 251 255;
+  --md-ref-palette-primary-0: #000000;
+  --md-ref-palette-primary-0-channel: 0 0 0;
+  --md-ref-palette-primary-10: #400012;
+  --md-ref-palette-primary-10-channel: 64 0 18;
+  --md-ref-palette-primary-100: #ffffff;
+  --md-ref-palette-primary-100-channel: 255 255 255;
+  --md-ref-palette-primary-15: #53001a;
+  --md-ref-palette-primary-15-channel: 83 0 26;
+  --md-ref-palette-primary-20: #670022;
+  --md-ref-palette-primary-20-channel: 103 0 34;
+  --md-ref-palette-primary-25: #7b002b;
+  --md-ref-palette-primary-25-channel: 123 0 43;
+  --md-ref-palette-primary-30: #910033;
+  --md-ref-palette-primary-30-channel: 145 0 51;
+  --md-ref-palette-primary-35: #a7003c;
+  --md-ref-palette-primary-35-channel: 167 0 60;
+  --md-ref-palette-primary-40: #bd0046;
+  --md-ref-palette-primary-40-channel: 189 0 70;
+  --md-ref-palette-primary-5: #2c000a;
+  --md-ref-palette-primary-5-channel: 44 0 10;
+  --md-ref-palette-primary-50: #eb0059;
+  --md-ref-palette-primary-50-channel: 235 0 89;
+  --md-ref-palette-primary-60: #ff4f77;
+  --md-ref-palette-primary-60-channel: 255 79 119;
+  --md-ref-palette-primary-70: #ff869a;
+  --md-ref-palette-primary-70-channel: 255 134 154;
+  --md-ref-palette-primary-80: #ffb2bb;
+  --md-ref-palette-primary-80-channel: 255 178 187;
+  --md-ref-palette-primary-90: #ffd9dd;
+  --md-ref-palette-primary-90-channel: 255 217 221;
+  --md-ref-palette-primary-95: #ffeced;
+  --md-ref-palette-primary-95-channel: 255 236 237;
+  --md-ref-palette-primary-98: #fff8f7;
+  --md-ref-palette-primary-98-channel: 255 248 247;
+  --md-ref-palette-primary-99: #fffbff;
+  --md-ref-palette-primary-99-channel: 255 251 255;
+  --md-ref-palette-secondary-0: #000000;
+  --md-ref-palette-secondary-0-channel: 0 0 0;
+  --md-ref-palette-secondary-10: #3a0814;
+  --md-ref-palette-secondary-10-channel: 58 8 20;
+  --md-ref-palette-secondary-100: #ffffff;
+  --md-ref-palette-secondary-100-channel: 255 255 255;
+  --md-ref-palette-secondary-15: #47131e;
+  --md-ref-palette-secondary-15-channel: 71 19 30;
+  --md-ref-palette-secondary-20: #551e28;
+  --md-ref-palette-secondary-20-channel: 85 30 40;
+  --md-ref-palette-secondary-25: #632833;
+  --md-ref-palette-secondary-25-channel: 99 40 51;
+  --md-ref-palette-secondary-30: #71333e;
+  --md-ref-palette-secondary-30-channel: 113 51 62;
+  --md-ref-palette-secondary-35: #7f3f49;
+  --md-ref-palette-secondary-35-channel: 127 63 73;
+  --md-ref-palette-secondary-40: #8d4a55;
+  --md-ref-palette-secondary-40-channel: 141 74 85;
+  --md-ref-palette-secondary-5: #2b010a;
+  --md-ref-palette-secondary-5-channel: 43 1 10;
+  --md-ref-palette-secondary-50: #aa626d;
+  --md-ref-palette-secondary-50-channel: 170 98 109;
+  --md-ref-palette-secondary-60: #c87b86;
+  --md-ref-palette-secondary-60-channel: 200 123 134;
+  --md-ref-palette-secondary-70: #e695a0;
+  --md-ref-palette-secondary-70-channel: 230 149 160;
+  --md-ref-palette-secondary-80: #ffb2bb;
+  --md-ref-palette-secondary-80-channel: 255 178 187;
+  --md-ref-palette-secondary-90: #ffd9dd;
+  --md-ref-palette-secondary-90-channel: 255 217 221;
+  --md-ref-palette-secondary-95: #ffeced;
+  --md-ref-palette-secondary-95-channel: 255 236 237;
+  --md-ref-palette-secondary-98: #fff8f7;
+  --md-ref-palette-secondary-98-channel: 255 248 247;
+  --md-ref-palette-secondary-99: #fffbff;
+  --md-ref-palette-secondary-99-channel: 255 251 255;
+  --md-ref-palette-tertiary-0: #000000;
+  --md-ref-palette-tertiary-0-channel: 0 0 0;
+  --md-ref-palette-tertiary-10: #2a1700;
+  --md-ref-palette-tertiary-10-channel: 42 23 0;
+  --md-ref-palette-tertiary-100: #ffffff;
+  --md-ref-palette-tertiary-100-channel: 255 255 255;
+  --md-ref-palette-tertiary-15: #382000;
+  --md-ref-palette-tertiary-15-channel: 56 32 0;
+  --md-ref-palette-tertiary-20: #472a00;
+  --md-ref-palette-tertiary-20-channel: 71 42 0;
+  --md-ref-palette-tertiary-25: #563400;
+  --md-ref-palette-tertiary-25-channel: 86 52 0;
+  --md-ref-palette-tertiary-30: #653e00;
+  --md-ref-palette-tertiary-30-channel: 101 62 0;
+  --md-ref-palette-tertiary-35: #754900;
+  --md-ref-palette-tertiary-35-channel: 117 73 0;
+  --md-ref-palette-tertiary-40: #855300;
+  --md-ref-palette-tertiary-40-channel: 133 83 0;
+  --md-ref-palette-tertiary-5: #1c0e00;
+  --md-ref-palette-tertiary-5-channel: 28 14 0;
+  --md-ref-palette-tertiary-50: #a76900;
+  --md-ref-palette-tertiary-50-channel: 167 105 0;
+  --md-ref-palette-tertiary-60: #ca8104;
+  --md-ref-palette-tertiary-60-channel: 202 129 4;
+  --md-ref-palette-tertiary-70: #e99a28;
+  --md-ref-palette-tertiary-70-channel: 233 154 40;
+  --md-ref-palette-tertiary-80: #ffb960;
+  --md-ref-palette-tertiary-80-channel: 255 185 96;
+  --md-ref-palette-tertiary-90: #ffddb8;
+  --md-ref-palette-tertiary-90-channel: 255 221 184;
+  --md-ref-palette-tertiary-95: #ffeede;
+  --md-ref-palette-tertiary-95-channel: 255 238 222;
+  --md-ref-palette-tertiary-98: #fff8f4;
+  --md-ref-palette-tertiary-98-channel: 255 248 244;
+  --md-ref-palette-tertiary-99: #fffbff;
+  --md-ref-palette-tertiary-99-channel: 255 251 255;
+  --md-sys-color-background: #fff8f7;
+  --md-sys-color-background-channel: 255 248 247;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-error-channel: 186 26 26;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-error-container-channel: 255 218 214;
+  --md-sys-color-inverse-on-surface: #f4f0ef;
+  --md-sys-color-inverse-on-surface-channel: 244 240 239;
+  --md-sys-color-inverse-primary: #ffb2bb;
+  --md-sys-color-inverse-primary-channel: 255 178 187;
+  --md-sys-color-inverse-surface: #313030;
+  --md-sys-color-inverse-surface-channel: 49 48 48;
+  --md-sys-color-on-background: #291619;
+  --md-sys-color-on-background-channel: 41 22 25;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-on-error-channel: 255 255 255;
+  --md-sys-color-on-error-container: #93000a;
+  --md-sys-color-on-error-container-channel: 147 0 10;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-on-primary-channel: 255 255 255;
+  --md-sys-color-on-primary-container: #fffbff;
+  --md-sys-color-on-primary-container-channel: 255 251 255;
+  --md-sys-color-on-primary-fixed: #400012;
+  --md-sys-color-on-primary-fixed-channel: 64 0 18;
+  --md-sys-color-on-primary-fixed-variant: #910033;
+  --md-sys-color-on-primary-fixed-variant-channel: 145 0 51;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-on-secondary-channel: 255 255 255;
+  --md-sys-color-on-secondary-container: #630021;
+  --md-sys-color-on-secondary-container-channel: 99 0 33;
+  --md-sys-color-on-secondary-fixed: #400012;
+  --md-sys-color-on-secondary-fixed-channel: 64 0 18;
+  --md-sys-color-on-secondary-fixed-variant: #900334;
+  --md-sys-color-on-secondary-fixed-variant-channel: 144 3 52;
+  --md-sys-color-on-surface: #1c1b1b;
+  --md-sys-color-on-surface-channel: 28 27 27;
+  --md-sys-color-on-surface-variant: #5d3e42;
+  --md-sys-color-on-surface-variant-channel: 93 62 66;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-on-tertiary-channel: 255 255 255;
+  --md-sys-color-on-tertiary-container: #fffbff;
+  --md-sys-color-on-tertiary-container-channel: 255 251 255;
+  --md-sys-color-on-tertiary-fixed: #370e00;
+  --md-sys-color-on-tertiary-fixed-channel: 55 14 0;
+  --md-sys-color-on-tertiary-fixed-variant: #7f2b00;
+  --md-sys-color-on-tertiary-fixed-variant-channel: 127 43 0;
+  --md-sys-color-outline: #926e72;
+  --md-sys-color-outline-channel: 146 110 114;
+  --md-sys-color-outline-variant: #e7bcc0;
+  --md-sys-color-outline-variant-channel: 231 188 192;
+  --md-sys-color-primary: #b80044;
+  --md-sys-color-primary-channel: 184 0 68;
+  --md-sys-color-primary-container: #e70057;
+  --md-sys-color-primary-container-channel: 231 0 87;
+  --md-sys-color-primary-fixed: #ffd9dd;
+  --md-sys-color-primary-fixed-channel: 255 217 221;
+  --md-sys-color-primary-fixed-dim: #ffb2bb;
+  --md-sys-color-primary-fixed-dim-channel: 255 178 187;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-scrim-channel: 0 0 0;
+  --md-sys-color-secondary: #b2254a;
+  --md-sys-color-secondary-channel: 178 37 74;
+  --md-sys-color-secondary-container: #fc5f7f;
+  --md-sys-color-secondary-container-channel: 252 95 127;
+  --md-sys-color-secondary-fixed: #ffd9dd;
+  --md-sys-color-secondary-fixed-channel: 255 217 221;
+  --md-sys-color-secondary-fixed-dim: #ffb2bb;
+  --md-sys-color-secondary-fixed-dim-channel: 255 178 187;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-shadow-channel: 0 0 0;
+  --md-sys-color-surface: #fdf8f8;
+  --md-sys-color-surface-bright: #fdf8f8;
+  --md-sys-color-surface-bright-channel: 253 248 248;
+  --md-sys-color-surface-channel: 253 248 248;
+  --md-sys-color-surface-container: #f1edec;
+  --md-sys-color-surface-container-channel: 241 237 236;
+  --md-sys-color-surface-container-high: #ebe7e6;
+  --md-sys-color-surface-container-high-channel: 235 231 230;
+  --md-sys-color-surface-container-highest: #e5e2e1;
+  --md-sys-color-surface-container-highest-channel: 229 226 225;
+  --md-sys-color-surface-container-low: #f7f3f2;
+  --md-sys-color-surface-container-low-channel: 247 243 242;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-lowest-channel: 255 255 255;
+  --md-sys-color-surface-dim: #ddd9d8;
+  --md-sys-color-surface-dim-channel: 221 217 216;
+  --md-sys-color-surface-tint: #bd0046;
+  --md-sys-color-surface-tint-channel: 189 0 70;
+  --md-sys-color-surface-variant: #ffd9dd;
+  --md-sys-color-surface-variant-channel: 255 217 221;
+  --md-sys-color-tertiary: #a23900;
+  --md-sys-color-tertiary-channel: 162 57 0;
+  --md-sys-color-tertiary-container: #cc4900;
+  --md-sys-color-tertiary-container-channel: 204 73 0;
+  --md-sys-color-tertiary-fixed: #ffdbce;
+  --md-sys-color-tertiary-fixed-channel: 255 219 206;
+  --md-sys-color-tertiary-fixed-dim: #ffb599;
+  --md-sys-color-tertiary-fixed-dim-channel: 255 181 153;
+  --md-sys-state-layer-background-opacity-08: rgba(255, 248, 247, 0.08);
+  --md-sys-state-layer-background-opacity-10: rgba(255, 248, 247, 0.1);
+  --md-sys-state-layer-background-opacity-16: rgba(255, 248, 247, 0.16);
+  --md-sys-state-layer-error-container-opacity-08: rgba(255, 218, 214, 0.08);
+  --md-sys-state-layer-error-container-opacity-10: rgba(255, 218, 214, 0.1);
+  --md-sys-state-layer-error-container-opacity-16: rgba(255, 218, 214, 0.16);
+  --md-sys-state-layer-error-opacity-08: rgba(186, 26, 26, 0.08);
+  --md-sys-state-layer-error-opacity-10: rgba(186, 26, 26, 0.1);
+  --md-sys-state-layer-error-opacity-16: rgba(186, 26, 26, 0.16);
+  --md-sys-state-layer-inverse-on-surface-opacity-08: rgba(244, 240, 239, 0.08);
+  --md-sys-state-layer-inverse-on-surface-opacity-10: rgba(244, 240, 239, 0.1);
+  --md-sys-state-layer-inverse-on-surface-opacity-16: rgba(244, 240, 239, 0.16);
+  --md-sys-state-layer-inverse-primary-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-inverse-primary-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-inverse-primary-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-inverse-surface-opacity-08: rgba(49, 48, 48, 0.08);
+  --md-sys-state-layer-inverse-surface-opacity-10: rgba(49, 48, 48, 0.1);
+  --md-sys-state-layer-inverse-surface-opacity-16: rgba(49, 48, 48, 0.16);
+  --md-sys-state-layer-on-background-opacity-08: rgba(41, 22, 25, 0.08);
+  --md-sys-state-layer-on-background-opacity-10: rgba(41, 22, 25, 0.1);
+  --md-sys-state-layer-on-background-opacity-16: rgba(41, 22, 25, 0.16);
+  --md-sys-state-layer-on-error-container-opacity-08: rgba(147, 0, 10, 0.08);
+  --md-sys-state-layer-on-error-container-opacity-10: rgba(147, 0, 10, 0.1);
+  --md-sys-state-layer-on-error-container-opacity-16: rgba(147, 0, 10, 0.16);
+  --md-sys-state-layer-on-error-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-error-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-error-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-on-primary-container-opacity-08: rgba(255, 251, 255, 0.08);
+  --md-sys-state-layer-on-primary-container-opacity-10: rgba(255, 251, 255, 0.1);
+  --md-sys-state-layer-on-primary-container-opacity-16: rgba(255, 251, 255, 0.16);
+  --md-sys-state-layer-on-primary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
+  --md-sys-state-layer-on-primary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
+  --md-sys-state-layer-on-primary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-08: rgba(145, 0, 51, 0.08);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-10: rgba(145, 0, 51, 0.1);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-16: rgba(145, 0, 51, 0.16);
+  --md-sys-state-layer-on-primary-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-primary-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-primary-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-on-secondary-container-opacity-08: rgba(99, 0, 33, 0.08);
+  --md-sys-state-layer-on-secondary-container-opacity-10: rgba(99, 0, 33, 0.1);
+  --md-sys-state-layer-on-secondary-container-opacity-16: rgba(99, 0, 33, 0.16);
+  --md-sys-state-layer-on-secondary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
+  --md-sys-state-layer-on-secondary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
+  --md-sys-state-layer-on-secondary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-08: rgba(144, 3, 52, 0.08);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-10: rgba(144, 3, 52, 0.1);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-16: rgba(144, 3, 52, 0.16);
+  --md-sys-state-layer-on-secondary-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-secondary-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-secondary-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-on-surface-opacity-08: rgba(28, 27, 27, 0.08);
+  --md-sys-state-layer-on-surface-opacity-10: rgba(28, 27, 27, 0.1);
+  --md-sys-state-layer-on-surface-opacity-16: rgba(28, 27, 27, 0.16);
+  --md-sys-state-layer-on-surface-variant-opacity-08: rgba(93, 62, 66, 0.08);
+  --md-sys-state-layer-on-surface-variant-opacity-10: rgba(93, 62, 66, 0.1);
+  --md-sys-state-layer-on-surface-variant-opacity-16: rgba(93, 62, 66, 0.16);
+  --md-sys-state-layer-on-tertiary-container-opacity-08: rgba(255, 251, 255, 0.08);
+  --md-sys-state-layer-on-tertiary-container-opacity-10: rgba(255, 251, 255, 0.1);
+  --md-sys-state-layer-on-tertiary-container-opacity-16: rgba(255, 251, 255, 0.16);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-08: rgba(55, 14, 0, 0.08);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-10: rgba(55, 14, 0, 0.1);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-16: rgba(55, 14, 0, 0.16);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-08: rgba(127, 43, 0, 0.08);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-10: rgba(127, 43, 0, 0.1);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-16: rgba(127, 43, 0, 0.16);
+  --md-sys-state-layer-on-tertiary-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-tertiary-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-tertiary-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-outline-opacity-08: rgba(146, 110, 114, 0.08);
+  --md-sys-state-layer-outline-opacity-10: rgba(146, 110, 114, 0.1);
+  --md-sys-state-layer-outline-opacity-16: rgba(146, 110, 114, 0.16);
+  --md-sys-state-layer-outline-variant-opacity-08: rgba(231, 188, 192, 0.08);
+  --md-sys-state-layer-outline-variant-opacity-10: rgba(231, 188, 192, 0.1);
+  --md-sys-state-layer-outline-variant-opacity-16: rgba(231, 188, 192, 0.16);
+  --md-sys-state-layer-primary-container-opacity-08: rgba(231, 0, 87, 0.08);
+  --md-sys-state-layer-primary-container-opacity-10: rgba(231, 0, 87, 0.1);
+  --md-sys-state-layer-primary-container-opacity-16: rgba(231, 0, 87, 0.16);
+  --md-sys-state-layer-primary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-primary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-primary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-primary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
+  --md-sys-state-layer-primary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
+  --md-sys-state-layer-primary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
+  --md-sys-state-layer-primary-opacity-08: rgba(184, 0, 68, 0.08);
+  --md-sys-state-layer-primary-opacity-10: rgba(184, 0, 68, 0.1);
+  --md-sys-state-layer-primary-opacity-16: rgba(184, 0, 68, 0.16);
+  --md-sys-state-layer-scrim-opacity-08: rgba(0, 0, 0, 0.08);
+  --md-sys-state-layer-scrim-opacity-10: rgba(0, 0, 0, 0.1);
+  --md-sys-state-layer-scrim-opacity-16: rgba(0, 0, 0, 0.16);
+  --md-sys-state-layer-secondary-container-opacity-08: rgba(252, 95, 127, 0.08);
+  --md-sys-state-layer-secondary-container-opacity-10: rgba(252, 95, 127, 0.1);
+  --md-sys-state-layer-secondary-container-opacity-16: rgba(252, 95, 127, 0.16);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-secondary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
+  --md-sys-state-layer-secondary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
+  --md-sys-state-layer-secondary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
+  --md-sys-state-layer-secondary-opacity-08: rgba(178, 37, 74, 0.08);
+  --md-sys-state-layer-secondary-opacity-10: rgba(178, 37, 74, 0.1);
+  --md-sys-state-layer-secondary-opacity-16: rgba(178, 37, 74, 0.16);
+  --md-sys-state-layer-shadow-opacity-08: rgba(0, 0, 0, 0.08);
+  --md-sys-state-layer-shadow-opacity-10: rgba(0, 0, 0, 0.1);
+  --md-sys-state-layer-shadow-opacity-16: rgba(0, 0, 0, 0.16);
+  --md-sys-state-layer-surface-bright-opacity-08: rgba(253, 248, 248, 0.08);
+  --md-sys-state-layer-surface-bright-opacity-10: rgba(253, 248, 248, 0.1);
+  --md-sys-state-layer-surface-bright-opacity-16: rgba(253, 248, 248, 0.16);
+  --md-sys-state-layer-surface-container-high-opacity-08: rgba(235, 231, 230, 0.08);
+  --md-sys-state-layer-surface-container-high-opacity-10: rgba(235, 231, 230, 0.1);
+  --md-sys-state-layer-surface-container-high-opacity-16: rgba(235, 231, 230, 0.16);
+  --md-sys-state-layer-surface-container-highest-opacity-08: rgba(229, 226, 225, 0.08);
+  --md-sys-state-layer-surface-container-highest-opacity-10: rgba(229, 226, 225, 0.1);
+  --md-sys-state-layer-surface-container-highest-opacity-16: rgba(229, 226, 225, 0.16);
+  --md-sys-state-layer-surface-container-low-opacity-08: rgba(247, 243, 242, 0.08);
+  --md-sys-state-layer-surface-container-low-opacity-10: rgba(247, 243, 242, 0.1);
+  --md-sys-state-layer-surface-container-low-opacity-16: rgba(247, 243, 242, 0.16);
+  --md-sys-state-layer-surface-container-lowest-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-surface-container-lowest-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-surface-container-lowest-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-surface-container-opacity-08: rgba(241, 237, 236, 0.08);
+  --md-sys-state-layer-surface-container-opacity-10: rgba(241, 237, 236, 0.1);
+  --md-sys-state-layer-surface-container-opacity-16: rgba(241, 237, 236, 0.16);
+  --md-sys-state-layer-surface-dim-opacity-08: rgba(221, 217, 216, 0.08);
+  --md-sys-state-layer-surface-dim-opacity-10: rgba(221, 217, 216, 0.1);
+  --md-sys-state-layer-surface-dim-opacity-16: rgba(221, 217, 216, 0.16);
+  --md-sys-state-layer-surface-opacity-08: rgba(253, 248, 248, 0.08);
+  --md-sys-state-layer-surface-opacity-10: rgba(253, 248, 248, 0.1);
+  --md-sys-state-layer-surface-opacity-16: rgba(253, 248, 248, 0.16);
+  --md-sys-state-layer-surface-tint-opacity-08: rgba(189, 0, 70, 0.08);
+  --md-sys-state-layer-surface-tint-opacity-10: rgba(189, 0, 70, 0.1);
+  --md-sys-state-layer-surface-tint-opacity-16: rgba(189, 0, 70, 0.16);
+  --md-sys-state-layer-surface-variant-opacity-08: rgba(255, 217, 221, 0.08);
+  --md-sys-state-layer-surface-variant-opacity-10: rgba(255, 217, 221, 0.1);
+  --md-sys-state-layer-surface-variant-opacity-16: rgba(255, 217, 221, 0.16);
+  --md-sys-state-layer-tertiary-container-opacity-08: rgba(204, 73, 0, 0.08);
+  --md-sys-state-layer-tertiary-container-opacity-10: rgba(204, 73, 0, 0.1);
+  --md-sys-state-layer-tertiary-container-opacity-16: rgba(204, 73, 0, 0.16);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-08: rgba(255, 181, 153, 0.08);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-10: rgba(255, 181, 153, 0.1);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-16: rgba(255, 181, 153, 0.16);
+  --md-sys-state-layer-tertiary-fixed-opacity-08: rgba(255, 219, 206, 0.08);
+  --md-sys-state-layer-tertiary-fixed-opacity-10: rgba(255, 219, 206, 0.1);
+  --md-sys-state-layer-tertiary-fixed-opacity-16: rgba(255, 219, 206, 0.16);
+  --md-sys-state-layer-tertiary-opacity-08: rgba(162, 57, 0, 0.08);
+  --md-sys-state-layer-tertiary-opacity-10: rgba(162, 57, 0, 0.1);
+  --md-sys-state-layer-tertiary-opacity-16: rgba(162, 57, 0, 0.16);
+  --md-sys-surface-surface-tint-11: rgba(189, 0, 70, 0.11);
+  --md-sys-surface-surface-tint-12: rgba(189, 0, 70, 0.12);
+  --md-sys-surface-surface-tint-14: rgba(189, 0, 70, 0.14);
+  --md-sys-surface-surface-tint-5: rgba(189, 0, 70, 0.05);
+  --md-sys-surface-surface-tint-8: rgba(189, 0, 70, 0.08);
 }
 
 [data-theme="dark"] {
-  --seacrets-online-extended-colors-custom-color-1: #ffb2bb;
-  --seacrets-online-extended-colors-custom-color-1-channel: 255 178 187;
-  --seacrets-online-extended-colors-custom-color-1-container: #ff4f77;
-  --seacrets-online-extended-colors-custom-color-1-container-channel: 255 79 119;
-  --seacrets-online-extended-colors-on-custom-color-1: #670022;
-  --seacrets-online-extended-colors-on-custom-color-1-channel: 103 0 34;
-  --seacrets-online-extended-colors-on-custom-color-1-container: #3b0010;
-  --seacrets-online-extended-colors-on-custom-color-1-container-channel: 59 0 16;
-  --seacrets-online-palettes-error-0: #000000;
-  --seacrets-online-palettes-error-0-channel: 0 0 0;
-  --seacrets-online-palettes-error-10: #410002;
-  --seacrets-online-palettes-error-10-channel: 65 0 2;
-  --seacrets-online-palettes-error-100: #ffffff;
-  --seacrets-online-palettes-error-100-channel: 255 255 255;
-  --seacrets-online-palettes-error-15: #540003;
-  --seacrets-online-palettes-error-15-channel: 84 0 3;
-  --seacrets-online-palettes-error-20: #690005;
-  --seacrets-online-palettes-error-20-channel: 105 0 5;
-  --seacrets-online-palettes-error-25: #7e0007;
-  --seacrets-online-palettes-error-25-channel: 126 0 7;
-  --seacrets-online-palettes-error-30: #93000a;
-  --seacrets-online-palettes-error-30-channel: 147 0 10;
-  --seacrets-online-palettes-error-35: #a80710;
-  --seacrets-online-palettes-error-35-channel: 168 7 16;
-  --seacrets-online-palettes-error-40: #ba1a1a;
-  --seacrets-online-palettes-error-40-channel: 186 26 26;
-  --seacrets-online-palettes-error-5: #2d0001;
-  --seacrets-online-palettes-error-5-channel: 45 0 1;
-  --seacrets-online-palettes-error-50: #de3730;
-  --seacrets-online-palettes-error-50-channel: 222 55 48;
-  --seacrets-online-palettes-error-60: #ff5449;
-  --seacrets-online-palettes-error-60-channel: 255 84 73;
-  --seacrets-online-palettes-error-70: #ff897d;
-  --seacrets-online-palettes-error-70-channel: 255 137 125;
-  --seacrets-online-palettes-error-80: #ffb4ab;
-  --seacrets-online-palettes-error-80-channel: 255 180 171;
-  --seacrets-online-palettes-error-90: #ffdad6;
-  --seacrets-online-palettes-error-90-channel: 255 218 214;
-  --seacrets-online-palettes-error-95: #ffedea;
-  --seacrets-online-palettes-error-95-channel: 255 237 234;
-  --seacrets-online-palettes-error-98: #fff8f7;
-  --seacrets-online-palettes-error-98-channel: 255 248 247;
-  --seacrets-online-palettes-error-99: #fffbff;
-  --seacrets-online-palettes-error-99-channel: 255 251 255;
-  --seacrets-online-palettes-neutral-0: #000000;
-  --seacrets-online-palettes-neutral-0-channel: 0 0 0;
-  --seacrets-online-palettes-neutral-10: #1c1b1b;
-  --seacrets-online-palettes-neutral-10-channel: 28 27 27;
-  --seacrets-online-palettes-neutral-100: #ffffff;
-  --seacrets-online-palettes-neutral-100-channel: 255 255 255;
-  --seacrets-online-palettes-neutral-15: #262625;
-  --seacrets-online-palettes-neutral-15-channel: 38 38 37;
-  --seacrets-online-palettes-neutral-20: #313030;
-  --seacrets-online-palettes-neutral-20-channel: 49 48 48;
-  --seacrets-online-palettes-neutral-25: #3c3b3b;
-  --seacrets-online-palettes-neutral-25-channel: 60 59 59;
-  --seacrets-online-palettes-neutral-30: #484646;
-  --seacrets-online-palettes-neutral-30-channel: 72 70 70;
-  --seacrets-online-palettes-neutral-35: #545252;
-  --seacrets-online-palettes-neutral-35-channel: 84 82 82;
-  --seacrets-online-palettes-neutral-40: #605e5e;
-  --seacrets-online-palettes-neutral-40-channel: 96 94 94;
-  --seacrets-online-palettes-neutral-5: #111111;
-  --seacrets-online-palettes-neutral-5-channel: 17 17 17;
-  --seacrets-online-palettes-neutral-50: #797676;
-  --seacrets-online-palettes-neutral-50-channel: 121 118 118;
-  --seacrets-online-palettes-neutral-60: #939090;
-  --seacrets-online-palettes-neutral-60-channel: 147 144 144;
-  --seacrets-online-palettes-neutral-70: #adaaaa;
-  --seacrets-online-palettes-neutral-70-channel: 173 170 170;
-  --seacrets-online-palettes-neutral-80: #c9c6c5;
-  --seacrets-online-palettes-neutral-80-channel: 201 198 197;
-  --seacrets-online-palettes-neutral-90: #e5e2e1;
-  --seacrets-online-palettes-neutral-90-channel: 229 226 225;
-  --seacrets-online-palettes-neutral-95: #f4f0ef;
-  --seacrets-online-palettes-neutral-95-channel: 244 240 239;
-  --seacrets-online-palettes-neutral-98: #fdf8f8;
-  --seacrets-online-palettes-neutral-98-channel: 253 248 248;
-  --seacrets-online-palettes-neutral-99: #f6feff;
-  --seacrets-online-palettes-neutral-99-channel: 246 254 255;
-  --seacrets-online-palettes-neutral-variant-0: #000000;
-  --seacrets-online-palettes-neutral-variant-0-channel: 0 0 0;
-  --seacrets-online-palettes-neutral-variant-10: #24181a;
-  --seacrets-online-palettes-neutral-variant-10-channel: 36 24 26;
-  --seacrets-online-palettes-neutral-variant-100: #ffffff;
-  --seacrets-online-palettes-neutral-variant-100-channel: 255 255 255;
-  --seacrets-online-palettes-neutral-variant-15: #2f2324;
-  --seacrets-online-palettes-neutral-variant-15-channel: 47 35 36;
-  --seacrets-online-palettes-neutral-variant-20: #3a2d2e;
-  --seacrets-online-palettes-neutral-variant-20-channel: 58 45 46;
-  --seacrets-online-palettes-neutral-variant-25: #463839;
-  --seacrets-online-palettes-neutral-variant-25-channel: 70 56 57;
-  --seacrets-online-palettes-neutral-variant-30: #524344;
-  --seacrets-online-palettes-neutral-variant-30-channel: 82 67 68;
-  --seacrets-online-palettes-neutral-variant-35: #5e4f50;
-  --seacrets-online-palettes-neutral-variant-35-channel: 94 79 80;
-  --seacrets-online-palettes-neutral-variant-40: #6b5a5c;
-  --seacrets-online-palettes-neutral-variant-40-channel: 107 90 92;
-  --seacrets-online-palettes-neutral-variant-5: #190e0f;
-  --seacrets-online-palettes-neutral-variant-5-channel: 25 14 15;
-  --seacrets-online-palettes-neutral-variant-50: #847374;
-  --seacrets-online-palettes-neutral-variant-50-channel: 132 115 116;
-  --seacrets-online-palettes-neutral-variant-60: #9f8c8e;
-  --seacrets-online-palettes-neutral-variant-60-channel: 159 140 142;
-  --seacrets-online-palettes-neutral-variant-70: #baa6a8;
-  --seacrets-online-palettes-neutral-variant-70-channel: 186 166 168;
-  --seacrets-online-palettes-neutral-variant-80: #d7c1c3;
-  --seacrets-online-palettes-neutral-variant-80-channel: 215 193 195;
-  --seacrets-online-palettes-neutral-variant-90: #f4dddf;
-  --seacrets-online-palettes-neutral-variant-90-channel: 244 221 223;
-  --seacrets-online-palettes-neutral-variant-95: #ffeced;
-  --seacrets-online-palettes-neutral-variant-95-channel: 255 236 237;
-  --seacrets-online-palettes-neutral-variant-98: #fff8f7;
-  --seacrets-online-palettes-neutral-variant-98-channel: 255 248 247;
-  --seacrets-online-palettes-neutral-variant-99: #fffbff;
-  --seacrets-online-palettes-neutral-variant-99-channel: 255 251 255;
-  --seacrets-online-palettes-primary-0: #000000;
-  --seacrets-online-palettes-primary-0-channel: 0 0 0;
-  --seacrets-online-palettes-primary-10: #400012;
-  --seacrets-online-palettes-primary-10-channel: 64 0 18;
-  --seacrets-online-palettes-primary-100: #ffffff;
-  --seacrets-online-palettes-primary-100-channel: 255 255 255;
-  --seacrets-online-palettes-primary-15: #53001a;
-  --seacrets-online-palettes-primary-15-channel: 83 0 26;
-  --seacrets-online-palettes-primary-20: #670022;
-  --seacrets-online-palettes-primary-20-channel: 103 0 34;
-  --seacrets-online-palettes-primary-25: #7b002b;
-  --seacrets-online-palettes-primary-25-channel: 123 0 43;
-  --seacrets-online-palettes-primary-30: #910033;
-  --seacrets-online-palettes-primary-30-channel: 145 0 51;
-  --seacrets-online-palettes-primary-35: #a7003c;
-  --seacrets-online-palettes-primary-35-channel: 167 0 60;
-  --seacrets-online-palettes-primary-40: #bd0046;
-  --seacrets-online-palettes-primary-40-channel: 189 0 70;
-  --seacrets-online-palettes-primary-5: #2c000a;
-  --seacrets-online-palettes-primary-5-channel: 44 0 10;
-  --seacrets-online-palettes-primary-50: #eb0059;
-  --seacrets-online-palettes-primary-50-channel: 235 0 89;
-  --seacrets-online-palettes-primary-60: #ff4f77;
-  --seacrets-online-palettes-primary-60-channel: 255 79 119;
-  --seacrets-online-palettes-primary-70: #ff869a;
-  --seacrets-online-palettes-primary-70-channel: 255 134 154;
-  --seacrets-online-palettes-primary-80: #ffb2bb;
-  --seacrets-online-palettes-primary-80-channel: 255 178 187;
-  --seacrets-online-palettes-primary-90: #ffd9dd;
-  --seacrets-online-palettes-primary-90-channel: 255 217 221;
-  --seacrets-online-palettes-primary-95: #ffeced;
-  --seacrets-online-palettes-primary-95-channel: 255 236 237;
-  --seacrets-online-palettes-primary-98: #fff8f7;
-  --seacrets-online-palettes-primary-98-channel: 255 248 247;
-  --seacrets-online-palettes-primary-99: #fffbff;
-  --seacrets-online-palettes-primary-99-channel: 255 251 255;
-  --seacrets-online-palettes-secondary-0: #000000;
-  --seacrets-online-palettes-secondary-0-channel: 0 0 0;
-  --seacrets-online-palettes-secondary-10: #3a0814;
-  --seacrets-online-palettes-secondary-10-channel: 58 8 20;
-  --seacrets-online-palettes-secondary-100: #ffffff;
-  --seacrets-online-palettes-secondary-100-channel: 255 255 255;
-  --seacrets-online-palettes-secondary-15: #47131e;
-  --seacrets-online-palettes-secondary-15-channel: 71 19 30;
-  --seacrets-online-palettes-secondary-20: #551e28;
-  --seacrets-online-palettes-secondary-20-channel: 85 30 40;
-  --seacrets-online-palettes-secondary-25: #632833;
-  --seacrets-online-palettes-secondary-25-channel: 99 40 51;
-  --seacrets-online-palettes-secondary-30: #71333e;
-  --seacrets-online-palettes-secondary-30-channel: 113 51 62;
-  --seacrets-online-palettes-secondary-35: #7f3f49;
-  --seacrets-online-palettes-secondary-35-channel: 127 63 73;
-  --seacrets-online-palettes-secondary-40: #8d4a55;
-  --seacrets-online-palettes-secondary-40-channel: 141 74 85;
-  --seacrets-online-palettes-secondary-5: #2b010a;
-  --seacrets-online-palettes-secondary-5-channel: 43 1 10;
-  --seacrets-online-palettes-secondary-50: #aa626d;
-  --seacrets-online-palettes-secondary-50-channel: 170 98 109;
-  --seacrets-online-palettes-secondary-60: #c87b86;
-  --seacrets-online-palettes-secondary-60-channel: 200 123 134;
-  --seacrets-online-palettes-secondary-70: #e695a0;
-  --seacrets-online-palettes-secondary-70-channel: 230 149 160;
-  --seacrets-online-palettes-secondary-80: #ffb2bb;
-  --seacrets-online-palettes-secondary-80-channel: 255 178 187;
-  --seacrets-online-palettes-secondary-90: #ffd9dd;
-  --seacrets-online-palettes-secondary-90-channel: 255 217 221;
-  --seacrets-online-palettes-secondary-95: #ffeced;
-  --seacrets-online-palettes-secondary-95-channel: 255 236 237;
-  --seacrets-online-palettes-secondary-98: #fff8f7;
-  --seacrets-online-palettes-secondary-98-channel: 255 248 247;
-  --seacrets-online-palettes-secondary-99: #fffbff;
-  --seacrets-online-palettes-secondary-99-channel: 255 251 255;
-  --seacrets-online-palettes-tertiary-0: #000000;
-  --seacrets-online-palettes-tertiary-0-channel: 0 0 0;
-  --seacrets-online-palettes-tertiary-10: #2a1700;
-  --seacrets-online-palettes-tertiary-10-channel: 42 23 0;
-  --seacrets-online-palettes-tertiary-100: #ffffff;
-  --seacrets-online-palettes-tertiary-100-channel: 255 255 255;
-  --seacrets-online-palettes-tertiary-15: #382000;
-  --seacrets-online-palettes-tertiary-15-channel: 56 32 0;
-  --seacrets-online-palettes-tertiary-20: #472a00;
-  --seacrets-online-palettes-tertiary-20-channel: 71 42 0;
-  --seacrets-online-palettes-tertiary-25: #563400;
-  --seacrets-online-palettes-tertiary-25-channel: 86 52 0;
-  --seacrets-online-palettes-tertiary-30: #653e00;
-  --seacrets-online-palettes-tertiary-30-channel: 101 62 0;
-  --seacrets-online-palettes-tertiary-35: #754900;
-  --seacrets-online-palettes-tertiary-35-channel: 117 73 0;
-  --seacrets-online-palettes-tertiary-40: #855300;
-  --seacrets-online-palettes-tertiary-40-channel: 133 83 0;
-  --seacrets-online-palettes-tertiary-5: #1c0e00;
-  --seacrets-online-palettes-tertiary-5-channel: 28 14 0;
-  --seacrets-online-palettes-tertiary-50: #a76900;
-  --seacrets-online-palettes-tertiary-50-channel: 167 105 0;
-  --seacrets-online-palettes-tertiary-60: #ca8104;
-  --seacrets-online-palettes-tertiary-60-channel: 202 129 4;
-  --seacrets-online-palettes-tertiary-70: #e99a28;
-  --seacrets-online-palettes-tertiary-70-channel: 233 154 40;
-  --seacrets-online-palettes-tertiary-80: #ffb960;
-  --seacrets-online-palettes-tertiary-80-channel: 255 185 96;
-  --seacrets-online-palettes-tertiary-90: #ffddb8;
-  --seacrets-online-palettes-tertiary-90-channel: 255 221 184;
-  --seacrets-online-palettes-tertiary-95: #ffeede;
-  --seacrets-online-palettes-tertiary-95-channel: 255 238 222;
-  --seacrets-online-palettes-tertiary-98: #fff8f4;
-  --seacrets-online-palettes-tertiary-98-channel: 255 248 244;
-  --seacrets-online-palettes-tertiary-99: #fffbff;
-  --seacrets-online-palettes-tertiary-99-channel: 255 251 255;
-  --seacrets-online-schemes-background: #200e11;
-  --seacrets-online-schemes-background-channel: 32 14 17;
-  --seacrets-online-schemes-error: #ffb4ab;
-  --seacrets-online-schemes-error-channel: 255 180 171;
-  --seacrets-online-schemes-error-container: #93000a;
-  --seacrets-online-schemes-error-container-channel: 147 0 10;
-  --seacrets-online-schemes-inverse-on-surface: #313030;
-  --seacrets-online-schemes-inverse-on-surface-channel: 49 48 48;
-  --seacrets-online-schemes-inverse-primary: #bd0046;
-  --seacrets-online-schemes-inverse-primary-channel: 189 0 70;
-  --seacrets-online-schemes-inverse-surface: #e5e2e1;
-  --seacrets-online-schemes-inverse-surface-channel: 229 226 225;
-  --seacrets-online-schemes-on-background: #fddadd;
-  --seacrets-online-schemes-on-background-channel: 253 218 221;
-  --seacrets-online-schemes-on-error: #690005;
-  --seacrets-online-schemes-on-error-channel: 105 0 5;
-  --seacrets-online-schemes-on-error-container: #ffdad6;
-  --seacrets-online-schemes-on-error-container-channel: 255 218 214;
-  --seacrets-online-schemes-on-primary: #670022;
-  --seacrets-online-schemes-on-primary-channel: 103 0 34;
-  --seacrets-online-schemes-on-primary-container: #3b0010;
-  --seacrets-online-schemes-on-primary-container-channel: 59 0 16;
-  --seacrets-online-schemes-on-primary-fixed: #400012;
-  --seacrets-online-schemes-on-primary-fixed-channel: 64 0 18;
-  --seacrets-online-schemes-on-primary-fixed-variant: #910033;
-  --seacrets-online-schemes-on-primary-fixed-variant-channel: 145 0 51;
-  --seacrets-online-schemes-on-secondary: #670022;
-  --seacrets-online-schemes-on-secondary-channel: 103 0 34;
-  --seacrets-online-schemes-on-secondary-container: #ff9caa;
-  --seacrets-online-schemes-on-secondary-container-channel: 255 156 170;
-  --seacrets-online-schemes-on-secondary-fixed: #400012;
-  --seacrets-online-schemes-on-secondary-fixed-channel: 64 0 18;
-  --seacrets-online-schemes-on-secondary-fixed-variant: #900334;
-  --seacrets-online-schemes-on-secondary-fixed-variant-channel: 144 3 52;
-  --seacrets-online-schemes-on-surface: #e5e2e1;
-  --seacrets-online-schemes-on-surface-channel: 229 226 225;
-  --seacrets-online-schemes-on-surface-variant: #e7bcc0;
-  --seacrets-online-schemes-on-surface-variant-channel: 231 188 192;
-  --seacrets-online-schemes-on-tertiary: #5a1c00;
-  --seacrets-online-schemes-on-tertiary-channel: 90 28 0;
-  --seacrets-online-schemes-on-tertiary-container: #330c00;
-  --seacrets-online-schemes-on-tertiary-container-channel: 51 12 0;
-  --seacrets-online-schemes-on-tertiary-fixed: #370e00;
-  --seacrets-online-schemes-on-tertiary-fixed-channel: 55 14 0;
-  --seacrets-online-schemes-on-tertiary-fixed-variant: #7f2b00;
-  --seacrets-online-schemes-on-tertiary-fixed-variant-channel: 127 43 0;
-  --seacrets-online-schemes-outline: #ad878b;
-  --seacrets-online-schemes-outline-channel: 173 135 139;
-  --seacrets-online-schemes-outline-variant: #5d3e42;
-  --seacrets-online-schemes-outline-variant-channel: 93 62 66;
-  --seacrets-online-schemes-primary: #ffb2bb;
-  --seacrets-online-schemes-primary-channel: 255 178 187;
-  --seacrets-online-schemes-primary-container: #ff4f77;
-  --seacrets-online-schemes-primary-container-channel: 255 79 119;
-  --seacrets-online-schemes-primary-fixed: #ffd9dd;
-  --seacrets-online-schemes-primary-fixed-channel: 255 217 221;
-  --seacrets-online-schemes-primary-fixed-dim: #ffb2bb;
-  --seacrets-online-schemes-primary-fixed-dim-channel: 255 178 187;
-  --seacrets-online-schemes-scrim: #000000;
-  --seacrets-online-schemes-scrim-channel: 0 0 0;
-  --seacrets-online-schemes-secondary: #ffb2bb;
-  --seacrets-online-schemes-secondary-channel: 255 178 187;
-  --seacrets-online-schemes-secondary-container: #930736;
-  --seacrets-online-schemes-secondary-container-channel: 147 7 54;
-  --seacrets-online-schemes-secondary-fixed: #ffd9dd;
-  --seacrets-online-schemes-secondary-fixed-channel: 255 217 221;
-  --seacrets-online-schemes-secondary-fixed-dim: #ffb2bb;
-  --seacrets-online-schemes-secondary-fixed-dim-channel: 255 178 187;
-  --seacrets-online-schemes-shadow: #000000;
-  --seacrets-online-schemes-shadow-channel: 0 0 0;
-  --seacrets-online-schemes-surface: #141313;
-  --seacrets-online-schemes-surface-bright: #3a3939;
-  --seacrets-online-schemes-surface-bright-channel: 58 57 57;
-  --seacrets-online-schemes-surface-channel: 20 19 19;
-  --seacrets-online-schemes-surface-container: #201f1f;
-  --seacrets-online-schemes-surface-container-channel: 32 31 31;
-  --seacrets-online-schemes-surface-container-high: #2b2a2a;
-  --seacrets-online-schemes-surface-container-high-channel: 43 42 42;
-  --seacrets-online-schemes-surface-container-highest: #353434;
-  --seacrets-online-schemes-surface-container-highest-channel: 53 52 52;
-  --seacrets-online-schemes-surface-container-low: #1c1b1b;
-  --seacrets-online-schemes-surface-container-low-channel: 28 27 27;
-  --seacrets-online-schemes-surface-container-lowest: #0e0e0e;
-  --seacrets-online-schemes-surface-container-lowest-channel: 14 14 14;
-  --seacrets-online-schemes-surface-dim: #141313;
-  --seacrets-online-schemes-surface-dim-channel: 20 19 19;
-  --seacrets-online-schemes-surface-tint: #ffb2bb;
-  --seacrets-online-schemes-surface-tint-channel: 255 178 187;
-  --seacrets-online-schemes-surface-variant: #5d3e42;
-  --seacrets-online-schemes-surface-variant-channel: 93 62 66;
-  --seacrets-online-schemes-tertiary: #ffb599;
-  --seacrets-online-schemes-tertiary-channel: 255 181 153;
-  --seacrets-online-schemes-tertiary-container: #f66116;
-  --seacrets-online-schemes-tertiary-container-channel: 246 97 22;
-  --seacrets-online-schemes-tertiary-fixed: #ffdbce;
-  --seacrets-online-schemes-tertiary-fixed-channel: 255 219 206;
-  --seacrets-online-schemes-tertiary-fixed-dim: #ffb599;
-  --seacrets-online-schemes-tertiary-fixed-dim-channel: 255 181 153;
-  --seacrets-online-state-layers-background-opacity-08: rgba(32, 14, 17, 0.08);
-  --seacrets-online-state-layers-background-opacity-10: rgba(32, 14, 17, 0.1);
-  --seacrets-online-state-layers-background-opacity-16: rgba(32, 14, 17, 0.16);
-  --seacrets-online-state-layers-error-container-opacity-08: rgba(147, 0, 10, 0.08);
-  --seacrets-online-state-layers-error-container-opacity-10: rgba(147, 0, 10, 0.1);
-  --seacrets-online-state-layers-error-container-opacity-16: rgba(147, 0, 10, 0.16);
-  --seacrets-online-state-layers-error-opacity-08: rgba(255, 180, 171, 0.08);
-  --seacrets-online-state-layers-error-opacity-10: rgba(255, 180, 171, 0.1);
-  --seacrets-online-state-layers-error-opacity-16: rgba(255, 180, 171, 0.16);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-08: rgba(49, 48, 48, 0.08);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-10: rgba(49, 48, 48, 0.1);
-  --seacrets-online-state-layers-inverse-on-surface-opacity-16: rgba(49, 48, 48, 0.16);
-  --seacrets-online-state-layers-inverse-primary-opacity-08: rgba(189, 0, 70, 0.08);
-  --seacrets-online-state-layers-inverse-primary-opacity-10: rgba(189, 0, 70, 0.1);
-  --seacrets-online-state-layers-inverse-primary-opacity-16: rgba(189, 0, 70, 0.16);
-  --seacrets-online-state-layers-inverse-surface-opacity-08: rgba(229, 226, 225, 0.08);
-  --seacrets-online-state-layers-inverse-surface-opacity-10: rgba(229, 226, 225, 0.1);
-  --seacrets-online-state-layers-inverse-surface-opacity-16: rgba(229, 226, 225, 0.16);
-  --seacrets-online-state-layers-on-background-opacity-08: rgba(253, 218, 221, 0.08);
-  --seacrets-online-state-layers-on-background-opacity-10: rgba(253, 218, 221, 0.1);
-  --seacrets-online-state-layers-on-background-opacity-16: rgba(253, 218, 221, 0.16);
-  --seacrets-online-state-layers-on-error-container-opacity-08: rgba(255, 218, 214, 0.08);
-  --seacrets-online-state-layers-on-error-container-opacity-10: rgba(255, 218, 214, 0.1);
-  --seacrets-online-state-layers-on-error-container-opacity-16: rgba(255, 218, 214, 0.16);
-  --seacrets-online-state-layers-on-error-opacity-08: rgba(105, 0, 5, 0.08);
-  --seacrets-online-state-layers-on-error-opacity-10: rgba(105, 0, 5, 0.1);
-  --seacrets-online-state-layers-on-error-opacity-16: rgba(105, 0, 5, 0.16);
-  --seacrets-online-state-layers-on-primary-container-opacity-08: rgba(59, 0, 16, 0.08);
-  --seacrets-online-state-layers-on-primary-container-opacity-10: rgba(59, 0, 16, 0.1);
-  --seacrets-online-state-layers-on-primary-container-opacity-16: rgba(59, 0, 16, 0.16);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
-  --seacrets-online-state-layers-on-primary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-08: rgba(145, 0, 51, 0.08);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-10: rgba(145, 0, 51, 0.1);
-  --seacrets-online-state-layers-on-primary-fixed-variant-opacity-16: rgba(145, 0, 51, 0.16);
-  --seacrets-online-state-layers-on-primary-opacity-08: rgba(103, 0, 34, 0.08);
-  --seacrets-online-state-layers-on-primary-opacity-10: rgba(103, 0, 34, 0.1);
-  --seacrets-online-state-layers-on-primary-opacity-16: rgba(103, 0, 34, 0.16);
-  --seacrets-online-state-layers-on-secondary-container-opacity-08: rgba(255, 156, 170, 0.08);
-  --seacrets-online-state-layers-on-secondary-container-opacity-10: rgba(255, 156, 170, 0.1);
-  --seacrets-online-state-layers-on-secondary-container-opacity-16: rgba(255, 156, 170, 0.16);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
-  --seacrets-online-state-layers-on-secondary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-08: rgba(144, 3, 52, 0.08);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-10: rgba(144, 3, 52, 0.1);
-  --seacrets-online-state-layers-on-secondary-fixed-variant-opacity-16: rgba(144, 3, 52, 0.16);
-  --seacrets-online-state-layers-on-secondary-opacity-08: rgba(103, 0, 34, 0.08);
-  --seacrets-online-state-layers-on-secondary-opacity-10: rgba(103, 0, 34, 0.1);
-  --seacrets-online-state-layers-on-secondary-opacity-16: rgba(103, 0, 34, 0.16);
-  --seacrets-online-state-layers-on-surface-opacity-08: rgba(229, 226, 225, 0.08);
-  --seacrets-online-state-layers-on-surface-opacity-10: rgba(229, 226, 225, 0.1);
-  --seacrets-online-state-layers-on-surface-opacity-16: rgba(229, 226, 225, 0.16);
-  --seacrets-online-state-layers-on-surface-variant-opacity-08: rgba(231, 188, 192, 0.08);
-  --seacrets-online-state-layers-on-surface-variant-opacity-10: rgba(231, 188, 192, 0.1);
-  --seacrets-online-state-layers-on-surface-variant-opacity-16: rgba(231, 188, 192, 0.16);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-08: rgba(51, 12, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-10: rgba(51, 12, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-container-opacity-16: rgba(51, 12, 0, 0.16);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-08: rgba(55, 14, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-10: rgba(55, 14, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-fixed-opacity-16: rgba(55, 14, 0, 0.16);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-08: rgba(127, 43, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-10: rgba(127, 43, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-fixed-variant-opacity-16: rgba(127, 43, 0, 0.16);
-  --seacrets-online-state-layers-on-tertiary-opacity-08: rgba(90, 28, 0, 0.08);
-  --seacrets-online-state-layers-on-tertiary-opacity-10: rgba(90, 28, 0, 0.1);
-  --seacrets-online-state-layers-on-tertiary-opacity-16: rgba(90, 28, 0, 0.16);
-  --seacrets-online-state-layers-outline-opacity-08: rgba(173, 135, 139, 0.08);
-  --seacrets-online-state-layers-outline-opacity-10: rgba(173, 135, 139, 0.1);
-  --seacrets-online-state-layers-outline-opacity-16: rgba(173, 135, 139, 0.16);
-  --seacrets-online-state-layers-outline-variant-opacity-08: rgba(93, 62, 66, 0.08);
-  --seacrets-online-state-layers-outline-variant-opacity-10: rgba(93, 62, 66, 0.1);
-  --seacrets-online-state-layers-outline-variant-opacity-16: rgba(93, 62, 66, 0.16);
-  --seacrets-online-state-layers-primary-container-opacity-08: rgba(255, 79, 119, 0.08);
-  --seacrets-online-state-layers-primary-container-opacity-10: rgba(255, 79, 119, 0.1);
-  --seacrets-online-state-layers-primary-container-opacity-16: rgba(255, 79, 119, 0.16);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-primary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-primary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
-  --seacrets-online-state-layers-primary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
-  --seacrets-online-state-layers-primary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
-  --seacrets-online-state-layers-primary-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-primary-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-primary-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-scrim-opacity-08: rgba(0, 0, 0, 0.08);
-  --seacrets-online-state-layers-scrim-opacity-10: rgba(0, 0, 0, 0.1);
-  --seacrets-online-state-layers-scrim-opacity-16: rgba(0, 0, 0, 0.16);
-  --seacrets-online-state-layers-secondary-container-opacity-08: rgba(147, 7, 54, 0.08);
-  --seacrets-online-state-layers-secondary-container-opacity-10: rgba(147, 7, 54, 0.1);
-  --seacrets-online-state-layers-secondary-container-opacity-16: rgba(147, 7, 54, 0.16);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-secondary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-secondary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
-  --seacrets-online-state-layers-secondary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
-  --seacrets-online-state-layers-secondary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
-  --seacrets-online-state-layers-secondary-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-secondary-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-secondary-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-shadow-opacity-08: rgba(0, 0, 0, 0.08);
-  --seacrets-online-state-layers-shadow-opacity-10: rgba(0, 0, 0, 0.1);
-  --seacrets-online-state-layers-shadow-opacity-16: rgba(0, 0, 0, 0.16);
-  --seacrets-online-state-layers-surface-bright-opacity-08: rgba(58, 57, 57, 0.08);
-  --seacrets-online-state-layers-surface-bright-opacity-10: rgba(58, 57, 57, 0.1);
-  --seacrets-online-state-layers-surface-bright-opacity-16: rgba(58, 57, 57, 0.16);
-  --seacrets-online-state-layers-surface-container-high-opacity-08: rgba(43, 42, 42, 0.08);
-  --seacrets-online-state-layers-surface-container-high-opacity-10: rgba(43, 42, 42, 0.1);
-  --seacrets-online-state-layers-surface-container-high-opacity-16: rgba(43, 42, 42, 0.16);
-  --seacrets-online-state-layers-surface-container-highest-opacity-08: rgba(53, 52, 52, 0.08);
-  --seacrets-online-state-layers-surface-container-highest-opacity-10: rgba(53, 52, 52, 0.1);
-  --seacrets-online-state-layers-surface-container-highest-opacity-16: rgba(53, 52, 52, 0.16);
-  --seacrets-online-state-layers-surface-container-low-opacity-08: rgba(28, 27, 27, 0.08);
-  --seacrets-online-state-layers-surface-container-low-opacity-10: rgba(28, 27, 27, 0.1);
-  --seacrets-online-state-layers-surface-container-low-opacity-16: rgba(28, 27, 27, 0.16);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-08: rgba(14, 14, 14, 0.08);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-10: rgba(14, 14, 14, 0.1);
-  --seacrets-online-state-layers-surface-container-lowest-opacity-16: rgba(14, 14, 14, 0.16);
-  --seacrets-online-state-layers-surface-container-opacity-08: rgba(32, 31, 31, 0.08);
-  --seacrets-online-state-layers-surface-container-opacity-10: rgba(32, 31, 31, 0.1);
-  --seacrets-online-state-layers-surface-container-opacity-16: rgba(32, 31, 31, 0.16);
-  --seacrets-online-state-layers-surface-dim-opacity-08: rgba(20, 19, 19, 0.08);
-  --seacrets-online-state-layers-surface-dim-opacity-10: rgba(20, 19, 19, 0.1);
-  --seacrets-online-state-layers-surface-dim-opacity-16: rgba(20, 19, 19, 0.16);
-  --seacrets-online-state-layers-surface-opacity-08: rgba(20, 19, 19, 0.08);
-  --seacrets-online-state-layers-surface-opacity-10: rgba(20, 19, 19, 0.1);
-  --seacrets-online-state-layers-surface-opacity-16: rgba(20, 19, 19, 0.16);
-  --seacrets-online-state-layers-surface-tint-opacity-08: rgba(255, 178, 187, 0.08);
-  --seacrets-online-state-layers-surface-tint-opacity-10: rgba(255, 178, 187, 0.1);
-  --seacrets-online-state-layers-surface-tint-opacity-16: rgba(255, 178, 187, 0.16);
-  --seacrets-online-state-layers-surface-variant-opacity-08: rgba(93, 62, 66, 0.08);
-  --seacrets-online-state-layers-surface-variant-opacity-10: rgba(93, 62, 66, 0.1);
-  --seacrets-online-state-layers-surface-variant-opacity-16: rgba(93, 62, 66, 0.16);
-  --seacrets-online-state-layers-tertiary-container-opacity-08: rgba(246, 97, 22, 0.08);
-  --seacrets-online-state-layers-tertiary-container-opacity-10: rgba(246, 97, 22, 0.1);
-  --seacrets-online-state-layers-tertiary-container-opacity-16: rgba(246, 97, 22, 0.16);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-08: rgba(255, 181, 153, 0.08);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-10: rgba(255, 181, 153, 0.1);
-  --seacrets-online-state-layers-tertiary-fixed-dim-opacity-16: rgba(255, 181, 153, 0.16);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-08: rgba(255, 219, 206, 0.08);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-10: rgba(255, 219, 206, 0.1);
-  --seacrets-online-state-layers-tertiary-fixed-opacity-16: rgba(255, 219, 206, 0.16);
-  --seacrets-online-state-layers-tertiary-opacity-08: rgba(255, 181, 153, 0.08);
-  --seacrets-online-state-layers-tertiary-opacity-10: rgba(255, 181, 153, 0.1);
-  --seacrets-online-state-layers-tertiary-opacity-16: rgba(255, 181, 153, 0.16);
-  --seacrets-online-surfaces-surface-tint-11: rgba(255, 178, 187, 0.11);
-  --seacrets-online-surfaces-surface-tint-12: rgba(255, 178, 187, 0.12);
-  --seacrets-online-surfaces-surface-tint-14: rgba(255, 178, 187, 0.14);
-  --seacrets-online-surfaces-surface-tint-5: rgba(255, 178, 187, 0.05);
-  --seacrets-online-surfaces-surface-tint-8: rgba(255, 178, 187, 0.08);
+  --md-ext-color-custom-color-1: #ffb2bb;
+  --md-ext-color-custom-color-1-channel: 255 178 187;
+  --md-ext-color-custom-color-1-container: #ff4f77;
+  --md-ext-color-custom-color-1-container-channel: 255 79 119;
+  --md-ext-color-on-custom-color-1: #670022;
+  --md-ext-color-on-custom-color-1-channel: 103 0 34;
+  --md-ext-color-on-custom-color-1-container: #3b0010;
+  --md-ext-color-on-custom-color-1-container-channel: 59 0 16;
+  --md-ref-palette-error-0: #000000;
+  --md-ref-palette-error-0-channel: 0 0 0;
+  --md-ref-palette-error-10: #410002;
+  --md-ref-palette-error-10-channel: 65 0 2;
+  --md-ref-palette-error-100: #ffffff;
+  --md-ref-palette-error-100-channel: 255 255 255;
+  --md-ref-palette-error-15: #540003;
+  --md-ref-palette-error-15-channel: 84 0 3;
+  --md-ref-palette-error-20: #690005;
+  --md-ref-palette-error-20-channel: 105 0 5;
+  --md-ref-palette-error-25: #7e0007;
+  --md-ref-palette-error-25-channel: 126 0 7;
+  --md-ref-palette-error-30: #93000a;
+  --md-ref-palette-error-30-channel: 147 0 10;
+  --md-ref-palette-error-35: #a80710;
+  --md-ref-palette-error-35-channel: 168 7 16;
+  --md-ref-palette-error-40: #ba1a1a;
+  --md-ref-palette-error-40-channel: 186 26 26;
+  --md-ref-palette-error-5: #2d0001;
+  --md-ref-palette-error-5-channel: 45 0 1;
+  --md-ref-palette-error-50: #de3730;
+  --md-ref-palette-error-50-channel: 222 55 48;
+  --md-ref-palette-error-60: #ff5449;
+  --md-ref-palette-error-60-channel: 255 84 73;
+  --md-ref-palette-error-70: #ff897d;
+  --md-ref-palette-error-70-channel: 255 137 125;
+  --md-ref-palette-error-80: #ffb4ab;
+  --md-ref-palette-error-80-channel: 255 180 171;
+  --md-ref-palette-error-90: #ffdad6;
+  --md-ref-palette-error-90-channel: 255 218 214;
+  --md-ref-palette-error-95: #ffedea;
+  --md-ref-palette-error-95-channel: 255 237 234;
+  --md-ref-palette-error-98: #fff8f7;
+  --md-ref-palette-error-98-channel: 255 248 247;
+  --md-ref-palette-error-99: #fffbff;
+  --md-ref-palette-error-99-channel: 255 251 255;
+  --md-ref-palette-neutral-0: #000000;
+  --md-ref-palette-neutral-0-channel: 0 0 0;
+  --md-ref-palette-neutral-10: #1c1b1b;
+  --md-ref-palette-neutral-10-channel: 28 27 27;
+  --md-ref-palette-neutral-100: #ffffff;
+  --md-ref-palette-neutral-100-channel: 255 255 255;
+  --md-ref-palette-neutral-15: #262625;
+  --md-ref-palette-neutral-15-channel: 38 38 37;
+  --md-ref-palette-neutral-20: #313030;
+  --md-ref-palette-neutral-20-channel: 49 48 48;
+  --md-ref-palette-neutral-25: #3c3b3b;
+  --md-ref-palette-neutral-25-channel: 60 59 59;
+  --md-ref-palette-neutral-30: #484646;
+  --md-ref-palette-neutral-30-channel: 72 70 70;
+  --md-ref-palette-neutral-35: #545252;
+  --md-ref-palette-neutral-35-channel: 84 82 82;
+  --md-ref-palette-neutral-40: #605e5e;
+  --md-ref-palette-neutral-40-channel: 96 94 94;
+  --md-ref-palette-neutral-5: #111111;
+  --md-ref-palette-neutral-5-channel: 17 17 17;
+  --md-ref-palette-neutral-50: #797676;
+  --md-ref-palette-neutral-50-channel: 121 118 118;
+  --md-ref-palette-neutral-60: #939090;
+  --md-ref-palette-neutral-60-channel: 147 144 144;
+  --md-ref-palette-neutral-70: #adaaaa;
+  --md-ref-palette-neutral-70-channel: 173 170 170;
+  --md-ref-palette-neutral-80: #c9c6c5;
+  --md-ref-palette-neutral-80-channel: 201 198 197;
+  --md-ref-palette-neutral-90: #e5e2e1;
+  --md-ref-palette-neutral-90-channel: 229 226 225;
+  --md-ref-palette-neutral-95: #f4f0ef;
+  --md-ref-palette-neutral-95-channel: 244 240 239;
+  --md-ref-palette-neutral-98: #fdf8f8;
+  --md-ref-palette-neutral-98-channel: 253 248 248;
+  --md-ref-palette-neutral-99: #f6feff;
+  --md-ref-palette-neutral-99-channel: 246 254 255;
+  --md-ref-palette-neutral-variant-0: #000000;
+  --md-ref-palette-neutral-variant-0-channel: 0 0 0;
+  --md-ref-palette-neutral-variant-10: #24181a;
+  --md-ref-palette-neutral-variant-10-channel: 36 24 26;
+  --md-ref-palette-neutral-variant-100: #ffffff;
+  --md-ref-palette-neutral-variant-100-channel: 255 255 255;
+  --md-ref-palette-neutral-variant-15: #2f2324;
+  --md-ref-palette-neutral-variant-15-channel: 47 35 36;
+  --md-ref-palette-neutral-variant-20: #3a2d2e;
+  --md-ref-palette-neutral-variant-20-channel: 58 45 46;
+  --md-ref-palette-neutral-variant-25: #463839;
+  --md-ref-palette-neutral-variant-25-channel: 70 56 57;
+  --md-ref-palette-neutral-variant-30: #524344;
+  --md-ref-palette-neutral-variant-30-channel: 82 67 68;
+  --md-ref-palette-neutral-variant-35: #5e4f50;
+  --md-ref-palette-neutral-variant-35-channel: 94 79 80;
+  --md-ref-palette-neutral-variant-40: #6b5a5c;
+  --md-ref-palette-neutral-variant-40-channel: 107 90 92;
+  --md-ref-palette-neutral-variant-5: #190e0f;
+  --md-ref-palette-neutral-variant-5-channel: 25 14 15;
+  --md-ref-palette-neutral-variant-50: #847374;
+  --md-ref-palette-neutral-variant-50-channel: 132 115 116;
+  --md-ref-palette-neutral-variant-60: #9f8c8e;
+  --md-ref-palette-neutral-variant-60-channel: 159 140 142;
+  --md-ref-palette-neutral-variant-70: #baa6a8;
+  --md-ref-palette-neutral-variant-70-channel: 186 166 168;
+  --md-ref-palette-neutral-variant-80: #d7c1c3;
+  --md-ref-palette-neutral-variant-80-channel: 215 193 195;
+  --md-ref-palette-neutral-variant-90: #f4dddf;
+  --md-ref-palette-neutral-variant-90-channel: 244 221 223;
+  --md-ref-palette-neutral-variant-95: #ffeced;
+  --md-ref-palette-neutral-variant-95-channel: 255 236 237;
+  --md-ref-palette-neutral-variant-98: #fff8f7;
+  --md-ref-palette-neutral-variant-98-channel: 255 248 247;
+  --md-ref-palette-neutral-variant-99: #fffbff;
+  --md-ref-palette-neutral-variant-99-channel: 255 251 255;
+  --md-ref-palette-primary-0: #000000;
+  --md-ref-palette-primary-0-channel: 0 0 0;
+  --md-ref-palette-primary-10: #400012;
+  --md-ref-palette-primary-10-channel: 64 0 18;
+  --md-ref-palette-primary-100: #ffffff;
+  --md-ref-palette-primary-100-channel: 255 255 255;
+  --md-ref-palette-primary-15: #53001a;
+  --md-ref-palette-primary-15-channel: 83 0 26;
+  --md-ref-palette-primary-20: #670022;
+  --md-ref-palette-primary-20-channel: 103 0 34;
+  --md-ref-palette-primary-25: #7b002b;
+  --md-ref-palette-primary-25-channel: 123 0 43;
+  --md-ref-palette-primary-30: #910033;
+  --md-ref-palette-primary-30-channel: 145 0 51;
+  --md-ref-palette-primary-35: #a7003c;
+  --md-ref-palette-primary-35-channel: 167 0 60;
+  --md-ref-palette-primary-40: #bd0046;
+  --md-ref-palette-primary-40-channel: 189 0 70;
+  --md-ref-palette-primary-5: #2c000a;
+  --md-ref-palette-primary-5-channel: 44 0 10;
+  --md-ref-palette-primary-50: #eb0059;
+  --md-ref-palette-primary-50-channel: 235 0 89;
+  --md-ref-palette-primary-60: #ff4f77;
+  --md-ref-palette-primary-60-channel: 255 79 119;
+  --md-ref-palette-primary-70: #ff869a;
+  --md-ref-palette-primary-70-channel: 255 134 154;
+  --md-ref-palette-primary-80: #ffb2bb;
+  --md-ref-palette-primary-80-channel: 255 178 187;
+  --md-ref-palette-primary-90: #ffd9dd;
+  --md-ref-palette-primary-90-channel: 255 217 221;
+  --md-ref-palette-primary-95: #ffeced;
+  --md-ref-palette-primary-95-channel: 255 236 237;
+  --md-ref-palette-primary-98: #fff8f7;
+  --md-ref-palette-primary-98-channel: 255 248 247;
+  --md-ref-palette-primary-99: #fffbff;
+  --md-ref-palette-primary-99-channel: 255 251 255;
+  --md-ref-palette-secondary-0: #000000;
+  --md-ref-palette-secondary-0-channel: 0 0 0;
+  --md-ref-palette-secondary-10: #3a0814;
+  --md-ref-palette-secondary-10-channel: 58 8 20;
+  --md-ref-palette-secondary-100: #ffffff;
+  --md-ref-palette-secondary-100-channel: 255 255 255;
+  --md-ref-palette-secondary-15: #47131e;
+  --md-ref-palette-secondary-15-channel: 71 19 30;
+  --md-ref-palette-secondary-20: #551e28;
+  --md-ref-palette-secondary-20-channel: 85 30 40;
+  --md-ref-palette-secondary-25: #632833;
+  --md-ref-palette-secondary-25-channel: 99 40 51;
+  --md-ref-palette-secondary-30: #71333e;
+  --md-ref-palette-secondary-30-channel: 113 51 62;
+  --md-ref-palette-secondary-35: #7f3f49;
+  --md-ref-palette-secondary-35-channel: 127 63 73;
+  --md-ref-palette-secondary-40: #8d4a55;
+  --md-ref-palette-secondary-40-channel: 141 74 85;
+  --md-ref-palette-secondary-5: #2b010a;
+  --md-ref-palette-secondary-5-channel: 43 1 10;
+  --md-ref-palette-secondary-50: #aa626d;
+  --md-ref-palette-secondary-50-channel: 170 98 109;
+  --md-ref-palette-secondary-60: #c87b86;
+  --md-ref-palette-secondary-60-channel: 200 123 134;
+  --md-ref-palette-secondary-70: #e695a0;
+  --md-ref-palette-secondary-70-channel: 230 149 160;
+  --md-ref-palette-secondary-80: #ffb2bb;
+  --md-ref-palette-secondary-80-channel: 255 178 187;
+  --md-ref-palette-secondary-90: #ffd9dd;
+  --md-ref-palette-secondary-90-channel: 255 217 221;
+  --md-ref-palette-secondary-95: #ffeced;
+  --md-ref-palette-secondary-95-channel: 255 236 237;
+  --md-ref-palette-secondary-98: #fff8f7;
+  --md-ref-palette-secondary-98-channel: 255 248 247;
+  --md-ref-palette-secondary-99: #fffbff;
+  --md-ref-palette-secondary-99-channel: 255 251 255;
+  --md-ref-palette-tertiary-0: #000000;
+  --md-ref-palette-tertiary-0-channel: 0 0 0;
+  --md-ref-palette-tertiary-10: #2a1700;
+  --md-ref-palette-tertiary-10-channel: 42 23 0;
+  --md-ref-palette-tertiary-100: #ffffff;
+  --md-ref-palette-tertiary-100-channel: 255 255 255;
+  --md-ref-palette-tertiary-15: #382000;
+  --md-ref-palette-tertiary-15-channel: 56 32 0;
+  --md-ref-palette-tertiary-20: #472a00;
+  --md-ref-palette-tertiary-20-channel: 71 42 0;
+  --md-ref-palette-tertiary-25: #563400;
+  --md-ref-palette-tertiary-25-channel: 86 52 0;
+  --md-ref-palette-tertiary-30: #653e00;
+  --md-ref-palette-tertiary-30-channel: 101 62 0;
+  --md-ref-palette-tertiary-35: #754900;
+  --md-ref-palette-tertiary-35-channel: 117 73 0;
+  --md-ref-palette-tertiary-40: #855300;
+  --md-ref-palette-tertiary-40-channel: 133 83 0;
+  --md-ref-palette-tertiary-5: #1c0e00;
+  --md-ref-palette-tertiary-5-channel: 28 14 0;
+  --md-ref-palette-tertiary-50: #a76900;
+  --md-ref-palette-tertiary-50-channel: 167 105 0;
+  --md-ref-palette-tertiary-60: #ca8104;
+  --md-ref-palette-tertiary-60-channel: 202 129 4;
+  --md-ref-palette-tertiary-70: #e99a28;
+  --md-ref-palette-tertiary-70-channel: 233 154 40;
+  --md-ref-palette-tertiary-80: #ffb960;
+  --md-ref-palette-tertiary-80-channel: 255 185 96;
+  --md-ref-palette-tertiary-90: #ffddb8;
+  --md-ref-palette-tertiary-90-channel: 255 221 184;
+  --md-ref-palette-tertiary-95: #ffeede;
+  --md-ref-palette-tertiary-95-channel: 255 238 222;
+  --md-ref-palette-tertiary-98: #fff8f4;
+  --md-ref-palette-tertiary-98-channel: 255 248 244;
+  --md-ref-palette-tertiary-99: #fffbff;
+  --md-ref-palette-tertiary-99-channel: 255 251 255;
+  --md-sys-color-background: #151515;
+  --md-sys-color-background-channel: 21 21 21;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-error-channel: 186 26 26;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-error-container-channel: 255 218 214;
+  --md-sys-color-inverse-on-surface: #313030;
+  --md-sys-color-inverse-on-surface-channel: 49 48 48;
+  --md-sys-color-inverse-primary: #bd0046;
+  --md-sys-color-inverse-primary-channel: 189 0 70;
+  --md-sys-color-inverse-surface: #e5e2e1;
+  --md-sys-color-inverse-surface-channel: 229 226 225;
+  --md-sys-color-on-background: #ffffff;
+  --md-sys-color-on-background-channel: 255 255 255;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-on-error-channel: 255 255 255;
+  --md-sys-color-on-error-container: #93000a;
+  --md-sys-color-on-error-container-channel: 147 0 10;
+  --md-sys-color-on-primary: #fffbff;
+  --md-sys-color-on-primary-channel: 255 251 255;
+  --md-sys-color-on-primary-container: #fffbff;
+  --md-sys-color-on-primary-container-channel: 255 251 255;
+  --md-sys-color-on-primary-fixed: #400012;
+  --md-sys-color-on-primary-fixed-channel: 64 0 18;
+  --md-sys-color-on-primary-fixed-variant: #910033;
+  --md-sys-color-on-primary-fixed-variant-channel: 145 0 51;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-on-secondary-channel: 255 255 255;
+  --md-sys-color-on-secondary-container: #630021;
+  --md-sys-color-on-secondary-container-channel: 99 0 33;
+  --md-sys-color-on-secondary-fixed: #400012;
+  --md-sys-color-on-secondary-fixed-channel: 64 0 18;
+  --md-sys-color-on-secondary-fixed-variant: #900334;
+  --md-sys-color-on-secondary-fixed-variant-channel: 144 3 52;
+  --md-sys-color-on-surface: #e5e2e1;
+  --md-sys-color-on-surface-channel: 229 226 225;
+  --md-sys-color-on-surface-variant: #e7bcc0;
+  --md-sys-color-on-surface-variant-channel: 231 188 192;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-on-tertiary-channel: 255 255 255;
+  --md-sys-color-on-tertiary-container: #fffbff;
+  --md-sys-color-on-tertiary-container-channel: 255 251 255;
+  --md-sys-color-on-tertiary-fixed: #370e00;
+  --md-sys-color-on-tertiary-fixed-channel: 55 14 0;
+  --md-sys-color-on-tertiary-fixed-variant: #7f2b00;
+  --md-sys-color-on-tertiary-fixed-variant-channel: 127 43 0;
+  --md-sys-color-outline: #ad878b;
+  --md-sys-color-outline-channel: 173 135 139;
+  --md-sys-color-outline-variant: #5d3e42;
+  --md-sys-color-outline-variant-channel: 93 62 66;
+  --md-sys-color-primary: #e70057;
+  --md-sys-color-primary-channel: 231 0 87;
+  --md-sys-color-primary-container: #e70057;
+  --md-sys-color-primary-container-channel: 231 0 87;
+  --md-sys-color-primary-fixed: #ffd9dd;
+  --md-sys-color-primary-fixed-channel: 255 217 221;
+  --md-sys-color-primary-fixed-dim: #ffb2bb;
+  --md-sys-color-primary-fixed-dim-channel: 255 178 187;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-scrim-channel: 0 0 0;
+  --md-sys-color-secondary: #b2254a;
+  --md-sys-color-secondary-channel: 178 37 74;
+  --md-sys-color-secondary-container: #fc5f7f;
+  --md-sys-color-secondary-container-channel: 252 95 127;
+  --md-sys-color-secondary-fixed: #ffd9dd;
+  --md-sys-color-secondary-fixed-channel: 255 217 221;
+  --md-sys-color-secondary-fixed-dim: #ffb2bb;
+  --md-sys-color-secondary-fixed-dim-channel: 255 178 187;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-shadow-channel: 0 0 0;
+  --md-sys-color-surface: #0e1415;
+  --md-sys-color-surface-bright: #3a3939;
+  --md-sys-color-surface-bright-channel: 58 57 57;
+  --md-sys-color-surface-channel: 14 20 21;
+  --md-sys-color-surface-container: #201f1f;
+  --md-sys-color-surface-container-channel: 32 31 31;
+  --md-sys-color-surface-container-high: #2b2a2a;
+  --md-sys-color-surface-container-high-channel: 43 42 42;
+  --md-sys-color-surface-container-highest: #353434;
+  --md-sys-color-surface-container-highest-channel: 53 52 52;
+  --md-sys-color-surface-container-low: #1c1b1b;
+  --md-sys-color-surface-container-low-channel: 28 27 27;
+  --md-sys-color-surface-container-lowest: #0e0e0e;
+  --md-sys-color-surface-container-lowest-channel: 14 14 14;
+  --md-sys-color-surface-dim: #141313;
+  --md-sys-color-surface-dim-channel: 20 19 19;
+  --md-sys-color-surface-tint: #bd0046;
+  --md-sys-color-surface-tint-channel: 189 0 70;
+  --md-sys-color-surface-variant: #5d3e42;
+  --md-sys-color-surface-variant-channel: 93 62 66;
+  --md-sys-color-tertiary: #a23900;
+  --md-sys-color-tertiary-channel: 162 57 0;
+  --md-sys-color-tertiary-container: #cc4900;
+  --md-sys-color-tertiary-container-channel: 204 73 0;
+  --md-sys-color-tertiary-fixed: #ffdbce;
+  --md-sys-color-tertiary-fixed-channel: 255 219 206;
+  --md-sys-color-tertiary-fixed-dim: #ffb599;
+  --md-sys-color-tertiary-fixed-dim-channel: 255 181 153;
+  --md-sys-state-layer-background-opacity-08: rgba(32, 14, 17, 0.08);
+  --md-sys-state-layer-background-opacity-10: rgba(32, 14, 17, 0.1);
+  --md-sys-state-layer-background-opacity-16: rgba(32, 14, 17, 0.16);
+  --md-sys-state-layer-error-container-opacity-08: rgba(255, 218, 214, 0.08);
+  --md-sys-state-layer-error-container-opacity-10: rgba(255, 218, 214, 0.1);
+  --md-sys-state-layer-error-container-opacity-16: rgba(255, 218, 214, 0.16);
+  --md-sys-state-layer-error-opacity-08: rgba(186, 26, 26, 0.08);
+  --md-sys-state-layer-error-opacity-10: rgba(186, 26, 26, 0.1);
+  --md-sys-state-layer-error-opacity-16: rgba(186, 26, 26, 0.16);
+  --md-sys-state-layer-inverse-on-surface-opacity-08: rgba(49, 48, 48, 0.08);
+  --md-sys-state-layer-inverse-on-surface-opacity-10: rgba(49, 48, 48, 0.1);
+  --md-sys-state-layer-inverse-on-surface-opacity-16: rgba(49, 48, 48, 0.16);
+  --md-sys-state-layer-inverse-primary-opacity-08: rgba(189, 0, 70, 0.08);
+  --md-sys-state-layer-inverse-primary-opacity-10: rgba(189, 0, 70, 0.1);
+  --md-sys-state-layer-inverse-primary-opacity-16: rgba(189, 0, 70, 0.16);
+  --md-sys-state-layer-inverse-surface-opacity-08: rgba(229, 226, 225, 0.08);
+  --md-sys-state-layer-inverse-surface-opacity-10: rgba(229, 226, 225, 0.1);
+  --md-sys-state-layer-inverse-surface-opacity-16: rgba(229, 226, 225, 0.16);
+  --md-sys-state-layer-on-background-opacity-08: rgba(253, 218, 221, 0.08);
+  --md-sys-state-layer-on-background-opacity-10: rgba(253, 218, 221, 0.1);
+  --md-sys-state-layer-on-background-opacity-16: rgba(253, 218, 221, 0.16);
+  --md-sys-state-layer-on-error-container-opacity-08: rgba(147, 0, 10, 0.08);
+  --md-sys-state-layer-on-error-container-opacity-10: rgba(147, 0, 10, 0.1);
+  --md-sys-state-layer-on-error-container-opacity-16: rgba(147, 0, 10, 0.16);
+  --md-sys-state-layer-on-error-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-error-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-error-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-on-primary-container-opacity-08: rgba(255, 251, 255, 0.08);
+  --md-sys-state-layer-on-primary-container-opacity-10: rgba(255, 251, 255, 0.1);
+  --md-sys-state-layer-on-primary-container-opacity-16: rgba(255, 251, 255, 0.16);
+  --md-sys-state-layer-on-primary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
+  --md-sys-state-layer-on-primary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
+  --md-sys-state-layer-on-primary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-08: rgba(145, 0, 51, 0.08);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-10: rgba(145, 0, 51, 0.1);
+  --md-sys-state-layer-on-primary-fixed-variant-opacity-16: rgba(145, 0, 51, 0.16);
+  --md-sys-state-layer-on-primary-opacity-08: rgba(255, 251, 255, 0.08);
+  --md-sys-state-layer-on-primary-opacity-10: rgba(255, 251, 255, 0.1);
+  --md-sys-state-layer-on-primary-opacity-16: rgba(255, 251, 255, 0.16);
+  --md-sys-state-layer-on-secondary-container-opacity-08: rgba(99, 0, 33, 0.08);
+  --md-sys-state-layer-on-secondary-container-opacity-10: rgba(99, 0, 33, 0.1);
+  --md-sys-state-layer-on-secondary-container-opacity-16: rgba(99, 0, 33, 0.16);
+  --md-sys-state-layer-on-secondary-fixed-opacity-08: rgba(64, 0, 18, 0.08);
+  --md-sys-state-layer-on-secondary-fixed-opacity-10: rgba(64, 0, 18, 0.1);
+  --md-sys-state-layer-on-secondary-fixed-opacity-16: rgba(64, 0, 18, 0.16);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-08: rgba(144, 3, 52, 0.08);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-10: rgba(144, 3, 52, 0.1);
+  --md-sys-state-layer-on-secondary-fixed-variant-opacity-16: rgba(144, 3, 52, 0.16);
+  --md-sys-state-layer-on-secondary-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-secondary-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-secondary-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-on-surface-opacity-08: rgba(229, 226, 225, 0.08);
+  --md-sys-state-layer-on-surface-opacity-10: rgba(229, 226, 225, 0.1);
+  --md-sys-state-layer-on-surface-opacity-16: rgba(229, 226, 225, 0.16);
+  --md-sys-state-layer-on-surface-variant-opacity-08: rgba(231, 188, 192, 0.08);
+  --md-sys-state-layer-on-surface-variant-opacity-10: rgba(231, 188, 192, 0.1);
+  --md-sys-state-layer-on-surface-variant-opacity-16: rgba(231, 188, 192, 0.16);
+  --md-sys-state-layer-on-tertiary-container-opacity-08: rgba(255, 251, 255, 0.08);
+  --md-sys-state-layer-on-tertiary-container-opacity-10: rgba(255, 251, 255, 0.1);
+  --md-sys-state-layer-on-tertiary-container-opacity-16: rgba(255, 251, 255, 0.16);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-08: rgba(55, 14, 0, 0.08);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-10: rgba(55, 14, 0, 0.1);
+  --md-sys-state-layer-on-tertiary-fixed-opacity-16: rgba(55, 14, 0, 0.16);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-08: rgba(127, 43, 0, 0.08);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-10: rgba(127, 43, 0, 0.1);
+  --md-sys-state-layer-on-tertiary-fixed-variant-opacity-16: rgba(127, 43, 0, 0.16);
+  --md-sys-state-layer-on-tertiary-opacity-08: rgba(255, 255, 255, 0.08);
+  --md-sys-state-layer-on-tertiary-opacity-10: rgba(255, 255, 255, 0.1);
+  --md-sys-state-layer-on-tertiary-opacity-16: rgba(255, 255, 255, 0.16);
+  --md-sys-state-layer-outline-opacity-08: rgba(173, 135, 139, 0.08);
+  --md-sys-state-layer-outline-opacity-10: rgba(173, 135, 139, 0.1);
+  --md-sys-state-layer-outline-opacity-16: rgba(173, 135, 139, 0.16);
+  --md-sys-state-layer-outline-variant-opacity-08: rgba(93, 62, 66, 0.08);
+  --md-sys-state-layer-outline-variant-opacity-10: rgba(93, 62, 66, 0.1);
+  --md-sys-state-layer-outline-variant-opacity-16: rgba(93, 62, 66, 0.16);
+  --md-sys-state-layer-primary-container-opacity-08: rgba(231, 0, 87, 0.08);
+  --md-sys-state-layer-primary-container-opacity-10: rgba(231, 0, 87, 0.1);
+  --md-sys-state-layer-primary-container-opacity-16: rgba(231, 0, 87, 0.16);
+  --md-sys-state-layer-primary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-primary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-primary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-primary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
+  --md-sys-state-layer-primary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
+  --md-sys-state-layer-primary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
+  --md-sys-state-layer-primary-opacity-08: rgba(231, 0, 87, 0.08);
+  --md-sys-state-layer-primary-opacity-10: rgba(231, 0, 87, 0.1);
+  --md-sys-state-layer-primary-opacity-16: rgba(231, 0, 87, 0.16);
+  --md-sys-state-layer-scrim-opacity-08: rgba(0, 0, 0, 0.08);
+  --md-sys-state-layer-scrim-opacity-10: rgba(0, 0, 0, 0.1);
+  --md-sys-state-layer-scrim-opacity-16: rgba(0, 0, 0, 0.16);
+  --md-sys-state-layer-secondary-container-opacity-08: rgba(252, 95, 127, 0.08);
+  --md-sys-state-layer-secondary-container-opacity-10: rgba(252, 95, 127, 0.1);
+  --md-sys-state-layer-secondary-container-opacity-16: rgba(252, 95, 127, 0.16);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-secondary-fixed-dim-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-secondary-fixed-opacity-08: rgba(255, 217, 221, 0.08);
+  --md-sys-state-layer-secondary-fixed-opacity-10: rgba(255, 217, 221, 0.1);
+  --md-sys-state-layer-secondary-fixed-opacity-16: rgba(255, 217, 221, 0.16);
+  --md-sys-state-layer-secondary-opacity-08: rgba(178, 37, 74, 0.08);
+  --md-sys-state-layer-secondary-opacity-10: rgba(178, 37, 74, 0.1);
+  --md-sys-state-layer-secondary-opacity-16: rgba(178, 37, 74, 0.16);
+  --md-sys-state-layer-shadow-opacity-08: rgba(0, 0, 0, 0.08);
+  --md-sys-state-layer-shadow-opacity-10: rgba(0, 0, 0, 0.1);
+  --md-sys-state-layer-shadow-opacity-16: rgba(0, 0, 0, 0.16);
+  --md-sys-state-layer-surface-bright-opacity-08: rgba(58, 57, 57, 0.08);
+  --md-sys-state-layer-surface-bright-opacity-10: rgba(58, 57, 57, 0.1);
+  --md-sys-state-layer-surface-bright-opacity-16: rgba(58, 57, 57, 0.16);
+  --md-sys-state-layer-surface-container-high-opacity-08: rgba(43, 42, 42, 0.08);
+  --md-sys-state-layer-surface-container-high-opacity-10: rgba(43, 42, 42, 0.1);
+  --md-sys-state-layer-surface-container-high-opacity-16: rgba(43, 42, 42, 0.16);
+  --md-sys-state-layer-surface-container-highest-opacity-08: rgba(53, 52, 52, 0.08);
+  --md-sys-state-layer-surface-container-highest-opacity-10: rgba(53, 52, 52, 0.1);
+  --md-sys-state-layer-surface-container-highest-opacity-16: rgba(53, 52, 52, 0.16);
+  --md-sys-state-layer-surface-container-low-opacity-08: rgba(28, 27, 27, 0.08);
+  --md-sys-state-layer-surface-container-low-opacity-10: rgba(28, 27, 27, 0.1);
+  --md-sys-state-layer-surface-container-low-opacity-16: rgba(28, 27, 27, 0.16);
+  --md-sys-state-layer-surface-container-lowest-opacity-08: rgba(14, 14, 14, 0.08);
+  --md-sys-state-layer-surface-container-lowest-opacity-10: rgba(14, 14, 14, 0.1);
+  --md-sys-state-layer-surface-container-lowest-opacity-16: rgba(14, 14, 14, 0.16);
+  --md-sys-state-layer-surface-container-opacity-08: rgba(32, 31, 31, 0.08);
+  --md-sys-state-layer-surface-container-opacity-10: rgba(32, 31, 31, 0.1);
+  --md-sys-state-layer-surface-container-opacity-16: rgba(32, 31, 31, 0.16);
+  --md-sys-state-layer-surface-dim-opacity-08: rgba(20, 19, 19, 0.08);
+  --md-sys-state-layer-surface-dim-opacity-10: rgba(20, 19, 19, 0.1);
+  --md-sys-state-layer-surface-dim-opacity-16: rgba(20, 19, 19, 0.16);
+  --md-sys-state-layer-surface-opacity-08: rgba(20, 19, 19, 0.08);
+  --md-sys-state-layer-surface-opacity-10: rgba(20, 19, 19, 0.1);
+  --md-sys-state-layer-surface-opacity-16: rgba(20, 19, 19, 0.16);
+  --md-sys-state-layer-surface-tint-opacity-08: rgba(255, 178, 187, 0.08);
+  --md-sys-state-layer-surface-tint-opacity-10: rgba(255, 178, 187, 0.1);
+  --md-sys-state-layer-surface-tint-opacity-16: rgba(255, 178, 187, 0.16);
+  --md-sys-state-layer-surface-variant-opacity-08: rgba(93, 62, 66, 0.08);
+  --md-sys-state-layer-surface-variant-opacity-10: rgba(93, 62, 66, 0.1);
+  --md-sys-state-layer-surface-variant-opacity-16: rgba(93, 62, 66, 0.16);
+  --md-sys-state-layer-tertiary-container-opacity-08: rgba(204, 73, 0, 0.08);
+  --md-sys-state-layer-tertiary-container-opacity-10: rgba(204, 73, 0, 0.1);
+  --md-sys-state-layer-tertiary-container-opacity-16: rgba(204, 73, 0, 0.16);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-08: rgba(255, 181, 153, 0.08);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-10: rgba(255, 181, 153, 0.1);
+  --md-sys-state-layer-tertiary-fixed-dim-opacity-16: rgba(255, 181, 153, 0.16);
+  --md-sys-state-layer-tertiary-fixed-opacity-08: rgba(255, 219, 206, 0.08);
+  --md-sys-state-layer-tertiary-fixed-opacity-10: rgba(255, 219, 206, 0.1);
+  --md-sys-state-layer-tertiary-fixed-opacity-16: rgba(255, 219, 206, 0.16);
+  --md-sys-state-layer-tertiary-opacity-08: rgba(162, 57, 0, 0.08);
+  --md-sys-state-layer-tertiary-opacity-10: rgba(162, 57, 0, 0.1);
+  --md-sys-state-layer-tertiary-opacity-16: rgba(162, 57, 0, 0.16);
+  --md-sys-surface-surface-tint-11: rgba(255, 178, 187, 0.11);
+  --md-sys-surface-surface-tint-12: rgba(255, 178, 187, 0.12);
+  --md-sys-surface-surface-tint-14: rgba(255, 178, 187, 0.14);
+  --md-sys-surface-surface-tint-5: rgba(255, 178, 187, 0.05);
+  --md-sys-surface-surface-tint-8: rgba(255, 178, 187, 0.08);
 }
 
 /* TS_EXPORT_START
 export const colorTokens = {
   "light": {
-    "seacretsOnlineSchemesPrimary": "#b80044",
-    "seacretsOnlineSchemesSurfaceTint": "#bd0046",
-    "seacretsOnlineSchemesOnPrimary": "#ffffff",
-    "seacretsOnlineSchemesPrimaryContainer": "#e70057",
-    "seacretsOnlineSchemesOnPrimaryContainer": "#fffbff",
-    "seacretsOnlineSchemesSecondary": "#b2254a",
-    "seacretsOnlineSchemesOnSecondary": "#ffffff",
-    "seacretsOnlineSchemesSecondaryContainer": "#fc5f7f",
-    "seacretsOnlineSchemesOnSecondaryContainer": "#630021",
-    "seacretsOnlineSchemesTertiary": "#a23900",
-    "seacretsOnlineSchemesOnTertiary": "#ffffff",
-    "seacretsOnlineSchemesTertiaryContainer": "#cc4900",
-    "seacretsOnlineSchemesOnTertiaryContainer": "#fffbff",
-    "seacretsOnlineSchemesError": "#ba1a1a",
-    "seacretsOnlineSchemesOnError": "#ffffff",
-    "seacretsOnlineSchemesErrorContainer": "#ffdad6",
-    "seacretsOnlineSchemesOnErrorContainer": "#93000a",
-    "seacretsOnlineSchemesBackground": "#fff8f7",
-    "seacretsOnlineSchemesOnBackground": "#291619",
-    "seacretsOnlineSchemesSurface": "#fdf8f8",
-    "seacretsOnlineSchemesOnSurface": "#1c1b1b",
-    "seacretsOnlineSchemesSurfaceVariant": "#ffd9dd",
-    "seacretsOnlineSchemesOnSurfaceVariant": "#5d3e42",
-    "seacretsOnlineSchemesOutline": "#926e72",
-    "seacretsOnlineSchemesOutlineVariant": "#e7bcc0",
-    "seacretsOnlineSchemesShadow": "#000000",
-    "seacretsOnlineSchemesScrim": "#000000",
-    "seacretsOnlineSchemesInverseSurface": "#313030",
-    "seacretsOnlineSchemesInverseOnSurface": "#f4f0ef",
-    "seacretsOnlineSchemesInversePrimary": "#ffb2bb",
-    "seacretsOnlineSchemesPrimaryFixed": "#ffd9dd",
-    "seacretsOnlineSchemesOnPrimaryFixed": "#400012",
-    "seacretsOnlineSchemesPrimaryFixedDim": "#ffb2bb",
-    "seacretsOnlineSchemesOnPrimaryFixedVariant": "#910033",
-    "seacretsOnlineSchemesSecondaryFixed": "#ffd9dd",
-    "seacretsOnlineSchemesOnSecondaryFixed": "#400012",
-    "seacretsOnlineSchemesSecondaryFixedDim": "#ffb2bb",
-    "seacretsOnlineSchemesOnSecondaryFixedVariant": "#900334",
-    "seacretsOnlineSchemesTertiaryFixed": "#ffdbce",
-    "seacretsOnlineSchemesOnTertiaryFixed": "#370e00",
-    "seacretsOnlineSchemesTertiaryFixedDim": "#ffb599",
-    "seacretsOnlineSchemesOnTertiaryFixedVariant": "#7f2b00",
-    "seacretsOnlineSchemesSurfaceDim": "#ddd9d8",
-    "seacretsOnlineSchemesSurfaceBright": "#fdf8f8",
-    "seacretsOnlineSchemesSurfaceContainerLowest": "#ffffff",
-    "seacretsOnlineSchemesSurfaceContainerLow": "#f7f3f2",
-    "seacretsOnlineSchemesSurfaceContainer": "#f1edec",
-    "seacretsOnlineSchemesSurfaceContainerHigh": "#ebe7e6",
-    "seacretsOnlineSchemesSurfaceContainerHighest": "#e5e2e1",
-    "seacretsOnlineSurfacesSurfaceTint5": "rgba(189, 0, 70, 0.05)",
-    "seacretsOnlineSurfacesSurfaceTint8": "rgba(189, 0, 70, 0.08)",
-    "seacretsOnlineSurfacesSurfaceTint11": "rgba(189, 0, 70, 0.11)",
-    "seacretsOnlineSurfacesSurfaceTint12": "rgba(189, 0, 70, 0.12)",
-    "seacretsOnlineSurfacesSurfaceTint14": "rgba(189, 0, 70, 0.14)",
-    "seacretsOnlinePalettesPrimary100": "#ffffff",
-    "seacretsOnlinePalettesPrimary99": "#fffbff",
-    "seacretsOnlinePalettesPrimary98": "#fff8f7",
-    "seacretsOnlinePalettesPrimary95": "#ffeced",
-    "seacretsOnlinePalettesPrimary90": "#ffd9dd",
-    "seacretsOnlinePalettesPrimary80": "#ffb2bb",
-    "seacretsOnlinePalettesPrimary70": "#ff869a",
-    "seacretsOnlinePalettesPrimary60": "#ff4f77",
-    "seacretsOnlinePalettesPrimary50": "#eb0059",
-    "seacretsOnlinePalettesPrimary40": "#bd0046",
-    "seacretsOnlinePalettesPrimary35": "#a7003c",
-    "seacretsOnlinePalettesPrimary30": "#910033",
-    "seacretsOnlinePalettesPrimary25": "#7b002b",
-    "seacretsOnlinePalettesPrimary20": "#670022",
-    "seacretsOnlinePalettesPrimary15": "#53001a",
-    "seacretsOnlinePalettesPrimary10": "#400012",
-    "seacretsOnlinePalettesPrimary5": "#2c000a",
-    "seacretsOnlinePalettesPrimary0": "#000000",
-    "seacretsOnlinePalettesSecondary100": "#ffffff",
-    "seacretsOnlinePalettesSecondary99": "#fffbff",
-    "seacretsOnlinePalettesSecondary98": "#fff8f7",
-    "seacretsOnlinePalettesSecondary95": "#ffeced",
-    "seacretsOnlinePalettesSecondary90": "#ffd9dd",
-    "seacretsOnlinePalettesSecondary80": "#ffb2bb",
-    "seacretsOnlinePalettesSecondary70": "#e695a0",
-    "seacretsOnlinePalettesSecondary60": "#c87b86",
-    "seacretsOnlinePalettesSecondary50": "#aa626d",
-    "seacretsOnlinePalettesSecondary40": "#8d4a55",
-    "seacretsOnlinePalettesSecondary35": "#7f3f49",
-    "seacretsOnlinePalettesSecondary30": "#71333e",
-    "seacretsOnlinePalettesSecondary25": "#632833",
-    "seacretsOnlinePalettesSecondary20": "#551e28",
-    "seacretsOnlinePalettesSecondary15": "#47131e",
-    "seacretsOnlinePalettesSecondary10": "#3a0814",
-    "seacretsOnlinePalettesSecondary5": "#2b010a",
-    "seacretsOnlinePalettesSecondary0": "#000000",
-    "seacretsOnlinePalettesTertiary100": "#ffffff",
-    "seacretsOnlinePalettesTertiary99": "#fffbff",
-    "seacretsOnlinePalettesTertiary98": "#fff8f4",
-    "seacretsOnlinePalettesTertiary95": "#ffeede",
-    "seacretsOnlinePalettesTertiary90": "#ffddb8",
-    "seacretsOnlinePalettesTertiary80": "#ffb960",
-    "seacretsOnlinePalettesTertiary70": "#e99a28",
-    "seacretsOnlinePalettesTertiary60": "#ca8104",
-    "seacretsOnlinePalettesTertiary50": "#a76900",
-    "seacretsOnlinePalettesTertiary40": "#855300",
-    "seacretsOnlinePalettesTertiary35": "#754900",
-    "seacretsOnlinePalettesTertiary30": "#653e00",
-    "seacretsOnlinePalettesTertiary25": "#563400",
-    "seacretsOnlinePalettesTertiary20": "#472a00",
-    "seacretsOnlinePalettesTertiary15": "#382000",
-    "seacretsOnlinePalettesTertiary10": "#2a1700",
-    "seacretsOnlinePalettesTertiary5": "#1c0e00",
-    "seacretsOnlinePalettesTertiary0": "#000000",
-    "seacretsOnlinePalettesError100": "#ffffff",
-    "seacretsOnlinePalettesError99": "#fffbff",
-    "seacretsOnlinePalettesError98": "#fff8f7",
-    "seacretsOnlinePalettesError95": "#ffedea",
-    "seacretsOnlinePalettesError90": "#ffdad6",
-    "seacretsOnlinePalettesError80": "#ffb4ab",
-    "seacretsOnlinePalettesError70": "#ff897d",
-    "seacretsOnlinePalettesError60": "#ff5449",
-    "seacretsOnlinePalettesError50": "#de3730",
-    "seacretsOnlinePalettesError40": "#ba1a1a",
-    "seacretsOnlinePalettesError35": "#a80710",
-    "seacretsOnlinePalettesError30": "#93000a",
-    "seacretsOnlinePalettesError25": "#7e0007",
-    "seacretsOnlinePalettesError20": "#690005",
-    "seacretsOnlinePalettesError15": "#540003",
-    "seacretsOnlinePalettesError10": "#410002",
-    "seacretsOnlinePalettesError5": "#2d0001",
-    "seacretsOnlinePalettesError0": "#000000",
-    "seacretsOnlinePalettesNeutral100": "#ffffff",
-    "seacretsOnlinePalettesNeutral99": "#f6feff",
-    "seacretsOnlinePalettesNeutral98": "#fdf8f8",
-    "seacretsOnlinePalettesNeutral95": "#f4f0ef",
-    "seacretsOnlinePalettesNeutral90": "#e5e2e1",
-    "seacretsOnlinePalettesNeutral80": "#c9c6c5",
-    "seacretsOnlinePalettesNeutral70": "#adaaaa",
-    "seacretsOnlinePalettesNeutral60": "#939090",
-    "seacretsOnlinePalettesNeutral50": "#797676",
-    "seacretsOnlinePalettesNeutral40": "#605e5e",
-    "seacretsOnlinePalettesNeutral35": "#545252",
-    "seacretsOnlinePalettesNeutral30": "#484646",
-    "seacretsOnlinePalettesNeutral25": "#3c3b3b",
-    "seacretsOnlinePalettesNeutral20": "#313030",
-    "seacretsOnlinePalettesNeutral15": "#262625",
-    "seacretsOnlinePalettesNeutral10": "#1c1b1b",
-    "seacretsOnlinePalettesNeutral5": "#111111",
-    "seacretsOnlinePalettesNeutral0": "#000000",
-    "seacretsOnlinePalettesNeutralVariant100": "#ffffff",
-    "seacretsOnlinePalettesNeutralVariant99": "#fffbff",
-    "seacretsOnlinePalettesNeutralVariant98": "#fff8f7",
-    "seacretsOnlinePalettesNeutralVariant95": "#ffeced",
-    "seacretsOnlinePalettesNeutralVariant90": "#f4dddf",
-    "seacretsOnlinePalettesNeutralVariant80": "#d7c1c3",
-    "seacretsOnlinePalettesNeutralVariant70": "#baa6a8",
-    "seacretsOnlinePalettesNeutralVariant60": "#9f8c8e",
-    "seacretsOnlinePalettesNeutralVariant50": "#847374",
-    "seacretsOnlinePalettesNeutralVariant40": "#6b5a5c",
-    "seacretsOnlinePalettesNeutralVariant35": "#5e4f50",
-    "seacretsOnlinePalettesNeutralVariant30": "#524344",
-    "seacretsOnlinePalettesNeutralVariant25": "#463839",
-    "seacretsOnlinePalettesNeutralVariant20": "#3a2d2e",
-    "seacretsOnlinePalettesNeutralVariant15": "#2f2324",
-    "seacretsOnlinePalettesNeutralVariant10": "#24181a",
-    "seacretsOnlinePalettesNeutralVariant5": "#190e0f",
-    "seacretsOnlinePalettesNeutralVariant0": "#000000",
-    "seacretsOnlineStateLayersPrimaryOpacity08": "rgba(184, 0, 68, 0.08)",
-    "seacretsOnlineStateLayersPrimaryOpacity10": "rgba(184, 0, 68, 0.1)",
-    "seacretsOnlineStateLayersPrimaryOpacity16": "rgba(184, 0, 68, 0.16)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity08": "rgba(189, 0, 70, 0.08)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity10": "rgba(189, 0, 70, 0.1)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity16": "rgba(189, 0, 70, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity08": "rgba(255, 255, 255, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity10": "rgba(255, 255, 255, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity16": "rgba(255, 255, 255, 0.16)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity08": "rgba(231, 0, 87, 0.08)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity10": "rgba(231, 0, 87, 0.1)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity16": "rgba(231, 0, 87, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity08": "rgba(255, 251, 255, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity10": "rgba(255, 251, 255, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity16": "rgba(255, 251, 255, 0.16)",
-    "seacretsOnlineStateLayersSecondaryOpacity08": "rgba(178, 37, 74, 0.08)",
-    "seacretsOnlineStateLayersSecondaryOpacity10": "rgba(178, 37, 74, 0.1)",
-    "seacretsOnlineStateLayersSecondaryOpacity16": "rgba(178, 37, 74, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity08": "rgba(255, 255, 255, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity10": "rgba(255, 255, 255, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity16": "rgba(255, 255, 255, 0.16)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity08": "rgba(252, 95, 127, 0.08)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity10": "rgba(252, 95, 127, 0.1)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity16": "rgba(252, 95, 127, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity08": "rgba(99, 0, 33, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity10": "rgba(99, 0, 33, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity16": "rgba(99, 0, 33, 0.16)",
-    "seacretsOnlineStateLayersTertiaryOpacity08": "rgba(162, 57, 0, 0.08)",
-    "seacretsOnlineStateLayersTertiaryOpacity10": "rgba(162, 57, 0, 0.1)",
-    "seacretsOnlineStateLayersTertiaryOpacity16": "rgba(162, 57, 0, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity08": "rgba(255, 255, 255, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity10": "rgba(255, 255, 255, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity16": "rgba(255, 255, 255, 0.16)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity08": "rgba(204, 73, 0, 0.08)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity10": "rgba(204, 73, 0, 0.1)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity16": "rgba(204, 73, 0, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity08": "rgba(255, 251, 255, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity10": "rgba(255, 251, 255, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity16": "rgba(255, 251, 255, 0.16)",
-    "seacretsOnlineStateLayersErrorOpacity08": "rgba(186, 26, 26, 0.08)",
-    "seacretsOnlineStateLayersErrorOpacity10": "rgba(186, 26, 26, 0.1)",
-    "seacretsOnlineStateLayersErrorOpacity16": "rgba(186, 26, 26, 0.16)",
-    "seacretsOnlineStateLayersOnErrorOpacity08": "rgba(255, 255, 255, 0.08)",
-    "seacretsOnlineStateLayersOnErrorOpacity10": "rgba(255, 255, 255, 0.1)",
-    "seacretsOnlineStateLayersOnErrorOpacity16": "rgba(255, 255, 255, 0.16)",
-    "seacretsOnlineStateLayersErrorContainerOpacity08": "rgba(255, 218, 214, 0.08)",
-    "seacretsOnlineStateLayersErrorContainerOpacity10": "rgba(255, 218, 214, 0.1)",
-    "seacretsOnlineStateLayersErrorContainerOpacity16": "rgba(255, 218, 214, 0.16)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity08": "rgba(147, 0, 10, 0.08)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity10": "rgba(147, 0, 10, 0.1)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity16": "rgba(147, 0, 10, 0.16)",
-    "seacretsOnlineStateLayersBackgroundOpacity08": "rgba(255, 248, 247, 0.08)",
-    "seacretsOnlineStateLayersBackgroundOpacity10": "rgba(255, 248, 247, 0.1)",
-    "seacretsOnlineStateLayersBackgroundOpacity16": "rgba(255, 248, 247, 0.16)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity08": "rgba(41, 22, 25, 0.08)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity10": "rgba(41, 22, 25, 0.1)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity16": "rgba(41, 22, 25, 0.16)",
-    "seacretsOnlineStateLayersSurfaceOpacity08": "rgba(253, 248, 248, 0.08)",
-    "seacretsOnlineStateLayersSurfaceOpacity10": "rgba(253, 248, 248, 0.1)",
-    "seacretsOnlineStateLayersSurfaceOpacity16": "rgba(253, 248, 248, 0.16)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity08": "rgba(28, 27, 27, 0.08)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity10": "rgba(28, 27, 27, 0.1)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity16": "rgba(28, 27, 27, 0.16)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity08": "rgba(255, 217, 221, 0.08)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity10": "rgba(255, 217, 221, 0.1)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity16": "rgba(255, 217, 221, 0.16)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity08": "rgba(93, 62, 66, 0.08)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity10": "rgba(93, 62, 66, 0.1)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity16": "rgba(93, 62, 66, 0.16)",
-    "seacretsOnlineStateLayersOutlineOpacity08": "rgba(146, 110, 114, 0.08)",
-    "seacretsOnlineStateLayersOutlineOpacity10": "rgba(146, 110, 114, 0.1)",
-    "seacretsOnlineStateLayersOutlineOpacity16": "rgba(146, 110, 114, 0.16)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity08": "rgba(231, 188, 192, 0.08)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity10": "rgba(231, 188, 192, 0.1)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity16": "rgba(231, 188, 192, 0.16)",
-    "seacretsOnlineStateLayersShadowOpacity08": "rgba(0, 0, 0, 0.08)",
-    "seacretsOnlineStateLayersShadowOpacity10": "rgba(0, 0, 0, 0.1)",
-    "seacretsOnlineStateLayersShadowOpacity16": "rgba(0, 0, 0, 0.16)",
-    "seacretsOnlineStateLayersScrimOpacity08": "rgba(0, 0, 0, 0.08)",
-    "seacretsOnlineStateLayersScrimOpacity10": "rgba(0, 0, 0, 0.1)",
-    "seacretsOnlineStateLayersScrimOpacity16": "rgba(0, 0, 0, 0.16)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity08": "rgba(49, 48, 48, 0.08)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity10": "rgba(49, 48, 48, 0.1)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity16": "rgba(49, 48, 48, 0.16)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity08": "rgba(244, 240, 239, 0.08)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity10": "rgba(244, 240, 239, 0.1)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity16": "rgba(244, 240, 239, 0.16)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity08": "rgba(145, 0, 51, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity10": "rgba(145, 0, 51, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity16": "rgba(145, 0, 51, 0.16)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity08": "rgba(144, 3, 52, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity10": "rgba(144, 3, 52, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity16": "rgba(144, 3, 52, 0.16)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity08": "rgba(255, 219, 206, 0.08)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity10": "rgba(255, 219, 206, 0.1)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity16": "rgba(255, 219, 206, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity08": "rgba(55, 14, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity10": "rgba(55, 14, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity16": "rgba(55, 14, 0, 0.16)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity08": "rgba(255, 181, 153, 0.08)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity10": "rgba(255, 181, 153, 0.1)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity16": "rgba(255, 181, 153, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity08": "rgba(127, 43, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity10": "rgba(127, 43, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity16": "rgba(127, 43, 0, 0.16)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity08": "rgba(221, 217, 216, 0.08)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity10": "rgba(221, 217, 216, 0.1)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity16": "rgba(221, 217, 216, 0.16)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity08": "rgba(253, 248, 248, 0.08)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity10": "rgba(253, 248, 248, 0.1)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity16": "rgba(253, 248, 248, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity08": "rgba(255, 255, 255, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity10": "rgba(255, 255, 255, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity16": "rgba(255, 255, 255, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity08": "rgba(247, 243, 242, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity10": "rgba(247, 243, 242, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity16": "rgba(247, 243, 242, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity08": "rgba(241, 237, 236, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity10": "rgba(241, 237, 236, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity16": "rgba(241, 237, 236, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity08": "rgba(235, 231, 230, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity10": "rgba(235, 231, 230, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity16": "rgba(235, 231, 230, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity08": "rgba(229, 226, 225, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity10": "rgba(229, 226, 225, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity16": "rgba(229, 226, 225, 0.16)",
-    "seacretsOnlineExtendedColorsCustomColor1": "#b80044",
-    "seacretsOnlineExtendedColorsOnCustomColor1": "#ffffff",
-    "seacretsOnlineExtendedColorsCustomColor1Container": "#e70057",
-    "seacretsOnlineExtendedColorsOnCustomColor1Container": "#fffbff"
+    "mdSysColorPrimary": "#b80044",
+    "mdSysColorSurfaceTint": "#bd0046",
+    "mdSysColorOnPrimary": "#ffffff",
+    "mdSysColorPrimaryContainer": "#e70057",
+    "mdSysColorOnPrimaryContainer": "#fffbff",
+    "mdSysColorSecondary": "#b2254a",
+    "mdSysColorOnSecondary": "#ffffff",
+    "mdSysColorSecondaryContainer": "#fc5f7f",
+    "mdSysColorOnSecondaryContainer": "#630021",
+    "mdSysColorTertiary": "#a23900",
+    "mdSysColorOnTertiary": "#ffffff",
+    "mdSysColorTertiaryContainer": "#cc4900",
+    "mdSysColorOnTertiaryContainer": "#fffbff",
+    "mdSysColorError": "#ba1a1a",
+    "mdSysColorOnError": "#ffffff",
+    "mdSysColorErrorContainer": "#ffdad6",
+    "mdSysColorOnErrorContainer": "#93000a",
+    "mdSysColorBackground": "#fff8f7",
+    "mdSysColorOnBackground": "#291619",
+    "mdSysColorSurface": "#fdf8f8",
+    "mdSysColorOnSurface": "#1c1b1b",
+    "mdSysColorSurfaceVariant": "#ffd9dd",
+    "mdSysColorOnSurfaceVariant": "#5d3e42",
+    "mdSysColorOutline": "#926e72",
+    "mdSysColorOutlineVariant": "#e7bcc0",
+    "mdSysColorShadow": "#000000",
+    "mdSysColorScrim": "#000000",
+    "mdSysColorInverseSurface": "#313030",
+    "mdSysColorInverseOnSurface": "#f4f0ef",
+    "mdSysColorInversePrimary": "#ffb2bb",
+    "mdSysColorPrimaryFixed": "#ffd9dd",
+    "mdSysColorOnPrimaryFixed": "#400012",
+    "mdSysColorPrimaryFixedDim": "#ffb2bb",
+    "mdSysColorOnPrimaryFixedVariant": "#910033",
+    "mdSysColorSecondaryFixed": "#ffd9dd",
+    "mdSysColorOnSecondaryFixed": "#400012",
+    "mdSysColorSecondaryFixedDim": "#ffb2bb",
+    "mdSysColorOnSecondaryFixedVariant": "#900334",
+    "mdSysColorTertiaryFixed": "#ffdbce",
+    "mdSysColorOnTertiaryFixed": "#370e00",
+    "mdSysColorTertiaryFixedDim": "#ffb599",
+    "mdSysColorOnTertiaryFixedVariant": "#7f2b00",
+    "mdSysColorSurfaceDim": "#ddd9d8",
+    "mdSysColorSurfaceBright": "#fdf8f8",
+    "mdSysColorSurfaceContainerLowest": "#ffffff",
+    "mdSysColorSurfaceContainerLow": "#f7f3f2",
+    "mdSysColorSurfaceContainer": "#f1edec",
+    "mdSysColorSurfaceContainerHigh": "#ebe7e6",
+    "mdSysColorSurfaceContainerHighest": "#e5e2e1",
+    "mdSysSurfaceSurfaceTint5": "rgba(189, 0, 70, 0.05)",
+    "mdSysSurfaceSurfaceTint8": "rgba(189, 0, 70, 0.08)",
+    "mdSysSurfaceSurfaceTint11": "rgba(189, 0, 70, 0.11)",
+    "mdSysSurfaceSurfaceTint12": "rgba(189, 0, 70, 0.12)",
+    "mdSysSurfaceSurfaceTint14": "rgba(189, 0, 70, 0.14)",
+    "mdRefPalettePrimary100": "#ffffff",
+    "mdRefPalettePrimary99": "#fffbff",
+    "mdRefPalettePrimary98": "#fff8f7",
+    "mdRefPalettePrimary95": "#ffeced",
+    "mdRefPalettePrimary90": "#ffd9dd",
+    "mdRefPalettePrimary80": "#ffb2bb",
+    "mdRefPalettePrimary70": "#ff869a",
+    "mdRefPalettePrimary60": "#ff4f77",
+    "mdRefPalettePrimary50": "#eb0059",
+    "mdRefPalettePrimary40": "#bd0046",
+    "mdRefPalettePrimary35": "#a7003c",
+    "mdRefPalettePrimary30": "#910033",
+    "mdRefPalettePrimary25": "#7b002b",
+    "mdRefPalettePrimary20": "#670022",
+    "mdRefPalettePrimary15": "#53001a",
+    "mdRefPalettePrimary10": "#400012",
+    "mdRefPalettePrimary5": "#2c000a",
+    "mdRefPalettePrimary0": "#000000",
+    "mdRefPaletteSecondary100": "#ffffff",
+    "mdRefPaletteSecondary99": "#fffbff",
+    "mdRefPaletteSecondary98": "#fff8f7",
+    "mdRefPaletteSecondary95": "#ffeced",
+    "mdRefPaletteSecondary90": "#ffd9dd",
+    "mdRefPaletteSecondary80": "#ffb2bb",
+    "mdRefPaletteSecondary70": "#e695a0",
+    "mdRefPaletteSecondary60": "#c87b86",
+    "mdRefPaletteSecondary50": "#aa626d",
+    "mdRefPaletteSecondary40": "#8d4a55",
+    "mdRefPaletteSecondary35": "#7f3f49",
+    "mdRefPaletteSecondary30": "#71333e",
+    "mdRefPaletteSecondary25": "#632833",
+    "mdRefPaletteSecondary20": "#551e28",
+    "mdRefPaletteSecondary15": "#47131e",
+    "mdRefPaletteSecondary10": "#3a0814",
+    "mdRefPaletteSecondary5": "#2b010a",
+    "mdRefPaletteSecondary0": "#000000",
+    "mdRefPaletteTertiary100": "#ffffff",
+    "mdRefPaletteTertiary99": "#fffbff",
+    "mdRefPaletteTertiary98": "#fff8f4",
+    "mdRefPaletteTertiary95": "#ffeede",
+    "mdRefPaletteTertiary90": "#ffddb8",
+    "mdRefPaletteTertiary80": "#ffb960",
+    "mdRefPaletteTertiary70": "#e99a28",
+    "mdRefPaletteTertiary60": "#ca8104",
+    "mdRefPaletteTertiary50": "#a76900",
+    "mdRefPaletteTertiary40": "#855300",
+    "mdRefPaletteTertiary35": "#754900",
+    "mdRefPaletteTertiary30": "#653e00",
+    "mdRefPaletteTertiary25": "#563400",
+    "mdRefPaletteTertiary20": "#472a00",
+    "mdRefPaletteTertiary15": "#382000",
+    "mdRefPaletteTertiary10": "#2a1700",
+    "mdRefPaletteTertiary5": "#1c0e00",
+    "mdRefPaletteTertiary0": "#000000",
+    "mdRefPaletteError100": "#ffffff",
+    "mdRefPaletteError99": "#fffbff",
+    "mdRefPaletteError98": "#fff8f7",
+    "mdRefPaletteError95": "#ffedea",
+    "mdRefPaletteError90": "#ffdad6",
+    "mdRefPaletteError80": "#ffb4ab",
+    "mdRefPaletteError70": "#ff897d",
+    "mdRefPaletteError60": "#ff5449",
+    "mdRefPaletteError50": "#de3730",
+    "mdRefPaletteError40": "#ba1a1a",
+    "mdRefPaletteError35": "#a80710",
+    "mdRefPaletteError30": "#93000a",
+    "mdRefPaletteError25": "#7e0007",
+    "mdRefPaletteError20": "#690005",
+    "mdRefPaletteError15": "#540003",
+    "mdRefPaletteError10": "#410002",
+    "mdRefPaletteError5": "#2d0001",
+    "mdRefPaletteError0": "#000000",
+    "mdRefPaletteNeutral100": "#ffffff",
+    "mdRefPaletteNeutral99": "#f6feff",
+    "mdRefPaletteNeutral98": "#fdf8f8",
+    "mdRefPaletteNeutral95": "#f4f0ef",
+    "mdRefPaletteNeutral90": "#e5e2e1",
+    "mdRefPaletteNeutral80": "#c9c6c5",
+    "mdRefPaletteNeutral70": "#adaaaa",
+    "mdRefPaletteNeutral60": "#939090",
+    "mdRefPaletteNeutral50": "#797676",
+    "mdRefPaletteNeutral40": "#605e5e",
+    "mdRefPaletteNeutral35": "#545252",
+    "mdRefPaletteNeutral30": "#484646",
+    "mdRefPaletteNeutral25": "#3c3b3b",
+    "mdRefPaletteNeutral20": "#313030",
+    "mdRefPaletteNeutral15": "#262625",
+    "mdRefPaletteNeutral10": "#1c1b1b",
+    "mdRefPaletteNeutral5": "#111111",
+    "mdRefPaletteNeutral0": "#000000",
+    "mdRefPaletteNeutralVariant100": "#ffffff",
+    "mdRefPaletteNeutralVariant99": "#fffbff",
+    "mdRefPaletteNeutralVariant98": "#fff8f7",
+    "mdRefPaletteNeutralVariant95": "#ffeced",
+    "mdRefPaletteNeutralVariant90": "#f4dddf",
+    "mdRefPaletteNeutralVariant80": "#d7c1c3",
+    "mdRefPaletteNeutralVariant70": "#baa6a8",
+    "mdRefPaletteNeutralVariant60": "#9f8c8e",
+    "mdRefPaletteNeutralVariant50": "#847374",
+    "mdRefPaletteNeutralVariant40": "#6b5a5c",
+    "mdRefPaletteNeutralVariant35": "#5e4f50",
+    "mdRefPaletteNeutralVariant30": "#524344",
+    "mdRefPaletteNeutralVariant25": "#463839",
+    "mdRefPaletteNeutralVariant20": "#3a2d2e",
+    "mdRefPaletteNeutralVariant15": "#2f2324",
+    "mdRefPaletteNeutralVariant10": "#24181a",
+    "mdRefPaletteNeutralVariant5": "#190e0f",
+    "mdRefPaletteNeutralVariant0": "#000000",
+    "mdSysStateLayerPrimaryOpacity08": "rgba(184, 0, 68, 0.08)",
+    "mdSysStateLayerPrimaryOpacity10": "rgba(184, 0, 68, 0.1)",
+    "mdSysStateLayerPrimaryOpacity16": "rgba(184, 0, 68, 0.16)",
+    "mdSysStateLayerSurfaceTintOpacity08": "rgba(189, 0, 70, 0.08)",
+    "mdSysStateLayerSurfaceTintOpacity10": "rgba(189, 0, 70, 0.1)",
+    "mdSysStateLayerSurfaceTintOpacity16": "rgba(189, 0, 70, 0.16)",
+    "mdSysStateLayerOnPrimaryOpacity08": "rgba(255, 255, 255, 0.08)",
+    "mdSysStateLayerOnPrimaryOpacity10": "rgba(255, 255, 255, 0.1)",
+    "mdSysStateLayerOnPrimaryOpacity16": "rgba(255, 255, 255, 0.16)",
+    "mdSysStateLayerPrimaryContainerOpacity08": "rgba(231, 0, 87, 0.08)",
+    "mdSysStateLayerPrimaryContainerOpacity10": "rgba(231, 0, 87, 0.1)",
+    "mdSysStateLayerPrimaryContainerOpacity16": "rgba(231, 0, 87, 0.16)",
+    "mdSysStateLayerOnPrimaryContainerOpacity08": "rgba(255, 251, 255, 0.08)",
+    "mdSysStateLayerOnPrimaryContainerOpacity10": "rgba(255, 251, 255, 0.1)",
+    "mdSysStateLayerOnPrimaryContainerOpacity16": "rgba(255, 251, 255, 0.16)",
+    "mdSysStateLayerSecondaryOpacity08": "rgba(178, 37, 74, 0.08)",
+    "mdSysStateLayerSecondaryOpacity10": "rgba(178, 37, 74, 0.1)",
+    "mdSysStateLayerSecondaryOpacity16": "rgba(178, 37, 74, 0.16)",
+    "mdSysStateLayerOnSecondaryOpacity08": "rgba(255, 255, 255, 0.08)",
+    "mdSysStateLayerOnSecondaryOpacity10": "rgba(255, 255, 255, 0.1)",
+    "mdSysStateLayerOnSecondaryOpacity16": "rgba(255, 255, 255, 0.16)",
+    "mdSysStateLayerSecondaryContainerOpacity08": "rgba(252, 95, 127, 0.08)",
+    "mdSysStateLayerSecondaryContainerOpacity10": "rgba(252, 95, 127, 0.1)",
+    "mdSysStateLayerSecondaryContainerOpacity16": "rgba(252, 95, 127, 0.16)",
+    "mdSysStateLayerOnSecondaryContainerOpacity08": "rgba(99, 0, 33, 0.08)",
+    "mdSysStateLayerOnSecondaryContainerOpacity10": "rgba(99, 0, 33, 0.1)",
+    "mdSysStateLayerOnSecondaryContainerOpacity16": "rgba(99, 0, 33, 0.16)",
+    "mdSysStateLayerTertiaryOpacity08": "rgba(162, 57, 0, 0.08)",
+    "mdSysStateLayerTertiaryOpacity10": "rgba(162, 57, 0, 0.1)",
+    "mdSysStateLayerTertiaryOpacity16": "rgba(162, 57, 0, 0.16)",
+    "mdSysStateLayerOnTertiaryOpacity08": "rgba(255, 255, 255, 0.08)",
+    "mdSysStateLayerOnTertiaryOpacity10": "rgba(255, 255, 255, 0.1)",
+    "mdSysStateLayerOnTertiaryOpacity16": "rgba(255, 255, 255, 0.16)",
+    "mdSysStateLayerTertiaryContainerOpacity08": "rgba(204, 73, 0, 0.08)",
+    "mdSysStateLayerTertiaryContainerOpacity10": "rgba(204, 73, 0, 0.1)",
+    "mdSysStateLayerTertiaryContainerOpacity16": "rgba(204, 73, 0, 0.16)",
+    "mdSysStateLayerOnTertiaryContainerOpacity08": "rgba(255, 251, 255, 0.08)",
+    "mdSysStateLayerOnTertiaryContainerOpacity10": "rgba(255, 251, 255, 0.1)",
+    "mdSysStateLayerOnTertiaryContainerOpacity16": "rgba(255, 251, 255, 0.16)",
+    "mdSysStateLayerErrorOpacity08": "rgba(186, 26, 26, 0.08)",
+    "mdSysStateLayerErrorOpacity10": "rgba(186, 26, 26, 0.1)",
+    "mdSysStateLayerErrorOpacity16": "rgba(186, 26, 26, 0.16)",
+    "mdSysStateLayerOnErrorOpacity08": "rgba(255, 255, 255, 0.08)",
+    "mdSysStateLayerOnErrorOpacity10": "rgba(255, 255, 255, 0.1)",
+    "mdSysStateLayerOnErrorOpacity16": "rgba(255, 255, 255, 0.16)",
+    "mdSysStateLayerErrorContainerOpacity08": "rgba(255, 218, 214, 0.08)",
+    "mdSysStateLayerErrorContainerOpacity10": "rgba(255, 218, 214, 0.1)",
+    "mdSysStateLayerErrorContainerOpacity16": "rgba(255, 218, 214, 0.16)",
+    "mdSysStateLayerOnErrorContainerOpacity08": "rgba(147, 0, 10, 0.08)",
+    "mdSysStateLayerOnErrorContainerOpacity10": "rgba(147, 0, 10, 0.1)",
+    "mdSysStateLayerOnErrorContainerOpacity16": "rgba(147, 0, 10, 0.16)",
+    "mdSysStateLayerBackgroundOpacity08": "rgba(255, 248, 247, 0.08)",
+    "mdSysStateLayerBackgroundOpacity10": "rgba(255, 248, 247, 0.1)",
+    "mdSysStateLayerBackgroundOpacity16": "rgba(255, 248, 247, 0.16)",
+    "mdSysStateLayerOnBackgroundOpacity08": "rgba(41, 22, 25, 0.08)",
+    "mdSysStateLayerOnBackgroundOpacity10": "rgba(41, 22, 25, 0.1)",
+    "mdSysStateLayerOnBackgroundOpacity16": "rgba(41, 22, 25, 0.16)",
+    "mdSysStateLayerSurfaceOpacity08": "rgba(253, 248, 248, 0.08)",
+    "mdSysStateLayerSurfaceOpacity10": "rgba(253, 248, 248, 0.1)",
+    "mdSysStateLayerSurfaceOpacity16": "rgba(253, 248, 248, 0.16)",
+    "mdSysStateLayerOnSurfaceOpacity08": "rgba(28, 27, 27, 0.08)",
+    "mdSysStateLayerOnSurfaceOpacity10": "rgba(28, 27, 27, 0.1)",
+    "mdSysStateLayerOnSurfaceOpacity16": "rgba(28, 27, 27, 0.16)",
+    "mdSysStateLayerSurfaceVariantOpacity08": "rgba(255, 217, 221, 0.08)",
+    "mdSysStateLayerSurfaceVariantOpacity10": "rgba(255, 217, 221, 0.1)",
+    "mdSysStateLayerSurfaceVariantOpacity16": "rgba(255, 217, 221, 0.16)",
+    "mdSysStateLayerOnSurfaceVariantOpacity08": "rgba(93, 62, 66, 0.08)",
+    "mdSysStateLayerOnSurfaceVariantOpacity10": "rgba(93, 62, 66, 0.1)",
+    "mdSysStateLayerOnSurfaceVariantOpacity16": "rgba(93, 62, 66, 0.16)",
+    "mdSysStateLayerOutlineOpacity08": "rgba(146, 110, 114, 0.08)",
+    "mdSysStateLayerOutlineOpacity10": "rgba(146, 110, 114, 0.1)",
+    "mdSysStateLayerOutlineOpacity16": "rgba(146, 110, 114, 0.16)",
+    "mdSysStateLayerOutlineVariantOpacity08": "rgba(231, 188, 192, 0.08)",
+    "mdSysStateLayerOutlineVariantOpacity10": "rgba(231, 188, 192, 0.1)",
+    "mdSysStateLayerOutlineVariantOpacity16": "rgba(231, 188, 192, 0.16)",
+    "mdSysStateLayerShadowOpacity08": "rgba(0, 0, 0, 0.08)",
+    "mdSysStateLayerShadowOpacity10": "rgba(0, 0, 0, 0.1)",
+    "mdSysStateLayerShadowOpacity16": "rgba(0, 0, 0, 0.16)",
+    "mdSysStateLayerScrimOpacity08": "rgba(0, 0, 0, 0.08)",
+    "mdSysStateLayerScrimOpacity10": "rgba(0, 0, 0, 0.1)",
+    "mdSysStateLayerScrimOpacity16": "rgba(0, 0, 0, 0.16)",
+    "mdSysStateLayerInverseSurfaceOpacity08": "rgba(49, 48, 48, 0.08)",
+    "mdSysStateLayerInverseSurfaceOpacity10": "rgba(49, 48, 48, 0.1)",
+    "mdSysStateLayerInverseSurfaceOpacity16": "rgba(49, 48, 48, 0.16)",
+    "mdSysStateLayerInverseOnSurfaceOpacity08": "rgba(244, 240, 239, 0.08)",
+    "mdSysStateLayerInverseOnSurfaceOpacity10": "rgba(244, 240, 239, 0.1)",
+    "mdSysStateLayerInverseOnSurfaceOpacity16": "rgba(244, 240, 239, 0.16)",
+    "mdSysStateLayerInversePrimaryOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerInversePrimaryOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerInversePrimaryOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerPrimaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
+    "mdSysStateLayerPrimaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
+    "mdSysStateLayerPrimaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
+    "mdSysStateLayerOnPrimaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
+    "mdSysStateLayerOnPrimaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
+    "mdSysStateLayerOnPrimaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
+    "mdSysStateLayerPrimaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerPrimaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerPrimaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity08": "rgba(145, 0, 51, 0.08)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity10": "rgba(145, 0, 51, 0.1)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity16": "rgba(145, 0, 51, 0.16)",
+    "mdSysStateLayerSecondaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
+    "mdSysStateLayerSecondaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
+    "mdSysStateLayerSecondaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
+    "mdSysStateLayerOnSecondaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
+    "mdSysStateLayerOnSecondaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
+    "mdSysStateLayerOnSecondaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
+    "mdSysStateLayerSecondaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerSecondaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerSecondaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity08": "rgba(144, 3, 52, 0.08)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity10": "rgba(144, 3, 52, 0.1)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity16": "rgba(144, 3, 52, 0.16)",
+    "mdSysStateLayerTertiaryFixedOpacity08": "rgba(255, 219, 206, 0.08)",
+    "mdSysStateLayerTertiaryFixedOpacity10": "rgba(255, 219, 206, 0.1)",
+    "mdSysStateLayerTertiaryFixedOpacity16": "rgba(255, 219, 206, 0.16)",
+    "mdSysStateLayerOnTertiaryFixedOpacity08": "rgba(55, 14, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryFixedOpacity10": "rgba(55, 14, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryFixedOpacity16": "rgba(55, 14, 0, 0.16)",
+    "mdSysStateLayerTertiaryFixedDimOpacity08": "rgba(255, 181, 153, 0.08)",
+    "mdSysStateLayerTertiaryFixedDimOpacity10": "rgba(255, 181, 153, 0.1)",
+    "mdSysStateLayerTertiaryFixedDimOpacity16": "rgba(255, 181, 153, 0.16)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity08": "rgba(127, 43, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity10": "rgba(127, 43, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity16": "rgba(127, 43, 0, 0.16)",
+    "mdSysStateLayerSurfaceDimOpacity08": "rgba(221, 217, 216, 0.08)",
+    "mdSysStateLayerSurfaceDimOpacity10": "rgba(221, 217, 216, 0.1)",
+    "mdSysStateLayerSurfaceDimOpacity16": "rgba(221, 217, 216, 0.16)",
+    "mdSysStateLayerSurfaceBrightOpacity08": "rgba(253, 248, 248, 0.08)",
+    "mdSysStateLayerSurfaceBrightOpacity10": "rgba(253, 248, 248, 0.1)",
+    "mdSysStateLayerSurfaceBrightOpacity16": "rgba(253, 248, 248, 0.16)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity08": "rgba(255, 255, 255, 0.08)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity10": "rgba(255, 255, 255, 0.1)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity16": "rgba(255, 255, 255, 0.16)",
+    "mdSysStateLayerSurfaceContainerLowOpacity08": "rgba(247, 243, 242, 0.08)",
+    "mdSysStateLayerSurfaceContainerLowOpacity10": "rgba(247, 243, 242, 0.1)",
+    "mdSysStateLayerSurfaceContainerLowOpacity16": "rgba(247, 243, 242, 0.16)",
+    "mdSysStateLayerSurfaceContainerOpacity08": "rgba(241, 237, 236, 0.08)",
+    "mdSysStateLayerSurfaceContainerOpacity10": "rgba(241, 237, 236, 0.1)",
+    "mdSysStateLayerSurfaceContainerOpacity16": "rgba(241, 237, 236, 0.16)",
+    "mdSysStateLayerSurfaceContainerHighOpacity08": "rgba(235, 231, 230, 0.08)",
+    "mdSysStateLayerSurfaceContainerHighOpacity10": "rgba(235, 231, 230, 0.1)",
+    "mdSysStateLayerSurfaceContainerHighOpacity16": "rgba(235, 231, 230, 0.16)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(229, 226, 225, 0.08)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(229, 226, 225, 0.1)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(229, 226, 225, 0.16)",
+    "mdExtColorCustomColor1": "#b80044",
+    "mdExtColorOnCustomColor1": "#ffffff",
+    "mdExtColorCustomColor1Container": "#e70057",
+    "mdExtColorOnCustomColor1Container": "#fffbff"
   },
   "dark": {
-    "seacretsOnlineSchemesPrimary": "#ffb2bb",
-    "seacretsOnlineSchemesSurfaceTint": "#ffb2bb",
-    "seacretsOnlineSchemesOnPrimary": "#670022",
-    "seacretsOnlineSchemesPrimaryContainer": "#ff4f77",
-    "seacretsOnlineSchemesOnPrimaryContainer": "#3b0010",
-    "seacretsOnlineSchemesSecondary": "#ffb2bb",
-    "seacretsOnlineSchemesOnSecondary": "#670022",
-    "seacretsOnlineSchemesSecondaryContainer": "#930736",
-    "seacretsOnlineSchemesOnSecondaryContainer": "#ff9caa",
-    "seacretsOnlineSchemesTertiary": "#ffb599",
-    "seacretsOnlineSchemesOnTertiary": "#5a1c00",
-    "seacretsOnlineSchemesTertiaryContainer": "#f66116",
-    "seacretsOnlineSchemesOnTertiaryContainer": "#330c00",
-    "seacretsOnlineSchemesError": "#ffb4ab",
-    "seacretsOnlineSchemesOnError": "#690005",
-    "seacretsOnlineSchemesErrorContainer": "#93000a",
-    "seacretsOnlineSchemesOnErrorContainer": "#ffdad6",
-    "seacretsOnlineSchemesBackground": "#200e11",
-    "seacretsOnlineSchemesOnBackground": "#fddadd",
-    "seacretsOnlineSchemesSurface": "#141313",
-    "seacretsOnlineSchemesOnSurface": "#e5e2e1",
-    "seacretsOnlineSchemesSurfaceVariant": "#5d3e42",
-    "seacretsOnlineSchemesOnSurfaceVariant": "#e7bcc0",
-    "seacretsOnlineSchemesOutline": "#ad878b",
-    "seacretsOnlineSchemesOutlineVariant": "#5d3e42",
-    "seacretsOnlineSchemesShadow": "#000000",
-    "seacretsOnlineSchemesScrim": "#000000",
-    "seacretsOnlineSchemesInverseSurface": "#e5e2e1",
-    "seacretsOnlineSchemesInverseOnSurface": "#313030",
-    "seacretsOnlineSchemesInversePrimary": "#bd0046",
-    "seacretsOnlineSchemesPrimaryFixed": "#ffd9dd",
-    "seacretsOnlineSchemesOnPrimaryFixed": "#400012",
-    "seacretsOnlineSchemesPrimaryFixedDim": "#ffb2bb",
-    "seacretsOnlineSchemesOnPrimaryFixedVariant": "#910033",
-    "seacretsOnlineSchemesSecondaryFixed": "#ffd9dd",
-    "seacretsOnlineSchemesOnSecondaryFixed": "#400012",
-    "seacretsOnlineSchemesSecondaryFixedDim": "#ffb2bb",
-    "seacretsOnlineSchemesOnSecondaryFixedVariant": "#900334",
-    "seacretsOnlineSchemesTertiaryFixed": "#ffdbce",
-    "seacretsOnlineSchemesOnTertiaryFixed": "#370e00",
-    "seacretsOnlineSchemesTertiaryFixedDim": "#ffb599",
-    "seacretsOnlineSchemesOnTertiaryFixedVariant": "#7f2b00",
-    "seacretsOnlineSchemesSurfaceDim": "#141313",
-    "seacretsOnlineSchemesSurfaceBright": "#3a3939",
-    "seacretsOnlineSchemesSurfaceContainerLowest": "#0e0e0e",
-    "seacretsOnlineSchemesSurfaceContainerLow": "#1c1b1b",
-    "seacretsOnlineSchemesSurfaceContainer": "#201f1f",
-    "seacretsOnlineSchemesSurfaceContainerHigh": "#2b2a2a",
-    "seacretsOnlineSchemesSurfaceContainerHighest": "#353434",
-    "seacretsOnlineSurfacesSurfaceTint5": "rgba(255, 178, 187, 0.05)",
-    "seacretsOnlineSurfacesSurfaceTint8": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineSurfacesSurfaceTint11": "rgba(255, 178, 187, 0.11)",
-    "seacretsOnlineSurfacesSurfaceTint12": "rgba(255, 178, 187, 0.12)",
-    "seacretsOnlineSurfacesSurfaceTint14": "rgba(255, 178, 187, 0.14)",
-    "seacretsOnlinePalettesPrimary100": "#ffffff",
-    "seacretsOnlinePalettesPrimary99": "#fffbff",
-    "seacretsOnlinePalettesPrimary98": "#fff8f7",
-    "seacretsOnlinePalettesPrimary95": "#ffeced",
-    "seacretsOnlinePalettesPrimary90": "#ffd9dd",
-    "seacretsOnlinePalettesPrimary80": "#ffb2bb",
-    "seacretsOnlinePalettesPrimary70": "#ff869a",
-    "seacretsOnlinePalettesPrimary60": "#ff4f77",
-    "seacretsOnlinePalettesPrimary50": "#eb0059",
-    "seacretsOnlinePalettesPrimary40": "#bd0046",
-    "seacretsOnlinePalettesPrimary35": "#a7003c",
-    "seacretsOnlinePalettesPrimary30": "#910033",
-    "seacretsOnlinePalettesPrimary25": "#7b002b",
-    "seacretsOnlinePalettesPrimary20": "#670022",
-    "seacretsOnlinePalettesPrimary15": "#53001a",
-    "seacretsOnlinePalettesPrimary10": "#400012",
-    "seacretsOnlinePalettesPrimary5": "#2c000a",
-    "seacretsOnlinePalettesPrimary0": "#000000",
-    "seacretsOnlinePalettesSecondary100": "#ffffff",
-    "seacretsOnlinePalettesSecondary99": "#fffbff",
-    "seacretsOnlinePalettesSecondary98": "#fff8f7",
-    "seacretsOnlinePalettesSecondary95": "#ffeced",
-    "seacretsOnlinePalettesSecondary90": "#ffd9dd",
-    "seacretsOnlinePalettesSecondary80": "#ffb2bb",
-    "seacretsOnlinePalettesSecondary70": "#e695a0",
-    "seacretsOnlinePalettesSecondary60": "#c87b86",
-    "seacretsOnlinePalettesSecondary50": "#aa626d",
-    "seacretsOnlinePalettesSecondary40": "#8d4a55",
-    "seacretsOnlinePalettesSecondary35": "#7f3f49",
-    "seacretsOnlinePalettesSecondary30": "#71333e",
-    "seacretsOnlinePalettesSecondary25": "#632833",
-    "seacretsOnlinePalettesSecondary20": "#551e28",
-    "seacretsOnlinePalettesSecondary15": "#47131e",
-    "seacretsOnlinePalettesSecondary10": "#3a0814",
-    "seacretsOnlinePalettesSecondary5": "#2b010a",
-    "seacretsOnlinePalettesSecondary0": "#000000",
-    "seacretsOnlinePalettesTertiary100": "#ffffff",
-    "seacretsOnlinePalettesTertiary99": "#fffbff",
-    "seacretsOnlinePalettesTertiary98": "#fff8f4",
-    "seacretsOnlinePalettesTertiary95": "#ffeede",
-    "seacretsOnlinePalettesTertiary90": "#ffddb8",
-    "seacretsOnlinePalettesTertiary80": "#ffb960",
-    "seacretsOnlinePalettesTertiary70": "#e99a28",
-    "seacretsOnlinePalettesTertiary60": "#ca8104",
-    "seacretsOnlinePalettesTertiary50": "#a76900",
-    "seacretsOnlinePalettesTertiary40": "#855300",
-    "seacretsOnlinePalettesTertiary35": "#754900",
-    "seacretsOnlinePalettesTertiary30": "#653e00",
-    "seacretsOnlinePalettesTertiary25": "#563400",
-    "seacretsOnlinePalettesTertiary20": "#472a00",
-    "seacretsOnlinePalettesTertiary15": "#382000",
-    "seacretsOnlinePalettesTertiary10": "#2a1700",
-    "seacretsOnlinePalettesTertiary5": "#1c0e00",
-    "seacretsOnlinePalettesTertiary0": "#000000",
-    "seacretsOnlinePalettesError100": "#ffffff",
-    "seacretsOnlinePalettesError99": "#fffbff",
-    "seacretsOnlinePalettesError98": "#fff8f7",
-    "seacretsOnlinePalettesError95": "#ffedea",
-    "seacretsOnlinePalettesError90": "#ffdad6",
-    "seacretsOnlinePalettesError80": "#ffb4ab",
-    "seacretsOnlinePalettesError70": "#ff897d",
-    "seacretsOnlinePalettesError60": "#ff5449",
-    "seacretsOnlinePalettesError50": "#de3730",
-    "seacretsOnlinePalettesError40": "#ba1a1a",
-    "seacretsOnlinePalettesError35": "#a80710",
-    "seacretsOnlinePalettesError30": "#93000a",
-    "seacretsOnlinePalettesError25": "#7e0007",
-    "seacretsOnlinePalettesError20": "#690005",
-    "seacretsOnlinePalettesError15": "#540003",
-    "seacretsOnlinePalettesError10": "#410002",
-    "seacretsOnlinePalettesError5": "#2d0001",
-    "seacretsOnlinePalettesError0": "#000000",
-    "seacretsOnlinePalettesNeutral100": "#ffffff",
-    "seacretsOnlinePalettesNeutral99": "#f6feff",
-    "seacretsOnlinePalettesNeutral98": "#fdf8f8",
-    "seacretsOnlinePalettesNeutral95": "#f4f0ef",
-    "seacretsOnlinePalettesNeutral90": "#e5e2e1",
-    "seacretsOnlinePalettesNeutral80": "#c9c6c5",
-    "seacretsOnlinePalettesNeutral70": "#adaaaa",
-    "seacretsOnlinePalettesNeutral60": "#939090",
-    "seacretsOnlinePalettesNeutral50": "#797676",
-    "seacretsOnlinePalettesNeutral40": "#605e5e",
-    "seacretsOnlinePalettesNeutral35": "#545252",
-    "seacretsOnlinePalettesNeutral30": "#484646",
-    "seacretsOnlinePalettesNeutral25": "#3c3b3b",
-    "seacretsOnlinePalettesNeutral20": "#313030",
-    "seacretsOnlinePalettesNeutral15": "#262625",
-    "seacretsOnlinePalettesNeutral10": "#1c1b1b",
-    "seacretsOnlinePalettesNeutral5": "#111111",
-    "seacretsOnlinePalettesNeutral0": "#000000",
-    "seacretsOnlinePalettesNeutralVariant100": "#ffffff",
-    "seacretsOnlinePalettesNeutralVariant99": "#fffbff",
-    "seacretsOnlinePalettesNeutralVariant98": "#fff8f7",
-    "seacretsOnlinePalettesNeutralVariant95": "#ffeced",
-    "seacretsOnlinePalettesNeutralVariant90": "#f4dddf",
-    "seacretsOnlinePalettesNeutralVariant80": "#d7c1c3",
-    "seacretsOnlinePalettesNeutralVariant70": "#baa6a8",
-    "seacretsOnlinePalettesNeutralVariant60": "#9f8c8e",
-    "seacretsOnlinePalettesNeutralVariant50": "#847374",
-    "seacretsOnlinePalettesNeutralVariant40": "#6b5a5c",
-    "seacretsOnlinePalettesNeutralVariant35": "#5e4f50",
-    "seacretsOnlinePalettesNeutralVariant30": "#524344",
-    "seacretsOnlinePalettesNeutralVariant25": "#463839",
-    "seacretsOnlinePalettesNeutralVariant20": "#3a2d2e",
-    "seacretsOnlinePalettesNeutralVariant15": "#2f2324",
-    "seacretsOnlinePalettesNeutralVariant10": "#24181a",
-    "seacretsOnlinePalettesNeutralVariant5": "#190e0f",
-    "seacretsOnlinePalettesNeutralVariant0": "#000000",
-    "seacretsOnlineStateLayersPrimaryOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersPrimaryOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersPrimaryOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersSurfaceTintOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity08": "rgba(103, 0, 34, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity10": "rgba(103, 0, 34, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryOpacity16": "rgba(103, 0, 34, 0.16)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity08": "rgba(255, 79, 119, 0.08)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity10": "rgba(255, 79, 119, 0.1)",
-    "seacretsOnlineStateLayersPrimaryContainerOpacity16": "rgba(255, 79, 119, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity08": "rgba(59, 0, 16, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity10": "rgba(59, 0, 16, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryContainerOpacity16": "rgba(59, 0, 16, 0.16)",
-    "seacretsOnlineStateLayersSecondaryOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersSecondaryOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersSecondaryOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity08": "rgba(103, 0, 34, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity10": "rgba(103, 0, 34, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryOpacity16": "rgba(103, 0, 34, 0.16)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity08": "rgba(147, 7, 54, 0.08)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity10": "rgba(147, 7, 54, 0.1)",
-    "seacretsOnlineStateLayersSecondaryContainerOpacity16": "rgba(147, 7, 54, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity08": "rgba(255, 156, 170, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity10": "rgba(255, 156, 170, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryContainerOpacity16": "rgba(255, 156, 170, 0.16)",
-    "seacretsOnlineStateLayersTertiaryOpacity08": "rgba(255, 181, 153, 0.08)",
-    "seacretsOnlineStateLayersTertiaryOpacity10": "rgba(255, 181, 153, 0.1)",
-    "seacretsOnlineStateLayersTertiaryOpacity16": "rgba(255, 181, 153, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity08": "rgba(90, 28, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity10": "rgba(90, 28, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryOpacity16": "rgba(90, 28, 0, 0.16)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity08": "rgba(246, 97, 22, 0.08)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity10": "rgba(246, 97, 22, 0.1)",
-    "seacretsOnlineStateLayersTertiaryContainerOpacity16": "rgba(246, 97, 22, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity08": "rgba(51, 12, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity10": "rgba(51, 12, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryContainerOpacity16": "rgba(51, 12, 0, 0.16)",
-    "seacretsOnlineStateLayersErrorOpacity08": "rgba(255, 180, 171, 0.08)",
-    "seacretsOnlineStateLayersErrorOpacity10": "rgba(255, 180, 171, 0.1)",
-    "seacretsOnlineStateLayersErrorOpacity16": "rgba(255, 180, 171, 0.16)",
-    "seacretsOnlineStateLayersOnErrorOpacity08": "rgba(105, 0, 5, 0.08)",
-    "seacretsOnlineStateLayersOnErrorOpacity10": "rgba(105, 0, 5, 0.1)",
-    "seacretsOnlineStateLayersOnErrorOpacity16": "rgba(105, 0, 5, 0.16)",
-    "seacretsOnlineStateLayersErrorContainerOpacity08": "rgba(147, 0, 10, 0.08)",
-    "seacretsOnlineStateLayersErrorContainerOpacity10": "rgba(147, 0, 10, 0.1)",
-    "seacretsOnlineStateLayersErrorContainerOpacity16": "rgba(147, 0, 10, 0.16)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity08": "rgba(255, 218, 214, 0.08)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity10": "rgba(255, 218, 214, 0.1)",
-    "seacretsOnlineStateLayersOnErrorContainerOpacity16": "rgba(255, 218, 214, 0.16)",
-    "seacretsOnlineStateLayersBackgroundOpacity08": "rgba(32, 14, 17, 0.08)",
-    "seacretsOnlineStateLayersBackgroundOpacity10": "rgba(32, 14, 17, 0.1)",
-    "seacretsOnlineStateLayersBackgroundOpacity16": "rgba(32, 14, 17, 0.16)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity08": "rgba(253, 218, 221, 0.08)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity10": "rgba(253, 218, 221, 0.1)",
-    "seacretsOnlineStateLayersOnBackgroundOpacity16": "rgba(253, 218, 221, 0.16)",
-    "seacretsOnlineStateLayersSurfaceOpacity08": "rgba(20, 19, 19, 0.08)",
-    "seacretsOnlineStateLayersSurfaceOpacity10": "rgba(20, 19, 19, 0.1)",
-    "seacretsOnlineStateLayersSurfaceOpacity16": "rgba(20, 19, 19, 0.16)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity08": "rgba(229, 226, 225, 0.08)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity10": "rgba(229, 226, 225, 0.1)",
-    "seacretsOnlineStateLayersOnSurfaceOpacity16": "rgba(229, 226, 225, 0.16)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity08": "rgba(93, 62, 66, 0.08)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity10": "rgba(93, 62, 66, 0.1)",
-    "seacretsOnlineStateLayersSurfaceVariantOpacity16": "rgba(93, 62, 66, 0.16)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity08": "rgba(231, 188, 192, 0.08)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity10": "rgba(231, 188, 192, 0.1)",
-    "seacretsOnlineStateLayersOnSurfaceVariantOpacity16": "rgba(231, 188, 192, 0.16)",
-    "seacretsOnlineStateLayersOutlineOpacity08": "rgba(173, 135, 139, 0.08)",
-    "seacretsOnlineStateLayersOutlineOpacity10": "rgba(173, 135, 139, 0.1)",
-    "seacretsOnlineStateLayersOutlineOpacity16": "rgba(173, 135, 139, 0.16)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity08": "rgba(93, 62, 66, 0.08)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity10": "rgba(93, 62, 66, 0.1)",
-    "seacretsOnlineStateLayersOutlineVariantOpacity16": "rgba(93, 62, 66, 0.16)",
-    "seacretsOnlineStateLayersShadowOpacity08": "rgba(0, 0, 0, 0.08)",
-    "seacretsOnlineStateLayersShadowOpacity10": "rgba(0, 0, 0, 0.1)",
-    "seacretsOnlineStateLayersShadowOpacity16": "rgba(0, 0, 0, 0.16)",
-    "seacretsOnlineStateLayersScrimOpacity08": "rgba(0, 0, 0, 0.08)",
-    "seacretsOnlineStateLayersScrimOpacity10": "rgba(0, 0, 0, 0.1)",
-    "seacretsOnlineStateLayersScrimOpacity16": "rgba(0, 0, 0, 0.16)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity08": "rgba(229, 226, 225, 0.08)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity10": "rgba(229, 226, 225, 0.1)",
-    "seacretsOnlineStateLayersInverseSurfaceOpacity16": "rgba(229, 226, 225, 0.16)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity08": "rgba(49, 48, 48, 0.08)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity10": "rgba(49, 48, 48, 0.1)",
-    "seacretsOnlineStateLayersInverseOnSurfaceOpacity16": "rgba(49, 48, 48, 0.16)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity08": "rgba(189, 0, 70, 0.08)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity10": "rgba(189, 0, 70, 0.1)",
-    "seacretsOnlineStateLayersInversePrimaryOpacity16": "rgba(189, 0, 70, 0.16)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
-    "seacretsOnlineStateLayersPrimaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersPrimaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity08": "rgba(145, 0, 51, 0.08)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity10": "rgba(145, 0, 51, 0.1)",
-    "seacretsOnlineStateLayersOnPrimaryFixedVariantOpacity16": "rgba(145, 0, 51, 0.16)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
-    "seacretsOnlineStateLayersSecondaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
-    "seacretsOnlineStateLayersSecondaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity08": "rgba(144, 3, 52, 0.08)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity10": "rgba(144, 3, 52, 0.1)",
-    "seacretsOnlineStateLayersOnSecondaryFixedVariantOpacity16": "rgba(144, 3, 52, 0.16)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity08": "rgba(255, 219, 206, 0.08)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity10": "rgba(255, 219, 206, 0.1)",
-    "seacretsOnlineStateLayersTertiaryFixedOpacity16": "rgba(255, 219, 206, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity08": "rgba(55, 14, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity10": "rgba(55, 14, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryFixedOpacity16": "rgba(55, 14, 0, 0.16)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity08": "rgba(255, 181, 153, 0.08)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity10": "rgba(255, 181, 153, 0.1)",
-    "seacretsOnlineStateLayersTertiaryFixedDimOpacity16": "rgba(255, 181, 153, 0.16)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity08": "rgba(127, 43, 0, 0.08)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity10": "rgba(127, 43, 0, 0.1)",
-    "seacretsOnlineStateLayersOnTertiaryFixedVariantOpacity16": "rgba(127, 43, 0, 0.16)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity08": "rgba(20, 19, 19, 0.08)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity10": "rgba(20, 19, 19, 0.1)",
-    "seacretsOnlineStateLayersSurfaceDimOpacity16": "rgba(20, 19, 19, 0.16)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity08": "rgba(58, 57, 57, 0.08)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity10": "rgba(58, 57, 57, 0.1)",
-    "seacretsOnlineStateLayersSurfaceBrightOpacity16": "rgba(58, 57, 57, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity08": "rgba(14, 14, 14, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity10": "rgba(14, 14, 14, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerLowestOpacity16": "rgba(14, 14, 14, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity08": "rgba(28, 27, 27, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity10": "rgba(28, 27, 27, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerLowOpacity16": "rgba(28, 27, 27, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity08": "rgba(32, 31, 31, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity10": "rgba(32, 31, 31, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerOpacity16": "rgba(32, 31, 31, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity08": "rgba(43, 42, 42, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity10": "rgba(43, 42, 42, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerHighOpacity16": "rgba(43, 42, 42, 0.16)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity08": "rgba(53, 52, 52, 0.08)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity10": "rgba(53, 52, 52, 0.1)",
-    "seacretsOnlineStateLayersSurfaceContainerHighestOpacity16": "rgba(53, 52, 52, 0.16)",
-    "seacretsOnlineExtendedColorsCustomColor1": "#ffb2bb",
-    "seacretsOnlineExtendedColorsOnCustomColor1": "#670022",
-    "seacretsOnlineExtendedColorsCustomColor1Container": "#ff4f77",
-    "seacretsOnlineExtendedColorsOnCustomColor1Container": "#3b0010"
+    "mdSysColorPrimary": "#ffb2bb",
+    "mdSysColorSurfaceTint": "#ffb2bb",
+    "mdSysColorOnPrimary": "#670022",
+    "mdSysColorPrimaryContainer": "#ff4f77",
+    "mdSysColorOnPrimaryContainer": "#3b0010",
+    "mdSysColorSecondary": "#ffb2bb",
+    "mdSysColorOnSecondary": "#670022",
+    "mdSysColorSecondaryContainer": "#930736",
+    "mdSysColorOnSecondaryContainer": "#ff9caa",
+    "mdSysColorTertiary": "#ffb599",
+    "mdSysColorOnTertiary": "#5a1c00",
+    "mdSysColorTertiaryContainer": "#f66116",
+    "mdSysColorOnTertiaryContainer": "#330c00",
+    "mdSysColorError": "#ffb4ab",
+    "mdSysColorOnError": "#690005",
+    "mdSysColorErrorContainer": "#93000a",
+    "mdSysColorOnErrorContainer": "#ffdad6",
+    "mdSysColorBackground": "#200e11",
+    "mdSysColorOnBackground": "#fddadd",
+    "mdSysColorSurface": "#141313",
+    "mdSysColorOnSurface": "#e5e2e1",
+    "mdSysColorSurfaceVariant": "#5d3e42",
+    "mdSysColorOnSurfaceVariant": "#e7bcc0",
+    "mdSysColorOutline": "#ad878b",
+    "mdSysColorOutlineVariant": "#5d3e42",
+    "mdSysColorShadow": "#000000",
+    "mdSysColorScrim": "#000000",
+    "mdSysColorInverseSurface": "#e5e2e1",
+    "mdSysColorInverseOnSurface": "#313030",
+    "mdSysColorInversePrimary": "#bd0046",
+    "mdSysColorPrimaryFixed": "#ffd9dd",
+    "mdSysColorOnPrimaryFixed": "#400012",
+    "mdSysColorPrimaryFixedDim": "#ffb2bb",
+    "mdSysColorOnPrimaryFixedVariant": "#910033",
+    "mdSysColorSecondaryFixed": "#ffd9dd",
+    "mdSysColorOnSecondaryFixed": "#400012",
+    "mdSysColorSecondaryFixedDim": "#ffb2bb",
+    "mdSysColorOnSecondaryFixedVariant": "#900334",
+    "mdSysColorTertiaryFixed": "#ffdbce",
+    "mdSysColorOnTertiaryFixed": "#370e00",
+    "mdSysColorTertiaryFixedDim": "#ffb599",
+    "mdSysColorOnTertiaryFixedVariant": "#7f2b00",
+    "mdSysColorSurfaceDim": "#141313",
+    "mdSysColorSurfaceBright": "#3a3939",
+    "mdSysColorSurfaceContainerLowest": "#0e0e0e",
+    "mdSysColorSurfaceContainerLow": "#1c1b1b",
+    "mdSysColorSurfaceContainer": "#201f1f",
+    "mdSysColorSurfaceContainerHigh": "#2b2a2a",
+    "mdSysColorSurfaceContainerHighest": "#353434",
+    "mdSysSurfaceSurfaceTint5": "rgba(255, 178, 187, 0.05)",
+    "mdSysSurfaceSurfaceTint8": "rgba(255, 178, 187, 0.08)",
+    "mdSysSurfaceSurfaceTint11": "rgba(255, 178, 187, 0.11)",
+    "mdSysSurfaceSurfaceTint12": "rgba(255, 178, 187, 0.12)",
+    "mdSysSurfaceSurfaceTint14": "rgba(255, 178, 187, 0.14)",
+    "mdRefPalettePrimary100": "#ffffff",
+    "mdRefPalettePrimary99": "#fffbff",
+    "mdRefPalettePrimary98": "#fff8f7",
+    "mdRefPalettePrimary95": "#ffeced",
+    "mdRefPalettePrimary90": "#ffd9dd",
+    "mdRefPalettePrimary80": "#ffb2bb",
+    "mdRefPalettePrimary70": "#ff869a",
+    "mdRefPalettePrimary60": "#ff4f77",
+    "mdRefPalettePrimary50": "#eb0059",
+    "mdRefPalettePrimary40": "#bd0046",
+    "mdRefPalettePrimary35": "#a7003c",
+    "mdRefPalettePrimary30": "#910033",
+    "mdRefPalettePrimary25": "#7b002b",
+    "mdRefPalettePrimary20": "#670022",
+    "mdRefPalettePrimary15": "#53001a",
+    "mdRefPalettePrimary10": "#400012",
+    "mdRefPalettePrimary5": "#2c000a",
+    "mdRefPalettePrimary0": "#000000",
+    "mdRefPaletteSecondary100": "#ffffff",
+    "mdRefPaletteSecondary99": "#fffbff",
+    "mdRefPaletteSecondary98": "#fff8f7",
+    "mdRefPaletteSecondary95": "#ffeced",
+    "mdRefPaletteSecondary90": "#ffd9dd",
+    "mdRefPaletteSecondary80": "#ffb2bb",
+    "mdRefPaletteSecondary70": "#e695a0",
+    "mdRefPaletteSecondary60": "#c87b86",
+    "mdRefPaletteSecondary50": "#aa626d",
+    "mdRefPaletteSecondary40": "#8d4a55",
+    "mdRefPaletteSecondary35": "#7f3f49",
+    "mdRefPaletteSecondary30": "#71333e",
+    "mdRefPaletteSecondary25": "#632833",
+    "mdRefPaletteSecondary20": "#551e28",
+    "mdRefPaletteSecondary15": "#47131e",
+    "mdRefPaletteSecondary10": "#3a0814",
+    "mdRefPaletteSecondary5": "#2b010a",
+    "mdRefPaletteSecondary0": "#000000",
+    "mdRefPaletteTertiary100": "#ffffff",
+    "mdRefPaletteTertiary99": "#fffbff",
+    "mdRefPaletteTertiary98": "#fff8f4",
+    "mdRefPaletteTertiary95": "#ffeede",
+    "mdRefPaletteTertiary90": "#ffddb8",
+    "mdRefPaletteTertiary80": "#ffb960",
+    "mdRefPaletteTertiary70": "#e99a28",
+    "mdRefPaletteTertiary60": "#ca8104",
+    "mdRefPaletteTertiary50": "#a76900",
+    "mdRefPaletteTertiary40": "#855300",
+    "mdRefPaletteTertiary35": "#754900",
+    "mdRefPaletteTertiary30": "#653e00",
+    "mdRefPaletteTertiary25": "#563400",
+    "mdRefPaletteTertiary20": "#472a00",
+    "mdRefPaletteTertiary15": "#382000",
+    "mdRefPaletteTertiary10": "#2a1700",
+    "mdRefPaletteTertiary5": "#1c0e00",
+    "mdRefPaletteTertiary0": "#000000",
+    "mdRefPaletteError100": "#ffffff",
+    "mdRefPaletteError99": "#fffbff",
+    "mdRefPaletteError98": "#fff8f7",
+    "mdRefPaletteError95": "#ffedea",
+    "mdRefPaletteError90": "#ffdad6",
+    "mdRefPaletteError80": "#ffb4ab",
+    "mdRefPaletteError70": "#ff897d",
+    "mdRefPaletteError60": "#ff5449",
+    "mdRefPaletteError50": "#de3730",
+    "mdRefPaletteError40": "#ba1a1a",
+    "mdRefPaletteError35": "#a80710",
+    "mdRefPaletteError30": "#93000a",
+    "mdRefPaletteError25": "#7e0007",
+    "mdRefPaletteError20": "#690005",
+    "mdRefPaletteError15": "#540003",
+    "mdRefPaletteError10": "#410002",
+    "mdRefPaletteError5": "#2d0001",
+    "mdRefPaletteError0": "#000000",
+    "mdRefPaletteNeutral100": "#ffffff",
+    "mdRefPaletteNeutral99": "#f6feff",
+    "mdRefPaletteNeutral98": "#fdf8f8",
+    "mdRefPaletteNeutral95": "#f4f0ef",
+    "mdRefPaletteNeutral90": "#e5e2e1",
+    "mdRefPaletteNeutral80": "#c9c6c5",
+    "mdRefPaletteNeutral70": "#adaaaa",
+    "mdRefPaletteNeutral60": "#939090",
+    "mdRefPaletteNeutral50": "#797676",
+    "mdRefPaletteNeutral40": "#605e5e",
+    "mdRefPaletteNeutral35": "#545252",
+    "mdRefPaletteNeutral30": "#484646",
+    "mdRefPaletteNeutral25": "#3c3b3b",
+    "mdRefPaletteNeutral20": "#313030",
+    "mdRefPaletteNeutral15": "#262625",
+    "mdRefPaletteNeutral10": "#1c1b1b",
+    "mdRefPaletteNeutral5": "#111111",
+    "mdRefPaletteNeutral0": "#000000",
+    "mdRefPaletteNeutralVariant100": "#ffffff",
+    "mdRefPaletteNeutralVariant99": "#fffbff",
+    "mdRefPaletteNeutralVariant98": "#fff8f7",
+    "mdRefPaletteNeutralVariant95": "#ffeced",
+    "mdRefPaletteNeutralVariant90": "#f4dddf",
+    "mdRefPaletteNeutralVariant80": "#d7c1c3",
+    "mdRefPaletteNeutralVariant70": "#baa6a8",
+    "mdRefPaletteNeutralVariant60": "#9f8c8e",
+    "mdRefPaletteNeutralVariant50": "#847374",
+    "mdRefPaletteNeutralVariant40": "#6b5a5c",
+    "mdRefPaletteNeutralVariant35": "#5e4f50",
+    "mdRefPaletteNeutralVariant30": "#524344",
+    "mdRefPaletteNeutralVariant25": "#463839",
+    "mdRefPaletteNeutralVariant20": "#3a2d2e",
+    "mdRefPaletteNeutralVariant15": "#2f2324",
+    "mdRefPaletteNeutralVariant10": "#24181a",
+    "mdRefPaletteNeutralVariant5": "#190e0f",
+    "mdRefPaletteNeutralVariant0": "#000000",
+    "mdSysStateLayerPrimaryOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerPrimaryOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerPrimaryOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerSurfaceTintOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerSurfaceTintOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerSurfaceTintOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnPrimaryOpacity08": "rgba(103, 0, 34, 0.08)",
+    "mdSysStateLayerOnPrimaryOpacity10": "rgba(103, 0, 34, 0.1)",
+    "mdSysStateLayerOnPrimaryOpacity16": "rgba(103, 0, 34, 0.16)",
+    "mdSysStateLayerPrimaryContainerOpacity08": "rgba(255, 79, 119, 0.08)",
+    "mdSysStateLayerPrimaryContainerOpacity10": "rgba(255, 79, 119, 0.1)",
+    "mdSysStateLayerPrimaryContainerOpacity16": "rgba(255, 79, 119, 0.16)",
+    "mdSysStateLayerOnPrimaryContainerOpacity08": "rgba(59, 0, 16, 0.08)",
+    "mdSysStateLayerOnPrimaryContainerOpacity10": "rgba(59, 0, 16, 0.1)",
+    "mdSysStateLayerOnPrimaryContainerOpacity16": "rgba(59, 0, 16, 0.16)",
+    "mdSysStateLayerSecondaryOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerSecondaryOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerSecondaryOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnSecondaryOpacity08": "rgba(103, 0, 34, 0.08)",
+    "mdSysStateLayerOnSecondaryOpacity10": "rgba(103, 0, 34, 0.1)",
+    "mdSysStateLayerOnSecondaryOpacity16": "rgba(103, 0, 34, 0.16)",
+    "mdSysStateLayerSecondaryContainerOpacity08": "rgba(147, 7, 54, 0.08)",
+    "mdSysStateLayerSecondaryContainerOpacity10": "rgba(147, 7, 54, 0.1)",
+    "mdSysStateLayerSecondaryContainerOpacity16": "rgba(147, 7, 54, 0.16)",
+    "mdSysStateLayerOnSecondaryContainerOpacity08": "rgba(255, 156, 170, 0.08)",
+    "mdSysStateLayerOnSecondaryContainerOpacity10": "rgba(255, 156, 170, 0.1)",
+    "mdSysStateLayerOnSecondaryContainerOpacity16": "rgba(255, 156, 170, 0.16)",
+    "mdSysStateLayerTertiaryOpacity08": "rgba(255, 181, 153, 0.08)",
+    "mdSysStateLayerTertiaryOpacity10": "rgba(255, 181, 153, 0.1)",
+    "mdSysStateLayerTertiaryOpacity16": "rgba(255, 181, 153, 0.16)",
+    "mdSysStateLayerOnTertiaryOpacity08": "rgba(90, 28, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryOpacity10": "rgba(90, 28, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryOpacity16": "rgba(90, 28, 0, 0.16)",
+    "mdSysStateLayerTertiaryContainerOpacity08": "rgba(246, 97, 22, 0.08)",
+    "mdSysStateLayerTertiaryContainerOpacity10": "rgba(246, 97, 22, 0.1)",
+    "mdSysStateLayerTertiaryContainerOpacity16": "rgba(246, 97, 22, 0.16)",
+    "mdSysStateLayerOnTertiaryContainerOpacity08": "rgba(51, 12, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryContainerOpacity10": "rgba(51, 12, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryContainerOpacity16": "rgba(51, 12, 0, 0.16)",
+    "mdSysStateLayerErrorOpacity08": "rgba(255, 180, 171, 0.08)",
+    "mdSysStateLayerErrorOpacity10": "rgba(255, 180, 171, 0.1)",
+    "mdSysStateLayerErrorOpacity16": "rgba(255, 180, 171, 0.16)",
+    "mdSysStateLayerOnErrorOpacity08": "rgba(105, 0, 5, 0.08)",
+    "mdSysStateLayerOnErrorOpacity10": "rgba(105, 0, 5, 0.1)",
+    "mdSysStateLayerOnErrorOpacity16": "rgba(105, 0, 5, 0.16)",
+    "mdSysStateLayerErrorContainerOpacity08": "rgba(147, 0, 10, 0.08)",
+    "mdSysStateLayerErrorContainerOpacity10": "rgba(147, 0, 10, 0.1)",
+    "mdSysStateLayerErrorContainerOpacity16": "rgba(147, 0, 10, 0.16)",
+    "mdSysStateLayerOnErrorContainerOpacity08": "rgba(255, 218, 214, 0.08)",
+    "mdSysStateLayerOnErrorContainerOpacity10": "rgba(255, 218, 214, 0.1)",
+    "mdSysStateLayerOnErrorContainerOpacity16": "rgba(255, 218, 214, 0.16)",
+    "mdSysStateLayerBackgroundOpacity08": "rgba(32, 14, 17, 0.08)",
+    "mdSysStateLayerBackgroundOpacity10": "rgba(32, 14, 17, 0.1)",
+    "mdSysStateLayerBackgroundOpacity16": "rgba(32, 14, 17, 0.16)",
+    "mdSysStateLayerOnBackgroundOpacity08": "rgba(253, 218, 221, 0.08)",
+    "mdSysStateLayerOnBackgroundOpacity10": "rgba(253, 218, 221, 0.1)",
+    "mdSysStateLayerOnBackgroundOpacity16": "rgba(253, 218, 221, 0.16)",
+    "mdSysStateLayerSurfaceOpacity08": "rgba(20, 19, 19, 0.08)",
+    "mdSysStateLayerSurfaceOpacity10": "rgba(20, 19, 19, 0.1)",
+    "mdSysStateLayerSurfaceOpacity16": "rgba(20, 19, 19, 0.16)",
+    "mdSysStateLayerOnSurfaceOpacity08": "rgba(229, 226, 225, 0.08)",
+    "mdSysStateLayerOnSurfaceOpacity10": "rgba(229, 226, 225, 0.1)",
+    "mdSysStateLayerOnSurfaceOpacity16": "rgba(229, 226, 225, 0.16)",
+    "mdSysStateLayerSurfaceVariantOpacity08": "rgba(93, 62, 66, 0.08)",
+    "mdSysStateLayerSurfaceVariantOpacity10": "rgba(93, 62, 66, 0.1)",
+    "mdSysStateLayerSurfaceVariantOpacity16": "rgba(93, 62, 66, 0.16)",
+    "mdSysStateLayerOnSurfaceVariantOpacity08": "rgba(231, 188, 192, 0.08)",
+    "mdSysStateLayerOnSurfaceVariantOpacity10": "rgba(231, 188, 192, 0.1)",
+    "mdSysStateLayerOnSurfaceVariantOpacity16": "rgba(231, 188, 192, 0.16)",
+    "mdSysStateLayerOutlineOpacity08": "rgba(173, 135, 139, 0.08)",
+    "mdSysStateLayerOutlineOpacity10": "rgba(173, 135, 139, 0.1)",
+    "mdSysStateLayerOutlineOpacity16": "rgba(173, 135, 139, 0.16)",
+    "mdSysStateLayerOutlineVariantOpacity08": "rgba(93, 62, 66, 0.08)",
+    "mdSysStateLayerOutlineVariantOpacity10": "rgba(93, 62, 66, 0.1)",
+    "mdSysStateLayerOutlineVariantOpacity16": "rgba(93, 62, 66, 0.16)",
+    "mdSysStateLayerShadowOpacity08": "rgba(0, 0, 0, 0.08)",
+    "mdSysStateLayerShadowOpacity10": "rgba(0, 0, 0, 0.1)",
+    "mdSysStateLayerShadowOpacity16": "rgba(0, 0, 0, 0.16)",
+    "mdSysStateLayerScrimOpacity08": "rgba(0, 0, 0, 0.08)",
+    "mdSysStateLayerScrimOpacity10": "rgba(0, 0, 0, 0.1)",
+    "mdSysStateLayerScrimOpacity16": "rgba(0, 0, 0, 0.16)",
+    "mdSysStateLayerInverseSurfaceOpacity08": "rgba(229, 226, 225, 0.08)",
+    "mdSysStateLayerInverseSurfaceOpacity10": "rgba(229, 226, 225, 0.1)",
+    "mdSysStateLayerInverseSurfaceOpacity16": "rgba(229, 226, 225, 0.16)",
+    "mdSysStateLayerInverseOnSurfaceOpacity08": "rgba(49, 48, 48, 0.08)",
+    "mdSysStateLayerInverseOnSurfaceOpacity10": "rgba(49, 48, 48, 0.1)",
+    "mdSysStateLayerInverseOnSurfaceOpacity16": "rgba(49, 48, 48, 0.16)",
+    "mdSysStateLayerInversePrimaryOpacity08": "rgba(189, 0, 70, 0.08)",
+    "mdSysStateLayerInversePrimaryOpacity10": "rgba(189, 0, 70, 0.1)",
+    "mdSysStateLayerInversePrimaryOpacity16": "rgba(189, 0, 70, 0.16)",
+    "mdSysStateLayerPrimaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
+    "mdSysStateLayerPrimaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
+    "mdSysStateLayerPrimaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
+    "mdSysStateLayerOnPrimaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
+    "mdSysStateLayerOnPrimaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
+    "mdSysStateLayerOnPrimaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
+    "mdSysStateLayerPrimaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerPrimaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerPrimaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity08": "rgba(145, 0, 51, 0.08)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity10": "rgba(145, 0, 51, 0.1)",
+    "mdSysStateLayerOnPrimaryFixedVariantOpacity16": "rgba(145, 0, 51, 0.16)",
+    "mdSysStateLayerSecondaryFixedOpacity08": "rgba(255, 217, 221, 0.08)",
+    "mdSysStateLayerSecondaryFixedOpacity10": "rgba(255, 217, 221, 0.1)",
+    "mdSysStateLayerSecondaryFixedOpacity16": "rgba(255, 217, 221, 0.16)",
+    "mdSysStateLayerOnSecondaryFixedOpacity08": "rgba(64, 0, 18, 0.08)",
+    "mdSysStateLayerOnSecondaryFixedOpacity10": "rgba(64, 0, 18, 0.1)",
+    "mdSysStateLayerOnSecondaryFixedOpacity16": "rgba(64, 0, 18, 0.16)",
+    "mdSysStateLayerSecondaryFixedDimOpacity08": "rgba(255, 178, 187, 0.08)",
+    "mdSysStateLayerSecondaryFixedDimOpacity10": "rgba(255, 178, 187, 0.1)",
+    "mdSysStateLayerSecondaryFixedDimOpacity16": "rgba(255, 178, 187, 0.16)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity08": "rgba(144, 3, 52, 0.08)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity10": "rgba(144, 3, 52, 0.1)",
+    "mdSysStateLayerOnSecondaryFixedVariantOpacity16": "rgba(144, 3, 52, 0.16)",
+    "mdSysStateLayerTertiaryFixedOpacity08": "rgba(255, 219, 206, 0.08)",
+    "mdSysStateLayerTertiaryFixedOpacity10": "rgba(255, 219, 206, 0.1)",
+    "mdSysStateLayerTertiaryFixedOpacity16": "rgba(255, 219, 206, 0.16)",
+    "mdSysStateLayerOnTertiaryFixedOpacity08": "rgba(55, 14, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryFixedOpacity10": "rgba(55, 14, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryFixedOpacity16": "rgba(55, 14, 0, 0.16)",
+    "mdSysStateLayerTertiaryFixedDimOpacity08": "rgba(255, 181, 153, 0.08)",
+    "mdSysStateLayerTertiaryFixedDimOpacity10": "rgba(255, 181, 153, 0.1)",
+    "mdSysStateLayerTertiaryFixedDimOpacity16": "rgba(255, 181, 153, 0.16)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity08": "rgba(127, 43, 0, 0.08)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity10": "rgba(127, 43, 0, 0.1)",
+    "mdSysStateLayerOnTertiaryFixedVariantOpacity16": "rgba(127, 43, 0, 0.16)",
+    "mdSysStateLayerSurfaceDimOpacity08": "rgba(20, 19, 19, 0.08)",
+    "mdSysStateLayerSurfaceDimOpacity10": "rgba(20, 19, 19, 0.1)",
+    "mdSysStateLayerSurfaceDimOpacity16": "rgba(20, 19, 19, 0.16)",
+    "mdSysStateLayerSurfaceBrightOpacity08": "rgba(58, 57, 57, 0.08)",
+    "mdSysStateLayerSurfaceBrightOpacity10": "rgba(58, 57, 57, 0.1)",
+    "mdSysStateLayerSurfaceBrightOpacity16": "rgba(58, 57, 57, 0.16)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity08": "rgba(14, 14, 14, 0.08)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity10": "rgba(14, 14, 14, 0.1)",
+    "mdSysStateLayerSurfaceContainerLowestOpacity16": "rgba(14, 14, 14, 0.16)",
+    "mdSysStateLayerSurfaceContainerLowOpacity08": "rgba(28, 27, 27, 0.08)",
+    "mdSysStateLayerSurfaceContainerLowOpacity10": "rgba(28, 27, 27, 0.1)",
+    "mdSysStateLayerSurfaceContainerLowOpacity16": "rgba(28, 27, 27, 0.16)",
+    "mdSysStateLayerSurfaceContainerOpacity08": "rgba(32, 31, 31, 0.08)",
+    "mdSysStateLayerSurfaceContainerOpacity10": "rgba(32, 31, 31, 0.1)",
+    "mdSysStateLayerSurfaceContainerOpacity16": "rgba(32, 31, 31, 0.16)",
+    "mdSysStateLayerSurfaceContainerHighOpacity08": "rgba(43, 42, 42, 0.08)",
+    "mdSysStateLayerSurfaceContainerHighOpacity10": "rgba(43, 42, 42, 0.1)",
+    "mdSysStateLayerSurfaceContainerHighOpacity16": "rgba(43, 42, 42, 0.16)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(53, 52, 52, 0.08)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(53, 52, 52, 0.1)",
+    "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(53, 52, 52, 0.16)",
+    "mdExtColorCustomColor1": "#ffb2bb",
+    "mdExtColorOnCustomColor1": "#670022",
+    "mdExtColorCustomColor1Container": "#ff4f77",
+    "mdExtColorOnCustomColor1Container": "#3b0010"
   }
 };
 

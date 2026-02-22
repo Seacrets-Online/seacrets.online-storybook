@@ -6,7 +6,7 @@ This document describes what must be included in the token export from Figma to 
 
 The build uses [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms), the official Token Studio integration for Style Dictionary. It:
 
-- Parses Token Studio single-file export (md/Light, md/Dark, Primitives/Mode 1)
+- Parses Token Studio single-file export (this repo validates `seacrets.online/Light` and `seacrets.online/Dark`)
 - Aligns Token Studio token types to DTCG
 - Handles typography and references when present
 
@@ -16,9 +16,8 @@ The repository includes a pre-build validation step in `scripts/build-dictionary
 
 - Required token format: **W3C DTCG** (`$value` / `$type`)
 - Required token set names:
-  - `md/Light`
-  - `md/Dark`
-  - `Primitives/Mode 1`
+  - `seacrets.online/Light`
+  - `seacrets.online/Dark`
 - Required metadata: `"$metadata".tokenSetOrder` must include the same set names
 
 If any rule is violated, `npm run build-dictionary` fails before Style Dictionary execution.
@@ -34,17 +33,14 @@ After exporting from Figma and updating `src/tokens/tokens.json`:
 ## Expected Export Structure
 
 ```
-md/Light/
-  md/
-    ref/, sys/        (colors)
-    [typography if exported]
+seacrets/
+  online/Light/
+    Schemes/, Palettes/, ...   (colors)
+    md/                        (optional: typography if exported)
 
-md/Dark/
-  md/
-    ref/, sys/        (colors)
-
-Primitives/Mode 1/
-  md/sys/spacing/     (optional)
+  online/Dark/
+    Schemes/, Palettes/, ...   (colors)
+    md/                        (optional: typography if exported)
 ```
 
 ## Notes

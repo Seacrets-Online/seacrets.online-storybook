@@ -17,9 +17,9 @@ const baseTextFieldSx = {
   '& .MuiOutlinedInput-input': {
     '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active': {
       WebkitBoxShadow:
-        '0 0 0 30px var(--seacrets-online-schemes-surface-variant) inset',
+        '0 0 0 30px var(--md-sys-color-surface-variant) inset',
       boxShadow:
-        '0 0 0 30px var(--seacrets-online-schemes-surface-variant) inset',
+        '0 0 0 30px var(--md-sys-color-surface-variant) inset',
       WebkitTextFillColor: 'inherit',
     },
   },

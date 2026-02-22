@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import type { BoxProps } from '@mui/material';
 import Button from '../atoms/Button';
 import TextField from '../molecules/TextField';
@@ -49,6 +49,8 @@ export const AuthForm = ({
   const [rememberMe, setRememberMe] = useState(false);
 
   const isForgotPassword = mode === 'forgotPassword';
+  const theme = useTheme();
+  const formFieldToButtonGap = theme.layout?.formFieldToButton ?? 3;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,6 +117,7 @@ export const AuthForm = ({
         fullWidth
         size="extraLarge"
         shape="pill"
+        sx={isForgotPassword ? { mt: formFieldToButtonGap } : undefined}
       >
         {isForgotPassword ? sendResetLabel : submitLabel}
       </Button>

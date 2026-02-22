@@ -10,10 +10,11 @@ export interface UploadAreaProps extends Omit<BoxProps, 'onSelect'> {
   onSelect?: (file: File) => void;
   accept?: string;
   id?: string;
+  previewUrl?: string;
 }
 
 const surfaceSx: SxProps<Theme> = {
-  bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
+  bgcolor: 'var(--md-sys-color-surface-container-low)',
   borderRadius: '10px',
 };
 
@@ -40,6 +41,7 @@ export const UploadArea = ({
   onSelect,
   accept = 'image/*,video/*',
   id = 'upload-area',
+  previewUrl,
   sx,
   ...props
 }: UploadAreaProps) => {
@@ -53,23 +55,45 @@ export const UploadArea = ({
     e.target.value = '';
   };
 
+  const isVideo = previewUrl?.match(/\.(mp4|webm|ogg)$/i) || previewUrl?.startsWith('data:video');
+
   return (
     <Box
-      component="label"
-      htmlFor={id}
-      sx={[areaSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
+      component="div"
+      sx={[areaSx, previewUrl && { border: 'none', p: 0, overflow: 'hidden' }, ...(sx ? [sx] : [])] as SxProps<Theme>}
       onClick={handleClick}
       {...props}
     >
       <input ref={inputRef} id={id} type="file" accept={accept} hidden onChange={handleChange} />
-      <CloudUpload sx={{ fontSize: 40, color: 'text.secondary' }} />
-      <Text variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
-        {label}
-      </Text>
-      {fileName && (
-        <Text variant="caption" color="text.secondary">
-          {fileName}
-        </Text>
+      {previewUrl ? (
+        isVideo ? (
+          <Box
+            component="video"
+            src={previewUrl}
+            sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            autoPlay
+            muted
+            loop
+          />
+        ) : (
+          <Box
+            component="img"
+            src={previewUrl}
+            sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        )
+      ) : (
+        <>
+          <CloudUpload sx={{ fontSize: 40, color: 'text.secondary' }} />
+          <Text variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
+            {label}
+          </Text>
+          {fileName && (
+            <Text variant="caption" color="text.secondary">
+              {fileName}
+            </Text>
+          )}
+        </>
       )}
     </Box>
   );

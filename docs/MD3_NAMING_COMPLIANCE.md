@@ -4,59 +4,40 @@ Este documento analiza si los tokens generados siguen el estándar de nomenclatu
 
 ## Estado Actual
 
-### ⚠️ Parcialmente conforme - Problemas con la transformación de temas
+### ✅ Naming MD3 (colores) + notas
 
-Los tokens fuente **SÍ tienen estructura de temas** (`md/Light` y `md/Dark`), lo cual es correcto. Sin embargo, Style Dictionary está generando nombres diferentes para cada tema en lugar de mantener el mismo nombre.
+El pipeline actual genera variables CSS con naming canónico para los tokens de color y usa `data-theme` para alternar valores entre Light/Dark manteniendo el mismo nombre de token.
 
-Los tokens generados actualmente tienen las siguientes diferencias con el estándar:
-
-## Comparación: Actual vs Estándar MD3
+## Comparación: Output actual vs Estándar MD3
 
 ### Tokens de Color
 
-**Estándar MD3:**
+**Estándar MD3 (canonical):**
 ```css
 --md-sys-color-primary
 --md-sys-color-on-primary
 --md-sys-color-surface
 ```
 
-**Actual (SCSS):**
-```scss
-$token-md-light-md-sys-color-primary
-$token-md-light-md-sys-color-on-primary
-$token-md-light-md-sys-color-surface
+**Actual (CSS variables):**
+```css
+--md-sys-color-primary
+--md-sys-color-on-primary
+--md-sys-color-surface
 ```
 
-**Actual (JavaScript):**
-```javascript
-MdLightMdSysColorPrimary
-MdLightMdSysColorOnPrimary
-MdLightMdSysColorSurface
+**Actual (TypeScript export)** (ver `src/utils/colors.ts`):
+```ts
+colorTokens.light.mdSysColorPrimary
+colorTokens.light.mdSysColorOnPrimary
+colorTokens.light.mdSysColorSurface
 ```
 
-### Problemas Identificados
+### Diferencias principales
 
-1. **Prefijo personalizado `token-`**
-   - ❌ Actual: `$token-md-light-md-sys-color-primary`
-   - ✅ Estándar: `--md-sys-color-primary`
-   - **Causa**: `prefix: 'token'` en la configuración de Style Dictionary
-
-2. **Tema incluido en el nombre**
-   - ❌ Actual: `md-light-md-sys-color-primary` (incluye `light`)
-   - ✅ Estándar: `md-sys-color-primary` (sin tema)
-   - **Causa**: Estructura de tokens fuente `md/Light/md/...` en lugar de `md/...`
-
-3. **Estructura duplicada `md-md`**
-   - ❌ Actual: `md-light-md-sys-color-primary` (tiene `md` dos veces)
-   - ✅ Estándar: `md-sys-color-primary` (una sola vez)
-   - **Causa**: Estructura de tokens fuente `md/Light/md/...` cuando debería ser `md/Light/...`
-
-4. **Tokens separados por tema en los nombres generados**
-   - ❌ Actual: Nombres diferentes para Light y Dark (`md-light-md-sys-color-primary` vs `md-dark-md-sys-color-primary`)
-   - ✅ Estándar: Mismos nombres de tokens (`md-sys-color-primary`) que cambian según el tema activo
-   - **Causa**: Style Dictionary está incluyendo el tema (`Light`/`Dark`) en el nombre transformado
-   - **Nota**: La estructura fuente `md/Light` y `md/Dark` es correcta, pero debería generar el mismo nombre para ambos
+1. **No se generan `--md-sys-typescale-*` / `--md-sys-shape-*` como CSS**: tipografía/shape viven en TS (`src/utils/typography.ts`, `src/utils/shapes.ts`)
+2. **Token sets**: el export validado usa `seacrets.online/Light` y `seacrets.online/Dark` (ver `$metadata.tokenSetOrder`)
+3. **Algunos grupos adicionales** (por ejemplo `--md-ext-color-*`, `--md-sys-state-layer-*`) no son parte estricta del set `md.sys.color.*`, pero se exportan por conveniencia
 
 ## Estándar Material Design 3
 
@@ -101,34 +82,20 @@ Según la [documentación oficial de MD3](https://m3.material.io/foundations/des
 
 ### 1. Estructura de Tokens Fuente
 
-**Actual (CORRECTO para tener temas separados):**
+**Actual (en este repo):**
 ```json
 {
-  "md/Light": {
-    "md": {
-      "sys": {
-        "color": {
-          "primary": { "value": "#8d495a" }
-        }
-      }
-    }
+  "seacrets": {
+    "online/Light": { "...": "..." },
+    "online/Dark": { "...": "..." }
   },
-  "md/Dark": {
-    "md": {
-      "sys": {
-        "color": {
-          "primary": { "value": "#ffb1c1" }
-        }
-      }
-    }
+  "$metadata": {
+    "tokenSetOrder": ["seacrets.online/Light", "seacrets.online/Dark"]
   }
 }
 ```
 
-**Problema**: Esta estructura es válida, pero Style Dictionary necesita transforms personalizados que:
-- Ignoren el tema (`Light`/`Dark`) al generar nombres
-- Generen el mismo nombre para ambos temas
-- Permitan que el sistema de temas maneje qué valor usar
+**Nota**: Esta estructura es válida. El naming del output CSS para colores ya es canónico MD3 (`--md-sys-color-*`).
 
 **Alternativa (si se quiere estructura más estándar):**
 ```json
@@ -152,84 +119,36 @@ Según la [documentación oficial de MD3](https://m3.material.io/foundations/des
 
 ### 2. Configuración de Style Dictionary
 
-**Actual:**
-```javascript
-{
-  prefix: 'token',  // ❌ No es parte del estándar MD3
-  transformGroup: 'scss'
-}
-```
-
-**Debería ser:**
-```javascript
-{
-  prefix: '',  // ✅ Sin prefijo personalizado
-  transformGroup: 'scss'
+**Actual (en este repo):**
+```ts
+// style-dictionary.config.ts (resumen)
+platforms: {
+  css: {
+    transformGroup: 'tokens-studio',
+    transforms: ['name/kebab'],
+    files: [{ destination: 'theme.css', format: 'css/variables-theme' }],
+  },
 }
 ```
 
 ### 3. Transformaciones Personalizadas
 
-Para cumplir con MD3, se necesitarían transforms personalizados que:
-- Eliminen el prefijo `token-`
-- **Eliminen el tema (`Light`/`Dark`) del nombre transformado** (mantenerlo en la estructura fuente está bien)
-- Eliminen la duplicación de `md` (causada por `md/Light/md/...`)
-- Generen nombres como `md-sys-color-primary` en lugar de `md-light-md-sys-color-primary`
-- **Generen el mismo nombre para ambos temas**, dejando que el sistema de temas maneje los valores
+El naming canónico se implementa en `style-dictionary-formats.ts` (en `toCssVarName()`), mapeando grupos conocidos del export a prefijos MD3:
+- `Schemes/*` → `--md-sys-color-*`
+- `Palettes/*` → `--md-ref-palette-*`
+- `State Layers/*` → `--md-sys-state-layer-*`
 
-**Ejemplo de transform necesario:**
-- Input: `md/Light/md/sys/color/primary` → Output: `md-sys-color-primary`
-- Input: `md/Dark/md/sys/color/primary` → Output: `md-sys-color-primary` (mismo nombre)
+## Impacto de posibles cambios
 
-## Impacto de los Cambios
+### Componentes actuales
 
-### Componentes Actuales
+- Los componentes consumen colores vía MUI theme (`theme.palette.*`) que resuelve a `var(--md-sys-color-*)` y/o directamente con `var(--md-sys-color-*)`.
 
-Los componentes actuales usan nombres como:
-```javascript
-tokens.MdLightMdSysColorPrimary
-```
+### Opciones de evolución
 
-Si se cambia a estándar MD3, necesitarían actualizarse a:
-```javascript
-tokens.mdSysColorPrimary  // o similar según el formato JS
-```
-
-### Compatibilidad
-
-⚠️ **Cambiar a estándar MD3 sería un breaking change** que requeriría:
-1. Actualizar todos los componentes que usan tokens
-2. Modificar la estructura de tokens fuente (o crear transforms personalizados)
-3. Actualizar la configuración de Style Dictionary
-4. Regenerar todos los archivos de tokens
-
-## Recomendación
-
-### Opción 1: Mantener Estructura Actual (Recomendado para ahora)
-- ✅ Funciona correctamente
-- ✅ Los componentes ya están usando los nombres actuales
-- ❌ No sigue el estándar MD3 exacto
-
-### Opción 2: Migrar a Estándar MD3
-- ✅ Cumple con el estándar oficial
-- ✅ Mejor interoperabilidad con otras herramientas MD3
-- ❌ Requiere refactorización completa
-- ❌ Breaking change para todos los componentes
+- **Opción A (actual)**: mantener `--md-sys-*` como canonical.
+- **Opción B (compat, no-breaking)**: agregar alias de marca (por ejemplo `--seacrets-online-*`) apuntando a `--md-sys-*` si algún consumidor legacy lo requiere.
 
 ## Conclusión
 
-**Los tokens NO siguen completamente el estándar MD3** debido a:
-1. Prefijo personalizado `token-` (no es parte del estándar)
-2. **Tema incluido en el nombre generado** (`light`/`dark` en el nombre final) - **Este es el problema principal**
-3. Estructura duplicada (`md-md` causada por `md/Light/md/...`)
-4. **Nombres diferentes para Light y Dark** cuando deberían ser el mismo nombre
-
-**Nota importante**: La estructura fuente con `md/Light` y `md/Dark` es válida y necesaria para tener valores diferentes por tema. El problema está en cómo Style Dictionary transforma estos tokens en nombres finales.
-
-**Para cumplir completamente con MD3**, se requerirían:
-1. Transforms personalizados que eliminen el tema del nombre transformado
-2. Eliminar el prefijo `token-`
-3. Corregir la duplicación de `md`
-4. Generar el mismo nombre para ambos temas
-
-Esto requeriría cambios en la configuración de Style Dictionary y posiblemente transforms personalizados, lo cual sería un breaking change para los componentes existentes.
+El output actual sigue el naming canónico MD3 para colores (`--md-sys-color-*`). Si se requiere compatibilidad con prefijos legacy, se pueden agregar alias sin cambiar el canonical.
