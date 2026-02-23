@@ -1,0 +1,11 @@
+---
+description: Rules for managing design tokens
+globs: src/tokens/tokens.json
+---
+
+# Design Tokens Management
+
+- **Source of Truth**: `src/tokens/tokens.json` (W3C DTCG format via Token Studio). See `docs/TOKEN_EXPORT.md`.
+- **No Manual Edits**: NEVER edit `src/tokens/tokens.json` manually. Export from Figma and replace.
+- **Update Flow**: Export from Figma → replace file → `npm run build-dictionary`.
+- **Validation**: Build fails on invalid structure or broken references.

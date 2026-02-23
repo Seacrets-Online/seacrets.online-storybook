@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { FormControlLabel, FormGroup } from '@mui/material';
 import { Switch } from '../../components/atoms/Switch';
 
@@ -8,7 +8,7 @@ const meta: Meta<typeof Switch> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },

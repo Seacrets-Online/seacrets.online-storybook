@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FeedCard } from '../../components/organisms/FeedCard';
 
 const meta = {
@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     onLike: { action: 'liked' },
     onTip: { action: 'tipped' },

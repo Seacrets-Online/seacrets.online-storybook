@@ -1,11 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import CreateOptionsTemplate from '../../components/templates/CreateOptionsTemplate';
 import Text from '../../components/atoms/Text';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/CreateOptionsTemplate',
   component: CreateOptionsTemplate,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof CreateOptionsTemplate>;
 
 export default meta;

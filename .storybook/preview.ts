@@ -39,7 +39,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Foundations',
-          ['Theme usage', 'Typography', 'Spacing', 'Shapes & Shadows', 'Colors'],
+          ['Theme usage', 'Spacing', 'Shapes & Shadows', 'Colors'],
           'Atoms',
           'Molecules',
           'Organisms',

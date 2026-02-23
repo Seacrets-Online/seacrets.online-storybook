@@ -8,6 +8,8 @@ import type { BoxProps, SxProps, Theme } from '@mui/material';
 import { ChevronLeft } from '@mui/icons-material';
 
 export interface OnboardingStepTemplateProps extends BoxProps {
+  /** Optional header (e.g. GlobalHeader) for app consistency */
+  header?: React.ReactNode;
   title?: string;
   subtitle?: string;
   step?: number;
@@ -32,6 +34,7 @@ const baseOnboardingSx = {
 };
 
 export const OnboardingStepTemplate = ({
+  header,
   title,
   subtitle,
   step = 1,
@@ -46,18 +49,19 @@ export const OnboardingStepTemplate = ({
 }: OnboardingStepTemplateProps) => (
   <Box sx={[baseOnboardingSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
     <Container
-      maxWidth="xs"
-      sx={{
+      maxWidth="sm"
+      sx={(t) => ({
         flex: 1,
         minHeight: 0,
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        px: 4,
-        py: 3,
-      }}
+        px: t.layout.space16,
+        py: t.layout.space16,
+      })}
     >
-      <Stack direction="row" alignItems="center" spacing={1} sx={{ flexShrink: 0, mb: 3 }}>
+      {header && <Box sx={(t) => ({ flexShrink: 0, width: '100%', mb: t.layout.space24 })}>{header}</Box>}
+      <Stack direction="row" alignItems="center" spacing={1} sx={(t) => ({ flexShrink: 0, mb: t.layout.space24 })}>
         {onBack && (
           <IconButton aria-label={backLabel} onClick={onBack}>
             <ChevronLeft />
@@ -95,7 +99,7 @@ export const OnboardingStepTemplate = ({
         )}
         <Box sx={{ width: '100%', minWidth: 0 }}>{children}</Box>
         {onNext && (
-          <Box sx={{ pt: 4, width: '100%' }}>
+          <Box sx={(t) => ({ pt: t.layout.space32, width: '100%' })}>
             <Button
               variant="contained"
               onClick={onNext}
@@ -109,7 +113,7 @@ export const OnboardingStepTemplate = ({
         )}
       </Stack>
 
-      <Box sx={{ flexShrink: 0, mt: 'auto', pt: 4, pb: 2 }}>
+      <Box sx={(t) => ({ flexShrink: 0, mt: 'auto', pt: t.layout.space32, pb: t.layout.space16 })}>
         <LegalLinks />
       </Box>
     </Container>

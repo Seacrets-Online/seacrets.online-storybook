@@ -52,19 +52,19 @@ export const CreateStoryForm = ({
         handleSubmit();
       }}
       sx={[
-        {
+        (t) => ({
           display: 'flex',
           flexDirection: 'column',
-          gap: 2,
-          mt: 1,
+          gap: t.layout.space16,
+          mt: t.layout.space8,
           flex: 1,
           minHeight: 0,
-        },
+        }),
         ...(sx ? [sx] : []),
       ] as SxProps<Theme>}
       {...props}
     >
-      <Text variant="body2" color="text.secondary" align="center" sx={{ mb: 0.5 }}>
+      <Text variant="body2" color="text.secondary" align="center" sx={{ mb: (t) => t.layout.space4 }}>
         {infoLabel}
       </Text>
 
@@ -108,7 +108,7 @@ export const CreateStoryForm = ({
         {submitLabel}
       </Button>
 
-      <LegalLinks sx={{ mt: 'auto', pt: 4, pb: 2 }} />
+      <LegalLinks sx={(t) => ({ mt: 'auto', pt: t.layout.space32, pb: t.layout.space16 })} />
     </Box>
   );
 };

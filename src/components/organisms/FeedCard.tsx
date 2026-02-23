@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Box, Skeleton, IconButton, Stack } from '@mui/material';
+import { Box, Skeleton, IconButton, Stack, useTheme } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import {
   Favorite as FavoriteIcon,
   Bookmark as BookmarkIcon,
@@ -30,21 +31,21 @@ export interface FeedCardProps {
   onUserClick?: () => void;
 }
 
-const feedCardStyles: Record<string, SxProps<Theme>> = {
+const feedCardStyles = (theme: Theme): Record<string, SxProps<Theme>> => ({
   card: {
     width: '100%',
     maxWidth: 400,
     bgcolor: 'transparent',
-    color: 'white',
+    color: 'var(--md-sys-color-on-primary)',
     overflow: 'hidden',
   },
   mediaContainer: {
     position: 'relative',
     width: '100%',
     aspectRatio: '3/4',
-    borderRadius: '24px',
+    borderRadius: theme.spacing(theme.layout.space24),
     overflow: 'hidden',
-    mb: 1.5,
+    mb: theme.spacing(theme.layout.space12),
     bgcolor: 'var(--md-sys-color-surface-container-low)',
   },
   image: {
@@ -58,8 +59,8 @@ const feedCardStyles: Record<string, SxProps<Theme>> = {
     top: 0,
     left: 0,
     right: 0,
-    p: 2,
-    background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%)',
+    p: theme.layout.space16,
+    background: 'linear-gradient(to bottom, var(--md-sys-state-layer-on-surface-opacity-16) 0%, transparent 100%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -68,7 +69,7 @@ const feedCardStyles: Record<string, SxProps<Theme>> = {
   userInfo: {
     display: 'flex',
     alignItems: 'center',
-    gap: 1,
+    gap: theme.layout.space8,
     cursor: 'pointer',
   },
   overlayBottom: {
@@ -76,55 +77,55 @@ const feedCardStyles: Record<string, SxProps<Theme>> = {
     bottom: 0,
     left: 0,
     right: 0,
-    p: 2,
-    background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%)',
+    p: theme.layout.space16,
+    background: 'linear-gradient(to top, var(--md-sys-state-layer-on-surface-opacity-16) 0%, transparent 100%)',
     display: 'flex',
     justifyContent: 'flex-end',
     zIndex: 3,
   },
   actionRow: {
     display: 'flex',
-    gap: 1,
-    mb: 1.5,
+    gap: theme.layout.space8,
+    mb: theme.layout.space12,
   },
   mainActions: {
     display: 'flex',
     alignItems: 'center',
-    bgcolor: 'rgba(255, 255, 255, 0.1)',
+    bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-08)',
     backdropFilter: 'blur(10px)',
-    borderRadius: '12px',
-    px: 0.5,
+    borderRadius: shapeTokens['corner-medium'],
+    px: theme.layout.space4,
   },
   tipButton: {
     display: 'flex',
     alignItems: 'center',
-    gap: 0.5,
-    bgcolor: 'rgba(255, 255, 255, 0.1)',
+    gap: theme.layout.space4,
+    bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-08)',
     backdropFilter: 'blur(10px)',
-    borderRadius: '12px',
-    px: 2,
-    py: 1,
-    color: 'white',
-    '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.2)' },
+    borderRadius: shapeTokens['corner-medium'],
+    px: theme.layout.space16,
+    py: theme.layout.space8,
+    color: 'var(--md-sys-color-on-primary)',
+    '&:hover': { bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-10)' },
   },
   shareButton: {
-    bgcolor: 'rgba(255, 255, 255, 0.1)',
+    bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-08)',
     backdropFilter: 'blur(10px)',
-    borderRadius: '12px',
-    color: 'white',
-    '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.2)' },
+    borderRadius: shapeTokens['corner-medium'],
+    color: 'var(--md-sys-color-on-primary)',
+    '&:hover': { bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-10)' },
   },
   content: {
-    px: 0.5,
+    px: theme.layout.space4,
   },
   hashtag: {
-    color: '#E91E63',
+    color: 'var(--md-sys-color-primary)',
     fontWeight: 500,
-    mr: 1,
+    mr: theme.layout.space8,
     cursor: 'pointer',
     '&:hover': { textDecoration: 'underline' },
   },
-};
+});
 
 export const FeedCard = ({
   username,
@@ -143,6 +144,8 @@ export const FeedCard = ({
   onMore,
   onUserClick,
 }: FeedCardProps) => {
+  const theme = useTheme();
+  const styles = feedCardStyles(theme);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -161,9 +164,9 @@ export const FeedCard = ({
   }, [imageUrl]);
 
   return (
-    <Box sx={feedCardStyles.card}>
+    <Box sx={styles.card}>
       {/* Media Section */}
-      <Box sx={feedCardStyles.mediaContainer}>
+      <Box sx={styles.mediaContainer}>
         {!isLoaded && (
           <Skeleton
             variant="rectangular"
@@ -179,28 +182,28 @@ export const FeedCard = ({
         )}
 
         {/* Top Overlay */}
-        <Box sx={feedCardStyles.overlayTop}>
-          <Box sx={feedCardStyles.userInfo} onClick={onUserClick}>
-            <Avatar
+        <Box sx={styles.overlayTop}>
+          <Box sx={styles.userInfo} onClick={onUserClick}>
+                <Avatar
               src={userAvatar}
               alt={username}
-              sx={{ width: 44, height: 44, border: '2px solid white' }}
+                  sx={{ width: 44, height: 44, border: '2px solid var(--md-sys-color-on-primary)' }}
             />
             <Box>
               <Stack direction="row" alignItems="center" spacing={0.5}>
-                <Text sx={{ fontWeight: 700, fontSize: '1.1rem', lineHeight: 1 }}>
+                <Text variant="title-medium" sx={{ fontWeight: 700, lineHeight: 1 }}>
                   {username}
                 </Text>
-                {isVerified && <VerifiedIcon sx={{ fontSize: 16, color: '#E91E63' }} />}
+                {isVerified && <VerifiedIcon sx={{ fontSize: 16, color: 'var(--md-sys-color-primary)' }} />}
               </Stack>
-              <Text sx={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: 1.2 }}>
+              <Text variant="label-medium" sx={{ opacity: 0.8, lineHeight: 1.2, color: 'var(--md-sys-color-on-primary)' }}>
                 @{handle}
               </Text>
             </Box>
           </Box>
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Text sx={{ fontSize: '0.9rem', fontWeight: 500 }}>{timeAgo}</Text>
-            <IconButton onClick={onMore} size="small" sx={{ color: 'white' }}>
+            <Text variant="label-medium" sx={{ fontWeight: 500 }}>{timeAgo}</Text>
+            <IconButton onClick={onMore} size="small" sx={{ color: 'var(--md-sys-color-on-primary)' }}>
               <MoreIcon />
             </IconButton>
           </Stack>
@@ -210,58 +213,55 @@ export const FeedCard = ({
           component="img"
           src={imageUrl}
           alt="Post content"
-          sx={[
-            feedCardStyles.image,
-            { opacity: isLoaded ? 1 : 0 }
-          ]}
+          sx={{ ...styles.image, opacity: isLoaded ? 1 : 0 }}
         />
 
         {/* Bottom Overlay (Watermark-like text) */}
-        <Box sx={feedCardStyles.overlayBottom}>
-          <Text sx={{ fontSize: '0.75rem', opacity: 0.8 }}>
+        <Box sx={styles.overlayBottom}>
+          <Text variant="label-small" sx={{ opacity: 0.8 }}>
             app.seacrets.online/{handle}
           </Text>
         </Box>
       </Box>
 
       {/* Action Buttons */}
-      <Box sx={feedCardStyles.actionRow}>
-        <Box sx={feedCardStyles.mainActions}>
+      <Box sx={styles.actionRow}>
+        <Box sx={styles.mainActions}>
           <Stack direction="row" alignItems="center" spacing={0}>
-            <IconButton onClick={onLike} sx={{ color: 'white' }}>
+            <IconButton onClick={onLike} sx={{ color: 'var(--md-sys-color-on-primary)' }}>
               <FavoriteIcon />
             </IconButton>
-            <Text sx={{ fontWeight: 600, fontSize: '0.9rem', pr: 1 }}>{likesCount}</Text>
+            <Text variant="label-large" sx={{ fontWeight: 600, pr: (t) => t.layout.space8 }}>{likesCount}</Text>
           </Stack>
-          <Box sx={{ width: '1px', height: '20px', bgcolor: 'rgba(255,255,255,0.2)', mx: 0.5 }} />
-          <IconButton onClick={onSave} sx={{ color: 'white' }}>
+          <Box sx={{ width: '1px', height: '20px', bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-08)', mx: (t) => t.layout.space4 }} />
+            <IconButton onClick={onSave} sx={{ color: 'var(--md-sys-color-on-primary)' }}>
             <BookmarkIcon />
           </IconButton>
         </Box>
 
-        <IconButton sx={feedCardStyles.tipButton} onClick={onTip}>
+        <IconButton sx={styles.tipButton} onClick={onTip}>
           <TipIcon sx={{ fontSize: 20 }} />
-          <Text sx={{ fontWeight: 600, fontSize: '0.9rem' }}>Tip</Text>
+          <Text variant="label-large" sx={{ fontWeight: 600 }}>Tip</Text>
         </IconButton>
 
-        <IconButton sx={feedCardStyles.shareButton} onClick={onShare}>
+        <IconButton sx={styles.shareButton} onClick={onShare}>
           <SendIcon sx={{ fontSize: 20, transform: 'rotate(-20deg)', mt: -0.5 }} />
         </IconButton>
       </Box>
 
       {/* Caption & Hashtags */}
-      <Box sx={feedCardStyles.content}>
+      <Box sx={styles.content}>
         {caption && (
-          <Text sx={{ fontSize: '0.95rem', mb: 0.5, lineHeight: 1.4 }}>
+          <Text variant="body-medium" sx={{ mb: (t) => t.layout.space4, lineHeight: 1.4 }}>
             {caption}
           </Text>
         )}
-        <Text sx={{ fontSize: '0.95rem', mb: 0.5 }}>
+        <Text variant="body-medium" sx={{ mb: (t) => t.layout.space4 }}>
           @{handle}
         </Text>
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           {hashtags.map((tag) => (
-            <Text key={tag} sx={feedCardStyles.hashtag}>
+            <Text key={tag} variant="body-medium" sx={styles.hashtag}>
               #{tag}
             </Text>
           ))}

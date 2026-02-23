@@ -1,10 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import CreateStoryTemplate from '../../components/templates/CreateStoryTemplate';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/CreateStoryTemplate',
   component: CreateStoryTemplate,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof CreateStoryTemplate>;
 
 export default meta;

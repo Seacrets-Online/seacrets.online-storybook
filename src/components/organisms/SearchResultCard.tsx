@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Skeleton } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 
@@ -15,9 +16,8 @@ export interface SearchResultCardProps extends BoxProps {
   onSubscribe?: () => void;
 }
 
-// TODO: Replace with token from tokens.json when available
 const gradientOverlay =
-  'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.2) 70%, transparent 100%)';
+  'linear-gradient(to top, var(--md-sys-state-layer-on-surface-opacity-16) 0%, var(--md-sys-state-layer-on-surface-opacity-10) 35%, var(--md-sys-state-layer-on-surface-opacity-08) 70%, transparent 100%)';
 
 export const SearchResultCard = ({
   name,
@@ -53,7 +53,7 @@ export const SearchResultCard = ({
       sx={[
         {
           position: 'relative',
-          borderRadius: '8px',
+          borderRadius: shapeTokens['corner-small'],
           overflow: 'hidden',
           aspectRatio: '3/4',
           minHeight: 280,
@@ -94,48 +94,48 @@ export const SearchResultCard = ({
       )}
 
       <Box
-        sx={{
+        sx={(t) => ({
           position: 'absolute',
           inset: 0,
           background: gradientOverlay,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
-          p: 2,
+          p: t.layout.space16,
           opacity: isLoaded ? 1 : 0,
           transition: 'opacity 0.5s ease-in-out 0.2s', // Small delay for content reveal
           zIndex: 3,
-        }}
+        })}
       >
-        <Box sx={{ mb: 1.5 }}>
-          <Text variant="h6" sx={{ color: 'white', fontWeight: 600 }}>
+        <Box sx={{ mb: (t) => t.layout.space12 }}>
+          <Text variant="h6" sx={{ color: 'var(--md-sys-color-on-primary)', fontWeight: 600 }}>
             {name}
           </Text>
           {priceLabel && (
-            <Text variant="body2" sx={{ color: 'white' }}>
+            <Text variant="body2" sx={{ color: 'var(--md-sys-color-on-primary)' }}>
               {priceLabel}
             </Text>
           )}
           {hashtag && (
             <Box
               component="span"
-              sx={{
+              sx={(t) => ({
                 display: 'inline-block',
-                mt: 0.5,
-                px: 1,
-                py: 0.25,
-                borderRadius: '8px',
+                mt: t.layout.space4,
+                px: t.layout.space8,
+                py: t.layout.space4,
+                borderRadius: shapeTokens['corner-small'],
                 bgcolor: 'var(--md-sys-color-surface-container-highest)',
-                color: 'white',
+                color: 'var(--md-sys-color-on-primary)',
                 fontSize: '0.75rem',
                 whiteSpace: 'nowrap',
-              }}
+              })}
             >
               {hashtag}
             </Box>
           )}
         </Box>
-        <Box sx={{ display: 'flex', gap: 1, minWidth: 0 }}>
+        <Box sx={(t) => ({ display: 'flex', gap: t.layout.space8, minWidth: 0 })}>
           <Button
             variant="contained"
             size="small"
@@ -145,7 +145,7 @@ export const SearchResultCard = ({
               flex: 1,
               minWidth: 0,
               bgcolor: 'var(--md-sys-color-surface-container-highest)',
-              color: 'white',
+              color: 'var(--md-sys-color-on-primary)',
               '&:hover': { bgcolor: 'var(--md-sys-color-surface-container-high)' },
             }}
             onClick={onViewProfile}

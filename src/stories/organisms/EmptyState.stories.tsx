@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import EmptyState from '../../components/organisms/EmptyState';
 
 const meta = {
   title: 'Organisms/EmptyState',
   component: EmptyState,
-  parameters: { layout: 'centered' },
+  tags: ['test'],
 } satisfies Meta<typeof EmptyState>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import ProfileTemplate from '../../components/templates/ProfileTemplate';
 import Card from '../../components/organisms/Card';
 import Avatar from '../../components/atoms/Avatar';
@@ -6,12 +6,7 @@ import Avatar from '../../components/atoms/Avatar';
 const meta: Meta<typeof ProfileTemplate> = {
   title: 'Templates/ProfileTemplate',
   component: ProfileTemplate,
-  parameters: {
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-  },
+  tags: ['test'],
 };
 
 export default meta;
@@ -36,7 +31,7 @@ export const Default: Story = {
     avatarSrc: 'https://100k-faces.vercel.app/api/random-image?seed=1',
     stats: {
       posts: 42,
-      followers: '1.2k' as any,
+      followers: 1200,
       following: 150,
     },
     children: profilePosts,

@@ -1,13 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Box } from '@mui/material';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import MediaCropWrapper from '../../components/organisms/MediaCropWrapper';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Organisms/MediaCropWrapper',
   component: MediaCropWrapper,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [(Story) => <Box sx={{ width: 360 }}><Story /></Box>],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof MediaCropWrapper>;
 
 export default meta;

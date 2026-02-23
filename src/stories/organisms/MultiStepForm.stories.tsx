@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Box } from '@mui/material';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import MultiStepForm from '../../components/organisms/MultiStepForm';
+import { withWidth, WIDTH } from '../decorators';
 import TextField from '../../components/molecules/TextField';
 import Text from '../../components/atoms/Text';
 
@@ -8,8 +8,8 @@ const meta = {
   title: 'Organisms/MultiStepForm',
   component: MultiStepForm,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [(Story) => <Box sx={{ width: 360 }}><Story /></Box>],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof MultiStepForm>;
 
 export default meta;

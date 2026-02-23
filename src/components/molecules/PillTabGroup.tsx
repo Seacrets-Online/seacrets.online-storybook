@@ -16,17 +16,15 @@ export interface PillTabGroupProps<T = string> extends Omit<BoxProps, 'onChange'
   variant?: 'pill' | 'rounded';
 }
 
-const pillSx = (active: boolean, variant: 'pill' | 'rounded'): SxProps<Theme> => ({
-  px: 2,
-  py: 1,
+const pillSx = (active: boolean, variant: 'pill' | 'rounded') => (theme: Theme): SxProps<Theme> => ({
+  px: theme.layout.space16,
+  py: theme.layout.space8,
   flex: variant === 'rounded' ? 1 : undefined,
   minWidth: variant === 'rounded' ? 0 : undefined,
-  borderRadius: variant === 'rounded' ? '8px' : shapeTokens['corner-full'],
+  borderRadius: variant === 'rounded' ? shapeTokens['corner-small'] : shapeTokens['corner-full'],
   border: 'none',
-  background: active ? 'primary.main' : 'var(--seacrets-online-schemes-surface-container-low)',
+  background: active ? 'primary.main' : 'var(--md-sys-color-surface-container-low)',
   color: active ? 'primary.contrastText' : 'text.primary',
-  fontSize: '0.875rem',
-  fontWeight: 500,
   cursor: 'pointer',
   '&:hover': {
     bgcolor: active ? 'primary.dark' : 'action.hover',
@@ -45,7 +43,7 @@ export const PillTabGroup = <T extends string>({
     sx={[
       {
         display: 'flex',
-        gap: 1,
+        gap: (t) => t.layout.space8,
         flexWrap: variant === 'rounded' ? 'nowrap' : 'wrap',
         width: variant === 'rounded' ? '100%' : undefined,
       },
@@ -59,13 +57,12 @@ export const PillTabGroup = <T extends string>({
         component="button"
         type="button"
         onClick={() => onChange?.(tab.value)}
-        sx={pillSx(value === tab.value, variant)}
+        sx={pillSx(value === tab.value, variant) as SxProps<Theme>}
       >
         <Text
-          variant="body2"
+          variant="label-large"
           sx={{
             color: 'inherit',
-            fontWeight: 'inherit',
             ...(variant === 'rounded' && {
               display: 'block',
               overflow: 'hidden',

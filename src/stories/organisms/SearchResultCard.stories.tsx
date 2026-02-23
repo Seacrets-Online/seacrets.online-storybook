@@ -1,17 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SearchResultCard from '../../components/organisms/SearchResultCard';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Organisms/SearchResultCard',
   component: SearchResultCard,
-  parameters: { layout: 'centered', docs: { page: null } },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 360 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof SearchResultCard>;
 
 export default meta;

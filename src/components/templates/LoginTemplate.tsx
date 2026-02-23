@@ -14,6 +14,8 @@ import logoSvg from '../../assets/seacrets-logo.svg';
 import paymentBadgesSvg from '../../assets/payment-badges.svg';
 
 export interface LoginTemplateProps extends BoxProps {
+  /** Optional header (e.g. GlobalHeader) for app consistency */
+  header?: React.ReactNode;
   /** Which screen to show: login form or forgot-password (email only) */
   screen?: 'login' | 'forgotPassword';
   title?: string;
@@ -44,6 +46,7 @@ export interface LoginTemplateProps extends BoxProps {
 }
 
 export const LoginTemplate = ({
+  header,
   screen = 'login',
   title = 'Sign in',
   subtitle,
@@ -95,9 +98,25 @@ export const LoginTemplate = ({
   };
 
   return (
-    <Box sx={[baseLoginTemplateSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
-      <Container maxWidth="xs" sx={{ px: 4, py: 3 }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
+    <Box sx={[baseLoginTemplateSx, ...(header ? [{ justifyContent: 'flex-start' }] : []), ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
+      <Container
+        maxWidth="sm"
+        sx={(t) => ({
+          px: t.layout.space16,
+          py: t.layout.space16,
+          ...(header ? { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' } : {}),
+        })}
+      >
+        {header && <Box sx={(t) => ({ flexShrink: 0, width: '100%', mb: t.layout.space24 })}>{header}</Box>}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            alignItems: 'center',
+            ...(header ? { flex: 1, justifyContent: 'center' } : {}),
+          }}
+        >
           {isForgotPassword ? (
             <Box sx={{ width: '100%', mt: layout.contentBlockMt }}>
               <Text variant="pageTitle" component="h1" align="center">
@@ -121,9 +140,11 @@ export const LoginTemplate = ({
               <Button
                 variant="text"
                 onClick={handleBackToLogin}
-                sx={{ mt: layout.afterForm, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
+                sx={{ mt: layout.afterForm, color: 'primary.main' }}
               >
-                {backToLoginLabel}
+                <Text variant="title-medium" sx={{ color: 'inherit' }}>
+                  {backToLoginLabel}
+                </Text>
               </Button>
             </Box>
           ) : (
@@ -189,12 +210,12 @@ export const LoginTemplate = ({
                 }}
               />
               <Text
-                variant="caption"
-                sx={{ color: 'text.disabled', mt: layout.space24, textAlign: 'center', fontSize: '0.75rem' }}
+                variant="label-small"
+                sx={{ color: 'text.disabled', mt: layout.space24, textAlign: 'center' }}
               >
                 protected by reCAPTCHA{' '}
                 {onPrivacyTermsClick && (
-                  <Link component="button" onClick={onPrivacyTermsClick} sx={{ cursor: 'pointer', fontSize: 'inherit', fontWeight: 400, color: 'text.disabled', textDecoration: 'none' }}>
+                  <Link component="button" onClick={onPrivacyTermsClick} sx={{ cursor: 'pointer', fontSize: 'inherit', color: 'text.disabled', textDecoration: 'none' }}>
                     Privacy - Terms
                   </Link>
                 )}
@@ -203,9 +224,11 @@ export const LoginTemplate = ({
                 <Button
                   variant="text"
                   onClick={onCreateAccount}
-                  sx={{ mt: layout.space32, textTransform: 'none', fontWeight: 500, color: 'primary.main', fontSize: '1rem' }}
+                  sx={{ mt: layout.space32, color: 'primary.main' }}
                 >
-                  {createAccountLabel}
+                  <Text variant="title-medium" sx={{ color: 'inherit' }}>
+                    {createAccountLabel}
+                  </Text>
                 </Button>
               )}
               <Box

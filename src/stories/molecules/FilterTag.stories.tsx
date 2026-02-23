@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import FilterTag from '../../components/molecules/FilterTag';
 
 const meta = {
   title: 'Molecules/FilterTag',
   component: FilterTag,
-  parameters: { layout: 'centered' },
+  tags: ['test'],
 } satisfies Meta<typeof FilterTag>;
 
 export default meta;

@@ -44,12 +44,12 @@ export const FileUpload = ({
         />
       </Button>
       {fileName && (
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+        <Typography variant="body2" color="text.secondary" sx={(t) => ({ mt: t.layout.space8 })}>
           {fileName}
         </Typography>
       )}
       {hint && (
-        <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 0.5 }}>
+        <Typography variant="caption" color="text.secondary" display="block" sx={(t) => ({ mt: t.layout.space4 })}>
           {hint}
         </Typography>
       )}

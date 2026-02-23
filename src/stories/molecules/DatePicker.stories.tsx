@@ -1,12 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
+import { within } from 'storybook/test';
 import DatePicker from '../../components/molecules/DatePicker';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/DatePicker',
   component: DatePicker,
-  parameters: { layout: 'centered' },
-  decorators: [(Story) => <div style={{ width: 200 }}><Story /></div>],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.narrow)],
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
@@ -26,5 +28,9 @@ export const Default: Story = {
         onChange={(e) => updateArgs({ value: e.target.value })}
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    canvas.getByRole('button', { name: /choose date/i });
   },
 };

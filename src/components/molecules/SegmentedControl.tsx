@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
 import Text from '../atoms/Text';
+import { shapeTokens } from '../../utils/shapes';
 
 export interface SegmentedControlItem<T = string> {
   value: T;
@@ -16,22 +17,20 @@ export interface SegmentedControlProps<T = string> extends Omit<BoxProps, 'onCha
 const containerSx: SxProps<Theme> = {
   display: 'flex',
   width: '100%',
-  borderRadius: '8px',
+  borderRadius: shapeTokens['corner-small'],
   overflow: 'hidden',
-  bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
+  bgcolor: 'var(--md-sys-color-surface-container-low)',
 };
 
-const segmentSx = (active: boolean): SxProps<Theme> => ({
+const segmentSx = (active: boolean) => (theme: Theme): SxProps<Theme> => ({
   flex: 1,
   minWidth: 0,
-  py: 1,
-  px: 1,
+  py: theme.layout.space8,
+  px: theme.layout.space8,
   border: 'none',
   borderRadius: 0,
   background: active ? 'primary.main' : 'transparent',
   color: active ? 'primary.contrastText' : 'text.primary',
-  fontSize: '0.875rem',
-  fontWeight: 500,
   cursor: 'pointer',
   transition: 'background 0.2s, color 0.2s',
   '&:hover': {
@@ -53,13 +52,12 @@ export const SegmentedControl = <T extends string>({
         component="button"
         type="button"
         onClick={() => onChange?.(tab.value)}
-        sx={segmentSx(value === tab.value)}
+        sx={segmentSx(value === tab.value) as SxProps<Theme>}
       >
         <Text
-          variant="body2"
+          variant="label-large"
           sx={{
             color: 'inherit',
-            fontWeight: 'inherit',
             display: 'block',
             overflow: 'hidden',
             textOverflow: 'ellipsis',

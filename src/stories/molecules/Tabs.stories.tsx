@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import Tabs from '../../components/molecules/Tabs';
 
 const meta = {
   title: 'Molecules/Tabs',
   component: Tabs,
-  parameters: { layout: 'centered' },
+  tags: ['test'],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

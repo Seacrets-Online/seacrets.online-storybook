@@ -1,50 +1,38 @@
-# Figma Export Requirements for Style Dictionary
+# Figma Export Requirements
 
-This document describes what must be included in the token export from Figma to ensure Style Dictionary builds successfully without errors.
+Validation rules for token exports. Full standard: [TOKEN_EXPORT.md](./TOKEN_EXPORT.md).
 
-## Pipeline: @tokens-studio/sd-transforms
+## Pipeline
 
-The build uses [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms), the official Token Studio integration for Style Dictionary. It:
+[@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms) + Style Dictionary. Validates before build via `scripts/validate-token-studio-export.ts`.
 
-- Parses Token Studio single-file export (this repo validates `seacrets.online/Light` and `seacrets.online/Dark`)
-- Aligns Token Studio token types to DTCG
-- Handles typography and references when present
+## Required
 
-## Token Studio Compatibility (Required)
+| Rule | Description |
+|------|-------------|
+| Format | W3C DTCG (`$value` / `$type`) |
+| Token sets | `seacrets.online/Light`, `seacrets.online/Dark` |
+| Metadata | `$metadata.tokenSetOrder` must include both sets |
+| Root | `seacrets` object must exist |
 
-The repository includes a pre-build validation step in `scripts/build-dictionary.ts` to fail fast when token exports are incompatible.
+## Validation
 
-- Required token format: **W3C DTCG** (`$value` / `$type`)
-- Required token set names:
-  - `seacrets.online/Light`
-  - `seacrets.online/Dark`
-- Required metadata: `"$metadata".tokenSetOrder` must include the same set names
+`npm run build-dictionary` fails if:
 
-If any rule is violated, `npm run build-dictionary` fails before Style Dictionary execution.
+1. Validation script rejects the file (missing sets, wrong metadata)
+2. Style Dictionary hits broken references (`log.errors.brokenReferences: "error"`)
 
-## Verification Checklist
-
-After exporting from Figma and updating `src/tokens/tokens.json`:
-
-1. Run `npm run build-dictionary` – must complete without errors
-2. Broken references are treated as errors (`log.errors.brokenReferences: "error"`) – any unresolved ref will fail the build
-3. Ensure all referenced base token indices exist (e.g. `lineHeights.24` if used)
-
-## Expected Export Structure
+## Expected Structure
 
 ```
 seacrets/
-  online/Light/
-    Schemes/, Palettes/, ...   (colors)
-    md/                        (optional: typography if exported)
-
-  online/Dark/
-    Schemes/, Palettes/, ...   (colors)
-    md/                        (optional: typography if exported)
+  online/Light/    Schemes, Palettes, md (typography), ...
+  online/Dark/     (same)
+  online/global/   spacing (optional)
 ```
 
 ## Notes
 
-- The build uses only `src/tokens/tokens.json` as source
-- Broken references cause the build to fail (strict mode)
-- Token name collisions are avoided by including theme in internal token names
+- Single source: `src/tokens/tokens.json`
+- Broken refs (e.g. `{lineHeights.24}` when missing) fail the build
+- High/Medium Contrast themes exist in export but are not processed; only Light and Dark are used

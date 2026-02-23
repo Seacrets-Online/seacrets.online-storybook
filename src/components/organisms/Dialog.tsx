@@ -4,6 +4,7 @@ import {
   DialogTitle as MuiDialogTitle,
   DialogContent as MuiDialogContent,
   DialogActions as MuiDialogActions,
+  useTheme,
 } from "@mui/material";
 import type { DialogProps as MuiDialogProps } from "@mui/material";
 import Button from "../atoms/Button";
@@ -42,8 +43,10 @@ export const Dialog = ({
   onClose,
   ...props
 }: DialogProps) => {
+  const theme = useTheme();
+  const layout = theme.layout;
   const handleClose = (
-    event: {},
+    event: React.SyntheticEvent,
     reason: "backdropClick" | "escapeKeyDown",
   ) => {
     if (reason === "backdropClick" && disableBackdropClick) {
@@ -64,15 +67,14 @@ export const Dialog = ({
       slotProps={{
         backdrop: {
           sx: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backgroundColor: "var(--md-sys-state-layer-scrim-opacity-10)",
           },
         },
       }}
       PaperProps={{
         sx: {
-          backgroundColor:
-            "var(--seacrets-online-schemes-surface-container-high)",
-          color: "var(--seacrets-online-schemes-on-surface)",
+          backgroundColor: "var(--md-sys-color-surface-container-high)",
+          color: "var(--md-sys-color-on-surface)",
           borderRadius: shapeTokens["corner-extra-large"],
           minWidth: 280,
           maxWidth: 560,
@@ -85,14 +87,11 @@ export const Dialog = ({
         <MuiDialogTitle
           id={titleId}
           sx={{
-            color: "var(--seacrets-online-schemes-on-surface)",
-            fontWeight: 500,
-            fontSize: "1.5rem",
-            lineHeight: 1.334,
-            padding: "24px 24px 16px",
+            color: "var(--md-sys-color-on-surface)",
+            padding: `${theme.spacing(layout.space24)} ${theme.spacing(layout.space24)} ${theme.spacing(layout.space16)}`,
           }}
         >
-          <Text variant="h6" component="span">
+          <Text variant="headline-small" component="span">
             {title}
           </Text>
         </MuiDialogTitle>
@@ -100,9 +99,12 @@ export const Dialog = ({
       <MuiDialogContent
         id={contentId}
         sx={{
-          color: "var(--seacrets-online-schemes-on-surface-variant)",
-          padding: title ? "0 24px" : "24px",
-          paddingBottom: actions && actions.length > 0 ? "16px" : "24px",
+          color: "var(--md-sys-color-on-surface-variant)",
+          padding: title ? `0 ${theme.spacing(layout.space24)}` : theme.spacing(layout.space24),
+          paddingBottom:
+            actions && actions.length > 0
+              ? theme.spacing(layout.space16)
+              : theme.spacing(layout.space24),
         }}
       >
         {content || children}
@@ -110,8 +112,8 @@ export const Dialog = ({
       {actions && actions.length > 0 && (
         <MuiDialogActions
           sx={{
-            padding: "16px 24px 24px",
-            gap: "8px",
+            padding: `${theme.spacing(layout.space16)} ${theme.spacing(layout.space24)} ${theme.spacing(layout.space24)}`,
+            gap: theme.spacing(layout.space8),
             justifyContent: "flex-end",
           }}
         >
@@ -121,11 +123,18 @@ export const Dialog = ({
             }
 
             const buttonProps = action as ButtonProps;
+            const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+              buttonProps.onClick?.(event);
+              if (!event.defaultPrevented) {
+                onClose?.(event, "backdropClick");
+              }
+            };
             return (
               <Button
                 key={index}
                 variant={index === actions.length - 1 ? "contained" : "text"}
                 {...buttonProps}
+                onClick={handleClick}
               />
             );
           })}

@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Box } from '@mui/material';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SearchBar from '../../components/molecules/SearchBar';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/SearchBar',
   component: SearchBar,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [(Story) => <Box sx={{ width: 360 }}><Story /></Box>],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof SearchBar>;
 
 export default meta;

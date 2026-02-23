@@ -1,17 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SearchSection from '../../components/organisms/SearchSection';
+import { withMobileWidth } from '../decorators';
 
 const meta = {
   title: 'Organisms/SearchSection',
   component: SearchSection,
-  parameters: { layout: 'centered', docs: { page: null } },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 390, maxWidth: '100%' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withMobileWidth()],
 } satisfies Meta<typeof SearchSection>;
 
 export default meta;

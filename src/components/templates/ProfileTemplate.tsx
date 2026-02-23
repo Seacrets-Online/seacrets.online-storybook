@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material';
 import Avatar from '../atoms/Avatar';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
@@ -40,20 +40,20 @@ export const ProfileTemplate = ({
     {...props}
   >
     <Container
-      maxWidth="xs"
+      maxWidth="sm"
       disableGutters
-      sx={{
+      sx={(t) => ({
         flex: 1,
         minHeight: 0,
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        px: 2,
-        py: 2,
-      }}
+        px: t.layout.space12,
+        py: t.layout.space12,
+      })}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space16, mb: t.layout.space24 })}>
+        <Box sx={(t) => ({ display: 'flex', alignItems: 'center', gap: t.layout.space16 })}>
           <Avatar
             src={avatarSrc}
             sx={{
@@ -67,12 +67,12 @@ export const ProfileTemplate = ({
           </Avatar>
           <Box sx={{ flex: 1, minWidth: 0 }}>
             {name && (
-              <Text variant="h6" sx={{ fontWeight: 600, noWrap: true }}>
+              <Text variant="title-large" sx={{ whiteSpace: 'nowrap' }}>
                 {name}
               </Text>
             )}
             {username && (
-              <Text variant="body2" color="text.secondary" sx={{ noWrap: true }}>
+              <Text variant="body2" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>
                 @{username}
               </Text>
             )}
@@ -90,36 +90,36 @@ export const ProfileTemplate = ({
 
         {stats && (
           <Box
-            sx={{
+            sx={(t) => ({
               display: 'flex',
               justifyContent: 'space-around',
-              py: 1.5,
+              py: t.layout.space12,
               borderTop: '1px solid',
               borderBottom: '1px solid',
               borderColor: 'divider',
-            }}
+            })}
           >
             <Box sx={{ textAlign: 'center' }}>
-              <Text variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Text variant="title-medium">
                 {stats.posts ?? 0}
               </Text>
-              <Text variant="caption" color="text.secondary">
+              <Text variant="label-small" color="text.secondary">
                 Posts
               </Text>
             </Box>
             <Box sx={{ textAlign: 'center' }}>
-              <Text variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Text variant="title-medium">
                 {stats.followers ?? 0}
               </Text>
-              <Text variant="caption" color="text.secondary">
+              <Text variant="label-small" color="text.secondary">
                 Seguidores
               </Text>
             </Box>
             <Box sx={{ textAlign: 'center' }}>
-              <Text variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Text variant="title-medium">
                 {stats.following ?? 0}
               </Text>
-              <Text variant="caption" color="text.secondary">
+              <Text variant="label-small" color="text.secondary">
                 Siguiendo
               </Text>
             </Box>
@@ -128,13 +128,13 @@ export const ProfileTemplate = ({
       </Box>
 
       <Box
-        sx={{
+        sx={(t) => ({
           flex: 1,
           minHeight: 0,
           display: 'flex',
           flexDirection: 'column',
-          gap: 2,
-        }}
+          gap: t.layout.space16,
+        })}
       >
         {children}
       </Box>

@@ -1,5 +1,5 @@
 import { Alert, Box, Divider, Paper, Stack, Typography, useTheme } from '@mui/material';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const FILE_PATHS = [
   {

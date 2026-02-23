@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import FileUpload from '../../components/organisms/FileUpload';
 
 const meta = {
   title: 'Organisms/FileUpload',
   component: FileUpload,
-  parameters: { layout: 'centered' },
+  tags: ['test'],
 } satisfies Meta<typeof FileUpload>;
 
 export default meta;

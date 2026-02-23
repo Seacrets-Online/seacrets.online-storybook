@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { within, userEvent } from 'storybook/test';
 import { Box } from '@mui/material';
 import { Star as StarIcon } from '@mui/icons-material';
@@ -11,7 +11,7 @@ const meta = {
   title: 'Atoms/Button',
   component: Button,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     variant: {
       control: 'select',
@@ -59,6 +59,10 @@ export const Outlined: Story = {
   args: {
     children: 'Outlined',
     variant: 'outlined',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    canvas.getByRole('button', { name: /outlined/i });
   },
 };
 

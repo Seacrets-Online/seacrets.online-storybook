@@ -1,12 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import Select from '../../components/molecules/Select';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/Select',
   component: Select,
   parameters: { layout: 'centered' },
-  decorators: [(Story) => <div style={{ width: 200 }}><Story /></div>],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.narrow)],
 } satisfies Meta<typeof Select>;
 
 export default meta;

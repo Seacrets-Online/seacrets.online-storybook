@@ -1,26 +1,17 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import OnboardingStepTemplate from '../../components/templates/OnboardingStepTemplate';
 import TextField from '../../components/molecules/TextField';
 import Text from '../../components/atoms/Text';
+import { within } from 'storybook/test';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/OnboardingStepTemplate',
   component: OnboardingStepTemplate,
-  parameters: {
-    layout: 'fullscreen',
-    docs: { page: null },
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '100vh', width: '100vw', display: 'flex', flexDirection: 'column' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof OnboardingStepTemplate>;
 
 export default meta;
@@ -55,6 +46,7 @@ export const Default: Story = {
     ];
 
     const stepData = steps[currentStep - 1];
+    if (!stepData) return <></>;
 
     return (
       <OnboardingStepTemplate
@@ -70,5 +62,9 @@ export const Default: Story = {
         {stepData.children}
       </OnboardingStepTemplate>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    canvas.getByText(/selecciona tu nombre de usuario/i);
   },
 };

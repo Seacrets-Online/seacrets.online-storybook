@@ -5,6 +5,8 @@ import CreateStoryForm from '../organisms/CreateStoryForm';
 import Text from '../atoms/Text';
 
 export interface CreateStoryTemplateProps extends Omit<BoxProps, 'onSubmit'> {
+  /** Optional header (e.g. GlobalHeader) for app consistency */
+  header?: React.ReactNode;
   onBack?: () => void;
   onSubmit?: (data: { file?: File; description: string }) => void;
   title?: string;
@@ -20,6 +22,7 @@ const rootSx: SxProps<Theme> = {
 };
 
 export const CreateStoryTemplate = ({
+  header,
   onBack,
   onSubmit,
   title = 'Crear Historia',
@@ -30,27 +33,28 @@ export const CreateStoryTemplate = ({
   <Box sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
     <Container
       maxWidth={false}
-      sx={{
+      sx={(t) => ({
         flex: 1,
         width: '100%',
         maxWidth: '100%',
-        px: 4,
-        py: 3,
+        px: t.layout.space16,
+        py: t.layout.space16,
         display: 'flex',
         flexDirection: 'column',
-      }}
+      })}
     >
+      {header && <Box sx={(t) => ({ flexShrink: 0, width: '100%', mb: t.layout.space24 })}>{header}</Box>}
       {onBack && (
         <Box
           component="button"
           type="button"
           onClick={onBack}
           aria-label={backLabel}
-          sx={{
+          sx={(t) => ({
           display: 'flex',
           alignItems: 'center',
-          gap: 0.5,
-          mb: 2,
+          gap: t.layout.space4,
+          mb: t.layout.space16,
           p: 0,
           border: 0,
           background: 'none',
@@ -58,7 +62,7 @@ export const CreateStoryTemplate = ({
           color: 'text.secondary',
           cursor: 'pointer',
           '&:hover': { color: 'text.primary' },
-        }}
+        })}
       >
         <ChevronLeft sx={{ fontSize: 24 }} />
         <Text variant="body2" sx={{ color: 'inherit' }}>
@@ -68,14 +72,14 @@ export const CreateStoryTemplate = ({
       )}
 
       <Box
-        sx={{
+        sx={(t) => ({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 1,
-          mb: 3,
-        }}
+          gap: t.layout.space8,
+          mb: t.layout.space24,
+        })}
       >
         <PlayCircleOutline sx={{ fontSize: 32, color: 'text.primary' }} />
         <Text variant="h6" component="h1" sx={{ fontWeight: 500, color: 'text.primary' }}>

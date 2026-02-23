@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import IconButton from '../../components/atoms/IconButton';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Atoms/IconButton',
   component: IconButton,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     color: {
       control: 'select',

@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SearchTemplate from '../../components/templates/SearchTemplate';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/SearchTemplate',
   component: SearchTemplate,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof SearchTemplate>;
 
 export default meta;
@@ -24,7 +20,7 @@ export const Default: Story = {
     const [results, setResults] = useState(() =>
       Array.from({ length: 6 }, (_, i) => ({
         id: `res-${i}`,
-        name: ['Daniela', 'Georgia', 'Sofia', 'Martina', 'Lucia', 'Elena'][i % 6],
+        name: ['Daniela', 'Georgia', 'Sofia', 'Martina', 'Lucia', 'Elena'][i % 6] ?? 'Unknown',
         priceLabel: 'Gratis',
         hashtag: '#seacrets',
         imageUrl: `https://100k-faces.vercel.app/api/random-image?seed=${i + 100}`,
@@ -40,7 +36,7 @@ export const Default: Story = {
           ...prev,
           ...Array.from({ length: 6 }, (_, i) => ({
             id: `res-${prev.length + i}`,
-            name: ['Valeria', 'Camila', 'Isabella', 'Sara', 'Victoria', 'Mia'][i % 6],
+            name: ['Valeria', 'Camila', 'Isabella', 'Sara', 'Victoria', 'Mia'][i % 6] ?? 'Unknown',
             priceLabel: 'Gratis',
             hashtag: '#new',
             imageUrl: `https://100k-faces.vercel.app/api/random-image?seed=${prev.length + i + 200}`,

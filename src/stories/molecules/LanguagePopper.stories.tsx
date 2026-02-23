@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import LanguagePopper from '../../components/molecules/LanguagePopper';
 
 const meta = {
   title: 'Molecules/LanguagePopper',
   component: LanguagePopper,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof LanguagePopper>;
 
 export default meta;

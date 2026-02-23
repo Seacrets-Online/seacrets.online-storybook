@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import AppBar from '../../components/organisms/AppBar';
 import { Menu as MenuIcon } from '@mui/icons-material';
 
 const meta = {
   title: 'Organisms/AppBar',
   component: AppBar,
-  parameters: { layout: 'fullscreen' },
+  tags: ['test'],
 } satisfies Meta<typeof AppBar>;
 
 export default meta;

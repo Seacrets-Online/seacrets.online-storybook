@@ -5,6 +5,33 @@
  * nested under theme sets.
  */
 import type { PreprocessedTokens } from 'style-dictionary/types';
+
+const unsupportedTypographyShorthandProperties = new Set([
+  'letterSpacing',
+  'paragraphSpacing',
+  'paragraphIndent',
+  'textCase',
+  'textDecoration',
+]);
+
+const fullTypographyValueKey = '__fullTypographyValue';
+
+const isPlainObject = (value: unknown): value is Record<string, unknown> => {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+};
+
+const removeUnsupportedTypographyProperties = (value: unknown): unknown => {
+  if (!isPlainObject(value)) {
+    return value;
+  }
+
+  return Object.fromEntries(
+    Object.entries(value).filter(
+      ([key]) => !unsupportedTypographyShorthandProperties.has(key)
+    )
+  );
+};
+
 const expandRefsInValue = (value: unknown, setPrefix: string): unknown => {
   if (typeof value === 'string') {
     return value.replace(/\{([a-zA-Z0-9.-]+)\}/g, (_, ref) => {
@@ -34,7 +61,13 @@ function recurse(obj: Record<string, unknown>, parentPath: string[]): void {
         if (tokenType === 'typography' && valObj.$value) {
           const setKey = path[1];
           const setPrefix = setKey ? `seacrets.${setKey}.` : 'seacrets.online/Light.';
-          valObj.$value = expandRefsInValue(valObj.$value, setPrefix);
+          const expandedTypographyValue = expandRefsInValue(valObj.$value, setPrefix);
+          if (isPlainObject(expandedTypographyValue)) {
+            (valObj as Record<string, unknown>)[fullTypographyValueKey] = expandedTypographyValue;
+            valObj.$value = removeUnsupportedTypographyProperties(expandedTypographyValue);
+          } else {
+            valObj.$value = expandedTypographyValue;
+          }
         }
       } else {
         recurse(valObj, path);

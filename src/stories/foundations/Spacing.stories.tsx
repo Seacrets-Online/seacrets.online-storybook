@@ -1,8 +1,6 @@
-// Import the single source of truth directly
-import tokens from '../../tokens/tokens.json';
-
-// Extract the exact branch where spacing tokens from Figma are stored
-const spacingTokens = (tokens as any).seacrets['online/global'].spacing;
+import { Box, Typography, useTheme } from '@mui/material';
+import Text from '../../components/atoms/Text';
+import { spacingTokens } from '../../utils/spacing.generated';
 
 export default {
   title: 'Foundations/Spacing',
@@ -16,75 +14,137 @@ export default {
 
 export const Scale = {
   render: () => {
-    // Convert the JSON object into an array and sort it from smallest to largest
+    const colorBorder = 'var(--md-sys-color-on-primary)';
+    const colorPrimary = 'var(--md-sys-color-primary-container)';
+
     const steps = Object.entries(spacingTokens)
-      .map(([name, data]: [string, any]) => ({
-        name,
-        value: data.$value,
-      }))
+      .map(([name, value]) => ({ name, value }))
       .sort((a, b) => a.value - b.value);
 
+    const space48 = spacingTokens['48'] ?? 48;
+    const space16 = spacingTokens['16'] ?? 16;
+    const space24 = spacingTokens['24'] ?? 24;
+    const space12 = spacingTokens['12'] ?? 12;
+    const space4 = spacingTokens['4'] ?? 4;
+
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', fontFamily: 'var(--md-sys-typescale-body-large-font-family, sans-serif)' }}>
-        
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: `${space48}px` }}>
         {/* Header and Usage Guidelines */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <h1 style={{ margin: 0, color: 'var(--seacrets-online-schemes-on-surface)' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: `${space16}px` }}>
+          <Text variant="h1" component="h1">
             Spacing Scale
-          </h1>
-          <p style={{ margin: 0, color: 'var(--seacrets-online-schemes-on-surface-variant)', maxWidth: '800px', lineHeight: 1.6 }}>
+          </Text>
+          <Text variant="body1" color="text.primary" sx={{ maxWidth: 800, lineHeight: 1.6 }}>
             Our spacing scale is extracted directly from <strong>Figma (Tokens Studio)</strong>. 
             Strictly use these values to maintain vertical and horizontal rhythm for margins, paddings, and gaps between components.
-          </p>
-        </div>
+          </Text>
+        </Box>
 
         {/* Visual Representation of the Scale */}
-        <div>
-          <h3 style={{ color: 'var(--seacrets-online-schemes-on-surface)', marginBottom: '24px' }}>Available Tokens</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Box>
+          <Text variant="h6" component="h3" sx={{ mb: `${space24}px` }}>
+            Available Tokens
+          </Text>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: `${space16}px` }}>
             {steps.map((step) => (
-              <div key={step.name} style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '24px', 
-                borderBottom: '1px solid var(--seacrets-online-schemes-outline-variant)', 
-                paddingBottom: '12px' 
-              }}>
-                <div style={{ width: '100px', fontSize: '14px', fontWeight: 'bold', color: 'var(--seacrets-online-schemes-on-surface)' }}>
+              <Box
+                key={step.name}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: `${space24}px`,
+                  borderBottom: `1px solid ${colorBorder}`,
+                  pb: `${space12}px`,
+                }}
+              >
+                <Text variant="body2" fontWeight="bold" sx={{ width: 100 }}>
                   spacing-{step.name}
-                </div>
-                <div style={{ width: '80px', fontSize: '14px', color: 'var(--seacrets-online-schemes-on-surface-variant)' }}>
+                </Text>
+                <Text variant="body2" color="text.primary" sx={{ width: 80 }}>
                   {step.value}px
-                </div>
-                <div style={{
-                  height: '24px',
-                  width: `${step.value}px`,
-                  backgroundColor: 'var(--seacrets-online-schemes-primary)',
-                  borderRadius: '4px'
-                }} />
-              </div>
+                </Text>
+                <Box
+                  sx={{
+                    height: `${space24}px`,
+                    width: `${step.value}px`,
+                    backgroundColor: colorPrimary,
+                    borderRadius: `${space4}px`,
+                  }}
+                />
+              </Box>
             ))}
-          </div>
-        </div>
+          </Box>
+        </Box>
 
         {/* Do's and Don'ts */}
-        <div>
-          <h3 style={{ color: 'var(--seacrets-online-schemes-on-surface)', marginBottom: '16px' }}>Do & Dont</h3>
-          <ul style={{ 
-            color: 'var(--seacrets-online-schemes-on-surface-variant)', 
-            lineHeight: 2,
-            listStyle: 'none',
-            padding: 0,
-            margin: 0
-          }}>
-            <li>✅ <strong>DO:</strong> Use the theme engine or CSS variables to apply spacing.</li>
-            <li>✅ <strong>DO:</strong> Maintain spatial consistency by grouping related components with smaller separations (e.g., 4px, 8px), and distant blocks with larger spaces (e.g., 32px, 48px).</li>
-            <li>❌ <strong>DON'T:</strong> Inject hardcoded "magic numbers" into your styles (e.g., <code>marginTop: '15px'</code>).</li>
-            <li>❌ <strong>DON'T:</strong> Invent intermediate spaces that do not exist in the table above.</li>
-          </ul>
-        </div>
+        <Box>
+          <Text variant="h6" component="h3" sx={{ mb: `${space16}px` }}>
+            Do & Dont
+          </Text>
+          <Box
+            component="ul"
+            sx={{
+              color: 'text.primary',
+              lineHeight: 2,
+              listStyle: 'none',
+              p: 0,
+              m: 0,
+            }}
+          >
+            <Box component="li">
+              <Text variant="body2" color="text.primary" component="span">
+                DO: Use the theme engine or CSS variables to apply spacing.
+              </Text>
+            </Box>
+            <Box component="li">
+              <Text variant="body2" color="text.primary" component="span">
+                DO: Maintain spatial consistency by grouping related components with smaller separations (e.g., 4px, 8px), and distant blocks with larger spaces (e.g., 32px, 48px).
+              </Text>
+            </Box>
+            <Box component="li">
+              <Text variant="body2" color="text.primary" component="span">
+                DON'T: Inject hardcoded magic numbers into your styles (e.g. marginTop: '15px').
+              </Text>
+            </Box>
+            <Box component="li">
+              <Text variant="body2" color="text.primary" component="span">
+                DON'T: Invent intermediate spaces that do not exist in the table above.
+              </Text>
+            </Box>
+          </Box>
+        </Box>
 
-      </div>
+      </Box>
     );
   }
+};
+
+/**
+ * Verifies that the MUI theme correctly consumes our token dictionary via theme.layout.
+ * Use theme.layout.spaceN (MUI units) for consistent spacing.
+ */
+export const TokenUsageExample = {
+  render: () => {
+    const ThemeSpacingDemo = () => {
+      const theme = useTheme();
+      const layout = theme.layout;
+      return (
+        <Box
+          sx={{
+            bgcolor: 'primary.main',
+            color: 'primary.contrastText',
+            p: layout.space32,
+            m: layout.space16,
+            borderRadius: 2,
+          }}
+        >
+          <Typography variant="body1">
+            This box uses token-driven spacing via theme.layout.space32 (padding) and theme.layout.space16 (margin).
+            Check the DevTools (Inspect) to verify the computed CSS values.
+          </Typography>
+        </Box>
+      );
+    };
+    return <ThemeSpacingDemo />;
+  },
 };

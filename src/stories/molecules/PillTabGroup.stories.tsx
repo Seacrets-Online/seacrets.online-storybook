@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import PillTabGroup from '../../components/molecules/PillTabGroup';
 
 const meta = {
   title: 'Molecules/PillTabGroup',
   component: PillTabGroup,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof PillTabGroup>;
 
 export default meta;

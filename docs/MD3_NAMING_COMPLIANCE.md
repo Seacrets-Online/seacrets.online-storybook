@@ -26,7 +26,7 @@ El pipeline actual genera variables CSS con naming canónico para los tokens de 
 --md-sys-color-surface
 ```
 
-**Actual (TypeScript export)** (ver `src/utils/colors.ts`):
+**Actual (TypeScript export)** (ver `src/utils/colors.generated.ts`):
 ```ts
 colorTokens.light.mdSysColorPrimary
 colorTokens.light.mdSysColorOnPrimary

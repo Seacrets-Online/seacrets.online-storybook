@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import IconButton from '../atoms/IconButton';
 
 export interface BottomNavigationAction {
@@ -22,38 +23,30 @@ export interface BottomNavigationPropsExtended extends Omit<BoxProps, 'onChange'
    * If not provided, all actions share the same styling rules.
    */
   primaryValue?: number | string;
-  /**
-   * Backwards compatibility with the previous MUI-based implementation.
-   * Labels are not rendered in the current design.
-   */
-  showLabels?: boolean;
 }
 
-const rootSx: SxProps<Theme> = {
+const rootSx: SxProps<Theme> = (theme) => ({
   width: '100%',
   maxWidth: 430,
   height: 92,
   position: 'relative',
-  borderRadius: '7px',
-};
+  borderRadius: theme.spacing(theme.layout.space8),
+});
 
-// From Figma node 2470:1866 (430x92): pill insets ~= 14px sides, 7px top, 16px bottom.
-const pillSx: SxProps<Theme> = {
+const pillSx: SxProps<Theme> = (theme) => ({
   position: 'absolute',
-  top: 7,
-  left: 14,
-  right: 14,
-  bottom: 16,
-  borderRadius: '46px',
-  // TODO: Replace with token from tokens.json when available
-  bgcolor: '#0C0C0C',
-  // TODO: Replace with token from tokens.json when available
-  boxShadow: 'inset 0px 4px 4px rgba(0,0,0,0.25)',
+  top: theme.spacing(theme.layout.space8),
+  left: theme.spacing(theme.layout.space16),
+  right: theme.spacing(theme.layout.space16),
+  bottom: theme.spacing(theme.layout.space16),
+  borderRadius: shapeTokens['corner-full'],
+  bgcolor: 'var(--md-sys-color-surface-container-low)',
+  boxShadow: 'inset 0px 4px 4px var(--md-sys-state-layer-shadow-opacity-10)',
   display: 'grid',
   gridAutoFlow: 'column',
   gridAutoColumns: '1fr',
   alignItems: 'center',
-};
+});
 
 const actionCellSx: SxProps<Theme> = {
   display: 'flex',
@@ -75,53 +68,63 @@ const iconButtonBaseSx: SxProps<Theme> = {
   },
 };
 
+const fixedWrapperSx: SxProps<Theme> = (t) => ({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  p: t.layout.space8,
+  zIndex: 1400,
+});
+
 export const BottomNavigation = ({
   value,
   actions = [],
   onChange,
   primaryValue,
-  showLabels: _showLabels,
   sx,
   ...props
 }: BottomNavigationPropsExtended) => (
-  <Box
-    component="nav"
-    aria-label="Bottom navigation"
-    sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
-    {...props}
-  >
-    <Box sx={pillSx}>
-      {actions.map((action) => {
-        const isSelected = value !== undefined && action.value === value;
-        const isPrimary = primaryValue !== undefined && action.value === primaryValue;
-
-        const color: string = isPrimary ? 'primary.main' : isSelected ? 'text.primary' : 'text.secondary';
-
-        return (
-          <Box key={String(action.value)} sx={actionCellSx}>
-            <IconButton
-              aria-label={action.label}
-              aria-current={isSelected ? 'page' : undefined}
-              color="inherit"
-              disabled={action.disabled}
-              onClick={() => {
-                action.onClick?.();
-                onChange?.(action.value);
-              }}
-              sx={[
-                iconButtonBaseSx,
-                {
-                  color,
-                  transform: isSelected && !isPrimary ? 'scale(1.1)' : 'scale(1)',
-                },
-                ...(action.sx ? [action.sx] : []),
-              ] as SxProps<Theme>}
-            >
-              {isSelected && action.activeIcon ? action.activeIcon : action.icon}
-            </IconButton>
-          </Box>
-        );
-      })}
+  <Box sx={fixedWrapperSx}>
+    <Box
+      component="nav"
+      aria-label="Bottom navigation"
+      sx={[rootSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
+      {...props}
+    >
+      <Box sx={pillSx}>
+        {actions.map((action) => {
+          const isSelected = value !== undefined && action.value === value;
+          const isPrimary = primaryValue !== undefined && action.value === primaryValue;
+          const color: string = isPrimary ? 'primary.main' : isSelected ? 'text.primary' : 'text.secondary';
+          return (
+            <Box key={String(action.value)} sx={actionCellSx}>
+              <IconButton
+                aria-label={action.label}
+                aria-current={isSelected ? 'page' : undefined}
+                color="inherit"
+                disabled={action.disabled}
+                onClick={() => {
+                  action.onClick?.();
+                  onChange?.(action.value);
+                }}
+                sx={[
+                  iconButtonBaseSx,
+                  {
+                    color,
+                    transform: isSelected && !isPrimary ? 'scale(1.1)' : 'scale(1)',
+                  },
+                  ...(action.sx ? [action.sx] : []),
+                ] as SxProps<Theme>}
+              >
+                {isSelected && action.activeIcon ? action.activeIcon : action.icon}
+              </IconButton>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   </Box>
 );

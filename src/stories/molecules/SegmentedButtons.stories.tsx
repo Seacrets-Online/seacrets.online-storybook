@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Box } from '@mui/material';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FavoriteBorder, LocalFireDepartmentOutlined, Public } from '@mui/icons-material';
 import SegmentedButtons from '../../components/molecules/SegmentedButtons';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/SegmentedButtons',
   component: SegmentedButtons,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [(Story) => <Box sx={{ width: 360 }}><Story /></Box>],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof SegmentedButtons>;
 
 export default meta;
