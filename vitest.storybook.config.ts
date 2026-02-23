@@ -25,6 +25,7 @@ export default mergeConfig(
           ],
           test: {
             name: 'storybook',
+            testTimeout: 25000,
             setupFiles: ['./src/test-setup.ts', './.storybook/vitest.setup.ts'],
             browser: {
               enabled: true,

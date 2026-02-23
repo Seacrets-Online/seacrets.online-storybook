@@ -130,7 +130,7 @@ const surfaceSx: SxProps<Theme> = {
 };
 
 const tileSx: SxProps<Theme> = (theme) => ({
-  ...(typeof surfaceSx === 'function' ? surfaceSx(theme) : surfaceSx),
+  ...(typeof surfaceSx === 'function' ? (surfaceSx as (t: Theme) => object)(theme) : surfaceSx),
   height: 116,
   width: '100%',
   display: 'flex',
@@ -141,7 +141,7 @@ const tileSx: SxProps<Theme> = (theme) => ({
 });
 
 const rowSx: SxProps<Theme> = (theme) => ({
-  ...(typeof surfaceSx === 'function' ? surfaceSx(theme) : surfaceSx),
+  ...(typeof surfaceSx === 'function' ? (surfaceSx as (t: Theme) => object)(theme) : surfaceSx),
   height: 64,
   width: '100%',
   display: 'flex',

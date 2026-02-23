@@ -523,7 +523,7 @@ export function createTheme(mode: ThemeMode = 'light'): Theme {
     },
     components: buildComponentOverrides(),
     layout: layoutSpacing,
-  } as Parameters<typeof muiCreateTheme>[0] & { layout: typeof layoutSpacing });
+  } as unknown as Parameters<typeof muiCreateTheme>[0] & { layout: typeof layoutSpacing });
 
   return responsiveFontSizes(theme);
 }

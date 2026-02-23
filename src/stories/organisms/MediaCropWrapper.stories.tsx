@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import MediaCropWrapper from '../../components/organisms/MediaCropWrapper';
 import { withWidth, WIDTH } from '../decorators';

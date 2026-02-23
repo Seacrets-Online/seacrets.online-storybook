@@ -46,6 +46,7 @@ export const Default: Story = {
     ];
 
     const stepData = steps[currentStep - 1];
+    if (!stepData) return <></>;
 
     return (
       <OnboardingStepTemplate
