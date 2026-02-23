@@ -8,6 +8,9 @@ export default {
   title: 'Foundations/Spacing',
   parameters: {
     layout: 'padded',
+    viewport: {
+      disable: true,
+    },
   },
 };
 

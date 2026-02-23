@@ -58,6 +58,9 @@ const meta = {
   component: ColorsShowcase,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      disable: true,
+    },
   },
 } satisfies Meta<typeof ColorsShowcase>;
 

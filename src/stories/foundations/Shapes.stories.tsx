@@ -61,6 +61,11 @@ const ShapeShowcase = () => {
 const meta = {
   title: 'Foundations/Shapes & Shadows',
   component: ShapeShowcase,
+  parameters: {
+    viewport: {
+      disable: true,
+    },
+  },
 } satisfies Meta<typeof ShapeShowcase>;
 
 export default meta;

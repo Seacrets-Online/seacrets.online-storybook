@@ -5,6 +5,9 @@ export default {
   title: 'Foundations/Typography',
   parameters: {
     layout: 'padded',
+    viewport: {
+      disable: true,
+    },
   },
 };
 
