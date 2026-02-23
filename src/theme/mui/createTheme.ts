@@ -5,81 +5,123 @@
  */
 import './theme-augmentation';
 import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material';
-import typographyTokens from '../../utils/typography';
+import typographyTokens, { type TypographyStyle } from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
+import { spacingToMuiUnit } from '../../utils/spacing';
+import { spacingTokens } from '../../utils/spacing';
 
-const schemesVar = (name: string) => `var(--md-sys-color-${name})`;
+const schemesVar = (name: string, suffix = '') => `var(--md-sys-color-${name}${suffix})`;
+
+const getPaletteToken = (name: string) => {
+  return schemesVar(name);
+};
 
 const mapTypographyToMui = () => {
   const t = typographyTokens;
-  
-  const toUnitless = (tokenName: string) => {
-    const style = (t[tokenName] ?? {}) as Partial<{ fontSize: string; lineHeight: string }>;
-    // Convert px line-height to unitless for MUI responsiveFontSizes compatibility
-    if (style.fontSize && style.lineHeight && typeof style.lineHeight === 'string' && style.lineHeight.endsWith('px')) {
-       const fs = parseFloat(style.fontSize);
-       const lh = parseFloat(style.lineHeight);
-       if (!isNaN(fs) && !isNaN(lh) && fs > 0) {
-         return { ...style, lineHeight: Number((lh / fs).toFixed(4)) };
-       }
-    }
-    return style;
+
+  const normalizeTypographyStyle = (style: Partial<TypographyStyle>) => {
+    const lineHeight = style.lineHeight ?? '';
+    const normalizedLineHeight = (() => {
+      if (!lineHeight || typeof lineHeight !== 'string' || !lineHeight.endsWith('px')) {
+        return lineHeight;
+      }
+      if (!style.fontSize || typeof style.fontSize !== 'string') {
+        return lineHeight;
+      }
+      const rawLineHeight = parseFloat(lineHeight);
+      const rawFontSize = parseFloat(style.fontSize);
+      if (!Number.isNaN(rawLineHeight) && !Number.isNaN(rawFontSize) && rawFontSize > 0) {
+        return Number((rawLineHeight / rawFontSize).toFixed(4));
+      }
+      return lineHeight;
+    })();
+
+    return {
+      ...style,
+      ...(normalizedLineHeight !== undefined ? { lineHeight: normalizedLineHeight } : {}),
+      ...(style.paragraphSpacing ? { marginBottom: style.paragraphSpacing } : {}),
+      ...(style.paragraphIndent ? { textIndent: style.paragraphIndent } : {}),
+      ...(style.textTransform ? { textTransform: style.textTransform } : {}),
+    };
   };
 
-  const h4Style = toUnitless('headline-large');
-  const body2Style = toUnitless('body-medium');
+  const toUnitless = (tokenName: string) => {
+    const style = ((t as Record<string, TypographyStyle>)[tokenName] ?? {}) as Partial<TypographyStyle>;
+    return normalizeTypographyStyle(style);
+  };
+
   return {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: toUnitless('display-large'),
     h2: toUnitless('display-medium'),
     h3: toUnitless('display-small'),
-    h4: h4Style,
+    h4: toUnitless('headline-large'),
     h5: toUnitless('headline-medium'),
     h6: toUnitless('headline-small'),
     subtitle1: toUnitless('title-large'),
     subtitle2: toUnitless('title-medium'),
     body1: toUnitless('body-large'),
-    body2: body2Style,
+    body2: toUnitless('body-medium'),
     button: toUnitless('label-large'),
     caption: toUnitless('label-medium'),
-    overline: toUnitless('label-small'),
+    overline: toUnitless('overline'),
+    'display-large': toUnitless('display-large'),
+    'display-medium': toUnitless('display-medium'),
+    'display-small': toUnitless('display-small'),
+    'headline-large': toUnitless('headline-large'),
+    'headline-medium': toUnitless('headline-medium'),
+    'headline-small': toUnitless('headline-small'),
+    'title-large': toUnitless('title-large'),
+    'title-medium': toUnitless('title-medium'),
+    'title-small': toUnitless('title-small'),
+    'body-large': toUnitless('body-large'),
+    'body-medium': toUnitless('body-medium'),
+    'body-small': toUnitless('body-small'),
+    'label-large': toUnitless('label-large'),
+    'label-medium': toUnitless('label-medium'),
+    'label-small': toUnitless('label-small'),
     /** Page/screen title (headline-large) with standard bottom spacing. Use for auth titles, etc. */
-    pageTitle: { ...h4Style, marginBottom: 8 },
+    pageTitle: { ...toUnitless('headline-large'), marginBottom: `${spacingTokens['8']}px` },
     /** Page/screen subtitle (body-medium) with standard bottom spacing. Use below pageTitle. */
-    pageSubtitle: { ...body2Style, marginBottom: 24 },
+    pageSubtitle: { ...toUnitless('body-medium'), marginBottom: `${spacingTokens['24']}px` },
   };
 };
 
 const getPalette = () => ({
   primary: {
-    main: schemesVar('primary'),
-    contrastText: schemesVar('on-primary'),
+    main: getPaletteToken('primary'),
+    contrastText: getPaletteToken('on-primary'),
   },
+  primaryChannel: getPaletteToken('primary-channel'),
   secondary: {
-    main: schemesVar('secondary'),
-    contrastText: schemesVar('on-secondary'),
+    main: getPaletteToken('secondary'),
+    contrastText: getPaletteToken('on-secondary'),
   },
+  secondaryChannel: getPaletteToken('secondary-channel'),
   error: {
-    main: schemesVar('error'),
-    contrastText: schemesVar('on-error'),
+    main: getPaletteToken('error'),
+    contrastText: getPaletteToken('on-error'),
   },
+  errorChannel: getPaletteToken('error-channel'),
   success: {
-    main: schemesVar('tertiary'),
-    contrastText: schemesVar('on-tertiary'),
+    main: getPaletteToken('tertiary'),
+    contrastText: getPaletteToken('on-tertiary'),
   },
+  successChannel: getPaletteToken('tertiary-channel'),
   info: {
-    main: schemesVar('primary'),
-    contrastText: schemesVar('on-primary'),
+    main: getPaletteToken('primary'),
+    contrastText: getPaletteToken('on-primary'),
   },
+  infoChannel: getPaletteToken('primary-channel'),
   background: {
-    default: schemesVar('background'),
-    paper: schemesVar('surface'),
+    default: getPaletteToken('background'),
+    paper: getPaletteToken('surface'),
   },
   text: {
-    primary: schemesVar('on-background'),
-    secondary: schemesVar('on-surface-variant'),
+    primary: getPaletteToken('on-background'),
+    secondary: getPaletteToken('on-surface'),
   },
-  divider: schemesVar('outline-variant'),
+  divider: getPaletteToken('outline-variant'),
 });
 
 const LAYOUT = {
@@ -97,8 +139,14 @@ const buildComponentOverrides = () => ({
       root: {
         color: 'inherit',
       },
-      pageTitle: { marginBottom: 8 },
-      pageSubtitle: { marginBottom: 24 },
+      pageTitle: {
+        marginBottom: (theme: { layout: { space8: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space8),
+      },
+      pageSubtitle: {
+        marginBottom: (theme: { layout: { space24: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space24),
+      },
     },
   },
   MuiButton: {
@@ -180,22 +228,26 @@ const buildComponentOverrides = () => ({
       startIcon: {
         display: 'inherit',
         marginTop: -2,
-        marginRight: 8, // theme.layout.iconTextGap (8px)
+        marginRight: (theme: { layout: { iconTextGap: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.iconTextGap),
       },
       endIcon: {
         display: 'inherit',
         marginTop: -2,
-        marginLeft: 8,
+        marginLeft: (theme: { layout: { iconTextGap: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.iconTextGap),
       },
     },
   },
   MuiIconButton: {
     styleOverrides: {
       root: {
-        padding: 8, // theme.layout.space8 / iconButtonPadding
+        padding: (theme: { layout: { iconButtonPadding: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.iconButtonPadding),
       },
       sizeSmall: {
-        padding: 6,
+        padding: (theme: { layout: { space8: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space8 * 0.75),
         '& .MuiSvgIcon-root': {
           fontSize: LAYOUT.iconSizeSmall,
         },
@@ -206,7 +258,8 @@ const buildComponentOverrides = () => ({
         },
       },
       sizeLarge: {
-        padding: 10,
+        padding: (theme: { layout: { space12: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space12),
         '& .MuiSvgIcon-root': {
           fontSize: LAYOUT.iconSizeLarge,
         },
@@ -232,6 +285,118 @@ const buildComponentOverrides = () => ({
   MuiTextField: {
     defaultProps: {
       variant: 'outlined' as const,
+    },
+  },
+  MuiInputLabel: {
+    styleOverrides: {
+      root: {
+        color: schemesVar('on-surface'),
+        opacity: 0.7,
+        '&.Mui-focused, &.MuiFormLabel-filled': {
+          color: schemesVar('on-surface-variant'),
+          opacity: 1,
+        },
+      },
+    },
+  },
+  MuiInputBase: {
+    styleOverrides: {
+      input: {
+        '&::placeholder': {
+          color: schemesVar('on-surface'),
+          opacity: 0.7,
+        },
+      },
+    },
+  },
+  MuiDatePicker: {
+    defaultProps: {
+      slotProps: {
+        textField: {
+          variant: 'outlined' as const,
+          fullWidth: true,
+        },
+        popper: {
+          placement: 'bottom',
+        },
+        desktopPaper: {
+          elevation: 0,
+        },
+      },
+    },
+  },
+  MuiDateCalendar: {
+    styleOverrides: {
+      root: {
+        padding: (theme: { layout: { space8: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space8),
+        borderRadius: shapeTokens['corner-large'] ?? '16px',
+        backgroundColor: schemesVar('surface-container-low'),
+        '& .MuiDayCalendar-weekDayLabel': {
+          color: schemesVar('on-surface-variant'),
+          fontWeight: 500,
+        },
+      },
+    },
+  },
+  MuiPickersCalendarHeader: {
+    styleOverrides: {
+      root: {
+        marginTop: 0,
+        marginBottom: (theme: { layout: { space4: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space4),
+        paddingInline: (theme: { layout: { space4: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space4),
+        '& .MuiPickersCalendarHeader-label': {
+          color: schemesVar('on-surface'),
+          fontWeight: 600,
+        },
+        '& .MuiPickersArrowSwitcher-button': {
+          color: schemesVar('on-surface-variant'),
+        },
+      },
+    },
+  },
+  MuiPickersDay: {
+    styleOverrides: {
+      root: {
+        borderRadius: shapeTokens['corner-full'] ?? '9999px',
+        border: '1px solid transparent',
+        color: schemesVar('on-surface'),
+        transition: 'background-color 120ms ease, border-color 120ms ease, color 120ms ease',
+        '&:hover': {
+          backgroundColor: 'var(--md-sys-state-layer-primary-opacity-08)',
+        },
+        '&.Mui-selected': {
+          backgroundColor: schemesVar('primary'),
+          color: schemesVar('on-primary'),
+        },
+        '&.Mui-selected:hover': {
+          backgroundColor: schemesVar('primary'),
+          backgroundImage:
+            'linear-gradient(var(--md-sys-state-layer-on-primary-opacity-08), var(--md-sys-state-layer-on-primary-opacity-08))',
+        },
+        '&.MuiPickersDay-today': {
+          borderColor: schemesVar('primary'),
+        },
+        '&.Mui-disabled': {
+          color: schemesVar('on-surface-variant'),
+          opacity: 0.38,
+        },
+      },
+    },
+  },
+  MuiPickersPopper: {
+    styleOverrides: {
+      root: {
+        '& .MuiPaper-root': {
+          borderRadius: shapeTokens['corner-large'] ?? '16px',
+          border: `1px solid ${schemesVar('outline-variant')}`,
+          backgroundColor: schemesVar('surface-container-low'),
+          backgroundImage: 'none',
+          boxShadow: 'none',
+        },
+      },
     },
   },
   MuiCard: {
@@ -293,13 +458,16 @@ const buildComponentOverrides = () => ({
   MuiLinearProgress: {
     styleOverrides: {
       root: {
-        height: 8,
-        borderRadius: 4,
+        height: (theme: { layout: { space8: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space8),
+        borderRadius: (theme: { layout: { space4: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space4),
         backgroundColor: 'var(--md-sys-color-surface-container-highest)',
         overflow: 'hidden',
       },
       bar: {
-        borderRadius: 4,
+        borderRadius: (theme: { layout: { space4: number }; spacing: (n: number) => string }) =>
+          theme.spacing(theme.layout.space4),
         boxShadow: 'inset -1px 0 0 rgba(0,0,0,0.12)',
       },
     },
@@ -315,10 +483,9 @@ const buildComponentOverrides = () => ({
 
 /**
  * Layout and spacing from Figma Rules (node 4352-4174).
- * Level 1 Compact (related items): 4, 8
- * Level 2 Default (component padding, standard separation): 12, 16, 24
- * Level 3 Sectional (major breaks): 32, 48, 64
- * MUI base = 8px → theme.spacing(layout.spaceN) gives N px when using these units.
+ * space4..space64 derived from spacing.generated.ts (single source of truth).
+ * Semantic layout values (contentBlockMt, iconTextGap, etc.) use MUI units.
+ * MUI base = 8px → theme.spacing(layout.spaceN) gives N px.
  */
 const layoutSpacing = {
   contentBlockMt: 2,
@@ -326,17 +493,14 @@ const layoutSpacing = {
   subtitleToContent: 3,
   afterForm: 4,
   formFieldToButton: 3,
-  /** Level 1 Compact: related items. */
-  space4: 0.5,
-  space8: 1,
-  /** Level 2 Default: component padding, standard separation. */
-  space12: 1.5,
-  space16: 2,
-  space24: 3,
-  /** Level 3 Sectional: major breaks. */
-  space32: 4,
-  space48: 6,
-  space64: 8,
+  space4: spacingToMuiUnit['4'] ?? 0.5,
+  space8: spacingToMuiUnit['8'] ?? 1,
+  space12: spacingToMuiUnit['12'] ?? 1.5,
+  space16: spacingToMuiUnit['16'] ?? 2,
+  space24: spacingToMuiUnit['24'] ?? 3,
+  space32: spacingToMuiUnit['32'] ?? 4,
+  space48: spacingToMuiUnit['48'] ?? 6,
+  space64: spacingToMuiUnit['64'] ?? 8,
   iconTextGap: 1,
   iconButtonPadding: 1,
   iconSizeMedium: 24,
@@ -344,7 +508,9 @@ const layoutSpacing = {
   iconSizeLarge: 28,
 };
 
-export function createTheme(mode: 'light' | 'dark' = 'light'): Theme {
+type ThemeMode = 'light' | 'dark';
+
+export function createTheme(mode: ThemeMode = 'light'): Theme {
   const theme = muiCreateTheme({
     cssVariables: { nativeColor: true },
     palette: {

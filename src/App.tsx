@@ -1,10 +1,11 @@
 import { getTypographyStyles } from './utils/typography';
+import { spacingTokens } from './utils/spacing';
 
 function App() {
   const containerStyles: React.CSSProperties = {
     minHeight: '100vh',
     backgroundColor: 'var(--md-sys-color-surface)',
-    padding: '32px',
+    padding: `${spacingTokens['32']}px`,
   };
 
   const headingStyles: React.CSSProperties = {
@@ -16,7 +17,7 @@ function App() {
   const paragraphStyles: React.CSSProperties = {
     ...getTypographyStyles('body-medium'),
     color: 'var(--md-sys-color-on-surface-variant)',
-    marginTop: '16px',
+    marginTop: `${spacingTokens['16']}px`,
     marginBottom: 0,
   };
 
