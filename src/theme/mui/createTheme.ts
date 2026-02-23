@@ -7,6 +7,7 @@ import './theme-augmentation';
 import { createTheme as muiCreateTheme, responsiveFontSizes, type Theme } from '@mui/material';
 import typographyTokens from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
+import { spacingTokens } from '../../utils/spacing';
 
 const schemesVar = (name: string) => `var(--md-sys-color-${name})`;
 
@@ -355,6 +356,27 @@ export function createTheme(mode: 'light' | 'dark' = 'light'): Theme {
     shape: {
       borderRadius: parseInt(shapeTokens['corner-medium'] ?? '12', 10) || 12,
     },
+    
+    // 2. Add the spacing override here
+    spacing: (factor: string | number) => {
+      // 1. Convert the incoming factor (e.g., number 32) to string '32' to check our dictionary
+      const tokenKey = String(factor);
+      
+      // 2. If the token exists in Figma (e.g., "32" -> "32px"), return its formatted value
+      if (spacingTokens[tokenKey]) {
+        return spacingTokens[tokenKey];
+      }
+      
+      // 3. Fallback: If it's a number that doesn't exist in our tokens (e.g., 2), 
+      // maintain MUI's default behavior (factor * 8px)
+      if (typeof factor === 'number') {
+        return `${factor * 8}px`;
+      }
+      
+      // 4. Return raw factor for valid CSS strings (e.g., 'auto', '100%')
+      return factor;
+    },
+
     components: buildComponentOverrides(),
     layout: layoutSpacing,
   } as Parameters<typeof muiCreateTheme>[0] & { layout: typeof layoutSpacing });

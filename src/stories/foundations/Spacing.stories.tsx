@@ -1,5 +1,5 @@
-// Import the single source of truth directly
 import tokens from '../../tokens/tokens.json';
+import { Box, Typography } from '@mui/material';
 
 // Extract the exact branch where spacing tokens from Figma are stored
 const spacingTokens = (tokens as any).seacrets['online/global'].spacing;
@@ -87,4 +87,28 @@ export const Scale = {
       </div>
     );
   }
+};
+
+/**
+ * Component to verify that the MUI theme correctly consumes our token dictionary.
+ * Using string values like '32' or '16' should trigger our custom parser in createTheme.ts.
+ */
+export const TokenUsageExample = {
+  render: () => (
+    <Box
+      sx={{
+        bgcolor: 'primary.main',
+        color: 'primary.contrastText',
+        p: 32, 
+        m: 16, 
+        borderRadius: 2,
+      }}
+    >
+      <Typography variant="body1">
+        This box uses token-driven spacing! 
+        Padding is dynamically mapped to token 32 and margin to token 16.
+        Check the DevTools (Inspect) to verify the computed CSS values!
+      </Typography>
+    </Box>
+  ),
 };
