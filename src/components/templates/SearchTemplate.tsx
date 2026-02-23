@@ -1,5 +1,5 @@
-import { useState, useEffect, type ReactNode } from 'react';
-import { Box, Container, CircularProgress } from '@mui/material';
+import { type ReactNode } from 'react';
+import { Box, Container } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
 import GlobalHeader from '../organisms/GlobalHeader';
 import SearchSection from '../organisms/SearchSection';
@@ -124,15 +124,15 @@ export const SearchTemplate = ({
       {...props}
     >
       <Container
-        maxWidth="xs"
+        maxWidth="sm"
         sx={{
           flex: 1,
           minHeight: 0,
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          px: 4,
-          py: 3,
+          px: (t) => t.layout.space16,
+          py: (t) => t.layout.space16,
         }}
       >
         <GlobalHeader
@@ -141,7 +141,7 @@ export const SearchTemplate = ({
           onProfileClick={onProfileClick}
           onBalanceClick={onBalanceClick}
           onNavClick={onNavClick}
-          sx={{ flexShrink: 0, mb: 3 }}
+          sx={(t) => ({ flexShrink: 0, mb: t.layout.space24 })}
         />
         <SearchSection
           title={title}
@@ -153,14 +153,14 @@ export const SearchTemplate = ({
           onFilterCategoryClick={onFilterCategoryClick}
           onRemoveFilter={onRemoveFilter}
           onClearFilters={onClearFilters}
-          sx={{ flexShrink: 0, mb: 2 }}
+          sx={(t) => ({ flexShrink: 0, mb: t.layout.space16 })}
         />
 
         <Box sx={{ flex: 1, minHeight: 0 }}>
           {renderResults ? (
             renderResults({ results })
           ) : (
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space16 })}>
               {results.map((item) => (
                 <SearchResultCard
                   key={item.id}

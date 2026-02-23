@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, InputAdornment } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import { Search as SearchIcon } from '@mui/icons-material';
 import Text from '../atoms/Text';
 import TextField from '../molecules/TextField';
@@ -66,8 +67,8 @@ export const SearchSection = ({
   };
 
   return (
-    <Box sx={[{ display: 'flex', flexDirection: 'column', gap: 2 }, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
-      <Text variant="h5" component="h1" sx={{ fontWeight: 600, color: 'text.primary', textAlign: 'center' }}>
+    <Box sx={[(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space16 }), ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
+      <Text variant="headline-small" component="h1" sx={{ color: 'text.primary', textAlign: 'center' }}>
         {title}
       </Text>
 
@@ -90,14 +91,14 @@ export const SearchSection = ({
                 type="button"
                 onClick={() => onSearch?.(query)}
                 aria-label="Buscar"
-                sx={{
-                  p: 0.5,
+                sx={(t) => ({
+                  p: t.layout.space4,
                   border: 'none',
                   background: 'none',
                   cursor: 'pointer',
                   color: 'text.primary',
                   '&:hover': { opacity: 0.8 },
-                }}
+                })}
               >
                 <SearchIcon />
               </Box>
@@ -106,8 +107,8 @@ export const SearchSection = ({
         }}
         sx={{
           '& .MuiOutlinedInput-root': {
-            borderRadius: '8px',
-            bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
+            borderRadius: shapeTokens['corner-small'],
+            bgcolor: 'var(--md-sys-color-surface-container-low)',
           },
         }}
       />
@@ -120,9 +121,9 @@ export const SearchSection = ({
       />
 
       {activeFilters.length > 0 && (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: '100%' }}>
+        <Box sx={(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space8, width: '100%' })}>
           <Box
-            sx={{
+            sx={(theme) => ({
               position: 'relative',
               width: '100%',
               minWidth: 0,
@@ -132,17 +133,16 @@ export const SearchSection = ({
                 top: 0,
                 right: 0,
                 bottom: 0,
-                width: 24,
-                background: (theme) =>
-                  `linear-gradient(to left, ${theme.palette.background.default} 0%, transparent 100%)`,
+                width: theme.spacing(theme.layout.space24),
+                background: `linear-gradient(to left, ${theme.palette.background.default} 0%, transparent 100%)`,
                 pointerEvents: 'none',
               },
-            }}
+            })}
           >
             <Box
-              sx={{
+              sx={(t) => ({
                 display: 'flex',
-                gap: 1,
+                gap: t.layout.space8,
                 alignItems: 'center',
                 width: '100%',
                 overflowX: 'auto',
@@ -151,7 +151,7 @@ export const SearchSection = ({
                 scrollbarWidth: 'none',
                 WebkitOverflowScrolling: 'touch',
                 '&::-webkit-scrollbar': { display: 'none' },
-              }}
+              })}
             >
               {activeFilters.map((f) => (
                 <FilterTag
@@ -175,11 +175,12 @@ export const SearchSection = ({
               cursor: 'pointer',
               border: 'none',
               background: 'none',
-              fontSize: '0.75rem',
               textAlign: 'right',
             }}
           >
-            {clearFiltersLabel}
+            <Text variant="label-small" sx={{ color: 'inherit' }}>
+              {clearFiltersLabel}
+            </Text>
           </Box>
         </Box>
       )}

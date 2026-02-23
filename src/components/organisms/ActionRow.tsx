@@ -8,12 +8,12 @@ export interface ActionRowProps extends BoxProps {
   secondaryActions?: ButtonProps[];
 }
 
-const baseActionRowSx = {
+const baseActionRowSx: SxProps<Theme> = (theme) => ({
   display: 'flex',
-  gap: 1,
+  gap: theme.layout.space8,
   alignItems: 'center',
   justifyContent: 'flex-end',
-};
+});
 
 export const ActionRow = ({
   primaryAction,

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Box } from '@mui/material';
 import type { BoxProps, SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import { CloudUpload } from '@mui/icons-material';
 import Text from '../atoms/Text';
 
@@ -15,7 +16,7 @@ export interface UploadAreaProps extends Omit<BoxProps, 'onSelect'> {
 
 const surfaceSx: SxProps<Theme> = {
   bgcolor: 'var(--md-sys-color-surface-container-low)',
-  borderRadius: '10px',
+  borderRadius: shapeTokens['corner-small'],
 };
 
 const areaSx: SxProps<Theme> = {
@@ -25,7 +26,7 @@ const areaSx: SxProps<Theme> = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: 1.5,
+  gap: (t) => t.layout.space12,
   cursor: 'pointer',
   border: '1px dashed',
   borderColor: 'divider',
@@ -60,7 +61,7 @@ export const UploadArea = ({
   return (
     <Box
       component="div"
-      sx={[areaSx, previewUrl && { border: 'none', p: 0, overflow: 'hidden' }, ...(sx ? [sx] : [])] as SxProps<Theme>}
+      sx={[areaSx, previewUrl && { border: 'none', p: 0, overflow: 'hidden' } as SxProps<Theme>, ...(sx ? [sx] : [])] as SxProps<Theme>}
       onClick={handleClick}
       {...props}
     >

@@ -10,15 +10,15 @@ export interface EmptyStateProps extends BoxProps {
   icon?: React.ReactNode;
 }
 
-const baseEmptyStateSx = {
+const baseEmptyStateSx: SxProps<Theme> = (theme) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  py: 6,
-  px: 3,
+  py: theme.layout.space48,
+  px: theme.layout.space24,
   textAlign: 'center',
-};
+});
 
 export const EmptyState = ({
   title = 'No items',
@@ -30,12 +30,12 @@ export const EmptyState = ({
   ...props
 }: EmptyStateProps) => (
   <Box sx={[baseEmptyStateSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
-    {icon && <Box sx={{ mb: 2, color: 'text.secondary' }}>{icon}</Box>}
+    {icon && <Box sx={(t) => ({ mb: t.layout.space16, color: 'text.secondary' })}>{icon}</Box>}
     <Typography variant="h6" gutterBottom>
       {title}
     </Typography>
     {description && (
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" color="text.secondary" sx={(t) => ({ mb: t.layout.space16 })}>
         {description}
       </Typography>
     )}

@@ -22,7 +22,7 @@ export const AppBar = ({
         <IconButton
           aria-label="Menu"
           onClick={onStartIconClick}
-          sx={{ mr: 1 }}
+          sx={(t) => ({ mr: t.layout.space8 })}
         >
           {startIcon}
         </IconButton>

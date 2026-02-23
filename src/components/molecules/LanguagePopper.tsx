@@ -4,6 +4,7 @@ import type { SxProps, Theme } from '@mui/material';
 import { Language as LanguageIcon } from '@mui/icons-material';
 import Icon from '../atoms/Icon';
 import Button from '../atoms/Button';
+import Text from '../atoms/Text';
 
 export interface LanguageOption {
   code: string;
@@ -28,36 +29,30 @@ export interface LanguagePopperProps {
 const buttonSx: SxProps<Theme> = {
   color: 'text.primary',
   alignSelf: 'center',
-  fontSize: '0.875rem',
-  fontWeight: 500,
-  textTransform: 'none',
   border: 'none',
   '&.Mui-selected, &.Mui-selected:hover': {
     border: 'none',
   },
 };
 
-const paperSx: SxProps<Theme> = {
-  mt: 1,
+const paperSx: SxProps<Theme> = (theme) => ({
+  mt: theme.layout.space8,
   minWidth: 160,
-  py: 0.5,
+  py: theme.layout.space4,
   boxShadow: 3,
-};
+});
 
-const optionSx: SxProps<Theme> = {
+const optionSx: SxProps<Theme> = (theme) => ({
   display: 'block',
   width: '100%',
-  px: 2,
-  py: 1.25,
+  px: theme.layout.space16,
+  py: theme.layout.space12,
   textAlign: 'center',
-  fontSize: '0.875rem',
-  fontWeight: 500,
-  textTransform: 'none',
   color: 'text.primary',
   '&:hover': {
     bgcolor: 'action.hover',
   },
-};
+});
 
 export const LanguagePopper = ({
   value = 'en',
@@ -95,8 +90,10 @@ export const LanguagePopper = ({
         aria-haspopup="listbox"
         sx={[buttonSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
       >
-        <Icon icon={LanguageIcon} sx={{ fontSize: 18, mr: 1 }} />
-        {displayLabel}
+        <Icon icon={LanguageIcon} sx={{ fontSize: 18, mr: (t) => t.layout.space8 }} />
+        <Text variant="label-large" sx={{ color: 'inherit' }}>
+          {displayLabel}
+        </Text>
       </ToggleButton>
       <Popper open={open} anchorEl={anchorRef.current} placement="bottom">
         <ClickAwayListener onClickAway={handleClose}>
@@ -108,7 +105,9 @@ export const LanguagePopper = ({
                 onClick={() => handleSelect(opt.code)}
                 sx={optionSx}
               >
-                {opt.label}
+                <Text variant="label-large" sx={{ color: 'inherit' }}>
+                  {opt.label}
+                </Text>
               </Button>
             ))}
           </Paper>

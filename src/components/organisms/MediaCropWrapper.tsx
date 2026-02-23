@@ -16,23 +16,23 @@ export interface MediaCropWrapperProps extends BoxProps {
   aspectRatio?: number;
 }
 
-const rootSx: SxProps<Theme> = {
+const rootSx: SxProps<Theme> = (theme) => ({
   width: '100%',
   maxWidth: 430,
   display: 'flex',
   flexDirection: 'column',
-  gap: 2,
-  px: 2,
-  py: 2,
+  gap: theme.layout.space16,
+  px: theme.layout.space16,
+  py: theme.layout.space16,
   bgcolor: 'background.default',
-};
+});
 
-const headerSx: SxProps<Theme> = {
+const headerSx: SxProps<Theme> = (theme) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: 2,
-};
+  gap: theme.layout.space16,
+});
 
 const viewportSx: SxProps<Theme> = {
   width: '100%',
@@ -43,11 +43,11 @@ const viewportSx: SxProps<Theme> = {
   borderColor: 'divider',
 };
 
-const actionsSx: SxProps<Theme> = {
+const actionsSx: SxProps<Theme> = (theme) => ({
   display: 'flex',
-  gap: 1.5,
+  gap: theme.layout.space12,
   justifyContent: 'space-between',
-};
+});
 
 export const MediaCropWrapper = ({
   title = 'Crop',

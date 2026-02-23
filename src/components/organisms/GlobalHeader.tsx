@@ -26,24 +26,22 @@ const defaultNavItems: GlobalHeaderNavItem[] = [
   { value: 'marcadores', label: 'Marcadores' },
 ];
 
-const navButtonSx: SxProps<Theme> = {
+const navButtonSx: SxProps<Theme> = (theme) => ({
   flex: 1,
   minWidth: 0,
-  px: 1,
-  py: 0.75,
-  borderRadius: '8px',
+  px: theme.layout.space8,
+  py: theme.layout.space8,
+  borderRadius: shapeTokens['corner-small'],
   border: '1px solid',
   borderColor: 'divider',
-  bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
+  bgcolor: 'var(--md-sys-color-surface-container-low)',
   color: 'text.secondary',
-  fontSize: '0.8125rem',
-  fontWeight: 500,
   cursor: 'pointer',
   '&:hover': {
     bgcolor: 'action.hover',
     color: 'text.primary',
   },
-};
+});
 
 export const GlobalHeader = ({
   balance = '$300',
@@ -54,7 +52,7 @@ export const GlobalHeader = ({
   sx,
   ...props
 }: GlobalHeaderProps) => (
-  <Box sx={[{ display: 'flex', flexDirection: 'column', gap: 2 }, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
+  <Box sx={[(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space16 }), ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
       <Box
         component="button"
@@ -98,24 +96,25 @@ export const GlobalHeader = ({
         component="button"
         type="button"
         onClick={onBalanceClick}
-        sx={{
-          px: 2,
-          py: 1,
+        sx={(t) => ({
+          px: t.layout.space16,
+          py: t.layout.space8,
           borderRadius: shapeTokens['corner-large'],
           border: 'none',
-          bgcolor: 'var(--seacrets-online-schemes-surface-container-low)',
+          bgcolor: 'var(--md-sys-color-surface-container-low)',
           color: 'text.primary',
-          fontSize: '0.875rem',
-          fontWeight: 500,
           cursor: 'pointer',
           '&:hover': { bgcolor: 'action.hover' },
-        }}
+        })}
       >
-        {balance}
+        <Text variant="label-large" sx={{ color: 'inherit' }}>
+          {balance}
+        </Text>
       </Box>
     </Box>
 
-    <Box sx={{ display: 'flex', gap: 1, width: '100%' }}>
+    {navItems.length > 0 && (
+    <Box sx={(t) => ({ display: 'flex', gap: t.layout.space8, width: '100%' })}>
       {navItems.map((item) => (
         <Box
           key={item.value}
@@ -124,22 +123,22 @@ export const GlobalHeader = ({
           onClick={() => onNavClick?.(item.value)}
           sx={navButtonSx}
         >
-          <Text
-            variant="body2"
-            sx={{
-              color: 'inherit',
-              fontWeight: 'inherit',
-              display: 'block',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {item.label}
-          </Text>
+        <Text
+          variant="label-small"
+          sx={{
+            color: 'inherit',
+            display: 'block',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {item.label}
+        </Text>
         </Box>
       ))}
     </Box>
+    )}
   </Box>
 );
 

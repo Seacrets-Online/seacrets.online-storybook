@@ -1,6 +1,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { Box, SwipeableDrawer } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 import {
   ChevronLeft,
   ImageOutlined,
@@ -49,64 +50,61 @@ type CreateOption = {
   variant: 'tile' | 'row';
 };
 
-const paperSx: SxProps<Theme> = {
+const paperSx: SxProps<Theme> = (theme) => ({
   width: '100%',
   maxWidth: 430,
   mx: 'auto',
-  height: 430, // Full height as per original design
+  height: 430,
   overflow: 'hidden',
-  borderRadius: '30px',
-  // TODO: Replace with token from tokens.json when available
-  bgcolor: '#101010',
+  borderRadius: theme.spacing(theme.layout.space32),
+  bgcolor: 'var(--md-sys-color-surface-container-high)',
   boxShadow: 'none',
-  backgroundImage: 'none', // Disable MUI elevation overlay
-};
+  backgroundImage: 'none',
+});
 
-const panelSx: SxProps<Theme> = {
+const panelSx: SxProps<Theme> = (theme) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
-  pt: '16px',
-  pb: '24px',
-};
+  pt: theme.layout.space16,
+  pb: theme.layout.space24,
+});
 
-const contentSx: SxProps<Theme> = {
-  px: '14px',
+const contentSx: SxProps<Theme> = (theme) => ({
+  px: theme.layout.space16,
   flexShrink: 0,
-};
+});
 
-const handleSx: SxProps<Theme> = {
+const handleSx: SxProps<Theme> = (theme) => ({
   width: 45,
   height: 3,
-  borderRadius: '21px',
+  borderRadius: theme.spacing(theme.layout.space24),
   alignSelf: 'center',
-  // Neutral palette token close to the Figma handle gray.
   bgcolor: 'var(--md-ref-palette-neutral-50)',
   flexShrink: 0,
-};
+});
 
-const titleSx: SxProps<Theme> = {
-  mt: '13px',
+const titleSx: SxProps<Theme> = (theme) => ({
+  mt: theme.layout.space12,
   textAlign: 'center',
   color: 'text.primary',
-  fontWeight: 500,
   flexShrink: 0,
-};
+});
 
-const gridSx: SxProps<Theme> = {
-  mt: '13px',
+const gridSx: SxProps<Theme> = (theme) => ({
+  mt: theme.layout.space12,
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  columnGap: '10px',
+  columnGap: theme.layout.space12,
   flexShrink: 0,
-};
+});
 
-const rowsSx: SxProps<Theme> = {
-  mt: '11px',
+const rowsSx: SxProps<Theme> = (theme) => ({
+  mt: theme.layout.space12,
   display: 'grid',
-  rowGap: '11px',
+  rowGap: theme.layout.space12,
   flexShrink: 0,
-};
+});
 
 const interactiveBaseSx: SxProps<Theme> = {
   border: 0,
@@ -128,36 +126,35 @@ const interactiveBaseSx: SxProps<Theme> = {
 
 const surfaceSx: SxProps<Theme> = {
   bgcolor: 'var(--md-sys-color-surface-container-low)',
-  borderRadius: '10px',
+  borderRadius: shapeTokens['corner-small'],
 };
 
-const tileSx: SxProps<Theme> = {
-  ...surfaceSx,
+const tileSx: SxProps<Theme> = (theme) => ({
+  ...(typeof surfaceSx === 'function' ? surfaceSx(theme) : surfaceSx),
   height: 116,
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: 1,
-};
+  gap: theme.layout.space8,
+});
 
-const rowSx: SxProps<Theme> = {
-  ...surfaceSx,
+const rowSx: SxProps<Theme> = (theme) => ({
+  ...(typeof surfaceSx === 'function' ? surfaceSx(theme) : surfaceSx),
   height: 64,
   width: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '12px',
-};
+  gap: theme.layout.space12,
+});
 
-const footerSx: SxProps<Theme> = {
-  // Pins the bottom navigation to the bottom of the drawer like Figma.
+const footerSx: SxProps<Theme> = (theme) => ({
   mt: 'auto',
-  pt: '3px',
+  pt: theme.layout.space4,
   flexShrink: 0,
-};
+});
 
 const OptionButton = ({
   option,
@@ -172,20 +169,20 @@ const OptionButton = ({
     sx={[
       interactiveBaseSx,
       option.variant === 'tile' ? tileSx : rowSx,
-    ] as SxProps<Theme>}
+    ]}
   >
     {option.variant === 'tile' ? (
       <>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'text.primary' }}>
           {option.icon}
         </Box>
-        <Text variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
+        <Text variant="title-medium" sx={{ color: 'text.primary' }}>
           {option.label}
         </Text>
       </>
     ) : (
       <>
-        <Text variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
+        <Text variant="title-medium" sx={{ color: 'text.primary' }}>
           {option.label}
         </Text>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'text.primary' }}>
@@ -304,7 +301,7 @@ export const BottomSliderPanel = ({
         <Box sx={contentSx}>
           {step === 1 ? (
             <>
-              <Text variant="body1" sx={titleSx}>
+              <Text variant="title-medium" sx={titleSx}>
                 {title}
               </Text>
 
@@ -329,35 +326,34 @@ export const BottomSliderPanel = ({
                 onClick={handleBack}
                 sx={[
                   interactiveBaseSx,
-                  {
+                  (t) => ({
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 0.5,
-                    mb: 2,
+                    gap: t.layout.space4,
+                    mb: t.layout.space16,
                     color: 'text.secondary',
-                  },
-                ] as SxProps<Theme>}
+                  }),
+                ]}
               >
                 <ChevronLeft sx={{ fontSize: 24 }} />
                 <Text variant="body2" sx={{ color: 'inherit' }}>
                   Volver
                 </Text>
               </Box>
-              <Text variant="body1" sx={titleSx}>
+              <Text variant="title-medium" sx={titleSx}>
                 {step2Title}
               </Text>
               {renderStep2 && selectedOption ? (
                 renderStep2(selectedOption, { onConfirm: confirmStep2, onClose })
               ) : (
-                <Box sx={{ mt: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box sx={(t) => ({ mt: t.layout.space24, display: 'flex', flexDirection: 'column', gap: t.layout.space16 })}>
                   <Box
-                    sx={{
-                      p: 3,
-                      // TODO: Replace with token from tokens.json when available
-                      bgcolor: '#1C1C1C',
-                      borderRadius: '10px',
+                    sx={(t) => ({
+                      p: t.layout.space24,
+                      bgcolor: 'var(--md-sys-color-surface-container-low)',
+                      borderRadius: shapeTokens['corner-small'],
                       textAlign: 'center',
-                    }}
+                    })}
                   >
                     <Text variant="body2" color="text.secondary">
                       Step 2 placeholder. Customize with renderStep2 prop.

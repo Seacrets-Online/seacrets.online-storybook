@@ -28,25 +28,25 @@ export interface MultiStepFormProps extends BoxProps {
 const clampStep = (step: number, stepsCount: number) =>
   Math.min(Math.max(step, 0), Math.max(stepsCount - 1, 0));
 
-const rootSx: SxProps<Theme> = {
+const rootSx: SxProps<Theme> = (theme) => ({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: 2,
-};
+  gap: theme.layout.space16,
+});
 
 const contentSx: SxProps<Theme> = {
   width: '100%',
   minWidth: 0,
 };
 
-const actionsSx: SxProps<Theme> = {
+const actionsSx: SxProps<Theme> = (theme) => ({
   width: '100%',
   display: 'flex',
-  gap: 1.5,
+  gap: theme.layout.space12,
   justifyContent: 'space-between',
   alignItems: 'center',
-};
+});
 
 export const MultiStepForm = ({
   steps,

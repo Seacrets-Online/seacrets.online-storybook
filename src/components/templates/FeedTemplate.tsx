@@ -28,7 +28,7 @@ export const FeedTemplate = ({
     {...props}
   >
     <Container
-      maxWidth="xs"
+      maxWidth="sm"
       disableGutters
       sx={{
         flex: 1,
@@ -36,16 +36,16 @@ export const FeedTemplate = ({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        px: 2,
-        py: 2,
+        px: (t) => t.layout.space16,
+        py: (t) => t.layout.space16,
       }}
     >
-      {header && <Box sx={{ flexShrink: 0, mb: 2 }}>{header}</Box>}
+      {header && <Box sx={(t) => ({ flexShrink: 0, mb: t.layout.space24 })}>{header}</Box>}
       <Box sx={{ flex: 1, minHeight: 0 }}>
         {isEmpty && emptyState ? (
           emptyState
         ) : (
-          <MuiList disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <MuiList disablePadding sx={(t) => ({ display: 'flex', flexDirection: 'column', gap: t.layout.space16 })}>
             {children}
           </MuiList>
         )}

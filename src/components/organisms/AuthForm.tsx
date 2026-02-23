@@ -41,7 +41,6 @@ export const AuthForm = ({
   forgotPasswordLabel = 'FORGOT PASSWORD?',
   rememberMeLabel = 'REMEMBER ME',
   showRememberMe = false,
-  inputVariant = 'default',
   ...props
 }: AuthFormProps) => {
   const [email, setEmail] = useState('');
@@ -86,7 +85,7 @@ export const AuthForm = ({
             autoComplete="current-password"
           />
           {(onForgotPassword || showRememberMe) && (
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 4, width: '100%', fontSize: '0.875rem' }}>
+            <Box sx={(t) => ({ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: t.layout.space8, mb: t.layout.space32, width: '100%', fontSize: '0.875rem' })}>
               {onForgotPassword ? (
                 <Button
                   variant="text"

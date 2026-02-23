@@ -11,14 +11,22 @@ export interface LegalLinksProps extends Omit<BoxProps, 'children'> {
 
 const defaultHref = '#';
 
-const baseLegalLinksSx = {
+const baseLegalLinksSx: SxProps<Theme> = (theme) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  columnGap: 2,
-  rowGap: 1,
-  '& a': { color: 'text.secondary', fontSize: '0.75rem', textDecoration: 'none' },
-};
+  columnGap: theme.layout.space16,
+  rowGap: theme.layout.space8,
+  '& a': {
+    color: 'var(--md-sys-color-outline)',
+    textDecoration: 'none',
+    fontFamily: 'var(--md-sys-typescale-label-small-font-family)',
+    fontSize: '10px',
+    fontWeight: 'var(--md-sys-typescale-label-small-font-weight)',
+    lineHeight: 1.4,
+    letterSpacing: 'var(--md-sys-typescale-label-small-letter-spacing)',
+  },
+});
 
 export const LegalLinks = ({
   termsHref = defaultHref,

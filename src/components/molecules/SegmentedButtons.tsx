@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
+import { shapeTokens } from '../../utils/shapes';
 
 export interface SegmentedButtonsOption {
   value: string;
@@ -18,18 +19,18 @@ export interface SegmentedButtonsProps {
   sx?: SxProps<Theme>;
 }
 
-const groupSx: SxProps<Theme> = {
+const groupSx: SxProps<Theme> = (theme) => ({
   bgcolor: 'var(--md-sys-color-surface-container-low)',
-  borderRadius: '9999px',
-  p: '4px',
-  gap: '4px',
+  borderRadius: shapeTokens['corner-full'],
+  p: theme.layout.space4,
+  gap: theme.layout.space4,
   '& .MuiToggleButtonGroup-grouped': {
     border: 0,
-    borderRadius: '9999px !important',
-    gap: 1,
+    borderRadius: `${shapeTokens['corner-full']} !important`,
+    gap: theme.layout.space8,
     textTransform: 'none',
-    px: 2,
-    py: 1,
+    px: theme.layout.space16,
+    py: theme.layout.space8,
     lineHeight: 1.2,
     '&.Mui-selected': {
       bgcolor: 'var(--md-sys-color-secondary-container)',
@@ -44,7 +45,7 @@ const groupSx: SxProps<Theme> = {
       bgcolor: 'var(--md-sys-state-layer-on-surface-opacity-08)',
     },
   },
-};
+});
 
 export const SegmentedButtons = ({
   options,

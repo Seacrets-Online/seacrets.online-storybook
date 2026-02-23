@@ -45,14 +45,14 @@ const rootSx: SxProps<Theme> = {
   position: 'relative',
 };
 
-const contentSx: SxProps<Theme> = {
+const contentSx: SxProps<Theme> = (theme) => ({
   flex: 1,
   minHeight: 0,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  px: 4,
-};
+  px: theme.layout.space16,
+});
 
 const bottomNavWrapperSx: SxProps<Theme> = {
   width: '100%',
