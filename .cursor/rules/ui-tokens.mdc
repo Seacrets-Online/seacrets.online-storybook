@@ -1,0 +1,19 @@
+---
+description: Enforced token-first color usage
+globs: src/components/**/*.tsx
+---
+
+# UI color tokens policy for components
+
+- **Mandatory source**: Color values in `src/components` must come from design tokens.
+- **Disallowed**: hardcoded hex values (`#...`), `rgba(...)`, literal `white`/`black`, and ad-hoc alpha expressions in component styles.
+- **Allowed**:
+  - `var(--md-...)`.
+  - `theme.palette...`, `primary.main`, and equivalent MUI palette/token references.
+  - `alpha(theme.palette..., x)` helper, because the source color comes from the tokenized theme.
+  - Explicit comment override `token-allow-color-literal` only with a follow-up ticket reference.
+- Keep custom values in `src/styles` and docs stories only when they are strictly illustrative.
+- Enforcement:
+  - `npm run lint:token-colors` (automatically included in `npm run lint`)
+  - This check is designed to prevent UI-only regressions by detecting direct color literals in `src/components` style props.
+

@@ -20,7 +20,7 @@ Se registraron formatos personalizados que:
 
 **Formatos**:
 - `css/variables-theme`: genera `theme.css` con bloques `:root` y `[data-theme="dark"]`
-- `typescript/color-tokens`: genera `src/utils/colors.ts`
+- `typescript/color-tokens`: genera `src/utils/colors.generated.ts`
 
 ### 2. Configuración Actualizada
 
