@@ -96,6 +96,55 @@ const hexToRgb = (hex: string): string | null => {
 };
 
 type ColorVars = Map<string, string>;
+type StyleDictionaryToken = {
+  $type?: string;
+  type?: string;
+  path?: PathInput;
+  originalPath?: PathInput;
+  $value?: unknown;
+  value?: unknown;
+  [key: string]: unknown;
+};
+
+const fullTypographyValueKey = '__fullTypographyValue';
+
+const typographyCssProperties: Record<string, string> = {
+  fontFamily: 'font-family',
+  fontWeight: 'font-weight',
+  lineHeight: 'line-height',
+  fontSize: 'font-size',
+  letterSpacing: 'letter-spacing',
+  paragraphSpacing: 'paragraph-spacing',
+  paragraphIndent: 'paragraph-indent',
+  textCase: 'text-transform',
+  textDecoration: 'text-decoration',
+};
+
+const isThemeToken = (parts: string[]): 'light' | 'dark' | null => {
+  if (parts.some((part) => part.toLowerCase() === 'light')) return 'light';
+  if (parts.some((part) => part.toLowerCase() === 'dark')) return 'dark';
+  return null;
+};
+
+const typographyVarBaseName = (path: PathInput): string | null => {
+  const parts = normalizePathParts(path).map(toKebab);
+  const mdIndex = parts.findIndex((part) => part === 'md');
+  if (mdIndex === -1) return null;
+
+  const scale = parts.slice(mdIndex + 1).filter(Boolean).join('-');
+  if (!scale) return null;
+
+  return `--md-sys-typography-${scale}`;
+};
+
+const formatCssValue = (value: unknown): string => {
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'object') {
+    return JSON.stringify(value);
+  }
+
+  return String(value);
+};
 
 const copyVar = (source: ColorVars, target: ColorVars, varName: string): void => {
   const value = source.get(varName);
@@ -226,14 +275,7 @@ StyleDictionary.registerFormat({
     dictionary,
   }: {
     dictionary: {
-      allTokens: Array<{
-        $type?: string;
-        type?: string;
-        path?: PathInput;
-        originalPath?: PathInput;
-        $value?: string;
-        value?: string;
-      }>;
+      allTokens: StyleDictionaryToken[];
     };
   }) => {
     const lightVars = new Map<string, string>();
@@ -244,36 +286,53 @@ StyleDictionary.registerFormat({
 
     dictionary.allTokens.forEach((token) => {
       const tokenType = token.$type ?? token.type;
-      if (tokenType !== 'color') return;
-      
-      // Determine theme from path
-      let theme: 'light' | 'dark' | null = null;
       const parts = normalizePathParts(token.path ?? token.originalPath);
-      
-      // Check for 'Light' or 'Dark' in path parts
-      if (parts.some(p => p.toLowerCase() === 'light')) theme = 'light';
-      else if (parts.some(p => p.toLowerCase() === 'dark')) theme = 'dark';
-      
-      // If no theme found, skip (or maybe default to light? but let's be safe)
+      const theme = isThemeToken(parts);
       if (!theme) return;
 
-      const varName = toCssVarName(token.path ?? token.originalPath);
-      const value = (token.$value ?? token.value) ?? '';
+      if (tokenType === 'typography') {
+        const varBase = typographyVarBaseName(token.path ?? token.originalPath);
+        if (!varBase) return;
+
+        const typographyValue =
+          token[fullTypographyValueKey] ??
+          token.$value ??
+          token.value ??
+          {};
+        if (typographyValue && typeof typographyValue === 'object' && !Array.isArray(typographyValue)) {
+          Object.entries(typographyValue as Record<string, unknown>).forEach(([propertyName, propertyValue]) => {
+            const cssSuffix = typographyCssProperties[propertyName] ?? propertyName;
+            const varName = `${varBase}-${cssSuffix}`;
+            if (theme === 'light') {
+              lightVars.set(varName, formatCssValue(propertyValue));
+            } else {
+              darkVars.set(varName, formatCssValue(propertyValue));
+            }
+          });
+        }
+
+        return;
+      }
+
+      if (tokenType !== 'color') return;
 
       // For TS export, we want a camelCase key
+      const varName = toCssVarName(token.path ?? token.originalPath);
+      const value = (token.$value ?? token.value) ?? '';
+      const valueAsString = typeof value === 'string' ? value : String(value);
       const tsKey = varName.replace(/^--/, '').replace(/-([a-z0-9])/g, (_, g) => g.toUpperCase());
 
       if (theme === 'light') {
-        lightVars.set(varName, value);
-        lightTokens[tsKey] = value;
+        lightVars.set(varName, valueAsString);
+        lightTokens[tsKey] = valueAsString;
       } else if (theme === 'dark') {
-        darkVars.set(varName, value);
-        darkTokens[tsKey] = value;
+        darkVars.set(varName, valueAsString);
+        darkTokens[tsKey] = valueAsString;
       }
 
       // Generate channel variable if value is hex
-      if (value.startsWith('#')) {
-        const channels = hexToRgb(value);
+      if (valueAsString.startsWith('#')) {
+        const channels = hexToRgb(valueAsString);
         if (channels) {
           const channelVarName = `${varName}-channel`;
           if (theme === 'light') {
@@ -302,6 +361,116 @@ StyleDictionary.registerFormat({
     // We can't easily write a second file from a format, but we can return a comment with the TS content 
     // or better, we'll add a new platform to the config.
     return `/* Do not edit directly, this file was auto-generated. */\n:root {\n${lightBlock}\n}\n\n[data-theme="dark"] {\n${darkBlock}\n}\n\n/* TS_EXPORT_START\n${tsOutput}\nTS_EXPORT_END */\n`;
+  },
+});
+
+interface TypographyStyle {
+  fontFamily: string;
+  fontWeight: number;
+  fontSize: string;
+  lineHeight: string;
+  letterSpacing: string;
+  textTransform: string;
+  paragraphSpacing: string;
+  paragraphIndent: string;
+}
+
+const toPx = (value: string | number): string => {
+  if (typeof value === 'number') return `${value}px`;
+  const s = String(value).trim();
+  if (s.endsWith('px')) return s;
+  return `${s}px`;
+};
+
+const normalizeTextCase = (value: string | number): string => {
+  const n = String(value).toLowerCase().trim();
+  if (n === 'uppercase') return 'uppercase';
+  if (n === 'lowercase') return 'lowercase';
+  if (n === 'capitalize') return 'capitalize';
+  return 'none';
+};
+
+const mapFontWeight = (v: string | number): number => {
+  if (typeof v === 'number') return v;
+  const w = String(v).toLowerCase();
+  if (w.includes('medium')) return 500;
+  if (w.includes('semibold')) return 600;
+  if (w.includes('bold')) return 700;
+  return 400;
+};
+
+const extractTypographyKey = (pathParts: string[]): string | null => {
+  const mdIdx = pathParts.findIndex((p) => p.toLowerCase() === 'md');
+  if (mdIdx < 0 || mdIdx + 2 >= pathParts.length) return null;
+  const scale = pathParts[mdIdx + 1];
+  const size = pathParts[mdIdx + 2];
+  if (!scale || !size || size.includes('emphasized')) return null;
+  return `${scale}-${size}`;
+};
+
+StyleDictionary.registerFormat({
+  name: 'typescript/typography-tokens',
+  format: ({ dictionary }) => {
+    const tokens: Record<string, TypographyStyle> = {};
+    const parts = normalizePathParts as (p: PathInput) => string[];
+
+    dictionary.allTokens.forEach((token: StyleDictionaryToken) => {
+      const tokenType = token.$type ?? token.type;
+      if (tokenType !== 'typography') return;
+
+      const pathParts = parts(token.path ?? token.originalPath);
+      if (pathParts.some((p) => p.toLowerCase() === 'dark')) return;
+
+      const key = extractTypographyKey(pathParts);
+      if (!key) return;
+
+      const raw =
+        (token[fullTypographyValueKey] as Record<string, unknown>) ??
+        (token.$value as Record<string, unknown>) ??
+        (token.value as Record<string, unknown>) ??
+        {};
+      if (!raw || typeof raw !== 'object') return;
+
+      const get = (k: string): string | number => {
+        const v = raw[k];
+        return v !== undefined && v !== null ? (v as string | number) : 0;
+      };
+
+      const fontFamily = String(get('fontFamily')).trim() || 'Roboto';
+      tokens[key] = {
+        fontFamily: `"${fontFamily}", "Helvetica", "Arial", sans-serif`,
+        fontWeight: mapFontWeight(get('fontWeight')),
+        fontSize: toPx(get('fontSize')),
+        lineHeight: toPx(get('lineHeight')),
+        letterSpacing: toPx(get('letterSpacing')),
+        textTransform: normalizeTextCase(get('textCase')),
+        paragraphSpacing: toPx(get('paragraphSpacing')),
+        paragraphIndent: toPx(get('paragraphIndent')),
+      };
+    });
+
+    if (tokens['label-small']) {
+      tokens['overline'] = {
+        ...tokens['label-small'],
+        textTransform: 'uppercase',
+      };
+    }
+
+    const lines = Object.entries(tokens)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(
+        ([k, v]) =>
+          `  '${k}': ${JSON.stringify(v)}`
+      )
+      .join(',\n');
+
+    return `/* Do not edit directly, this file was auto-generated. */
+export const typographyTokens = {\n${lines}\n} as const;
+
+export type TypographyTokenName = keyof typeof typographyTokens;
+export type TypographyStyle = typeof typographyTokens[TypographyTokenName];
+export default typographyTokens;
+`;
   },
 });
 
@@ -351,5 +520,60 @@ StyleDictionary.registerFormat({
       null,
       2
     )} as const;\n\nexport default colorTokens;\n`;
+  },
+});
+
+/** MUI base = 8px. space4=0.5, space8=1, space12=1.5, space16=2, space24=3, space32=4, space48=6, space64=8 */
+const MUI_BASE = 8;
+
+StyleDictionary.registerFormat({
+  name: 'typescript/spacing-tokens',
+  format: ({ dictionary }) => {
+    const spacingTokens: Record<string, number> = {};
+    const parts = normalizePathParts as (p: PathInput) => string[];
+
+    dictionary.allTokens.forEach((token: StyleDictionaryToken) => {
+      const tokenType = token.$type ?? token.type;
+      if (tokenType !== 'number') return;
+
+      const pathParts = parts(token.path ?? token.originalPath);
+      const hasSpacing = pathParts.some((p) => p.toLowerCase() === 'spacing');
+      const hasGlobal = pathParts.some((p) => p.toLowerCase() === 'global' || p === 'online/global');
+      if (!hasSpacing || !hasGlobal) return;
+
+      const value = token.$value ?? token.value;
+      if (typeof value !== 'number') return;
+
+      const key = pathParts[pathParts.length - 1];
+      if (key) spacingTokens[key] = value;
+    });
+
+    const entries = Object.entries(spacingTokens)
+      .sort(([a], [b]) => Number(a) - Number(b))
+      .map(([k, v]) => `  '${k}': ${v}`)
+      .join(',\n');
+
+    const muiEntries = Object.entries(spacingTokens)
+      .sort(([a], [b]) => Number(a) - Number(b))
+      .map(([k, v]) => `  '${k}': ${v / MUI_BASE}`)
+      .join(',\n');
+
+    return `/* Do not edit directly, this file was auto-generated. */
+/**
+ * Spacing tokens from Figma (seacrets.online/global).
+ * Use theme.spacing(theme.layout.spaceN) or sx shorthand (p: 2, gap: 3) for MUI.
+ * Scale: 4, 8, 12, 16, 24, 32, 48, 64 - do not use values outside this scale.
+ */
+export const spacingTokens: Record<string, number> = {
+${entries}
+};
+
+/** MUI spacing units (base 8px): space4=0.5, space8=1, space12=1.5, space16=2, space24=3, space32=4, space48=6, space64=8 */
+export const spacingToMuiUnit: Record<string, number> = {
+${muiEntries}
+};
+
+export default spacingTokens;
+`;
   },
 });

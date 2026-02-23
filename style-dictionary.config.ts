@@ -37,8 +37,16 @@ export default {
       buildPath: 'src/utils/',
       files: [
         {
-          destination: 'colors.ts',
+          destination: 'colors.generated.ts',
           format: 'typescript/color-tokens',
+        },
+        {
+          destination: 'typography.generated.ts',
+          format: 'typescript/typography-tokens',
+        },
+        {
+          destination: 'spacing.generated.ts',
+          format: 'typescript/spacing-tokens',
         },
       ],
     },
