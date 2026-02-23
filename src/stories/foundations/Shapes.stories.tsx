@@ -69,6 +69,9 @@ const meta = {
   component: ShapeShowcase,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      disable: true,
+    },
   },
 } satisfies Meta<typeof ShapeShowcase>;
 

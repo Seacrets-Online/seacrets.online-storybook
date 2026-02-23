@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import Text from '../../components/atoms/Text';
 import { spacingTokens } from '../../utils/spacing.generated';
 
@@ -6,6 +6,9 @@ export default {
   title: 'Foundations/Spacing',
   parameters: {
     layout: 'padded',
+    viewport: {
+      disable: true,
+    },
   },
 };
 
@@ -114,4 +117,34 @@ export const Scale = {
       </Box>
     );
   }
+};
+
+/**
+ * Verifies that the MUI theme correctly consumes our token dictionary via theme.layout.
+ * Use theme.layout.spaceN (MUI units) for consistent spacing.
+ */
+export const TokenUsageExample = {
+  render: () => {
+    const ThemeSpacingDemo = () => {
+      const theme = useTheme();
+      const layout = theme.layout;
+      return (
+        <Box
+          sx={{
+            bgcolor: 'primary.main',
+            color: 'primary.contrastText',
+            p: layout.space32,
+            m: layout.space16,
+            borderRadius: 2,
+          }}
+        >
+          <Typography variant="body1">
+            This box uses token-driven spacing via theme.layout.space32 (padding) and theme.layout.space16 (margin).
+            Check the DevTools (Inspect) to verify the computed CSS values.
+          </Typography>
+        </Box>
+      );
+    };
+    return <ThemeSpacingDemo />;
+  },
 };
