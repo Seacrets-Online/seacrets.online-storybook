@@ -39,6 +39,7 @@
     "lint": "eslint src scripts .storybook && npm run lint:token-colors",
     "lint:token-colors": "tsx scripts/lint-ui-token-colors.ts",
     "validate": "npm run build-dictionary && npm run typecheck && vite build --mode development",
+    "lost-pixel": "lost-pixel",
     "chromatic": "dotenv -e .env -- chromatic --exit-zero-on-changes"
   },
   "dependencies": {
@@ -75,9 +76,11 @@
     "@vitest/browser": "^3.2.4",
     "chromatic": "^15.1.0",
     "dotenv-cli": "^11.0.0",
+    "lost-pixel": "^3.31.0",
     "eslint": "^10.0.1",
     "eslint-plugin-storybook": "^10.2.10",
     "jsdom": "^26.1.0",
+    "lost-pixel": "^3.22.0",
     "playwright": "^1.58.2",
     "sass-embedded": "^1.97.3",
     "storybook": "^10.2.8",

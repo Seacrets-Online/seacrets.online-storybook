@@ -1,0 +1,27 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Lost Pixel
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.16.0
+        env:
+          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
