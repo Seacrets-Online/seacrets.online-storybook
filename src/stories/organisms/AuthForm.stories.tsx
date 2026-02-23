@@ -1,18 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import AuthForm from '../../components/organisms/AuthForm';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Organisms/AuthForm',
   component: AuthForm,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div style={{ width: 360 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof AuthForm>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Add as AddIcon, Edit as EditIcon } from '@mui/icons-material';
 import Fab from '../../components/atoms/Fab';
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Atoms/Fab',
   component: Fab,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Fab>;
 
 export default meta;

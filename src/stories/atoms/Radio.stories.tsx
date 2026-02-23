@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Radio from '../../components/atoms/Radio';
 
 const meta = {
   title: 'Atoms/Radio',
   component: Radio,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Radio>;
 
 export default meta;

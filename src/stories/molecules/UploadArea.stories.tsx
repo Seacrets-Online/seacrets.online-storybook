@@ -1,18 +1,13 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import UploadArea from '../../components/molecules/UploadArea';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/UploadArea',
   component: UploadArea,
-  parameters: { layout: 'centered' },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 360 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof UploadArea>;
 
 export default meta;

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Alert from '../../components/atoms/Alert';
 
 const meta = {
   title: 'Atoms/Alert',
   component: Alert,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     severity: {
       control: 'select',

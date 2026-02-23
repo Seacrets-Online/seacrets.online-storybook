@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Card from '../../components/organisms/Card';
+import { withWidth, WIDTH } from '../decorators';
 import Avatar from '../../components/atoms/Avatar';
 
 const meta = {
   title: 'Organisms/Card',
   component: Card,
-  parameters: { layout: 'centered' },
-  decorators: [(Story) => <div style={{ width: 360 }}><Story /></div>],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.card)],
 } satisfies Meta<typeof Card>;
 
 export default meta;

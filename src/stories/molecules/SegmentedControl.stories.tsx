@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SegmentedControl from '../../components/molecules/SegmentedControl';
 
 const meta = {
   title: 'Molecules/SegmentedControl',
   component: SegmentedControl,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof SegmentedControl>;
 
 export default meta;

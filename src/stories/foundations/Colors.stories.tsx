@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useTheme, Box, Typography, Grid, Paper } from '@mui/material';
 
 const ColorSwatch = ({ color, name }: { color: string; name: string }) => (

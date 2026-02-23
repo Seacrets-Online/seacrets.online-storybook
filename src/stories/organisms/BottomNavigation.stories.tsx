@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import BottomNavigation from '../../components/organisms/BottomNavigation';
+import { withWidth, WIDTH } from '../decorators';
 import {
   Add,
   AddOutlined,
@@ -17,14 +18,8 @@ import {
 const meta = {
   title: 'Organisms/BottomNavigation',
   component: BottomNavigation,
-  parameters: { layout: 'centered' },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 414 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.phone)],
 } satisfies Meta<typeof BottomNavigation>;
 
 export default meta;

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Fade } from '@mui/material';
-import { Add, Home, HomeOutlined, KeyboardArrowDown, Login, LoginOutlined, Notifications, NotificationsOutlined, Search, SearchOutlined, Menu as MenuIcon } from '@mui/icons-material';
+import { Add, Home, HomeOutlined, KeyboardArrowDown, Login, LoginOutlined, Notifications, NotificationsOutlined, Search, SearchOutlined } from '@mui/icons-material';
 import BottomNavigation from '../components/organisms/BottomNavigation';
 import BottomSliderPanel from '../components/organisms/BottomSliderPanel';
 import CreateStoryTemplate from '../components/templates/CreateStoryTemplate';
@@ -11,16 +11,15 @@ import SearchTemplate from '../components/templates/SearchTemplate';
 import FeedTemplate from '../components/templates/FeedTemplate';
 import FeedCard from '../components/organisms/FeedCard';
 import TextField from '../components/molecules/TextField';
+import UploadArea from '../components/molecules/UploadArea';
 import GlobalHeader from '../components/organisms/GlobalHeader';
-import AppBar from '../components/organisms/AppBar';
-import Card from '../components/organisms/Card';
-import Avatar from '../components/atoms/Avatar';
-import Text from '../components/atoms/Text';
+import EmptyState from '../components/organisms/EmptyState';
 
 type TabValue = 'home' | 'search' | 'add' | 'login' | 'onboarding' | 'createStory';
 
 const meta = {
   title: 'App/Flow',
+  tags: ['no-tests'],
   parameters: {
     layout: 'fullscreen',
     docs: { page: null },
@@ -57,7 +56,7 @@ export const WithTemplateSwitching: Story = {
     const [searchResults, setSearchResults] = useState(() =>
       Array.from({ length: 6 }, (_, i) => ({
         id: `res-${i}`,
-        name: ['Daniela', 'Georgia', 'Sofia', 'Martina', 'Lucia', 'Elena'][i % 6],
+        name: ['Daniela', 'Georgia', 'Sofia', 'Martina', 'Lucia', 'Elena'][i % 6] ?? 'Unknown',
         priceLabel: 'Gratis',
         hashtag: '#seacrets',
         imageUrl: `https://100k-faces.vercel.app/api/random-image?seed=${i + 100}`,
@@ -90,7 +89,7 @@ export const WithTemplateSwitching: Story = {
             ...prev,
             ...Array.from({ length: 6 }, (_, i) => ({
               id: `res-${prev.length + i}`,
-              name: ['Valeria', 'Camila', 'Isabella', 'Sara', 'Victoria', 'Mia'][i % 6],
+              name: ['Valeria', 'Camila', 'Isabella', 'Sara', 'Victoria', 'Mia'][i % 6] ?? 'Unknown',
               priceLabel: 'Gratis',
               hashtag: '#new',
               imageUrl: `https://100k-faces.vercel.app/api/random-image?seed=${prev.length + i + 200}`,
@@ -158,6 +157,13 @@ export const WithTemplateSwitching: Story = {
         case 'createStory':
           return (
             <CreateStoryTemplate
+              header={
+                <GlobalHeader
+                  balance="12.50"
+                  onProfileClick={() => console.log('Profile')}
+                  onBalanceClick={() => console.log('Balance')}
+                />
+              }
               onBack={() => setActiveTab('home')}
               onSubmit={(data) => console.log('Story submitted', data)}
             />
@@ -179,9 +185,27 @@ export const WithTemplateSwitching: Story = {
             </FeedTemplate>
           );
         case 'search':
-          return <SearchTemplate results={searchResults} />;
+          return (
+            <SearchTemplate
+              balance="12.50"
+              onProfileClick={() => console.log('Profile')}
+              onBalanceClick={() => console.log('Balance')}
+              results={searchResults}
+            />
+          );
         case 'login':
-          return <LoginTemplate />;
+          return (
+            <LoginTemplate
+              header={
+                <GlobalHeader
+                  balance="12.50"
+                  navItems={[]}
+                  onProfileClick={() => console.log('Profile')}
+                  onBalanceClick={() => console.log('Balance')}
+                />
+              }
+            />
+          );
         case 'onboarding': {
           const steps = [
             {
@@ -197,28 +221,22 @@ export const WithTemplateSwitching: Story = {
             {
               title: 'Carga tu Foto de Perfil',
               subtitle: '¡Haz que tu perfil destaque!',
-              children: (
-                <Box
-                  sx={{
-                    textAlign: 'center',
-                    p: 4,
-                    border: '2px dashed',
-                    borderColor: 'divider',
-                    borderRadius: 3,
-                  }}
-                >
-                  <Text variant="body2" color="text.secondary">
-                    Área de carga de imagen
-                  </Text>
-                </Box>
-              ),
+              children: <UploadArea label="Área de carga de imagen" />,
             },
           ];
 
-          const stepData = steps[onboardingStep - 1];
+          const stepData = steps[onboardingStep - 1]!;
 
           return (
             <OnboardingStepTemplate
+              header={
+                <GlobalHeader
+                  balance="12.50"
+                  navItems={[]}
+                  onProfileClick={() => console.log('Profile')}
+                  onBalanceClick={() => console.log('Balance')}
+                />
+              }
               title={stepData.title}
               subtitle={stepData.subtitle}
               step={onboardingStep}
@@ -237,9 +255,7 @@ export const WithTemplateSwitching: Story = {
         }
         default:
           return (
-            <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 4 }}>
-              <Text variant="body1" color="text.secondary">{String(activeTab)}</Text>
-            </Box>
+            <EmptyState title={String(activeTab)} sx={{ flex: 1 }} />
           );
       }
     };
@@ -274,25 +290,12 @@ export const WithTemplateSwitching: Story = {
           </Fade>
         </Box>
         {activeTab !== 'createStory' && (
-          <Box
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              p: 1,
-              zIndex: 1400,
-            }}
-          >
-            <BottomNavigation
-              value={navValue}
-              primaryValue="add"
-              actions={actions}
-              onChange={(v) => handleNavChange(v as TabValue)}
-            />
-          </Box>
+          <BottomNavigation
+            value={navValue}
+            primaryValue="add"
+            actions={actions}
+            onChange={(v) => handleNavChange(v as TabValue)}
+          />
         )}
         <BottomSliderPanel
           open={drawerOpen}

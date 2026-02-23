@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import Snackbar from '../../components/molecules/Snackbar';
 import Button from '../../components/atoms/Button';
@@ -6,7 +6,7 @@ import Button from '../../components/atoms/Button';
 const meta = {
   title: 'Molecules/Snackbar',
   component: Snackbar,
-  parameters: { layout: 'centered' },
+  tags: ['test'],
 } satisfies Meta<typeof Snackbar>;
 
 export default meta;

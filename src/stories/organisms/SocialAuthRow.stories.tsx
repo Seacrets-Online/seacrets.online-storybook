@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SocialAuthRow from '../../components/organisms/SocialAuthRow';
+import { withWidth, WIDTH } from '../decorators';
 import { Google as GoogleIcon, Apple as AppleIcon } from '@mui/icons-material';
 
 const meta = {
   title: 'Organisms/SocialAuthRow',
   component: SocialAuthRow,
-  parameters: { layout: 'centered' },
-  decorators: [(Story) => <div style={{ width: 320 }}><Story /></div>],
+  tags: ['test'],
+  decorators: [withWidth(WIDTH.form)],
 } satisfies Meta<typeof SocialAuthRow>;
 
 export default meta;

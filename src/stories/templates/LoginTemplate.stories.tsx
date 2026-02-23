@@ -1,11 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import LoginTemplate from '../../components/templates/LoginTemplate';
 import { Google as GoogleIcon, Apple as AppleIcon } from '@mui/icons-material';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/LoginTemplate',
   component: LoginTemplate,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof LoginTemplate>;
 
 export default meta;

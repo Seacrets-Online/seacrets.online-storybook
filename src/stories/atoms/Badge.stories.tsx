@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Badge from '../../components/atoms/Badge';
 import { Mail as MailIcon } from '@mui/icons-material';
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Atoms/Badge',
   component: Badge,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Badge>;
 
 export default meta;

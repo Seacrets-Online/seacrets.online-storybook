@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import BottomSliderPanel from '../../components/organisms/BottomSliderPanel';
 
 const meta = {
   title: 'Organisms/BottomSliderPanel',
   component: BottomSliderPanel,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
+  tags: ['test'],
 } satisfies Meta<typeof BottomSliderPanel>;
 
 export default meta;

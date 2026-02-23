@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import LabeledCheckbox from '../../components/molecules/LabeledCheckbox';
 
 const meta = {
   title: 'Molecules/LabeledCheckbox',
   component: LabeledCheckbox,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof LabeledCheckbox>;
 
 export default meta;

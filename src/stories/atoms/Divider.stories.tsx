@@ -1,11 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Box } from '@mui/material';
 import Divider from '../../components/atoms/Divider';
 
 const meta = {
   title: 'Atoms/Divider',
   component: Divider,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Divider>;
 
 export default meta;
@@ -16,9 +17,9 @@ export const Horizontal: Story = {
   args: {},
   decorators: [
     (Story) => (
-      <div style={{ width: '100%', minWidth: 300, padding: 20 }}>
+      <Box sx={{ width: '100%', minWidth: 300, p: 2.5 }}>
         <Story />
-      </div>
+      </Box>
     ),
   ],
 };
@@ -27,11 +28,11 @@ export const Vertical: Story = {
   args: { orientation: 'vertical', flexItem: true },
   decorators: [
     (Story) => (
-      <div style={{ height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, gap: 16 }}>
-        <div>Left</div>
+      <Box sx={{ height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2.5, gap: 2 }}>
+        <Box component="span">Left</Box>
         <Story />
-        <div>Right</div>
-      </div>
+        <Box component="span">Right</Box>
+      </Box>
     ),
   ],
 };

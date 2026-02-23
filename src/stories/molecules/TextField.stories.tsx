@@ -1,18 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import TextField from '../../components/molecules/TextField';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Molecules/TextField',
   component: TextField,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div style={{ width: 320 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.form)],
 } satisfies Meta<typeof TextField>;
 
 export default meta;

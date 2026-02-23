@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import LinearProgress from '../../components/atoms/LinearProgress';
+import { withWidth, WIDTH } from '../decorators';
 
 const meta = {
   title: 'Atoms/LinearProgress',
   component: LinearProgress,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
-  decorators: [(Story) => <div style={{ width: 300 }}><Story /></div>],
+  tags: ['autodocs', 'test'],
+  decorators: [withWidth(WIDTH.medium)],
 } satisfies Meta<typeof LinearProgress>;
 
 export default meta;

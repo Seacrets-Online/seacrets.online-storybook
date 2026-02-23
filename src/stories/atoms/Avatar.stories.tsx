@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Avatar from '../../components/atoms/Avatar';
 
 const meta = {
   title: 'Atoms/Avatar',
   component: Avatar,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Avatar>;
 
 export default meta;

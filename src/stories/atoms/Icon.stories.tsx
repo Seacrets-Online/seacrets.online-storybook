@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon from '../../components/atoms/Icon';
 import { Star } from '../../icons';
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Atoms/Icon',
   component: Icon,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof Icon>;
 
 export default meta;

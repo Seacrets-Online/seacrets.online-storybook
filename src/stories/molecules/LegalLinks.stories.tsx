@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import LegalLinks from '../../components/molecules/LegalLinks';
 
 const meta = {
   title: 'Molecules/LegalLinks',
   component: LegalLinks,
   parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
 } satisfies Meta<typeof LegalLinks>;
 
 export default meta;

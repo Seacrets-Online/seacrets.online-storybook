@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import SearchTemplate from '../../components/templates/SearchTemplate';
+import { withFullscreen } from '../decorators';
 
 const meta = {
   title: 'Templates/SearchTemplate',
   component: SearchTemplate,
-  parameters: { layout: 'fullscreen', docs: { page: null } },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  tags: ['test'],
+  decorators: [withFullscreen],
+  parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof SearchTemplate>;
 
 export default meta;

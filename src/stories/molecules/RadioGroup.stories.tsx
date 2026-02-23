@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import RadioGroup from '../../components/molecules/RadioGroup';
 
@@ -12,6 +12,7 @@ const meta = {
   title: 'Molecules/RadioGroup',
   component: RadioGroup,
   parameters: { layout: 'centered' },
+  tags: ['test'],
   args: {
     value: 'a',
     name: 'radio-demo',

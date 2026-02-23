@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import FeedTemplate from '../../components/templates/FeedTemplate';
 import FeedCard from '../../components/organisms/FeedCard';
 import EmptyState from '../../components/organisms/EmptyState';
@@ -6,12 +6,7 @@ import EmptyState from '../../components/organisms/EmptyState';
 const meta: Meta<typeof FeedTemplate> = {
   title: 'Templates/FeedTemplate',
   component: FeedTemplate,
-  parameters: {
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-  },
+  tags: ['test'],
 };
 
 export default meta;
