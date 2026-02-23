@@ -82,3 +82,7 @@ Theme switching:
 - `theme.css` switches light/dark variables based on the `data-theme` attribute.
 - Storybook sets `data-theme` in `.storybook/preview.ts`.
 - MUI ThemeProvider uses the mapped theme from `createTheme.ts` and runs in parallel with CSS variables.
+
+Storybook foundation page:
+
+- `src/stories/foundations/ThemeUsage.stories.tsx` (`Foundations/Theme usage`) demonstrates the full theme path and includes practical examples.

@@ -37,7 +37,15 @@ const preview: Preview = {
     layout: 'centered',
     options: {
       storySort: {
-        order: ['Foundations', 'Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages'],
+        order: [
+          'Foundations',
+          ['Theme usage', 'Typography', 'Spacing', 'Shapes & Shadows', 'Colors'],
+          'Atoms',
+          'Molecules',
+          'Organisms',
+          'Templates',
+          'Pages',
+        ],
       },
     },
     viewport: {
