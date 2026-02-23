@@ -45,6 +45,9 @@ export { OnboardingStepTemplate } from "./components/templates/OnboardingStepTem
 
 // Theme
 export { lightTheme, darkTheme, createTheme } from "./theme/mui/createTheme";
+export { ThemeProvider } from "@mui/material/styles";
+export { Box } from "@mui/material";
+export type { BoxProps } from "@mui/material";
 
 // Note: Import styles in your app:
 // import '@seacrets/design-system/styles';
