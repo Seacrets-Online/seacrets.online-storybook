@@ -35,6 +35,8 @@ export { AuthForm } from "./components/organisms/AuthForm";
 export { Dialog } from "./components/organisms/Dialog";
 export type { DialogProps } from "./components/organisms/Dialog";
 export { EmptyState } from "./components/organisms/EmptyState";
+export { FeedCard } from "./components/organisms/FeedCard";
+export type { FeedCardProps } from "./components/organisms/FeedCard";
 export { FileUpload } from "./components/organisms/FileUpload";
 export { SocialAuthRow } from "./components/organisms/SocialAuthRow";
 export { ActionRow } from "./components/organisms/ActionRow";
