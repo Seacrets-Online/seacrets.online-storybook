@@ -44,11 +44,13 @@ export { ActionRow } from "./components/organisms/ActionRow";
 // Templates
 export { LoginTemplate } from "./components/templates/LoginTemplate";
 export { OnboardingStepTemplate } from "./components/templates/OnboardingStepTemplate";
+export { ProfileTemplate } from "./components/templates/ProfileTemplate";
+export type { ProfileTemplateProps } from "./components/templates/ProfileTemplate";
 
 // Theme
 export { lightTheme, darkTheme, createTheme } from "./theme/mui/createTheme";
 export { ThemeProvider } from "@mui/material/styles";
-export { Box } from "@mui/material";
+export { Box, CssBaseline } from "@mui/material";
 export type { BoxProps } from "@mui/material";
 
 // Note: Import styles in your app:
