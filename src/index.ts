@@ -13,6 +13,11 @@ export { Alert } from "./components/atoms/Alert";
 export { LinearProgress } from "./components/atoms/LinearProgress";
 export { Radio } from "./components/atoms/Radio";
 export { Skeleton } from "./components/atoms/Skeleton";
+export { Switch } from "./components/atoms/Switch";
+export { FacebookLogo } from "./components/atoms/FacebookLogo";
+export { YoutubeLogo } from "./components/atoms/YoutubeLogo";
+export { GoogleLogo } from "./components/atoms/GoogleLogo";
+export { PaymentsBadges } from "./components/atoms/PaymentsBadges";
 
 // Molecules
 export { TextField } from "./components/molecules/TextField";

@@ -310,10 +310,17 @@ export const colorTokens = {
     "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(229, 226, 225, 0.08)",
     "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(229, 226, 225, 0.1)",
     "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(229, 226, 225, 0.16)",
-    "mdExtColorCustomColor1": "#b80044",
+    "mdExtColorCustomColor1": "#5d6223",
     "mdExtColorOnCustomColor1": "#ffffff",
-    "mdExtColorCustomColor1Container": "#e70057",
-    "mdExtColorOnCustomColor1Container": "#fffbff"
+    "mdExtColorCustomColor1Container": "#d1d78b",
+    "mdExtColorOnCustomColor1Container": "#585e1f",
+    "mdExtColorCustomColor2": "#000000",
+    "mdExtColorOnCustomColor2": "#ffffff",
+    "mdExtColorCustomColor2Container": "#1c1b1b",
+    "mdExtColorOnCustomColor2Container": "#858383",
+    "mdExtColorCustomColor3": "#0f5ea6",
+    "mdExtColorCustomColor4": "#f5a72b",
+    "mdExtColorCustomColor5": "#e00a27"
   },
   "dark": {
     "mdSysColorPrimary": "#e70057",
@@ -625,10 +632,17 @@ export const colorTokens = {
     "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(53, 52, 52, 0.08)",
     "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(53, 52, 52, 0.1)",
     "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(53, 52, 52, 0.16)",
-    "mdExtColorCustomColor1": "#ffb2bb",
-    "mdExtColorOnCustomColor1": "#670022",
-    "mdExtColorCustomColor1Container": "#ff4f77",
-    "mdExtColorOnCustomColor1Container": "#3b0010"
+    "mdExtColorCustomColor1": "#eef4a5",
+    "mdExtColorOnCustomColor1": "#2f3300",
+    "mdExtColorCustomColor1Container": "#d1d78b",
+    "mdExtColorOnCustomColor1Container": "#585e1f",
+    "mdExtColorCustomColor2": "#c8c6c5",
+    "mdExtColorOnCustomColor2": "#313030",
+    "mdExtColorCustomColor2Container": "#151515",
+    "mdExtColorOnCustomColor2Container": "#807f7e",
+    "mdExtColorCustomColor3": "#0f5ea6",
+    "mdExtColorCustomColor4": "#f5a72b",
+    "mdExtColorCustomColor5": "#e00a27"
   }
 } as const;
 
