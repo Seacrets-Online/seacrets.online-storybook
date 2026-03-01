@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { TextField as MuiTextField, InputAdornment } from '@mui/material';
+import { TextField as MuiTextField } from '@mui/material';
 import type { TextFieldProps, SxProps, Theme } from '@mui/material';
 import IconButton from '../atoms/IconButton';
+import InputAdornment from '../atoms/InputAdornment';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export type TextFieldPropsExtended = Omit<TextFieldProps, 'variant' | 'InputProps'> & {
@@ -52,6 +53,7 @@ export const TextField = ({
   const type = isPassword && showPassword ? 'text' : typeProp;
   const showToggle = showPasswordToggle ?? isPassword;
 
+  // Aquí ahora se está usando tu componente customizado <InputAdornment>
   const endAdornment =
     isPassword && showToggle ? (
       <InputAdornment position="end">
