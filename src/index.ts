@@ -20,6 +20,8 @@ export { FacebookLogo } from "./components/atoms/FacebookLogo";
 export { YoutubeLogo } from "./components/atoms/YoutubeLogo";
 export { GoogleLogo } from "./components/atoms/GoogleLogo";
 export { PaymentsBadges } from "./components/atoms/PaymentsBadges";
+export { CaptureButton } from "./components/atoms/CaptureButton";
+export type { CaptureButtonProps } from "./components/atoms/CaptureButton";
 
 // Molecules
 export { TextField } from "./components/molecules/TextField";
@@ -34,6 +36,11 @@ export { Snackbar } from "./components/molecules/Snackbar";
 export { Tabs } from "./components/molecules/Tabs";
 export { ListItem } from "./components/molecules/ListItem";
 export { LegalLinks } from "./components/molecules/LegalLinks";
+export { Autocomplete } from "./components/molecules/Autocomplete";
+export type {
+  AutocompleteProps,
+  AutocompleteOption,
+} from "./components/molecules/Autocomplete";
 
 // Organisms
 export { Card } from "./components/organisms/Card";
