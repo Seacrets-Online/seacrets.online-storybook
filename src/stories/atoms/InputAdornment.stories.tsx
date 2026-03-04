@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import InputAdornment from '../../components/atoms/InputAdornment';
 import Icon from '../../components/atoms/Icon';
-import { Star } from '../../icons'; // Asumiendo que usamos este icono de prueba
+import { Star } from '../../icons';
 import { OutlinedInput, FormControl } from '@mui/material';
 
 const meta = {
@@ -11,7 +11,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs', 'test'],
-  // Envolvemos el adorno en un input básico para que se visualice correctamente en Storybook
   decorators: [
     (Story, context) => {
       const isStart = context.args.position === 'start';
@@ -56,7 +55,6 @@ export const IconStart: Story = {
 export const ActionEnd: Story = {
   args: {
     position: 'end',
-    // Aquí es donde en el futuro entrará el IconButton de "Limpiar" o "Ver Password"
     children: <Icon icon={Star} sx={{ cursor: 'pointer' }} />, 
   },
 };
