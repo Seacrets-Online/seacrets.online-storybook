@@ -9,12 +9,9 @@ import typographyTokens, { type TypographyStyle } from '../../utils/typography';
 import { shapeTokens } from '../../utils/shapes';
 import { spacingToMuiUnit } from '../../utils/spacing';
 import { spacingTokens } from '../../utils/spacing';
+import { colorTokens } from '../../utils/colors.generated';
 
 const schemesVar = (name: string, suffix = '') => `var(--md-sys-color-${name}${suffix})`;
-
-const getPaletteToken = (name: string) => {
-  return schemesVar(name);
-};
 
 const mapTypographyToMui = () => {
   const t = typographyTokens;
@@ -87,42 +84,41 @@ const mapTypographyToMui = () => {
   };
 };
 
-const getPalette = () => ({
-  primary: {
-    main: getPaletteToken('primary'),
-    contrastText: getPaletteToken('on-primary'),
-  },
-  primaryChannel: getPaletteToken('primary-channel'),
-  secondary: {
-    main: getPaletteToken('secondary'),
-    contrastText: getPaletteToken('on-secondary'),
-  },
-  secondaryChannel: getPaletteToken('secondary-channel'),
-  error: {
-    main: getPaletteToken('error'),
-    contrastText: getPaletteToken('on-error'),
-  },
-  errorChannel: getPaletteToken('error-channel'),
-  success: {
-    main: getPaletteToken('tertiary'),
-    contrastText: getPaletteToken('on-tertiary'),
-  },
-  successChannel: getPaletteToken('tertiary-channel'),
-  info: {
-    main: getPaletteToken('primary'),
-    contrastText: getPaletteToken('on-primary'),
-  },
-  infoChannel: getPaletteToken('primary-channel'),
-  background: {
-    default: getPaletteToken('background'),
-    paper: getPaletteToken('surface'),
-  },
-  text: {
-    primary: getPaletteToken('on-background'),
-    secondary: getPaletteToken('on-surface'),
-  },
-  divider: getPaletteToken('outline-variant'),
-});
+// Palette uses hex from colorTokens so MUI can parse and compute *Channel automatically.
+const getPalette = (mode: 'light' | 'dark') => {
+  const c = colorTokens[mode];
+  return {
+    primary: {
+      main: c.mdSysColorPrimary,
+      contrastText: c.mdSysColorOnPrimary,
+    },
+    secondary: {
+      main: c.mdSysColorSecondary,
+      contrastText: c.mdSysColorOnSecondary,
+    },
+    error: {
+      main: c.mdSysColorError,
+      contrastText: c.mdSysColorOnError,
+    },
+    success: {
+      main: c.mdSysColorTertiary,
+      contrastText: c.mdSysColorOnTertiary,
+    },
+    info: {
+      main: c.mdSysColorPrimary,
+      contrastText: c.mdSysColorOnPrimary,
+    },
+    background: {
+      default: c.mdSysColorBackground,
+      paper: c.mdSysColorSurface,
+    },
+    text: {
+      primary: c.mdSysColorOnBackground,
+      secondary: c.mdSysColorOnSurface,
+    },
+    divider: c.mdSysColorOutlineVariant,
+  };
+};
 
 const LAYOUT = {
   space8: 1,
@@ -515,7 +511,7 @@ export function createTheme(mode: ThemeMode = 'light'): Theme {
     cssVariables: { nativeColor: true },
     palette: {
       mode,
-      ...getPalette(),
+      ...getPalette(mode),
     },
     typography: mapTypographyToMui(),
     shape: {
