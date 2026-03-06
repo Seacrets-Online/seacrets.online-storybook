@@ -13,6 +13,7 @@ export default mergeConfig(
       projects: [
         {
           extends: true,
+          root: path.join(__dirname, '.storybook'),
           plugins: [
             storybookTest({
               configDir: path.join(__dirname, '.storybook'),
@@ -26,7 +27,7 @@ export default mergeConfig(
           test: {
             name: 'storybook',
             testTimeout: 25000,
-            setupFiles: ['./src/test-setup.ts', './.storybook/vitest.setup.ts'],
+            setupFiles: [path.join(__dirname, 'src/test-setup.ts'), path.join(__dirname, '.storybook/vitest.setup.ts')],
             browser: {
               enabled: true,
               instances: [
