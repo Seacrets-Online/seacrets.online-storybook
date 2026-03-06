@@ -1,13 +1,27 @@
 /* Do not edit directly, this file was auto-generated. */
 :root {
-  --md-ext-color-custom-color-1: #b80044;
-  --md-ext-color-custom-color-1-channel: 184 0 68;
-  --md-ext-color-custom-color-1-container: #e70057;
-  --md-ext-color-custom-color-1-container-channel: 231 0 87;
+  --md-ext-color-custom-color-1: #5d6223;
+  --md-ext-color-custom-color-1-channel: 93 98 35;
+  --md-ext-color-custom-color-1-container: #d1d78b;
+  --md-ext-color-custom-color-1-container-channel: 209 215 139;
+  --md-ext-color-custom-color-2: #000000;
+  --md-ext-color-custom-color-2-channel: 0 0 0;
+  --md-ext-color-custom-color-2-container: #1c1b1b;
+  --md-ext-color-custom-color-2-container-channel: 28 27 27;
+  --md-ext-color-custom-color-3: #0f5ea6;
+  --md-ext-color-custom-color-3-channel: 15 94 166;
+  --md-ext-color-custom-color-4: #f5a72b;
+  --md-ext-color-custom-color-4-channel: 245 167 43;
+  --md-ext-color-custom-color-5: #e00a27;
+  --md-ext-color-custom-color-5-channel: 224 10 39;
   --md-ext-color-on-custom-color-1: #ffffff;
   --md-ext-color-on-custom-color-1-channel: 255 255 255;
-  --md-ext-color-on-custom-color-1-container: #fffbff;
-  --md-ext-color-on-custom-color-1-container-channel: 255 251 255;
+  --md-ext-color-on-custom-color-1-container: #585e1f;
+  --md-ext-color-on-custom-color-1-container-channel: 88 94 31;
+  --md-ext-color-on-custom-color-2: #ffffff;
+  --md-ext-color-on-custom-color-2-channel: 255 255 255;
+  --md-ext-color-on-custom-color-2-container: #858383;
+  --md-ext-color-on-custom-color-2-container-channel: 133 131 131;
   --md-ref-palette-error-0: #000000;
   --md-ref-palette-error-0-channel: 0 0 0;
   --md-ref-palette-error-10: #410002;
@@ -747,14 +761,28 @@
 }
 
 [data-theme="dark"] {
-  --md-ext-color-custom-color-1: #ffb2bb;
-  --md-ext-color-custom-color-1-channel: 255 178 187;
-  --md-ext-color-custom-color-1-container: #ff4f77;
-  --md-ext-color-custom-color-1-container-channel: 255 79 119;
-  --md-ext-color-on-custom-color-1: #670022;
-  --md-ext-color-on-custom-color-1-channel: 103 0 34;
-  --md-ext-color-on-custom-color-1-container: #3b0010;
-  --md-ext-color-on-custom-color-1-container-channel: 59 0 16;
+  --md-ext-color-custom-color-1: #eef4a5;
+  --md-ext-color-custom-color-1-channel: 238 244 165;
+  --md-ext-color-custom-color-1-container: #d1d78b;
+  --md-ext-color-custom-color-1-container-channel: 209 215 139;
+  --md-ext-color-custom-color-2: #c8c6c5;
+  --md-ext-color-custom-color-2-channel: 200 198 197;
+  --md-ext-color-custom-color-2-container: #151515;
+  --md-ext-color-custom-color-2-container-channel: 21 21 21;
+  --md-ext-color-custom-color-3: #0f5ea6;
+  --md-ext-color-custom-color-3-channel: 15 94 166;
+  --md-ext-color-custom-color-4: #f5a72b;
+  --md-ext-color-custom-color-4-channel: 245 167 43;
+  --md-ext-color-custom-color-5: #e00a27;
+  --md-ext-color-custom-color-5-channel: 224 10 39;
+  --md-ext-color-on-custom-color-1: #2f3300;
+  --md-ext-color-on-custom-color-1-channel: 47 51 0;
+  --md-ext-color-on-custom-color-1-container: #585e1f;
+  --md-ext-color-on-custom-color-1-container-channel: 88 94 31;
+  --md-ext-color-on-custom-color-2: #313030;
+  --md-ext-color-on-custom-color-2-channel: 49 48 48;
+  --md-ext-color-on-custom-color-2-container: #807f7e;
+  --md-ext-color-on-custom-color-2-container-channel: 128 127 126;
   --md-ref-palette-error-0: #000000;
   --md-ref-palette-error-0-channel: 0 0 0;
   --md-ref-palette-error-10: #410002;
@@ -1535,10 +1563,17 @@ export const colorTokens = {
     "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(229, 226, 225, 0.08)",
     "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(229, 226, 225, 0.1)",
     "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(229, 226, 225, 0.16)",
-    "mdExtColorCustomColor1": "#b80044",
+    "mdExtColorCustomColor1": "#5d6223",
     "mdExtColorOnCustomColor1": "#ffffff",
-    "mdExtColorCustomColor1Container": "#e70057",
-    "mdExtColorOnCustomColor1Container": "#fffbff"
+    "mdExtColorCustomColor1Container": "#d1d78b",
+    "mdExtColorOnCustomColor1Container": "#585e1f",
+    "mdExtColorCustomColor2": "#000000",
+    "mdExtColorOnCustomColor2": "#ffffff",
+    "mdExtColorCustomColor2Container": "#1c1b1b",
+    "mdExtColorOnCustomColor2Container": "#858383",
+    "mdExtColorCustomColor3": "#0f5ea6",
+    "mdExtColorCustomColor4": "#f5a72b",
+    "mdExtColorCustomColor5": "#e00a27"
   },
   "dark": {
     "mdSysColorPrimary": "#ffb2bb",
@@ -1850,10 +1885,17 @@ export const colorTokens = {
     "mdSysStateLayerSurfaceContainerHighestOpacity08": "rgba(53, 52, 52, 0.08)",
     "mdSysStateLayerSurfaceContainerHighestOpacity10": "rgba(53, 52, 52, 0.1)",
     "mdSysStateLayerSurfaceContainerHighestOpacity16": "rgba(53, 52, 52, 0.16)",
-    "mdExtColorCustomColor1": "#ffb2bb",
-    "mdExtColorOnCustomColor1": "#670022",
-    "mdExtColorCustomColor1Container": "#ff4f77",
-    "mdExtColorOnCustomColor1Container": "#3b0010"
+    "mdExtColorCustomColor1": "#eef4a5",
+    "mdExtColorOnCustomColor1": "#2f3300",
+    "mdExtColorCustomColor1Container": "#d1d78b",
+    "mdExtColorOnCustomColor1Container": "#585e1f",
+    "mdExtColorCustomColor2": "#c8c6c5",
+    "mdExtColorOnCustomColor2": "#313030",
+    "mdExtColorCustomColor2Container": "#151515",
+    "mdExtColorOnCustomColor2Container": "#807f7e",
+    "mdExtColorCustomColor3": "#0f5ea6",
+    "mdExtColorCustomColor4": "#f5a72b",
+    "mdExtColorCustomColor5": "#e00a27"
   }
 };
 

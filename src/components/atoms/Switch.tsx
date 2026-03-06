@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch as MuiSwitch, SwitchProps as MuiSwitchProps } from '@mui/material';
+import { colorTokens } from '../../utils/colors.generated';
 
 export interface SwitchProps extends Omit<MuiSwitchProps, 'inputProps'> {
   color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'default';
@@ -8,6 +9,8 @@ export interface SwitchProps extends Omit<MuiSwitchProps, 'inputProps'> {
 }
 
 export const Switch: React.FC<SwitchProps> = ({ 'aria-label': ariaLabel, inputProps, ...props }) => {
+  const colors = colorTokens.dark;
+  
   return (
     <MuiSwitch 
       {...props}
@@ -16,22 +19,33 @@ export const Switch: React.FC<SwitchProps> = ({ 'aria-label': ariaLabel, inputPr
         ...inputProps,
       }}
       sx={{
-        // 1. State UNCHECKED (Active)
+
+        // 2. State CHECKED
+        '& .MuiSwitch-switchBase.Mui-checked': {
+          color: colors.mdSysColorOnSecondary,
+        },
+        '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+          backgroundColor: colors.mdSysColorSecondary,
+          opacity: 1,
+        },
+
+        // 1. State UNCHECKED
         '& .MuiSwitch-switchBase:not(.Mui-checked):not(.Mui-disabled)': {
-          color: 'secondary.main', 
+          color: colors.mdSysColorOutline, 
         },
         '& .MuiSwitch-switchBase:not(.Mui-checked):not(.Mui-disabled) + .MuiSwitch-track': {
-          backgroundColor: 'secondary.main',
-          opacity: 0.4, 
+          backgroundColor: colors.mdSysColorSurfaceVariant,
+          opacity: 1,
         },
         
-        // 2. State DISABLED (Covers both Unchecked and Checked)
-        '& .MuiSwitch-switchBase.Mui-disabled, & .MuiSwitch-switchBase.Mui-checked.Mui-disabled': {
-          color: 'action.disabled', 
+        // 3. State DISABLED
+        '& .MuiSwitch-switchBase.Mui-disabled': {
+          color: colors.mdSysColorOnSurface,
+          opacity: 0.38,
         },
-        '& .MuiSwitch-switchBase.Mui-disabled + .MuiSwitch-track, & .MuiSwitch-switchBase.Mui-checked.Mui-disabled + .MuiSwitch-track': {
-          backgroundColor: 'action.disabled',
-          opacity: 0.12, 
+        '& .MuiSwitch-switchBase.Mui-disabled + .MuiSwitch-track': {
+          backgroundColor: colors.mdSysColorSurfaceVariant,
+          opacity: 0.12,
         },
         
         ...props.sx,
@@ -39,3 +53,5 @@ export const Switch: React.FC<SwitchProps> = ({ 'aria-label': ariaLabel, inputPr
     />
   );
 };
+
+export default Switch;

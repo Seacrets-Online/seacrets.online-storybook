@@ -1,11 +1,11 @@
-import { Box, Container, Stack } from '@mui/material';
-import LinearProgress from '../atoms/LinearProgress';
-import Button from '../atoms/Button';
-import IconButton from '../atoms/IconButton';
-import LegalLinks from '../molecules/LegalLinks';
-import Text from '../atoms/Text';
-import type { BoxProps, SxProps, Theme } from '@mui/material';
-import { ChevronLeft } from '@mui/icons-material';
+import { Box, Container, Stack } from "@mui/material";
+import LinearProgress from "../atoms/LinearProgress";
+import Button from "../atoms/Button";
+import IconButton from "../atoms/IconButton";
+import LegalLinks from "../molecules/LegalLinks";
+import Text from "../atoms/Text";
+import type { BoxProps, SxProps, Theme } from "@mui/material";
+import { ChevronLeft } from "@mui/icons-material";
 
 export interface OnboardingStepTemplateProps extends BoxProps {
   /** Optional header (e.g. GlobalHeader) for app consistency */
@@ -26,11 +26,11 @@ const progressValue = (step: number, total: number) =>
 const baseOnboardingSx = {
   flex: 1,
   minHeight: 0,
-  height: '100%',
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  bgcolor: 'background.default',
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  bgcolor: "background.default",
 };
 
 export const OnboardingStepTemplate = ({
@@ -41,27 +41,41 @@ export const OnboardingStepTemplate = ({
   totalSteps = 1,
   onNext,
   onBack,
-  nextLabel = 'Next',
-  backLabel = 'Back',
+  nextLabel = "Next",
+  backLabel = "Back",
   children,
   sx,
   ...props
 }: OnboardingStepTemplateProps) => (
-  <Box sx={[baseOnboardingSx, ...(sx ? [sx] : [])] as SxProps<Theme>} {...props}>
+  <Box
+    sx={[baseOnboardingSx, ...(sx ? [sx] : [])] as SxProps<Theme>}
+    {...props}
+  >
     <Container
       maxWidth="sm"
       sx={(t) => ({
         flex: 1,
         minHeight: 0,
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
         px: t.layout.space16,
         py: t.layout.space16,
       })}
     >
-      {header && <Box sx={(t) => ({ flexShrink: 0, width: '100%', mb: t.layout.space24 })}>{header}</Box>}
-      <Stack direction="row" alignItems="center" spacing={1} sx={(t) => ({ flexShrink: 0, mb: t.layout.space24 })}>
+      {header && (
+        <Box
+          sx={(t) => ({ flexShrink: 0, width: "100%", mb: t.layout.space24 })}
+        >
+          {header}
+        </Box>
+      )}
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={1}
+        sx={(t) => ({ flexShrink: 0, mb: t.layout.space24 })}
+      >
         {onBack && (
           <IconButton aria-label={backLabel} onClick={onBack}>
             <ChevronLeft />
@@ -80,11 +94,11 @@ export const OnboardingStepTemplate = ({
         spacing={3}
         sx={{
           flex: 1,
-          height: '100%',
+          height: "100%",
           minHeight: 0,
-          width: '100%',
+          width: "100%",
           minWidth: 0,
-          justifyContent: 'center',
+          justifyContent: "center",
         }}
       >
         {title && (
@@ -97,9 +111,9 @@ export const OnboardingStepTemplate = ({
             {subtitle}
           </Text>
         )}
-        <Box sx={{ width: '100%', minWidth: 0 }}>{children}</Box>
+        <Box sx={{ width: "100%", minWidth: 0 }}>{children}</Box>
         {onNext && (
-          <Box sx={(t) => ({ pt: t.layout.space32, width: '100%' })}>
+          <Box sx={(t) => ({ pt: t.layout.space32, width: "100%" })}>
             <Button
               variant="contained"
               onClick={onNext}
@@ -113,7 +127,14 @@ export const OnboardingStepTemplate = ({
         )}
       </Stack>
 
-      <Box sx={(t) => ({ flexShrink: 0, mt: 'auto', pt: t.layout.space32, pb: t.layout.space16 })}>
+      <Box
+        sx={(t) => ({
+          flexShrink: 0,
+          mt: "auto",
+          pt: t.layout.space32,
+          pb: t.layout.space16,
+        })}
+      >
         <LegalLinks />
       </Box>
     </Container>

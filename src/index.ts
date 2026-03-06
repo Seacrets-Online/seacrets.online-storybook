@@ -13,12 +13,20 @@ export { Alert } from "./components/atoms/Alert";
 export { LinearProgress } from "./components/atoms/LinearProgress";
 export { Radio } from "./components/atoms/Radio";
 export { Skeleton } from "./components/atoms/Skeleton";
+export { Switch } from "./components/atoms/Switch";
+export { InputAdornment } from "./components/atoms/InputAdornment";
+export type { InputAdornmentProps } from "./components/atoms/InputAdornment";
+export { FacebookLogo } from "./components/atoms/FacebookLogo";
+export { YoutubeLogo } from "./components/atoms/YoutubeLogo";
+export { GoogleLogo } from "./components/atoms/GoogleLogo";
+export { PaymentsBadges } from "./components/atoms/PaymentsBadges";
 
 // Molecules
 export { TextField } from "./components/molecules/TextField";
 export type { TextFieldPropsExtended } from "./components/molecules/TextField";
 export { RadioGroup } from "./components/molecules/RadioGroup";
 export { Select } from "./components/molecules/Select";
+export type { SelectChangeEvent } from "@mui/material";
 export { DatePicker } from "./components/molecules/DatePicker";
 export { LabeledCheckbox } from "./components/molecules/LabeledCheckbox";
 export { Chip } from "./components/molecules/Chip";
