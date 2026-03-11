@@ -39,10 +39,18 @@ export { CameraCaptureCard } from "./components/atoms/CameraCaptureCard";
 export type { CameraCaptureCardProps, CameraCaptureCardRef } from "./components/atoms/CameraCaptureCard";
 export { CameraHintsRow } from "./components/atoms/CameraHintsRow";
 export type { CameraHintsRowProps } from "./components/atoms/CameraHintsRow";
+export { ArrowBackIcon } from "./components/atoms/ArrowBackIcon";
 export { BadgeIcon } from "./components/atoms/BadgeIcon";
+export { BookmarkIcon } from "./components/atoms/BookmarkIcon";
 export { Fab } from "./components/atoms/Fab";
 export type { FabPropsExtended, FabShape } from "./components/atoms/Fab";
+export { FavoriteIcon } from "./components/atoms/FavoriteIcon";
+export { InboxOutlinedIcon } from "./components/atoms/InboxOutlinedIcon";
+export { MonetizationOnIcon } from "./components/atoms/MonetizationOnIcon";
+export { MoreHorizIcon } from "./components/atoms/MoreHorizIcon";
 export { PassportIcon } from "./components/atoms/PassportIcon";
+export { SendIcon } from "./components/atoms/SendIcon";
+export { VerifiedIcon } from "./components/atoms/VerifiedIcon";
 export { Box } from "./components/atoms/Box";
 export type { BoxProps } from "./components/atoms/Box";
 
