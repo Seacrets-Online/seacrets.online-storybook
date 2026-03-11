@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import { Box, Skeleton, IconButton, Stack, useTheme } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
 import { shapeTokens } from '../../utils/shapes';
-import {
-  Favorite as FavoriteIcon,
-  Bookmark as BookmarkIcon,
-  MoreHoriz as MoreIcon,
-  Send as SendIcon,
-  MonetizationOn as TipIcon,
-  Verified as VerifiedIcon,
-} from '@mui/icons-material';
+import { FavoriteIcon } from '../atoms/FavoriteIcon';
+import { BookmarkIcon } from '../atoms/BookmarkIcon';
+import { MoreHorizIcon } from '../atoms/MoreHorizIcon';
+import { SendIcon } from '../atoms/SendIcon';
+import { MonetizationOnIcon } from '../atoms/MonetizationOnIcon';
+import { VerifiedIcon } from '../atoms/VerifiedIcon';
 import Avatar from '../atoms/Avatar';
 import Text from '../atoms/Text';
 
@@ -204,7 +202,7 @@ export const FeedCard = ({
           <Stack direction="row" alignItems="center" spacing={1}>
             <Text variant="label-medium" sx={{ fontWeight: 500 }}>{timeAgo}</Text>
             <IconButton onClick={onMore} size="small" sx={{ color: 'var(--md-sys-color-on-primary)' }}>
-              <MoreIcon />
+              <MoreHorizIcon />
             </IconButton>
           </Stack>
         </Box>
@@ -240,7 +238,7 @@ export const FeedCard = ({
         </Box>
 
         <IconButton sx={styles.tipButton} onClick={onTip}>
-          <TipIcon sx={{ fontSize: 20 }} />
+          <MonetizationOnIcon sx={{ fontSize: 20 }} />
           <Text variant="label-large" sx={{ fontWeight: 600 }}>Tip</Text>
         </IconButton>
 
