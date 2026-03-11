@@ -12,11 +12,9 @@ export interface AuthFormCredentials {
 }
 
 export interface AuthFormProps extends Omit<BoxProps, 'onSubmit'> {
-  /** Form mode: login (email + password) or forgotPassword (email only) */
   mode?: 'login' | 'forgotPassword';
   onSubmit?: (credentials: AuthFormCredentials) => void;
   onForgotPassword?: () => void;
-  /** Called when user submits email on forgotPassword mode */
   onRequestReset?: (email: string) => void;
   submitLabel?: string;
   sendResetLabel?: string;
@@ -25,8 +23,9 @@ export interface AuthFormProps extends Omit<BoxProps, 'onSubmit'> {
   forgotPasswordLabel?: string;
   rememberMeLabel?: string;
   showRememberMe?: boolean;
-  /** Dark filled input style for auth screens on gradient background */
   inputVariant?: 'default' | 'auth-filled';
+  isLoading?: boolean;
+  errors?: Record<string, string>;
 }
 
 export const AuthForm = ({
@@ -41,6 +40,8 @@ export const AuthForm = ({
   forgotPasswordLabel = 'FORGOT PASSWORD?',
   rememberMeLabel = 'REMEMBER ME',
   showRememberMe = false,
+  isLoading = false,
+  errors = {},
   ...props
 }: AuthFormProps) => {
   const [email, setEmail] = useState('');
@@ -71,6 +72,9 @@ export const AuthForm = ({
         fullWidth
         margin="normal"
         autoComplete={isForgotPassword ? 'email' : 'email'}
+        error={!!errors?.email}
+        helperText={errors?.email}
+        disabled={isLoading}
       />
       {!isForgotPassword && (
         <>
@@ -83,6 +87,9 @@ export const AuthForm = ({
             fullWidth
             margin="normal"
             autoComplete="current-password"
+            error={!!errors?.password}
+            helperText={errors?.password}
+            disabled={isLoading}
           />
           {(onForgotPassword || showRememberMe) && (
             <Box sx={(t) => ({ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: t.layout.space8, mb: t.layout.space32, width: '100%', fontSize: '0.875rem' })}>
@@ -92,6 +99,7 @@ export const AuthForm = ({
                   type="button"
                   onClick={() => onForgotPassword()}
                   sx={{ whiteSpace: 'nowrap', fontSize: 'inherit' }}
+                  disabled={isLoading}
                 >
                   {forgotPasswordLabel}
                 </Button>
@@ -104,6 +112,7 @@ export const AuthForm = ({
                   checked={rememberMe}
                   onChange={(_, checked) => setRememberMe(checked)}
                   sx={{ whiteSpace: 'nowrap', '& .MuiFormControlLabel-label': { fontSize: 'inherit' } }}
+                  disabled={isLoading}
                 />
               )}
             </Box>
@@ -117,8 +126,9 @@ export const AuthForm = ({
         size="extraLarge"
         shape="pill"
         sx={isForgotPassword ? { mt: formFieldToButtonGap } : undefined}
+        disabled={isLoading}
       >
-        {isForgotPassword ? sendResetLabel : submitLabel}
+        {isLoading ? 'Loading...' : (isForgotPassword ? sendResetLabel : submitLabel)}
       </Button>
     </Box>
   );
