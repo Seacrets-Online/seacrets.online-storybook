@@ -46,6 +46,8 @@ export interface LoginTemplateProps extends BoxProps {
   createAccountLabel?: string;
   sendResetLabel?: string;
   backToLoginLabel?: string;
+  isLoading?: boolean;
+  errors?: Record<string, string>;
 }
 
 export const LoginTemplate = ({
@@ -71,6 +73,8 @@ export const LoginTemplate = ({
   createAccountLabel = "Create an Account?",
   sendResetLabel = "Send reset link",
   backToLoginLabel = "Back to sign in",
+  isLoading = false,
+  errors = {},
   sx,
   ...props
 }: LoginTemplateProps) => {
@@ -117,11 +121,11 @@ export const LoginTemplate = ({
           py: t.layout.space16,
           ...(header
             ? {
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-              }
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+            }
             : {}),
         })}
       >
@@ -220,6 +224,8 @@ export const LoginTemplate = ({
                 submitLabel={isLogin ? "Login" : "Sign in"}
                 showRememberMe={isLogin}
                 sx={{ width: "100%" }}
+                isLoading={isLoading}
+                errors={errors}
               />
               {isLogin && (
                 <>
