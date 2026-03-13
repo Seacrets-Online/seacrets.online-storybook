@@ -1,31 +1,35 @@
-import { useState, useEffect } from 'react';
-import { Box } from '@mui/material';
-import type { BoxProps, SxProps, Theme } from '@mui/material';
-import Button from '../atoms/Button';
-import Text from '../atoms/Text';
-import TextField from '../molecules/TextField';
-import UploadArea from '../molecules/UploadArea';
-import LegalLinks from '../molecules/LegalLinks';
+import { useState, useEffect } from "react";
+import { Box } from "@mui/material";
+import type { BoxProps, SxProps, Theme } from "@mui/material";
+import Button from "../atoms/Button";
+import Text from "../atoms/Text";
+import TextField from "../molecules/TextField";
+import UploadArea from "../molecules/UploadArea";
+import LegalLinks from "../molecules/LegalLinks";
 
-export interface CreateStoryFormProps extends Omit<BoxProps, 'onSubmit'> {
+export interface CreateStoryFormProps extends Omit<BoxProps, "onSubmit"> {
   onSubmit?: (data: { file?: File; description: string }) => void;
   infoLabel?: string;
   uploadLabel?: string;
   descriptionPlaceholder?: string;
   submitLabel?: string;
+  isSubmitting?: boolean;
+  disabled?: boolean;
 }
 
 export const CreateStoryForm = ({
   onSubmit,
-  infoLabel = 'Recuerda que estamos analizando todo el contenido subido.',
-  uploadLabel = 'Subir Foto o Video',
-  descriptionPlaceholder = 'Descripción',
-  submitLabel = 'Subir',
+  infoLabel = "Recuerda que estamos analizando todo el contenido subido.",
+  uploadLabel = "Subir Foto o Video",
+  descriptionPlaceholder = "Descripción",
+  submitLabel = "Subir",
+  isSubmitting = false,
+  disabled = false,
   sx,
   ...props
 }: CreateStoryFormProps) => {
   const [file, setFile] = useState<File | undefined>();
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
   const [previewUrl, setPreviewUrl] = useState<string | undefined>();
 
   useEffect(() => {
@@ -51,20 +55,27 @@ export const CreateStoryForm = ({
         e.preventDefault();
         handleSubmit();
       }}
-      sx={[
-        (t) => ({
-          display: 'flex',
-          flexDirection: 'column',
-          gap: t.layout.space16,
-          mt: t.layout.space8,
-          flex: 1,
-          minHeight: 0,
-        }),
-        ...(sx ? [sx] : []),
-      ] as SxProps<Theme>}
+      sx={
+        [
+          (t) => ({
+            display: "flex",
+            flexDirection: "column",
+            gap: t.layout.space16,
+            mt: t.layout.space8,
+            flex: 1,
+            minHeight: 0,
+          }),
+          ...(sx ? [sx] : []),
+        ] as SxProps<Theme>
+      }
       {...props}
     >
-      <Text variant="body2" color="text.secondary" align="center" sx={{ mb: (t) => t.layout.space4 }}>
+      <Text
+        variant="body2"
+        color="text.secondary"
+        align="center"
+        sx={{ mb: (t) => t.layout.space4 }}
+      >
         {infoLabel}
       </Text>
 
@@ -84,6 +95,7 @@ export const CreateStoryForm = ({
         onChange={(e) => setDescription(e.target.value)}
         multiline
         minRows={2}
+        disabled={isSubmitting || disabled}
       />
 
       <Button
@@ -91,16 +103,16 @@ export const CreateStoryForm = ({
         variant="contained"
         fullWidth
         size="large"
-        disabled={!file}
+        disabled={!file || isSubmitting || disabled}
         sx={{
-          bgcolor: 'primary.main',
-          color: 'primary.contrastText',
-          '&:hover': { 
-            bgcolor: 'primary.dark',
+          bgcolor: "primary.main",
+          color: "primary.contrastText",
+          "&:hover": {
+            bgcolor: "primary.dark",
           },
-          '&.Mui-disabled': {
-            bgcolor: 'var(--md-sys-color-surface-container-low)',
-            color: 'text.disabled',
+          "&.Mui-disabled": {
+            bgcolor: "var(--md-sys-color-surface-container-low)",
+            color: "text.disabled",
             opacity: 1,
           },
         }}
@@ -108,7 +120,9 @@ export const CreateStoryForm = ({
         {submitLabel}
       </Button>
 
-      <LegalLinks sx={(t) => ({ mt: 'auto', pt: t.layout.space32, pb: t.layout.space16 })} />
+      <LegalLinks
+        sx={(t) => ({ mt: "auto", pt: t.layout.space32, pb: t.layout.space16 })}
+      />
     </Box>
   );
 };
