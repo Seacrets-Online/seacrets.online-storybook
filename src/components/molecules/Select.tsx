@@ -16,6 +16,7 @@ export interface SelectProps {
   value?: string;
   onChange?: (event: SelectChangeEvent<string>) => void;
   options?: SelectOption[];
+  placeholder?: string;
   disabled?: boolean;
   error?: boolean;
   fullWidth?: boolean;
@@ -27,6 +28,7 @@ export const Select = ({
   value = '',
   onChange,
   options = [],
+  placeholder,
   disabled = false,
   error = false,
   fullWidth = true,
@@ -39,8 +41,17 @@ export const Select = ({
       label={label}
       value={value}
       onChange={onChange}
+      displayEmpty={Boolean(placeholder)}
+      renderValue={(v) =>
+        v === '' && placeholder ? placeholder : options.find((o) => o.value === v)?.label ?? v
+      }
       {...props}
     >
+      {placeholder && (
+        <MuiMenuItem value="" disabled>
+          {placeholder}
+        </MuiMenuItem>
+      )}
       {options.map((opt) => (
         <MuiMenuItem key={opt.value} value={opt.value}>
           {opt.label}

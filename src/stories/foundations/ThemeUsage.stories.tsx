@@ -207,4 +207,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Page: Story = {};
+export const Page: Story = {
+  parameters: {
+    viewport: { disable: true },
+  },
+};
