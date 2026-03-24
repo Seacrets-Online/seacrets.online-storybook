@@ -64,6 +64,16 @@ export type {
   ChartBarProps,
   ChartBarVariant,
 } from "./components/atoms/ChartBar";
+export { SwipeActionButton } from "./components/atoms/SwipeActionButton";
+export type {
+  SwipeActionButtonProps,
+  SwipeActionVariant,
+} from "./components/atoms/SwipeActionButton";
+export { SwipeStamp } from "./components/atoms/SwipeStamp";
+export type {
+  SwipeStampProps,
+  SwipeStampType,
+} from "./components/atoms/SwipeStamp";
 
 // Molecules
 export { TextField } from "./components/molecules/TextField";
@@ -129,6 +139,13 @@ export { StatCard } from "./components/molecules/StatCard";
 export type { StatCardProps } from "./components/molecules/StatCard";
 export { StatRow } from "./components/molecules/StatRow";
 export type { StatRowProps, StatItem } from "./components/molecules/StatRow";
+export { SwipeActionBar } from "./components/molecules/SwipeActionBar";
+export type { SwipeActionBarProps } from "./components/molecules/SwipeActionBar";
+export { FilterChipBar } from "./components/molecules/FilterChipBar";
+export type {
+  FilterChipBarProps,
+  FilterChipItem,
+} from "./components/molecules/FilterChipBar";
 
 // Organisms
 export { Card } from "./components/organisms/Card";
@@ -189,6 +206,10 @@ export type {
 } from "./components/organisms/SearchSection";
 export { UserStatsRow } from "./components/organisms/UserStatsRow";
 export type { UserStatsRowProps } from "./components/organisms/UserStatsRow";
+export { TincretCard } from "./components/organisms/TincretCard";
+export type { TincretCardProps } from "./components/organisms/TincretCard";
+export { TincretsEmptyState } from "./components/organisms/TincretsEmptyState";
+export type { TincretsEmptyStateProps } from "./components/organisms/TincretsEmptyState";
 
 // Templates
 export { LoginTemplate } from "./components/templates/LoginTemplate";
@@ -207,6 +228,19 @@ export { FeedTemplate } from "./components/templates/FeedTemplate";
 export type { FeedTemplateProps } from "./components/templates/FeedTemplate";
 export { SearchTemplate } from "./components/templates/SearchTemplate";
 export type { SearchTemplateProps } from "./components/templates/SearchTemplate";
+export { TincretsTemplate } from "./components/templates/TincretsTemplate";
+export type {
+  TincretsTemplateProps,
+  TincretProfile,
+} from "./components/templates/TincretsTemplate";
+
+// Hooks
+export { useSwipeGesture } from "./hooks/useSwipeGesture";
+export type {
+  SwipeState,
+  SwipeDirection,
+  UseSwipeGestureOptions,
+} from "./hooks/useSwipeGesture";
 
 // Theme & MUI Re-exports
 export { lightTheme, darkTheme, createTheme } from "./theme/mui/createTheme";
