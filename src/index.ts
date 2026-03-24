@@ -36,7 +36,10 @@ export type { PaymentsBadgesProps } from "./components/atoms/PaymentsBadges";
 export { CaptureButton } from "./components/atoms/CaptureButton";
 export type { CaptureButtonProps } from "./components/atoms/CaptureButton";
 export { CameraCaptureCard } from "./components/atoms/CameraCaptureCard";
-export type { CameraCaptureCardProps, CameraCaptureCardRef } from "./components/atoms/CameraCaptureCard";
+export type {
+  CameraCaptureCardProps,
+  CameraCaptureCardRef,
+} from "./components/atoms/CameraCaptureCard";
 export { CameraHintsRow } from "./components/atoms/CameraHintsRow";
 export type { CameraHintsRowProps } from "./components/atoms/CameraHintsRow";
 export { ArrowBackIcon } from "./components/atoms/ArrowBackIcon";
@@ -51,8 +54,16 @@ export { MoreHorizIcon } from "./components/atoms/MoreHorizIcon";
 export { PassportIcon } from "./components/atoms/PassportIcon";
 export { SendIcon } from "./components/atoms/SendIcon";
 export { VerifiedIcon } from "./components/atoms/VerifiedIcon";
+export { UserBadgeIcon } from "./components/atoms/UserBadgeIcon";
+export { HeartIcon } from "./components/atoms/HeartIcon";
+export { PinIcon } from "./components/atoms/PinIcon";
 export { Box } from "./components/atoms/Box";
 export type { BoxProps } from "./components/atoms/Box";
+export { ChartBar } from "./components/atoms/ChartBar";
+export type {
+  ChartBarProps,
+  ChartBarVariant,
+} from "./components/atoms/ChartBar";
 
 // Molecules
 export { TextField } from "./components/molecules/TextField";
@@ -112,6 +123,12 @@ export type {
 } from "./components/molecules/SegmentedControl";
 export { UploadArea } from "./components/molecules/UploadArea";
 export type { UploadAreaProps } from "./components/molecules/UploadArea";
+export { IconStat } from "./components/molecules/IconStat";
+export type { IconStatProps } from "./components/molecules/IconStat";
+export { StatCard } from "./components/molecules/StatCard";
+export type { StatCardProps } from "./components/molecules/StatCard";
+export { StatRow } from "./components/molecules/StatRow";
+export type { StatRowProps, StatItem } from "./components/molecules/StatRow";
 
 // Organisms
 export { Card } from "./components/organisms/Card";
@@ -148,6 +165,15 @@ export type {
 } from "./components/organisms/GlobalHeader";
 export { MediaCropWrapper } from "./components/organisms/MediaCropWrapper";
 export type { MediaCropWrapperProps } from "./components/organisms/MediaCropWrapper";
+export { EarningsChart } from "./components/organisms/EarningsChart";
+export type {
+  EarningsChartProps,
+  BarData,
+} from "./components/organisms/EarningsChart";
+export { ProfileHeader } from "./components/organisms/ProfileHeader";
+export type { ProfileHeaderProps } from "./components/organisms/ProfileHeader";
+export { EarningsSection } from "./components/organisms/EarningsSection";
+export type { EarningsSectionProps } from "./components/organisms/EarningsSection";
 export { MultiStepForm } from "./components/organisms/MultiStepForm";
 export type {
   MultiStepFormProps,
@@ -161,6 +187,8 @@ export type {
   SearchFilterTag,
   SearchType,
 } from "./components/organisms/SearchSection";
+export { UserStatsRow } from "./components/organisms/UserStatsRow";
+export type { UserStatsRowProps } from "./components/organisms/UserStatsRow";
 
 // Templates
 export { LoginTemplate } from "./components/templates/LoginTemplate";
@@ -169,6 +197,8 @@ export { OnboardingStepTemplate } from "./components/templates/OnboardingStepTem
 export type { OnboardingStepTemplateProps } from "./components/templates/OnboardingStepTemplate";
 export { ProfileTemplate } from "./components/templates/ProfileTemplate";
 export type { ProfileTemplateProps } from "./components/templates/ProfileTemplate";
+export { ProfileEarningsTemplate } from "./components/templates/ProfileEarningsTemplate";
+export type { ProfileEarningsTemplateProps } from "./components/templates/ProfileEarningsTemplate";
 export { CreateOptionsTemplate } from "./components/templates/CreateOptionsTemplate";
 export type { CreateOptionsTemplateProps } from "./components/templates/CreateOptionsTemplate";
 export { CreateStoryTemplate } from "./components/templates/CreateStoryTemplate";

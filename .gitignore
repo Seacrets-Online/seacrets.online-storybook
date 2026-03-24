@@ -36,6 +36,7 @@ lerna-debug.log*
 
 # Local config (keep .cursor/rules/ versioned)
 .agents/
+.cursor/agents/
 .cursor/mcp.json
 
 # Debug/temp scripts
